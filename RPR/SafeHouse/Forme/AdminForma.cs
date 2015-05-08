@@ -52,7 +52,12 @@ namespace SafeHouse
                 // ????? if(combobox_opisPoslaRadnika.Text==String.Empty) { errorProvider1.SetError(combobox_opisPoslaRadnika, "Molimo Vas izaberite opciju"); return; }
             }
             else { errorProvider1.Clear(); }
-            
+
+
+            // unos radnika u bazu
+            mydbEntities db = new mydbEntities();
+            db.radnici.Add(new radnici() { Ime = textbox_imeRadnika.Text, Prezime = textbox_prezimeRadnika.Text, Username = textbox_usernameRadnika.Text, Password = textbox_passwordRadnika.Text, Opis = combobox_opisPoslaRadnika.SelectedIndex });
+            db.SaveChanges();
 
             // dodavanje u liste odgovarajućih zaposlenih sa osnovnim podacima
 
@@ -109,6 +114,8 @@ namespace SafeHouse
 
 
             // raspored button, da kreira prazan raspored za svakog zaposlenog, i obavjesti da je uspješno kreirano ??
+
+           // FALI VALIDACIJA ZA ŠIFRU!!!
 
         }
 

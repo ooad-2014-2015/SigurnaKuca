@@ -90,6 +90,7 @@
     <Compile Include="DjelomičnoAnonimniKorisnik.cs" />
     <Compile Include="Doktor.cs" />
     <Compile Include="Ekonomista.cs" />
+    <Compile Include="GlobalneVarijable.cs" />
     <Compile Include="Karton.cs" />
     <Compile Include="kartoni.cs">
       <DependentUpon>Baza.tt</DependentUpon>

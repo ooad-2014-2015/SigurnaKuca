@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.username_label = new System.Windows.Forms.Label();
             this.password_label = new System.Windows.Forms.Label();
             this.username_textbox = new System.Windows.Forms.TextBox();
             this.password_textbox = new System.Windows.Forms.TextBox();
             this.prijava_button = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // username_label
@@ -59,6 +63,7 @@
             this.username_textbox.Name = "username_textbox";
             this.username_textbox.Size = new System.Drawing.Size(120, 20);
             this.username_textbox.TabIndex = 2;
+            this.username_textbox.TextChanged += new System.EventHandler(this.username_textbox_TextChanged);
             // 
             // password_textbox
             // 
@@ -67,6 +72,7 @@
             this.password_textbox.Size = new System.Drawing.Size(120, 20);
             this.password_textbox.TabIndex = 3;
             this.password_textbox.UseSystemPasswordChar = true;
+            this.password_textbox.TextChanged += new System.EventHandler(this.password_textbox_TextChanged);
             // 
             // prijava_button
             // 
@@ -78,11 +84,24 @@
             this.prijava_button.UseVisualStyleBackColor = true;
             this.prijava_button.Click += new System.EventHandler(this.prijava_button_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(279, 208);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 5;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 282);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.prijava_button);
             this.Controls.Add(this.password_textbox);
             this.Controls.Add(this.username_textbox);
@@ -90,6 +109,7 @@
             this.Controls.Add(this.username_label);
             this.Name = "StartForm";
             this.Text = "StartForm";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,5 +122,7 @@
         private System.Windows.Forms.TextBox username_textbox;
         private System.Windows.Forms.TextBox password_textbox;
         private System.Windows.Forms.Button prijava_button;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
