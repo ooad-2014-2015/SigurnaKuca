@@ -28,7 +28,7 @@ namespace SafeHouse
 
 
             // ZA ADMINA
-            if (username_textbox.Text == Convert.ToString("admin") && password_textbox.Text == Convert.ToString("adminadmin"))
+            if (username_textbox.Text == Convert.ToString("admin") && password_textbox.Text == Convert.ToString("admin"))
             {
                 AdminForma f = new AdminForma();
                 f.ShowDialog();
