@@ -18,6 +18,13 @@ namespace SafeHouse
             InitializeComponent();
         }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            StartForm sf = new StartForm();
+            this.Hide();
+            sf.ShowDialog();
+        }
+
        
 
        
