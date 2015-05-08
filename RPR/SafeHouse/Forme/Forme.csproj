@@ -47,13 +47,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data.Entity, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -70,6 +75,21 @@
     <Compile Include="AdminForma.Designer.cs">
       <DependentUpon>AdminForma.cs</DependentUpon>
     </Compile>
+    <Compile Include="Baza.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Baza.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Baza.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Baza.edmx</DependentUpon>
+    </Compile>
     <Compile Include="DoktorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +101,15 @@
     </Compile>
     <Compile Include="EkonomistaForm.Designer.cs">
       <DependentUpon>EkonomistaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="kartoni.cs">
+      <DependentUpon>Baza.tt</DependentUpon>
+    </Compile>
+    <Compile Include="korisnici.cs">
+      <DependentUpon>Baza.tt</DependentUpon>
+    </Compile>
+    <Compile Include="lokacije.cs">
+      <DependentUpon>Baza.tt</DependentUpon>
     </Compile>
     <Compile Include="PravnikForm.cs">
       <SubType>Form</SubType>
@@ -96,11 +125,29 @@
     <Compile Include="PsihologForm.Designer.cs">
       <DependentUpon>PsihologForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="radnici.cs">
+      <DependentUpon>Baza.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rasporedi.cs">
+      <DependentUpon>Baza.tt</DependentUpon>
+    </Compile>
     <Compile Include="StartForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="StartForm.Designer.cs">
       <DependentUpon>StartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="status_d.cs">
+      <DependentUpon>Baza.tt</DependentUpon>
+    </Compile>
+    <Compile Include="status_e.cs">
+      <DependentUpon>Baza.tt</DependentUpon>
+    </Compile>
+    <Compile Include="status_pr.cs">
+      <DependentUpon>Baza.tt</DependentUpon>
+    </Compile>
+    <Compile Include="status_ps.cs">
+      <DependentUpon>Baza.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AdminForma.resx">
       <DependentUpon>AdminForma.cs</DependentUpon>
@@ -127,6 +174,24 @@
     <EmbeddedResource Include="StartForm.resx">
       <DependentUpon>StartForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="Baza.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Baza.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Baza.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Baza.edmx</DependentUpon>
+      <LastGenOutput>Baza.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Baza.edmx.diagram">
+      <DependentUpon>Baza.edmx</DependentUpon>
+    </None>
+    <None Include="Baza.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Baza.edmx</DependentUpon>
+      <LastGenOutput>Baza.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -168,6 +233,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
