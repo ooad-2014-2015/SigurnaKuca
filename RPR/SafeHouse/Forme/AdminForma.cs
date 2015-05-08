@@ -29,15 +29,14 @@ namespace SafeHouse
         private void registracija_radnika_Click(object sender, EventArgs e)
         {
             // validacija pri regisraciji
+            if (textbox_imeRadnika.Text.Any(x => Char.IsDigit(x))) { errorProvider1.SetError(textbox_imeRadnika, "Ne možete unositi brojeve"); return; }
+            else errorProvider1.Clear();
+
+            if (textbox_prezimeRadnika.Text.Any(x => Char.IsDigit(x))) { errorProvider1.SetError(textbox_prezimeRadnika, "Ne možete unositi brojeve"); return; }
+            else errorProvider1.Clear();
 
             if (textbox_imeRadnika.Text.Count() == 0 || textbox_prezimeRadnika.Text.Count() == 0 || textbox_usernameRadnika.Text.Count() == 0 || textbox_passwordRadnika.Text.Count() == 0 || textbox_prezimeRadnika.Text.Any(x => Char.IsDigit(x)) || textbox_imeRadnika.Text.Any(x => Char.IsDigit(x)))
             {
-                if (textbox_imeRadnika.Text.Any(x => Char.IsDigit(x))) { errorProvider1.SetError(textbox_imeRadnika, "Ne možete unositi brojeve"); return; }
-                else errorProvider1.Clear();
-
-                if (textbox_prezimeRadnika.Text.Any(x => Char.IsDigit(x))) { errorProvider1.SetError(textbox_prezimeRadnika, "Ne možete unositi brojeve"); return; }
-                else errorProvider1.Clear();
-
                 if (textbox_imeRadnika.Text.Count() == 0) { errorProvider1.SetError(textbox_imeRadnika, "Molimo Vas unesite podatak"); return; }
                 else errorProvider1.Clear();
 
@@ -157,38 +156,80 @@ namespace SafeHouse
 
         private void button_registrujKorisnika_Click(object sender, EventArgs e)
         {
+
             Lokacija lok = new Lokacija(comboBox_lokacijaKorisnika.Text);
             djelimicnoAnonimanKorisnik k = new djelimicnoAnonimanKorisnik(textBox_imeKorisnika.Text, textBox_prezimeKorisnika.Text, dateTimePicker_datRodjenjaKorisnika.Value, textBox_usernameKorisnika.Text, textBox_passwordKorisnika.Text, lok, dateTimePicker_datumPrijemaKorisnika.Value, dateTimePicker_datumOtpustaKorisnika.Value);
 
 
             // ZA BAZU Podataka
+            // KAD se doda atribut u lokaciju da li je zauzeta da se to promjeni
+                /* mydbEntities db = new mydbEntities();
+                var lokacija = (from l in db.lokacije where l.ID==comboBox_lokacijaKorisnika.SelectedIndex select l).Single();
+                lokacija.Cekiran = true;  
+                 */
+
+            string osobe="";
+            foreach (string s in comboBox_dodaneOsobe.Items)
+                osobe += s;
+
             mydbEntities db = new mydbEntities();
-            var lokacija = (from l in db.lokacije where l.ID==comboBox_lokacijaKorisnika.SelectedIndex select l).ToArray();
-        }
-
-
-        private void radioButton_djelomičnoAnoniman_CheckedChanged(object sender, EventArgs e)
-        {
-            groupBox2.Visible = true;
-            
-            mydbEntities db = new mydbEntities();
-            var doktori = (from d in db.radnici where d.Opis==0 select d).ToArray();
-
-            foreach (var a in doktori)
-                comboBox_personalniDoktor.Items.Add(a.Ime + " " + a.Prezime);
-
-            var psih = (from d in db.radnici where d.Opis == 1 select d).ToArray();
-            foreach (var p in psih)
-                comboBox_personalniPsiholog.Items.Add(p.Ime + " " + p.Prezime);
-
+            db.korisnici.Add(new korisnici() { Ime = textBox_imeKorisnika.Text, Prezime = textBox_prezimeKorisnika.Text, Username = textBox_usernameKorisnika.Text, Password = textBox_passwordKorisnika.Text, Lokacija_ID=comboBox_lokacijaKorisnika.SelectedIndex});  // promjeniti ovo LOKACIJA_ID kad se ubaci da li je slobodna 
             db.SaveChanges();
 
+
+
+        }
+
+        
+        private void radioButton_djelomičnoAnoniman_CheckedChanged(object sender, EventArgs e)
+        {
+            if (textBox_imeKorisnika.Text.Count() == 0 || textBox_prezimeKorisnika.Text.Count() == 0 || textBox_usernameKorisnika.Text.Count() == 0 || textBox_passwordKorisnika.Text.Count() == 0)
+            {
+                radioButton_djelomičnoAnoniman.Checked = false;
+
+
+                if (textBox_imeKorisnika.Text.Count() == 0) { errorProvider1.SetError(textBox_imeKorisnika, "Molimo Vas unesite podatak"); return; }
+                else errorProvider1.Clear();
+
+                if (textBox_prezimeKorisnika.Text.Count() == 0) { errorProvider1.SetError(textBox_prezimeKorisnika, "Molimo Vas unesite podatak"); return; }
+                else errorProvider1.Clear();
+
+                if (textBox_usernameKorisnika.Text.Count() == 0) { errorProvider1.SetError(textBox_usernameKorisnika, "Molimo Vas unesite podatak"); return; }
+                else errorProvider1.Clear();
+
+                if (textBox_passwordKorisnika.Text.Count() == 0) { errorProvider1.SetError(textBox_passwordKorisnika, "Molimo Vas unesite podatak"); return; }
+                else errorProvider1.Clear();
+
+                if (comboBox_lokacijaKorisnika.SelectedIndex == -1) { errorProvider1.SetError(comboBox_lokacijaKorisnika, "Molimo Vas unesite podatak"); return; }
+                 else errorProvider1.Clear();
+
+                groupBox2.Visible = true;
+
+
+                // u pozadini
+                mydbEntities db = new mydbEntities();
+                var doktori = (from d in db.radnici where d.Opis == 0 select d).ToArray();
+
+                foreach (var a in doktori)
+                    comboBox_personalniDoktor.Items.Add(a.Ime + " " + a.Prezime);
+
+                var psih = (from d in db.radnici where d.Opis == 1 select d).ToArray();
+                foreach (var p in psih)
+                    comboBox_personalniPsiholog.Items.Add(p.Ime + " " + p.Prezime);
+
+                db.SaveChanges();
+
+            }
+            else errorProvider1.Clear();
+
+            groupBox2.Visible = true;
         }
 
         private void button_addOsobe_Click(object sender, EventArgs e)
         {
-            if (comboBox_dodaneOsobe.Text != "") comboBox_dodaneOsobe.Items.Add(Convert.ToString(textBox_dodajOsobu.Text));
+            if (textBox_dodajOsobu.Text != "") comboBox_dodaneOsobe.Items.Add(textBox_dodajOsobu.Text);
             textBox_dodajOsobu.Text = "";
+
         }
 
         private void tabControl1_Selected(object sender, TabControlEventArgs e)

@@ -28,7 +28,7 @@ namespace SafeHouse
 
 
             // ZA ADMINA
-            if (username_textbox.Text == Convert.ToString("admin") && password_textbox.Text == Convert.ToString("adminadmin"))
+            if (username_textbox.Text == Convert.ToString("admin") && password_textbox.Text == Convert.ToString("admin"))
             {
                 AdminForma f = new AdminForma();
                 f.ShowDialog();
@@ -38,7 +38,7 @@ namespace SafeHouse
             // ZA DOKTORA
             else if (user[0] == 'D' || user[0] == 'd')
             {
-                mydbEntities db = new mydbEntities();
+               /* mydbEntities db = new mydbEntities();
                 string dok = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.Password).Single();
                 if (dok == pass)
                 {
@@ -52,7 +52,10 @@ namespace SafeHouse
                 {
                     errorProvider1.SetError(username_textbox, "Unesite ispravan username ili password");
                     errorProvider1.SetError(password_textbox, "Unesite ispravan username ili password");
-                }
+                }*/
+
+                DoktorForm doc = new DoktorForm();
+                doc.ShowDialog();
             }
                 //ZA EKONOMISTU
             else if (user[0] == 'E' || user[0] == 'e')

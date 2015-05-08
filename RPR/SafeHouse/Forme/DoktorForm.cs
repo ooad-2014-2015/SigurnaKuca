@@ -18,14 +18,8 @@ namespace SafeHouse
             InitializeComponent();
         }
 
-        private void DoktorForm_Load(object sender, EventArgs e)
-        {
-            mydbEntities db = new mydbEntities();
-            var dok = (from r in db.radnici where (r.Username == GlobalneVarijable.TrenutniDoktor) select r).Single();
+       
 
-            textBoxImeDok.Text = dok.Ime;
-            textBoxPrezimeDok.Text = dok.Prezime;
-            
-        }
+       
     }
 }
