@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `kartoni`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `kartoni` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `ID_K` int(11) NOT NULL,
   `ID_D` int(11) NOT NULL,
   `ID_Pr` int(11) NOT NULL,
@@ -60,7 +60,7 @@ DROP TABLE IF EXISTS `korisnici`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `korisnici` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Ime` varchar(45) NOT NULL,
   `Prezime` varchar(45) NOT NULL,
   `Username` varchar(20) NOT NULL,
@@ -112,14 +112,14 @@ DROP TABLE IF EXISTS `radnici`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `radnici` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Ime` varchar(45) DEFAULT NULL,
   `Prezime` varchar(45) DEFAULT NULL,
   `Username` varchar(20) DEFAULT NULL,
   `Password` varchar(20) DEFAULT NULL,
   `Opis` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,6 +128,7 @@ CREATE TABLE `radnici` (
 
 LOCK TABLES `radnici` WRITE;
 /*!40000 ALTER TABLE `radnici` DISABLE KEYS */;
+INSERT INTO `radnici` VALUES (1,'Faruk','Mustafic','D12345','D12345',0),(2,'Zgembo','Adislic','D12346','D12346',0);
 /*!40000 ALTER TABLE `radnici` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -139,7 +140,7 @@ DROP TABLE IF EXISTS `rasporedi`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `rasporedi` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Dan` varchar(45) DEFAULT NULL,
   `Vrijeme` time DEFAULT NULL,
   `ID_R` int(11) NOT NULL,
@@ -169,7 +170,7 @@ DROP TABLE IF EXISTS `status_d`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `status_d` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `ID_K` int(11) NOT NULL,
   `ID_R` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
@@ -197,7 +198,7 @@ DROP TABLE IF EXISTS `status_e`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `status_e` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `ID_K` int(11) NOT NULL,
   `ID_R` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
@@ -225,7 +226,7 @@ DROP TABLE IF EXISTS `status_pr`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `status_pr` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Status_Prcol` varchar(45) DEFAULT NULL,
   `ID_K` int(11) NOT NULL,
   `ID_R` int(11) NOT NULL,
@@ -254,7 +255,7 @@ DROP TABLE IF EXISTS `status_ps`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `status_ps` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `ID_K` int(11) NOT NULL,
   `ID_R` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
@@ -283,4 +284,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-05-08 16:22:56
+-- Dump completed on 2015-05-08 20:17:46
