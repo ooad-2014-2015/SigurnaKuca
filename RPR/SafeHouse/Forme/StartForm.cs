@@ -32,7 +32,7 @@ namespace SafeHouse
             {
                 AdminForma f = new AdminForma();
                 f.ShowDialog();
-                this.Close();
+                this.Hide();
             }
 
             // ZA DOKTORA
@@ -56,6 +56,7 @@ namespace SafeHouse
 
                 DoktorForm doc = new DoktorForm();
                 doc.ShowDialog();
+                this.Hide();
             }
                 //ZA EKONOMISTU
             else if (user[0] == 'E' || user[0] == 'e')
