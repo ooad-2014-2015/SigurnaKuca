@@ -22,6 +22,7 @@ namespace SafeHouse
 
         private void prijava_button_Click(object sender, EventArgs e)
         {
+            
             string user=username_textbox.Text;
             string pass=password_textbox.Text;
 
@@ -31,12 +32,12 @@ namespace SafeHouse
                 f.ShowDialog();
             }
 
-            if (user[0]=='d' && user[1]=='o')
+           /* if (user[0]=='d' && user[1]=='o')
             {
                 // iz baze podataka naći koji je doktor sa istim userom i passwordom i otvoriti formu 
                 DoktorForm doc = new DoktorForm();
                 doc.ShowDialog();
-            }
+            }*/
 
         }
     }

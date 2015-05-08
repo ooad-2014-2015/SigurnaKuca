@@ -8,11 +8,18 @@ namespace SafeHouse
 {
     public class djelimicnoAnonimanKorisnik : Korisnik
     {
-        //konstruktor
-        public djelimicnoAnonimanKorisnik(String i, String p, DateTime dp, string us, string pass,  Lokacija lok, DateTime dr)
-            : base(i, p, dp, us, pass, lok, dr)
-        {
+        DateTime datumOtpusta;
 
+        //konstruktor
+        public djelimicnoAnonimanKorisnik(String i, String p, DateTime datum_rodj, string us, string pass,  Lokacija lok, DateTime dat_prijema, DateTime dat_otpusta)
+            : base(i, p, datum_rodj, us, pass, lok, dat_prijema)
+        {
+            this.datumOtpusta = dat_otpusta;
+        }
+
+        public void OtpustiKorisnika(DateTime d_o)
+        {
+            
         }
     }
 }

@@ -8,32 +8,29 @@ namespace SafeHouse
 {
     public class Korisnik : Osoba
     {
-        private DateTime DatumOtpusta;
         private DateTime DatumPrijema;
         private Lokacija LokKorisnika;
         private List<zahtjevZaIzmjenu> zahtjeviZaIzmjenu;
         private List<zahtjevZaMedPomoc> zahtjeviMedPomoc;
+
         private List<Termin> termini;
         private Karton karton;
 
         //konstruktor
-        public Korisnik(String i, String p, DateTime dp, string user, string pass,  Lokacija lok, DateTime dr)
-            : base(i, p, dr, user, pass)
+        public Korisnik(String i, String p, DateTime dat_rodj, string user, string pass,  Lokacija lok, DateTime dat_prijema)
+            : base(i, p, dat_rodj, user, pass)
         {
-            DatumPrijema = dp;
+            DatumPrijema = dat_rodj;
             LokKorisnika = lok;
             karton = new Karton();
+
             zahtjeviMedPomoc = new List<zahtjevZaMedPomoc>();
             zahtjeviZaIzmjenu = new List<zahtjevZaIzmjenu>();
         }
         
         
         //get-set
-        public DateTime DatumOtpusta1
-        {
-            get { return DatumOtpusta; }
-            set { DatumOtpusta = value; }
-        }
+        
         public DateTime DatumPrijema1
         {
             get { return DatumPrijema; }
@@ -70,10 +67,7 @@ namespace SafeHouse
         {
             LokKorisnika = novaLokacija;
         }
-        public void OtpustiKorisnika(DateTime d_o)
-        {
-            DatumOtpusta = d_o;
-        }
+       
 
 
     }
