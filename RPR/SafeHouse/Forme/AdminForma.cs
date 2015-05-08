@@ -101,24 +101,78 @@ namespace SafeHouse
                 notifyIcon1.ShowBalloonTip(1000, "Done", "Uspješno ste registrovali novog pravnika.", ToolTipIcon.Info);
             }
            
-            /* 
-            else if (combobox_opisPoslaRadnika.SelectedIndex == -1)
-            {
-                errorProvider1.SetError(combobox_opisPoslaRadnika, "Molimo Vas izaberite opciju"); return;
-            }
-            else
-            {
-                errorProvider1.Clear();
-            }
-            */
-
-
-            // raspored button, da kreira prazan raspored za svakog zaposlenog, i obavjesti da je uspješno kreirano ??
-
-           // FALI VALIDACIJA ZA ŠIFRU!!!
+          
+            // fali raspored button, da kreira prazan raspored za svakog zaposlenog, i obavjesti da je uspješno kreirano ??
 
         }
 
-        
+        // validacija username-a, mora počinjati sa prvim slovom opisa posla!
+        private void textbox_usernameRadnika_TextChanged(object sender, EventArgs e)
+        {
+            string priv = Convert.ToString(textbox_usernameRadnika.Text);
+            if (priv == "") errorProvider1.Clear();
+
+            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 0 && priv[0] != 'D' && priv[0] != 'd')
+            {
+                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
+            }
+            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 1 && priv[0] != 'P' && priv[0] != 'p')
+            {
+                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
+            }
+            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 2 && priv[0] != 'E' && priv[0] != 'e')
+            {
+                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
+            }
+            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 3 && priv[0] != 'P' && priv[0] != 'p')
+            {
+                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
+            }
+        }
+
+        // validacija šifre, mora počinjati sa prvim slovom opisa posla!
+        private void textbox_passwordRadnika_TextChanged(object sender, EventArgs e)
+        {
+            string priv = Convert.ToString(textbox_usernameRadnika.Text);
+            if (priv == "") errorProvider1.Clear();
+
+            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 0 && priv[0] != 'D' && priv[0] != 'd')
+            {
+                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
+            }
+            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 1 && priv[0] != 'P' && priv[0] != 'p')
+            {
+                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
+            }
+            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 2 && priv[0] != 'E' && priv[0] != 'e')
+            {
+                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
+            }
+            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 3 && priv[0] != 'P' && priv[0] != 'p')
+            {
+                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
+            }
+        }
+
+        private void button_registrujKorisnika_Click(object sender, EventArgs e)
+        {
+            Lokacija lok = new Lokacija(comboBox_lokacijaKorisnika.Text);
+            djelimicnoAnonimanKorisnik k = new djelimicnoAnonimanKorisnik(textBox_imeKorisnika.Text, textBox_prezimeKorisnika.Text, dateTimePicker_datRodjenjaKorisnika.Value, textBox_usernameKorisnika.Text, textBox_passwordKorisnika.Text, lok, dateTimePicker_datumPrijemaKorisnika.Value, dateTimePicker_datumOtpustaKorisnika.Value);
+        }
+
+           // FALI VALIDACIJA ZA ŠIFRU!!!
+
+
+        private void radioButton_djelomičnoAnoniman_CheckedChanged(object sender, EventArgs e)
+        {
+            groupBox2.Visible = true;
+
+        }
+
+         private void button_addOsobe_Click(object sender, EventArgs e)
+        {
+            if (comboBox_dodaneOsobe.Text != "") comboBox_dodaneOsobe.Items.Add(Convert.ToString(textBox_dodajOsobu.Text));
+            textBox_dodajOsobu.Text = "";
+        }
     }
 }

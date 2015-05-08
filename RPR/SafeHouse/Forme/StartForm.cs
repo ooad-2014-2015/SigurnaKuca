@@ -22,8 +22,10 @@ namespace SafeHouse
 
         private void prijava_button_Click(object sender, EventArgs e)
         {
+
             string user = username_textbox.Text;
             string pass = password_textbox.Text;
+
 
             // ZA ADMINA
             if (username_textbox.Text == Convert.ToString("admin") && password_textbox.Text == Convert.ToString("adminadmin"))
@@ -32,6 +34,7 @@ namespace SafeHouse
                 f.ShowDialog();
                 this.Close();
             }
+
             // ZA DOKTORA
             else if (user[0] == 'D' || user[0] == 'd')
             {

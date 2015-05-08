@@ -76,7 +76,7 @@
             // 
             // prijava_button
             // 
-            this.prijava_button.Location = new System.Drawing.Point(392, 154);
+            this.prijava_button.Location = new System.Drawing.Point(392, 141);
             this.prijava_button.Name = "prijava_button";
             this.prijava_button.Size = new System.Drawing.Size(103, 28);
             this.prijava_button.TabIndex = 4;
@@ -98,6 +98,7 @@
             // 
             // StartForm
             // 
+            this.AcceptButton = this.prijava_button;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 282);

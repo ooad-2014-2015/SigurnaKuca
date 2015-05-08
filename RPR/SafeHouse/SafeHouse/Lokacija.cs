@@ -10,13 +10,11 @@ namespace SafeHouse
     public class Lokacija
     {
         private String adresa;
-        private String grad;
-
+        
         //konstruktor
-        public Lokacija(String a, String g)
+        public Lokacija(String a)
         {
             adresa = a;
-            grad = g;
         }
 
         //get-set
@@ -25,13 +23,6 @@ namespace SafeHouse
             get { return adresa; }
             set { adresa = value; }
         }
-        public String Grad
-        {
-            get { return grad; }
-            set { grad = value; }
-        }
-
-
        
     }    
     

@@ -10,6 +10,16 @@ namespace SafeHouse
     {
         private List<zahtjevZaEkonomskuPomoc> zahtjeviZaEkPomoc;
         private List<zahtjevZaPravnuPomoc> zahtjeviZaPrPomoc;
+
+        //konstruktor
+        public potpunoAnonimanKorisnik(String i, String p, DateTime dat_rodjenja, string us, string pass, Lokacija lok, DateTime dat_prijema)
+            : base(i, p, dat_rodjenja, us, pass, lok, dat_prijema)
+        {
+            zahtjeviZaEkPomoc = new List<zahtjevZaEkonomskuPomoc>();
+            zahtjeviZaPrPomoc = new List<zahtjevZaPravnuPomoc>();
+        }
+
+
         //get-set
         public List<zahtjevZaEkonomskuPomoc> ZahtjeviZaEkPomoc
         {
@@ -21,13 +31,8 @@ namespace SafeHouse
             get { return zahtjeviZaPrPomoc; }
             set { zahtjeviZaPrPomoc = value; }
         }
-        //konstruktor
-        public potpunoAnonimanKorisnik(String i, String p, DateTime dp, string us, string pass, Lokacija lok, DateTime dr)
-            : base(i, p, dp, us, pass, lok, dr)
-        {
-            zahtjeviZaEkPomoc = new List<zahtjevZaEkonomskuPomoc>();
-            zahtjeviZaPrPomoc = new List<zahtjevZaPravnuPomoc>();
-        }
+        
+
         //metode
         public void dodajZahtjevEkPomoc(zahtjevZaEkonomskuPomoc zzep)
         {
