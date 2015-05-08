@@ -96,7 +96,7 @@ namespace SafeHouse
             else if ((user[0] == 'P' || user[0] == 'p') && (user[1] == 'R' || user[0] == 'r'))
             {
                 mydbEntities db = new mydbEntities();
-                string dok = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.Password).Single();
+                string dok = (from r in db.radnici where (r.Opis == 3 && r.Username == user) select r.Password).Single();
                 if (dok == pass)
                 {
                     GlobalneVarijable.TrenutniPravnik = user;

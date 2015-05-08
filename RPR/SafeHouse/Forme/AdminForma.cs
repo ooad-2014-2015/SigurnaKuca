@@ -159,21 +159,51 @@ namespace SafeHouse
         {
             Lokacija lok = new Lokacija(comboBox_lokacijaKorisnika.Text);
             djelimicnoAnonimanKorisnik k = new djelimicnoAnonimanKorisnik(textBox_imeKorisnika.Text, textBox_prezimeKorisnika.Text, dateTimePicker_datRodjenjaKorisnika.Value, textBox_usernameKorisnika.Text, textBox_passwordKorisnika.Text, lok, dateTimePicker_datumPrijemaKorisnika.Value, dateTimePicker_datumOtpustaKorisnika.Value);
-        }
 
-           // FALI VALIDACIJA ZA ŠIFRU!!!
+
+            // ZA BAZU Podataka
+            mydbEntities db = new mydbEntities();
+            var lokacija = (from l in db.lokacije where l.ID==comboBox_lokacijaKorisnika.SelectedIndex select l).ToArray();
+        }
 
 
         private void radioButton_djelomičnoAnoniman_CheckedChanged(object sender, EventArgs e)
         {
             groupBox2.Visible = true;
+            
+            mydbEntities db = new mydbEntities();
+            var doktori = (from d in db.radnici where d.Opis==0 select d).ToArray();
+
+            foreach (var a in doktori)
+                comboBox_personalniDoktor.Items.Add(a.Ime + " " + a.Prezime);
+
+            var psih = (from d in db.radnici where d.Opis == 1 select d).ToArray();
+            foreach (var p in psih)
+                comboBox_personalniPsiholog.Items.Add(p.Ime + " " + p.Prezime);
+
+            db.SaveChanges();
 
         }
 
-         private void button_addOsobe_Click(object sender, EventArgs e)
+        private void button_addOsobe_Click(object sender, EventArgs e)
         {
             if (comboBox_dodaneOsobe.Text != "") comboBox_dodaneOsobe.Items.Add(Convert.ToString(textBox_dodajOsobu.Text));
             textBox_dodajOsobu.Text = "";
         }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            mydbEntities db = new mydbEntities();
+            var lokacije = (from l in db.lokacije select l).ToArray();  //kasnije: dodati provjeru da li je zauzeta
+
+            foreach (var a in lokacije)
+                comboBox_lokacijaKorisnika.Items.Add(a.Adresa);
+        }
+
+        
+
+       
+
+       
     }
 }
