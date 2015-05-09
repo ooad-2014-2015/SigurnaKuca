@@ -226,6 +226,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "DoktorForm";
             this.Text = "Doktor";
+            this.Load += new System.EventHandler(this.DoktorForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
