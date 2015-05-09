@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SafeHouse;
 
 namespace Forme
 {
@@ -15,6 +16,14 @@ namespace Forme
         public PsihologForm()
         {
             InitializeComponent();
+        }
+
+       
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            StartForm sf = new StartForm();
+            this.Hide();
+            sf.ShowDialog();
         }
     }
 }
