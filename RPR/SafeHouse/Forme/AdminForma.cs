@@ -173,11 +173,20 @@ namespace SafeHouse
                 osobe += s;
 
             mydbEntities db = new mydbEntities();
-            db.korisnici.Add(new korisnici() { Ime = textBox_imeKorisnika.Text, Prezime = textBox_prezimeKorisnika.Text, Username = textBox_usernameKorisnika.Text, Password = textBox_passwordKorisnika.Text, Lokacija_ID=comboBox_lokacijaKorisnika.SelectedIndex});  // promjeniti ovo LOKACIJA_ID kad se ubaci da li je slobodna 
+            db.korisnici.Add(new korisnici() { Ime = textBox_imeKorisnika.Text, Prezime = textBox_prezimeKorisnika.Text, Username = textBox_usernameKorisnika.Text, Password = textBox_passwordKorisnika.Text, Lokacija_ID = comboBox_lokacijaKorisnika.SelectedIndex });  // promjeniti ovo LOKACIJA_ID kad se ubaci da li je slobodna 
             db.SaveChanges();
 
+            var koris = (from ko in db.korisnici where ko.Username==textBox_usernameKorisnika.Text select ko).Single();
+            int id = koris.ID;
 
+            // dodati dodavanje kartona uporedo
+            
+            db.kartoni.Add(new kartoni() { ID_D = comboBox_personalniDoktor.SelectedIndex, ID_Ps = comboBox_personalniPsiholog.SelectedIndex });
+            db.SaveChanges();
+            
+            // dodati još dio da se doda opisi nakon nove baze
 
+            
         }
 
         
@@ -186,7 +195,6 @@ namespace SafeHouse
             if (textBox_imeKorisnika.Text.Count() == 0 || textBox_prezimeKorisnika.Text.Count() == 0 || textBox_usernameKorisnika.Text.Count() == 0 || textBox_passwordKorisnika.Text.Count() == 0)
             {
                 radioButton_djelomičnoAnoniman.Checked = false;
-
 
                 if (textBox_imeKorisnika.Text.Count() == 0) { errorProvider1.SetError(textBox_imeKorisnika, "Molimo Vas unesite podatak"); return; }
                 else errorProvider1.Clear();
@@ -206,23 +214,24 @@ namespace SafeHouse
                 groupBox2.Visible = true;
 
 
-                // u pozadini
-                mydbEntities db = new mydbEntities();
-                var doktori = (from d in db.radnici where d.Opis == 0 select d).ToArray();
-
-                foreach (var a in doktori)
-                    comboBox_personalniDoktor.Items.Add(a.Ime + " " + a.Prezime);
-
-                var psih = (from d in db.radnici where d.Opis == 1 select d).ToArray();
-                foreach (var p in psih)
-                    comboBox_personalniPsiholog.Items.Add(p.Ime + " " + p.Prezime);
-
-                db.SaveChanges();
-
+                
             }
             else errorProvider1.Clear();
 
             groupBox2.Visible = true;
+            // u pozadini
+            mydbEntities db = new mydbEntities();
+            var doktori = (from d in db.radnici where d.Opis == 0 select d).ToArray();
+
+            foreach (var a in doktori)
+                comboBox_personalniDoktor.Items.Add(a.Ime + " " + a.Prezime);
+
+            var psih = (from d in db.radnici where d.Opis == 1 select d).ToArray();
+            foreach (var p in psih)
+                comboBox_personalniPsiholog.Items.Add(p.Ime + " " + p.Prezime);
+
+            db.SaveChanges();
+
         }
 
         private void button_addOsobe_Click(object sender, EventArgs e)
@@ -241,10 +250,5 @@ namespace SafeHouse
                 comboBox_lokacijaKorisnika.Items.Add(a.Adresa);
         }
 
-        
-
-       
-
-       
     }
 }
