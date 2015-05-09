@@ -112,19 +112,19 @@ namespace SafeHouse
             string priv = Convert.ToString(textbox_usernameRadnika.Text);
             if (priv == "") errorProvider1.Clear();
 
-            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 0 && priv[0] != 'D' && priv[0] != 'd')
+            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 0 && priv[0] != 'd')
             {
                 errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
             }
-            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 1 && priv[0] != 'P' && priv[0] != 'p')
+            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 1 && priv[0] != 'p' && priv[1]!='s')
             {
                 errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
             }
-            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 2 && priv[0] != 'E' && priv[0] != 'e')
+            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 2 && priv[0] != 'e')
             {
                 errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
             }
-            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 3 && priv[0] != 'P' && priv[0] != 'p')
+            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 3 && priv[0] != 'p' && priv[1]!='r')
             {
                 errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
             }
@@ -133,66 +133,105 @@ namespace SafeHouse
         // validacija šifre, mora počinjati sa prvim slovom opisa posla!
         private void textbox_passwordRadnika_TextChanged(object sender, EventArgs e)
         {
-            string priv = Convert.ToString(textbox_usernameRadnika.Text);
+            string priv = Convert.ToString(textbox_passwordRadnika.Text);
             if (priv == "") errorProvider1.Clear();
 
-            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 0 && priv[0] != 'D' && priv[0] != 'd')
+            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 0 && priv[0] != 'd')
             {
-                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
+                errorProvider1.SetError(textbox_passwordRadnika, "Ovaj password nije validan!");
             }
-            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 1 && priv[0] != 'P' && priv[0] != 'p')
+            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 1 && priv[0] != 'p' && priv[1] != 's')
             {
-                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
+                errorProvider1.SetError(textbox_passwordRadnika, "Ovaj password nije validan!");
             }
-            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 2 && priv[0] != 'E' && priv[0] != 'e')
+            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 2 && priv[0] != 'e')
             {
-                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
+                errorProvider1.SetError(textbox_passwordRadnika, "Ovaj password nije validan!");
             }
-            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 3 && priv[0] != 'P' && priv[0] != 'p')
+            if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 3 && priv[0] != 'p' && priv[1] != 'r')
             {
-                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
+                errorProvider1.SetError(textbox_passwordRadnika, "Ovaj password nije validan!");
             }
         }
 
         private void button_registrujKorisnika_Click(object sender, EventArgs e)
         {
+            if ( radioButton_potpunoAnoniman.Checked && (comboBox_personalniDoktorAnonimniKorisnik.SelectedIndex == -1 || comboBox_personalniEkonomistaAnonimniKorisnik.SelectedIndex == -1 || comboBox_personalniPravnikAnonimniKorisnik.SelectedIndex == -1 || comboBox_personalniPsihologAnonimniKorisnik.SelectedIndex == -1))
+            {
+                if (comboBox_personalniDoktorAnonimniKorisnik.SelectedIndex == -1) { errorProvider1.SetError(comboBox_personalniDoktorAnonimniKorisnik, "Molimo Vas izaberite podatak"); return; }
+                else errorProvider1.Clear();
 
-            Lokacija lok = new Lokacija(comboBox_lokacijaKorisnika.Text);
-            djelimicnoAnonimanKorisnik k = new djelimicnoAnonimanKorisnik(textBox_imeKorisnika.Text, textBox_prezimeKorisnika.Text, dateTimePicker_datRodjenjaKorisnika.Value, textBox_usernameKorisnika.Text, textBox_passwordKorisnika.Text, lok, dateTimePicker_datumPrijemaKorisnika.Value, dateTimePicker_datumOtpustaKorisnika.Value);
+                if (comboBox_personalniEkonomistaAnonimniKorisnik.SelectedIndex == -1) { errorProvider1.SetError(comboBox_personalniEkonomistaAnonimniKorisnik, "Molimo Vas izaberite podatak"); return; }
+                else errorProvider1.Clear();
+
+                if (comboBox_personalniPravnikAnonimniKorisnik.SelectedIndex == -1) { errorProvider1.SetError(comboBox_personalniPravnikAnonimniKorisnik, "Molimo Vas izaberite podatak"); return; }
+                else errorProvider1.Clear();
+
+                if (comboBox_personalniPsihologAnonimniKorisnik.SelectedIndex == -1) { errorProvider1.SetError(comboBox_personalniPsihologAnonimniKorisnik, "Molimo Vas izaberite podatak"); return; }
+                else errorProvider1.Clear();
+            }
+            else if (radioButton_djelomičnoAnoniman.Checked && (comboBox_personalniDoktor.SelectedIndex == -1 || comboBox_personalniPsiholog.SelectedIndex == -1))
+            {
+                if (comboBox_personalniDoktor.SelectedIndex == -1) { errorProvider1.SetError(comboBox_personalniDoktor, "Molimo Vas izaberite podatak"); return; }
+                else errorProvider1.Clear();
+
+                if (comboBox_personalniPsiholog.SelectedIndex == -1) { errorProvider1.SetError(comboBox_personalniPsiholog, "Molimo Vas izaberite podatak"); return; }
+                else errorProvider1.Clear();
+
+            }
+            else
+            {
+                errorProvider1.Clear();
+
+                Lokacija lok = new Lokacija(comboBox_lokacijaKorisnika.Text);
+                djelimicnoAnonimanKorisnik k = new djelimicnoAnonimanKorisnik(textBox_imeKorisnika.Text, textBox_prezimeKorisnika.Text, dateTimePicker_datRodjenjaKorisnika.Value, textBox_usernameKorisnika.Text, textBox_passwordKorisnika.Text, lok, dateTimePicker_datumPrijemaKorisnika.Value, dateTimePicker_datumOtpustaKorisnika.Value);
 
 
-            // ZA BAZU Podataka
-            // KAD se doda atribut u lokaciju da li je zauzeta da se to promjeni
+                // ZA BAZU Podataka
+                // KAD se doda atribut u lokaciju da li je zauzeta da se to promjeni
                 /* mydbEntities db = new mydbEntities();
                 var lokacija = (from l in db.lokacije where l.ID==comboBox_lokacijaKorisnika.SelectedIndex select l).Single();
                 lokacija.Cekiran = true;  
                  */
 
-            string osobe="";
-            foreach (string s in comboBox_dodaneOsobe.Items)
-                osobe += s;
+                string osobe = "";
+                foreach (string s in comboBox_dodaneOsobe.Items)
+                    osobe += s;
 
-            mydbEntities db = new mydbEntities();
-            db.korisnici.Add(new korisnici() { Ime = textBox_imeKorisnika.Text, Prezime = textBox_prezimeKorisnika.Text, Username = textBox_usernameKorisnika.Text, Password = textBox_passwordKorisnika.Text, Lokacija_ID = comboBox_lokacijaKorisnika.SelectedIndex });  // promjeniti ovo LOKACIJA_ID kad se ubaci da li je slobodna 
-            db.SaveChanges();
+                mydbEntities db = new mydbEntities();
+                db.korisnici.Add(new korisnici() { Ime = textBox_imeKorisnika.Text, Prezime = textBox_prezimeKorisnika.Text, Username = textBox_usernameKorisnika.Text, Password = textBox_passwordKorisnika.Text, Lokacija_ID = comboBox_lokacijaKorisnika.SelectedIndex });  // promjeniti ovo LOKACIJA_ID kad se ubaci da li je slobodna 
+                db.SaveChanges();
 
-            var koris = (from ko in db.korisnici where ko.Username==textBox_usernameKorisnika.Text select ko).Single();
-            int id = koris.ID;
+                var koris = (from ko in db.korisnici where ko.Username == textBox_usernameKorisnika.Text select ko).Single();
+                int id = koris.ID;
 
-            // dodati dodavanje kartona uporedo
-            
-            db.kartoni.Add(new kartoni() { ID_D = comboBox_personalniDoktor.SelectedIndex, ID_Ps = comboBox_personalniPsiholog.SelectedIndex });
-            db.SaveChanges();
-            
-            // dodati još dio da se doda opisi nakon nove baze
+                // dodati dodavanje kartona uporedo
 
-            
+                db.kartoni.Add(new kartoni() { ID_D = comboBox_personalniDoktor.SelectedIndex, ID_Ps = comboBox_personalniPsiholog.SelectedIndex });
+                db.SaveChanges();
+
+                // dodati još dio da se doda opisi nakon nove baze
+
+            }
         }
 
         
         private void radioButton_djelomičnoAnoniman_CheckedChanged(object sender, EventArgs e)
         {
-            if (textBox_imeKorisnika.Text.Count() == 0 || textBox_prezimeKorisnika.Text.Count() == 0 || textBox_usernameKorisnika.Text.Count() == 0 || textBox_passwordKorisnika.Text.Count() == 0)
+            string user=textBox_usernameKorisnika.Text;
+            
+            string ime=textBox_imeKorisnika.Text;
+            string prez=textBox_prezimeKorisnika.Text;
+
+            if (user[0] != ime[0] || user[1] != prez[0])
+            {
+                if(user[0]!=ime[0]) { errorProvider1.SetError(textBox_usernameKorisnika, "Prvo slovo username-a mora biti isto kao prvo slovo imena"); return; }
+                else errorProvider1.Clear();
+
+                if (user[1] != ime[1]) { errorProvider1.SetError(textBox_usernameKorisnika, "Drugo slovo username-a mora biti isto kao prvo slovo prezimena"); return; }
+                else errorProvider1.Clear();
+            }
+            else if (textBox_imeKorisnika.Text.Count() == 0 || textBox_prezimeKorisnika.Text.Count() == 0 || textBox_usernameKorisnika.Text.Count() == 0 || textBox_passwordKorisnika.Text.Count() == 0)
             {
                 radioButton_djelomičnoAnoniman.Checked = false;
 
@@ -209,18 +248,16 @@ namespace SafeHouse
                 else errorProvider1.Clear();
 
                 if (comboBox_lokacijaKorisnika.SelectedIndex == -1) { errorProvider1.SetError(comboBox_lokacijaKorisnika, "Molimo Vas unesite podatak"); return; }
-                 else errorProvider1.Clear();
+                else errorProvider1.Clear();
 
-                groupBox2.Visible = true;
-
-
-                
             }
             else errorProvider1.Clear();
 
-            groupBox2.Visible = true;
+            groupBox_anonimniKorisnik.Visible = false;
+            groupBox_djelomičnoAnonimniKorisnik.Visible = true;
+            
             // u pozadini
-            mydbEntities db = new mydbEntities();
+           /* mydbEntities db = new mydbEntities();
             var doktori = (from d in db.radnici where d.Opis == 0 select d).ToArray();
 
             foreach (var a in doktori)
@@ -230,7 +267,7 @@ namespace SafeHouse
             foreach (var p in psih)
                 comboBox_personalniPsiholog.Items.Add(p.Ime + " " + p.Prezime);
 
-            db.SaveChanges();
+            db.SaveChanges();*/
 
         }
 
@@ -243,11 +280,53 @@ namespace SafeHouse
 
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
-            mydbEntities db = new mydbEntities();
+          /*  mydbEntities db = new mydbEntities();
             var lokacije = (from l in db.lokacije select l).ToArray();  //kasnije: dodati provjeru da li je zauzeta
 
             foreach (var a in lokacije)
-                comboBox_lokacijaKorisnika.Items.Add(a.Adresa);
+                comboBox_lokacijaKorisnika.Items.Add(a.Adresa);*/
+        }
+
+        private void radioButton_potpunoAnoniman_CheckedChanged(object sender, EventArgs e)
+        {
+            string user = textBox_usernameKorisnika.Text;
+
+            string ime = textBox_imeKorisnika.Text;
+            string prez = textBox_prezimeKorisnika.Text;
+
+            if (user[0] != ime[0] || user[1] != prez[0])
+            {
+                if (user[0] != ime[0]) { errorProvider1.SetError(textBox_usernameKorisnika, "Prvo slovo username-a mora biti isto kao prvo slovo imena"); return; }
+                else errorProvider1.Clear();
+
+                if (user[1] != ime[1]) { errorProvider1.SetError(textBox_usernameKorisnika, "Drugo slovo username-a mora biti isto kao prvo slovo prezimena"); return; }
+                else errorProvider1.Clear();
+            }
+            else if (textBox_imeKorisnika.Text.Count() == 0 || textBox_prezimeKorisnika.Text.Count() == 0 || textBox_usernameKorisnika.Text.Count() == 0 || textBox_passwordKorisnika.Text.Count() == 0)
+            {
+                radioButton_potpunoAnoniman.Checked = false;
+
+                if (textBox_imeKorisnika.Text.Count() == 0) { errorProvider1.SetError(textBox_imeKorisnika, "Molimo Vas unesite podatak"); return; }
+                else errorProvider1.Clear();
+
+                if (textBox_prezimeKorisnika.Text.Count() == 0) { errorProvider1.SetError(textBox_prezimeKorisnika, "Molimo Vas unesite podatak"); return; }
+                else errorProvider1.Clear();
+
+                if (textBox_usernameKorisnika.Text.Count() == 0) { errorProvider1.SetError(textBox_usernameKorisnika, "Molimo Vas unesite podatak"); return; }
+                else errorProvider1.Clear();
+
+                if (textBox_passwordKorisnika.Text.Count() == 0) { errorProvider1.SetError(textBox_passwordKorisnika, "Molimo Vas unesite podatak"); return; }
+                else errorProvider1.Clear();
+
+                if (comboBox_lokacijaKorisnika.SelectedIndex == -1) { errorProvider1.SetError(comboBox_lokacijaKorisnika, "Molimo Vas unesite podatak"); return; }
+                else errorProvider1.Clear();
+            }
+            else errorProvider1.Clear();
+
+            groupBox_djelomičnoAnonimniKorisnik.Visible = false;
+            groupBox_anonimniKorisnik.Visible = true;
+
+
         }
 
     }

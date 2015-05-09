@@ -48,9 +48,8 @@
             this.registracija_radnika = new System.Windows.Forms.Button();
             this.raspored_za_radnika = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button_raspored = new System.Windows.Forms.Button();
             this.button_registrujKorisnika = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox_djelomičnoAnonimniKorisnik = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.comboBox_dodaneOsobe = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -85,16 +84,28 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox_anonimniKorisnik = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.comboBox_personalniDoktorAnonimniKorisnik = new System.Windows.Forms.ComboBox();
+            this.comboBox_personalniPsihologAnonimniKorisnik = new System.Windows.Forms.ComboBox();
+            this.comboBox_personalniEkonomistaAnonimniKorisnik = new System.Windows.Forms.ComboBox();
+            this.comboBox_personalniPravnikAnonimniKorisnik = new System.Windows.Forms.ComboBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox_osnovniPodaci.SuspendLayout();
             this.groupBox_dodjelaPristupa.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBox_djelomičnoAnonimniKorisnik.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox_anonimniKorisnik.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -106,7 +117,7 @@
             this.tabControl1.Location = new System.Drawing.Point(165, 24);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(646, 320);
+            this.tabControl1.Size = new System.Drawing.Size(607, 341);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
@@ -119,7 +130,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(638, 294);
+            this.tabPage1.Size = new System.Drawing.Size(711, 315);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Registracija novog radnika";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -281,32 +292,23 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button_raspored);
+            this.tabPage2.Controls.Add(this.groupBox_djelomičnoAnonimniKorisnik);
+            this.tabPage2.Controls.Add(this.groupBox_anonimniKorisnik);
             this.tabPage2.Controls.Add(this.button_registrujKorisnika);
-            this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.radioButton_potpunoAnoniman);
             this.tabPage2.Controls.Add(this.radioButton_djelomičnoAnoniman);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(638, 294);
+            this.tabPage2.Size = new System.Drawing.Size(599, 315);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Registracija novog korisnika";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button_raspored
-            // 
-            this.button_raspored.Location = new System.Drawing.Point(358, 257);
-            this.button_raspored.Name = "button_raspored";
-            this.button_raspored.Size = new System.Drawing.Size(127, 27);
-            this.button_raspored.TabIndex = 15;
-            this.button_raspored.Text = "Kreiraj raspored";
-            this.button_raspored.UseVisualStyleBackColor = true;
-            // 
             // button_registrujKorisnika
             // 
-            this.button_registrujKorisnika.Location = new System.Drawing.Point(491, 257);
+            this.button_registrujKorisnika.Location = new System.Drawing.Point(466, 279);
             this.button_registrujKorisnika.Name = "button_registrujKorisnika";
             this.button_registrujKorisnika.Size = new System.Drawing.Size(127, 27);
             this.button_registrujKorisnika.TabIndex = 14;
@@ -314,23 +316,24 @@
             this.button_registrujKorisnika.UseVisualStyleBackColor = true;
             this.button_registrujKorisnika.Click += new System.EventHandler(this.button_registrujKorisnika_Click);
             // 
-            // groupBox2
+            // groupBox_djelomičnoAnonimniKorisnik
             // 
-            this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.comboBox_personalniPsiholog);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.comboBox_personalniDoktor);
-            this.groupBox2.Controls.Add(this.dateTimePicker_datumOtpustaKorisnika);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Location = new System.Drawing.Point(310, 18);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(310, 234);
-            this.groupBox2.TabIndex = 13;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Djelomično anoniman korisnik";
-            this.groupBox2.Visible = false;
+            this.groupBox_djelomičnoAnonimniKorisnik.Controls.Add(this.checkBox2);
+            this.groupBox_djelomičnoAnonimniKorisnik.Controls.Add(this.groupBox3);
+            this.groupBox_djelomičnoAnonimniKorisnik.Controls.Add(this.label12);
+            this.groupBox_djelomičnoAnonimniKorisnik.Controls.Add(this.comboBox_personalniPsiholog);
+            this.groupBox_djelomičnoAnonimniKorisnik.Controls.Add(this.label11);
+            this.groupBox_djelomičnoAnonimniKorisnik.Controls.Add(this.label10);
+            this.groupBox_djelomičnoAnonimniKorisnik.Controls.Add(this.comboBox_personalniDoktor);
+            this.groupBox_djelomičnoAnonimniKorisnik.Controls.Add(this.dateTimePicker_datumOtpustaKorisnika);
+            this.groupBox_djelomičnoAnonimniKorisnik.Controls.Add(this.label9);
+            this.groupBox_djelomičnoAnonimniKorisnik.Location = new System.Drawing.Point(300, 18);
+            this.groupBox_djelomičnoAnonimniKorisnik.Name = "groupBox_djelomičnoAnonimniKorisnik";
+            this.groupBox_djelomičnoAnonimniKorisnik.Size = new System.Drawing.Size(293, 255);
+            this.groupBox_djelomičnoAnonimniKorisnik.TabIndex = 13;
+            this.groupBox_djelomičnoAnonimniKorisnik.TabStop = false;
+            this.groupBox_djelomičnoAnonimniKorisnik.Text = "Djelomično anoniman korisnik";
+            this.groupBox_djelomičnoAnonimniKorisnik.Visible = false;
             // 
             // groupBox3
             // 
@@ -338,9 +341,9 @@
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.button_addOsobe);
             this.groupBox3.Controls.Add(this.textBox_dodajOsobu);
-            this.groupBox3.Location = new System.Drawing.Point(21, 146);
+            this.groupBox3.Location = new System.Drawing.Point(17, 146);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(283, 74);
+            this.groupBox3.Size = new System.Drawing.Size(270, 74);
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "groupBox3";
@@ -382,7 +385,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(19, 130);
+            this.label12.Location = new System.Drawing.Point(13, 130);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(253, 13);
             this.label12.TabIndex = 6;
@@ -584,6 +587,7 @@
             this.radioButton_potpunoAnoniman.TabStop = true;
             this.radioButton_potpunoAnoniman.Text = "Potpuno anoniman korisnik";
             this.radioButton_potpunoAnoniman.UseVisualStyleBackColor = true;
+            this.radioButton_potpunoAnoniman.CheckedChanged += new System.EventHandler(this.radioButton_potpunoAnoniman_CheckedChanged);
             // 
             // radioButton_djelomičnoAnoniman
             // 
@@ -634,11 +638,118 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // groupBox_anonimniKorisnik
+            // 
+            this.groupBox_anonimniKorisnik.Controls.Add(this.checkBox1);
+            this.groupBox_anonimniKorisnik.Controls.Add(this.comboBox_personalniPravnikAnonimniKorisnik);
+            this.groupBox_anonimniKorisnik.Controls.Add(this.comboBox_personalniEkonomistaAnonimniKorisnik);
+            this.groupBox_anonimniKorisnik.Controls.Add(this.comboBox_personalniPsihologAnonimniKorisnik);
+            this.groupBox_anonimniKorisnik.Controls.Add(this.comboBox_personalniDoktorAnonimniKorisnik);
+            this.groupBox_anonimniKorisnik.Controls.Add(this.label19);
+            this.groupBox_anonimniKorisnik.Controls.Add(this.label18);
+            this.groupBox_anonimniKorisnik.Controls.Add(this.label17);
+            this.groupBox_anonimniKorisnik.Controls.Add(this.label16);
+            this.groupBox_anonimniKorisnik.Location = new System.Drawing.Point(294, 18);
+            this.groupBox_anonimniKorisnik.Name = "groupBox_anonimniKorisnik";
+            this.groupBox_anonimniKorisnik.Size = new System.Drawing.Size(299, 196);
+            this.groupBox_anonimniKorisnik.TabIndex = 16;
+            this.groupBox_anonimniKorisnik.TabStop = false;
+            this.groupBox_anonimniKorisnik.Text = "Potpuno aninimni korisnik";
+            this.groupBox_anonimniKorisnik.Visible = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(36, 39);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(95, 13);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Personalni doktor: ";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(27, 67);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(104, 13);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Personalni psiholog: ";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(15, 96);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(116, 13);
+            this.label18.TabIndex = 2;
+            this.label18.Text = "Personalni ekonomista:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(31, 123);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(100, 13);
+            this.label19.TabIndex = 3;
+            this.label19.Text = "Personalni pravnik: ";
+            // 
+            // comboBox_personalniDoktorAnonimniKorisnik
+            // 
+            this.comboBox_personalniDoktorAnonimniKorisnik.FormattingEnabled = true;
+            this.comboBox_personalniDoktorAnonimniKorisnik.Location = new System.Drawing.Point(146, 31);
+            this.comboBox_personalniDoktorAnonimniKorisnik.Name = "comboBox_personalniDoktorAnonimniKorisnik";
+            this.comboBox_personalniDoktorAnonimniKorisnik.Size = new System.Drawing.Size(126, 21);
+            this.comboBox_personalniDoktorAnonimniKorisnik.TabIndex = 4;
+            // 
+            // comboBox_personalniPsihologAnonimniKorisnik
+            // 
+            this.comboBox_personalniPsihologAnonimniKorisnik.FormattingEnabled = true;
+            this.comboBox_personalniPsihologAnonimniKorisnik.Location = new System.Drawing.Point(146, 59);
+            this.comboBox_personalniPsihologAnonimniKorisnik.Name = "comboBox_personalniPsihologAnonimniKorisnik";
+            this.comboBox_personalniPsihologAnonimniKorisnik.Size = new System.Drawing.Size(126, 21);
+            this.comboBox_personalniPsihologAnonimniKorisnik.TabIndex = 5;
+            // 
+            // comboBox_personalniEkonomistaAnonimniKorisnik
+            // 
+            this.comboBox_personalniEkonomistaAnonimniKorisnik.FormattingEnabled = true;
+            this.comboBox_personalniEkonomistaAnonimniKorisnik.Location = new System.Drawing.Point(146, 86);
+            this.comboBox_personalniEkonomistaAnonimniKorisnik.Name = "comboBox_personalniEkonomistaAnonimniKorisnik";
+            this.comboBox_personalniEkonomistaAnonimniKorisnik.Size = new System.Drawing.Size(126, 21);
+            this.comboBox_personalniEkonomistaAnonimniKorisnik.TabIndex = 6;
+            // 
+            // comboBox_personalniPravnikAnonimniKorisnik
+            // 
+            this.comboBox_personalniPravnikAnonimniKorisnik.FormattingEnabled = true;
+            this.comboBox_personalniPravnikAnonimniKorisnik.Location = new System.Drawing.Point(146, 115);
+            this.comboBox_personalniPravnikAnonimniKorisnik.Name = "comboBox_personalniPravnikAnonimniKorisnik";
+            this.comboBox_personalniPravnikAnonimniKorisnik.Size = new System.Drawing.Size(126, 21);
+            this.comboBox_personalniPravnikAnonimniKorisnik.TabIndex = 7;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(146, 156);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(158, 17);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "Kreiranje praznog rasporeda";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(133, 230);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(158, 17);
+            this.checkBox2.TabIndex = 11;
+            this.checkBox2.Text = "Kreiranje praznog rasporeda";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
             // AdminForma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 356);
+            this.ClientSize = new System.Drawing.Size(781, 372);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tabControl1);
             this.Name = "AdminForma";
@@ -651,14 +762,16 @@
             this.groupBox_dodjelaPristupa.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBox_djelomičnoAnonimniKorisnik.ResumeLayout(false);
+            this.groupBox_djelomičnoAnonimniKorisnik.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox_anonimniKorisnik.ResumeLayout(false);
+            this.groupBox_anonimniKorisnik.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -689,7 +802,7 @@
         private System.Windows.Forms.GroupBox groupBox_dodjelaPristupa;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox_djelomičnoAnonimniKorisnik;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox_passwordKorisnika;
@@ -709,7 +822,6 @@
         private System.Windows.Forms.ComboBox comboBox_personalniPsiholog;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button_raspored;
         private System.Windows.Forms.Button button_registrujKorisnika;
         private System.Windows.Forms.Button button_addOsobe;
         private System.Windows.Forms.TextBox textBox_dodajOsobu;
@@ -721,5 +833,16 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox comboBox_dodaneOsobe;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.GroupBox groupBox_anonimniKorisnik;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ComboBox comboBox_personalniPravnikAnonimniKorisnik;
+        private System.Windows.Forms.ComboBox comboBox_personalniEkonomistaAnonimniKorisnik;
+        private System.Windows.Forms.ComboBox comboBox_personalniPsihologAnonimniKorisnik;
+        private System.Windows.Forms.ComboBox comboBox_personalniDoktorAnonimniKorisnik;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
     }
 }

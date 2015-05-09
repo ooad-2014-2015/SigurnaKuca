@@ -36,7 +36,7 @@ namespace SafeHouse
             }
 
             // ZA DOKTORA
-            else if (user[0] == 'D' || user[0] == 'd')
+            else if (user[0] == 'd')
             {
                 mydbEntities db = new mydbEntities();
                 string dok = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.Password).Single();
@@ -59,7 +59,7 @@ namespace SafeHouse
                 this.Hide();
             }
                 //ZA EKONOMISTU
-            else if (user[0] == 'E' || user[0] == 'e')
+            else if (user[0] == 'e')
             {
                 mydbEntities db = new mydbEntities();
                 string dok = (from r in db.radnici where (r.Opis == 2 && r.Username == user) select r.Password).Single();
@@ -78,7 +78,7 @@ namespace SafeHouse
                 }
             }
              // ZA PSIHOLOGA
-            else if ((user[0] == 'P' || user[0] == 'p') && (user[1] == 'S' || user[0] == 's'))
+            else if (user[0] == 'p' && user[1] == 's')
             {
                 mydbEntities db = new mydbEntities();
                 string dok = (from r in db.radnici where (r.Opis == 1 && r.Username == user) select r.Password).Single();
@@ -97,7 +97,7 @@ namespace SafeHouse
                 }
             }
                     // ZA PRAVNIKA
-            else if ((user[0] == 'P' || user[0] == 'p') && (user[1] == 'R' || user[0] == 'r'))
+            else if (user[0] == 'p' && user[1] == 'r')
             {
                 mydbEntities db = new mydbEntities();
                 string dok = (from r in db.radnici where (r.Opis == 3 && r.Username == user) select r.Password).Single();
