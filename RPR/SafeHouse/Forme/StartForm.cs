@@ -133,6 +133,13 @@ namespace SafeHouse
             if (errorProvider1.GetError(password_textbox) != "") errorProvider1.Clear();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            KorisnikForm k = new KorisnikForm();
+            k.ShowDialog();
+            
+        }
+
         
     }
 }

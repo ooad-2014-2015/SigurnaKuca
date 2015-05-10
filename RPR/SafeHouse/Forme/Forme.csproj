@@ -110,6 +110,12 @@
     <Compile Include="korisnici.cs">
       <DependentUpon>Baza.tt</DependentUpon>
     </Compile>
+    <Compile Include="KorisnikForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KorisnikForm.Designer.cs">
+      <DependentUpon>KorisnikForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="lokacije.cs">
       <DependentUpon>Baza.tt</DependentUpon>
     </Compile>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EkonomistaForm.resx">
       <DependentUpon>EkonomistaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KorisnikForm.resx">
+      <DependentUpon>KorisnikForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PravnikForm.resx">
       <DependentUpon>PravnikForm.cs</DependentUpon>

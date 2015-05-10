@@ -16,6 +16,8 @@ namespace SafeHouse
         private List<Termin> termini;
         private Karton karton;
 
+
+        public Korisnik() { }
         //konstruktor
         public Korisnik(String i, String p, DateTime dat_rodj, string user, string pass,  Lokacija lok, DateTime dat_prijema)
             : base(i, p, dat_rodj, user, pass)
