@@ -16,11 +16,11 @@ namespace SafeHouse
     {
         public korisnici()
         {
+            this.rasporedi = new HashSet<rasporedi>();
             this.status_d = new HashSet<status_d>();
             this.status_e = new HashSet<status_e>();
             this.status_pr = new HashSet<status_pr>();
             this.status_ps = new HashSet<status_ps>();
-            this.rasporedi = new HashSet<rasporedi>();
         }
     
         public int ID { get; set; }
@@ -34,10 +34,10 @@ namespace SafeHouse
         public System.DateTime DatumRodjenja { get; set; }
     
         public virtual lokacije lokacije { get; set; }
+        public virtual ICollection<rasporedi> rasporedi { get; set; }
         public virtual ICollection<status_d> status_d { get; set; }
         public virtual ICollection<status_e> status_e { get; set; }
         public virtual ICollection<status_pr> status_pr { get; set; }
         public virtual ICollection<status_ps> status_ps { get; set; }
-        public virtual ICollection<rasporedi> rasporedi { get; set; }
     }
 }

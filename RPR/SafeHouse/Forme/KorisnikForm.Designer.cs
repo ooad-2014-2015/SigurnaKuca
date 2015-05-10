@@ -77,7 +77,6 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::Forme.Properties.Resources._1385950384_user_male2;
             this.pictureBox1.Location = new System.Drawing.Point(11, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(145, 143);
@@ -88,7 +87,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(12, 158);
+            this.label1.Location = new System.Drawing.Point(8, 158);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(24, 13);
             this.label1.TabIndex = 1;
@@ -160,6 +159,7 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ekonomska i pravna pomoć ";
+            this.groupBox1.Visible = false;
             // 
             // richTextBox3
             // 
@@ -179,6 +179,7 @@
             this.radioButton_ekonomskaRjesenjaKorisnik.TabStop = true;
             this.radioButton_ekonomskaRjesenjaKorisnik.Text = "Ekonomska rješenja";
             this.radioButton_ekonomskaRjesenjaKorisnik.UseVisualStyleBackColor = true;
+            this.radioButton_ekonomskaRjesenjaKorisnik.CheckedChanged += new System.EventHandler(this.radioButton_ekonomskaRjesenjaKorisnik_CheckedChanged);
             // 
             // radioButton_pravnaRjesenjaKorisnik
             // 
@@ -190,6 +191,7 @@
             this.radioButton_pravnaRjesenjaKorisnik.TabStop = true;
             this.radioButton_pravnaRjesenjaKorisnik.Text = "Pravna rješenja";
             this.radioButton_pravnaRjesenjaKorisnik.UseVisualStyleBackColor = true;
+            this.radioButton_pravnaRjesenjaKorisnik.CheckedChanged += new System.EventHandler(this.radioButton_pravnaRjesenjaKorisnik_CheckedChanged);
             // 
             // label5
             // 
@@ -429,12 +431,12 @@
             this.linkLabel_logOutKorisnik.TabStop = true;
             this.linkLabel_logOutKorisnik.Text = "Log Out";
             this.linkLabel_logOutKorisnik.VisitedLinkColor = System.Drawing.Color.White;
+            this.linkLabel_logOutKorisnik.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_logOutKorisnik_LinkClicked);
             // 
             // KorisnikForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Forme.Properties.Resources._1152x864;
             this.ClientSize = new System.Drawing.Size(763, 427);
             this.Controls.Add(this.linkLabel_logOutKorisnik);
             this.Controls.Add(this.tabControl1);

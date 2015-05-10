@@ -116,8 +116,20 @@ namespace SafeHouse
             }
             else
             {
-                errorProvider1.SetError(username_textbox, "Unesite ispravan username ili password");
-                errorProvider1.SetError(password_textbox, "Unesite ispravan username ili password");
+                mydbEntities db = new mydbEntities();
+                string kor = (from k in db.korisnici where (k.Username == user) select k.Password).Single();
+                if (kor == pass)
+                {
+                    GlobalneVarijable.TrenutniKorisnik = user;
+                    KorisnikForm kf = new KorisnikForm();
+                    kf.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    errorProvider1.SetError(username_textbox, "Unesite ispravan username ili password");
+                    errorProvider1.SetError(password_textbox, "Unesite ispravan username ili password");
+                }
             }
 
         }
