@@ -1,4 +1,4 @@
-﻿namespace Forme
+﻿namespace SafeHouse
 {
     partial class PsihologForm
     {
@@ -84,6 +84,7 @@
             this.listBox_listaPacijenataPsiholog.Name = "listBox_listaPacijenataPsiholog";
             this.listBox_listaPacijenataPsiholog.Size = new System.Drawing.Size(159, 355);
             this.listBox_listaPacijenataPsiholog.TabIndex = 4;
+            this.listBox_listaPacijenataPsiholog.SelectedIndexChanged += new System.EventHandler(this.listBox_listaPacijenataPsiholog_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -157,6 +158,7 @@
             this.button_azurirajPodatkePsiholog.TabIndex = 5;
             this.button_azurirajPodatkePsiholog.Text = "Ažuriraj podatke";
             this.button_azurirajPodatkePsiholog.UseVisualStyleBackColor = true;
+            this.button_azurirajPodatkePsiholog.Click += new System.EventHandler(this.button_azurirajPodatkePsiholog_Click);
             // 
             // richTextBox_nalaziSistematskogPsiholog
             // 
@@ -211,7 +213,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Forme.Properties.Resources.Serviciil_de_psihologie_cabinet_individual_4916121_1271249488;
+            this.pictureBox1.Image = global::SafeHouse.Properties.Resources.Serviciil_de_psihologie_cabinet_individual_4916121_1271249488;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(154, 146);
@@ -234,6 +236,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "PsihologForm";
             this.Text = "Psiholog";
+            this.Load += new System.EventHandler(this.PsihologForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

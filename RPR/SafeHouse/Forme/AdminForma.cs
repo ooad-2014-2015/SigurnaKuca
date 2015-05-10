@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SafeHouse;
-using Forme;
+using SafeHouse;
 
 namespace SafeHouse
 {
@@ -193,34 +193,53 @@ namespace SafeHouse
                 // ZA BAZU Podataka
          
                 mydbEntities db = new mydbEntities();
-                var lokacija = (from l in db.lokacije where l.Adresa == comboBox_lokacijaKorisnika.SelectedItem select l).Single();
+                object adres= comboBox_lokacijaKorisnika.SelectedItem;
+                string a = adres.ToString();
+
+                // promjena u odabranoj lokaciji da je zauzeta
+                var lokacija = (from l in db.lokacije where l.Adresa == a select l).Single();
                 lokacija.Zauzeta = true;  
                 
-
+                // dodavanje u comboBox u formi unesene osobe
                 string osobe = "";
                 foreach (string s in comboBox_dodaneOsobe.Items)
-                    osobe += s;
+                    osobe += (s + " ");
 
                 bool anoniman = false;
                 if (radioButton_potpunoAnoniman.Checked) anoniman = true;
 
+                // dodavanje korisnika
                 db.korisnici.Add(new korisnici() { Ime = textBox_imeKorisnika.Text, Prezime = textBox_prezimeKorisnika.Text, Username = textBox_usernameKorisnika.Text, Password = textBox_passwordKorisnika.Text, Lokacija_ID = lokacija.ID, DatumRodjenja = dateTimePicker_datRodjenjaKorisnika.Value.Date, Anonimnost=anoniman, DodatneOsobe=osobe });
+                db.SaveChanges();
 
+                // pretraga tog dodanog korisnika
+                var korisnik = (from kor in db.korisnici where kor.Username == textBox_usernameKorisnika.Text select kor).Single();
 
                 if (radioButton_djelomičnoAnoniman.Checked)
-                // dodavanje kartona
+                // dodavanje kartona i statusa za djelomicno anonimnog
                 {
-                    db.kartoni.Add(new kartoni() { ID_D = comboBox_personalniDoktor.SelectedIndex, ID_Ps = comboBox_personalniPsiholog.SelectedIndex, ID_E = 0, ID_Pr = 0 });
+                    int indexDok = comboBox_personalniDoktor.SelectedIndex+1;
+                    int indexPsih = comboBox_personalniPsiholog.SelectedIndex+1;
+
+                    var dok = (from d in db.radnici where d.ID == indexDok  select d).Single();
+                    var psih = (from p in db.radnici where p.ID == indexPsih select p).Single();
+
+
+                    db.kartoni.Add(new kartoni() { ID_D = dok.ID, ID_Ps = psih.ID, ID_E = 0, ID_Pr = 0 });
+                    db.status_d.Add(new status_d() { ID_K = korisnik.ID, ID_R = dok.ID });
+                    db.status_ps.Add(new status_ps() { ID_K = korisnik.ID, ID_R = psih.ID });
+                    db.SaveChanges();
                 }
+                // dodavanje kartona i statusa za anonimnog korisnika
                 if (radioButton_potpunoAnoniman.Checked)
                 {
-                    db.kartoni.Add(new kartoni() { ID_D=comboBox_personalniDoktorAnonimniKorisnik.SelectedIndex, ID_E=comboBox_personalniEkonomistaAnonimniKorisnik.SelectedIndex, ID_Pr=comboBox_personalniPravnikAnonimniKorisnik.SelectedIndex, ID_Ps = comboBox_personalniPsihologAnonimniKorisnik.SelectedIndex });
+                  //  db.kartoni.Add(new kartoni() { ID_D=comboBox_personalniDoktorAnonimniKorisnik.SelectedIndex, ID_E=comboBox_personalniEkonomistaAnonimniKorisnik.SelectedIndex, ID_Pr=comboBox_personalniPravnikAnonimniKorisnik.SelectedIndex, ID_Ps = comboBox_personalniPsihologAnonimniKorisnik.SelectedIndex });
+                    db.status_d.Add(new status_d() { ID_K = korisnik.ID, ID_R = comboBox_personalniDoktorAnonimniKorisnik.SelectedIndex });
+                    db.status_ps.Add(new status_ps() { ID_K = korisnik.ID, ID_R = comboBox_personalniPsihologAnonimniKorisnik.SelectedIndex });
+                    db.status_e.Add(new status_e() { ID_K = korisnik.ID, ID_R = comboBox_personalniEkonomistaAnonimniKorisnik.SelectedIndex });
+                    db.status_pr.Add(new status_pr() { ID_K = korisnik.ID, ID_R = comboBox_personalniPravnikAnonimniKorisnik.SelectedIndex });
+                    db.SaveChanges();
                 }
-                
-
-                db.SaveChanges();
-               
-
             }
         }
 
@@ -293,10 +312,13 @@ namespace SafeHouse
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
             mydbEntities db = new mydbEntities();
+            db.lokacije.Add(new lokacije() { Adresa = "Evo ovdje" });
+            db.SaveChanges();
             var lokacije = (from l in db.lokacije where l.Zauzeta == null select l).ToArray();
 
             foreach (var a in lokacije)
                 comboBox_lokacijaKorisnika.Items.Add(a.Adresa);
+
         }
 
         private void radioButton_potpunoAnoniman_CheckedChanged(object sender, EventArgs e)

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Forme
+namespace SafeHouse
 {
     using System;
     using System.Collections.Generic;

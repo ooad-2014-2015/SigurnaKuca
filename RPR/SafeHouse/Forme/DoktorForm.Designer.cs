@@ -193,7 +193,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Forme.Properties.Resources.picture12660783626955;
+            this.pictureBox1.Image = global::SafeHouse.Properties.Resources.picture12660783626955;
             this.pictureBox1.Location = new System.Drawing.Point(11, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(166, 161);

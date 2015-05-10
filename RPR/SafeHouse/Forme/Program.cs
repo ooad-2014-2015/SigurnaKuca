@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using SafeHouse;
 using System.Windows.Forms;
 
-namespace Forme
+namespace SafeHouse
 {
     static class Program
     {

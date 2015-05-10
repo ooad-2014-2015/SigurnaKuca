@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Forme;
+using SafeHouse;
 
 namespace SafeHouse
 {
@@ -41,7 +41,7 @@ namespace SafeHouse
             foreach (var k in karton)
             {
                 var koris = (from ko in db.korisnici where ko.ID == k select ko).Single();
-                listBox_listaPacijenata.Text += (koris.Ime + " " + koris.Prezime + "\n");
+                listBox_listaPacijenata.Items.Add(koris.Ime + " " + koris.Prezime + "\n");
             }
         }
 
@@ -75,6 +75,7 @@ namespace SafeHouse
             korisnikStatus.Historija+=nalazi;
             
             db.SaveChanges();
+            richTextBox1.Text = "";
         }
 
        
