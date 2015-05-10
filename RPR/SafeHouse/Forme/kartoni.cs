@@ -15,13 +15,11 @@ namespace Forme
     public partial class kartoni
     {
         public int ID { get; set; }
-        public int ID_K { get; set; }
         public int ID_D { get; set; }
         public int ID_Pr { get; set; }
         public int ID_E { get; set; }
         public int ID_Ps { get; set; }
     
-        public virtual korisnici korisnici { get; set; }
         public virtual radnici radnici { get; set; }
         public virtual radnici radnici1 { get; set; }
         public virtual radnici radnici2 { get; set; }

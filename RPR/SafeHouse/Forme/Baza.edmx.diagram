@@ -4,23 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b1a1da5657944f1583d9611c540aa334" Name="Diagram1">
-        <EntityTypeShape EntityType="mydbModel.kartoni" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="mydbModel.korisnici" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="mydbModel.lokacije" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="mydbModel.radnici" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="mydbModel.rasporedi" Width="1.5" PointX="6" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="mydbModel.status_d" Width="1.5" PointX="6" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="mydbModel.status_e" Width="1.5" PointX="6" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="mydbModel.status_pr" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="mydbModel.status_ps" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
-        <AssociationConnector Association="mydbModel.fk_Kartoni_Korisnici1" ManuallyRouted="false" />
+      <Diagram DiagramId="001fbd41fdfe4af78ff2a966b1d6ae54" Name="Diagram1">
+        <EntityTypeShape EntityType="mydbModel.kartoni" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.korisnici" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.lokacije" Width="1.5" PointX="1.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.radnici" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.rasporedi" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.status_d" Width="1.5" PointX="6" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.status_e" Width="1.5" PointX="6" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.status_pr" Width="1.5" PointX="6" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="mydbModel.status_ps" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
         <AssociationConnector Association="mydbModel.fk_Kartoni_Radnici1" ManuallyRouted="false" />
         <AssociationConnector Association="mydbModel.fk_Kartoni_Radnici2" ManuallyRouted="false" />
         <AssociationConnector Association="mydbModel.fk_Kartoni_Radnici3" ManuallyRouted="false" />
         <AssociationConnector Association="mydbModel.fk_Kartoni_Radnici4" ManuallyRouted="false" />
         <AssociationConnector Association="mydbModel.fk_Korisnici_Lokacija" ManuallyRouted="false" />
-        <AssociationConnector Association="mydbModel.fk_Rasporedi_Korisnici1" ManuallyRouted="false" />
         <AssociationConnector Association="mydbModel.fk_Status_D_Korisnici1" ManuallyRouted="false" />
         <AssociationConnector Association="mydbModel.fk_Status_E_Korisnici1" ManuallyRouted="false" />
         <AssociationConnector Association="mydbModel.fk_Status_Pr_Korisnici1" ManuallyRouted="false" />
@@ -30,6 +28,7 @@
         <AssociationConnector Association="mydbModel.fk_Status_E_Radnici1" ManuallyRouted="false" />
         <AssociationConnector Association="mydbModel.fk_Status_Pr_Radnici1" ManuallyRouted="false" />
         <AssociationConnector Association="mydbModel.fk_Status_Ps_Radnici1" ManuallyRouted="false" />
+        <AssociationConnector Association="mydbModel.fk_Rasporedi_Korisnici1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

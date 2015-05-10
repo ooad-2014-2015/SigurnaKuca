@@ -21,6 +21,7 @@ namespace Forme
     
         public int ID { get; set; }
         public string Adresa { get; set; }
+        public Nullable<bool> Zauzeta { get; set; }
     
         public virtual ICollection<korisnici> korisnici { get; set; }
     }

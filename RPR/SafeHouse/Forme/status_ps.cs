@@ -17,6 +17,10 @@ namespace Forme
         public int ID { get; set; }
         public int ID_K { get; set; }
         public int ID_R { get; set; }
+        public bool Doktor { get; set; }
+        public string LicniUtisak { get; set; }
+        public string Dijagnoza { get; set; }
+        public string Historija { get; set; }
     
         public virtual korisnici korisnici { get; set; }
         public virtual radnici radnici { get; set; }
