@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SafeHouse;
-using SafeHouse;
+
 
 namespace SafeHouse
 {
@@ -30,33 +30,42 @@ namespace SafeHouse
             // ZA ADMINA
             if (username_textbox.Text == Convert.ToString("admin") && password_textbox.Text == Convert.ToString("admin"))
             {
+                
                 AdminForma f = new AdminForma();
-                f.ShowDialog();
                 this.Hide();
+                f.ShowDialog();
             }
 
             // ZA DOKTORA
             else if (user[0] == 'd')
             {
-                mydbEntities db = new mydbEntities();
-                string dok = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.Password).Single();
-                if (dok == pass)
+                
+                try
                 {
-                    GlobalneVarijable.TrenutniDoktor = user;
-                    DoktorForm doc = new DoktorForm();
-                    doc.ShowDialog();
-                    this.Close();
-                   
-                }
-                else
-                {
-                    errorProvider1.SetError(username_textbox, "Unesite ispravan username ili password");
-                    errorProvider1.SetError(password_textbox, "Unesite ispravan username ili password");
-                }
+                    mydbEntities db = new mydbEntities();
+                    string dok = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.Password).Single();
+                    if (dok == pass)
+                    {
+                        GlobalneVarijable.TrenutniDoktor = user;
+                        DoktorForm doc = new DoktorForm();
+                        doc.ShowDialog();
+                        this.Close();
 
-                DoktorForm doktor = new DoktorForm();
-                doktor.ShowDialog();
-                this.Hide();
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(prijava_button, "Šifra nije validna. Pokušajte ponovo!");
+                    }
+
+                    DoktorForm doktor = new DoktorForm();
+                    doktor.ShowDialog();
+                    this.Hide();
+                }
+                catch(ArgumentException f)
+                {
+                   errorProvider1.SetError(prijava_button, "Username ne postoji. Pokušajte ponovo!");
+                }
+                    
             }
                 //ZA EKONOMISTU
             else if (user[0] == 'e')
@@ -73,8 +82,7 @@ namespace SafeHouse
                 }
                 else
                 {
-                    errorProvider1.SetError(username_textbox, "Unesite ispravan username ili password");
-                    errorProvider1.SetError(password_textbox, "Unesite ispravan username ili password");
+                    errorProvider1.SetError(prijava_button, "Korisnik ne postoji. Pokušajte ponovo!");
                 }
             }
              // ZA PSIHOLOGA
@@ -92,8 +100,7 @@ namespace SafeHouse
                 }
                 else
                 {
-                    errorProvider1.SetError(username_textbox, "Unesite ispravan username ili password");
-                    errorProvider1.SetError(password_textbox, "Unesite ispravan username ili password");
+                    errorProvider1.SetError(prijava_button, "Korisnik ne postoji. Pokušajte ponovo!");
                 }
             }
                     // ZA PRAVNIKA
@@ -110,12 +117,12 @@ namespace SafeHouse
                 }
                 else
                 {
-                    errorProvider1.SetError(username_textbox, "Unesite ispravan username ili password");
-                    errorProvider1.SetError(password_textbox, "Unesite ispravan username ili password");
+                    errorProvider1.SetError(prijava_button, "Korisnik ne postoji. Pokušajte ponovo!");
                 }
             }
-            else
+            else if((user[0]!='p' && user[1]!='r') || (user[0]!='p' && user[1]!='s') || user[0]!='d' || user[0]!='e')
             {
+
                 mydbEntities db = new mydbEntities();
                 string kor = (from k in db.korisnici where (k.Username == user) select k.Password).Single();
                 if (kor == pass)
@@ -130,19 +137,23 @@ namespace SafeHouse
                     errorProvider1.SetError(username_textbox, "Unesite ispravan username ili password");
                     errorProvider1.SetError(password_textbox, "Unesite ispravan username ili password");
                 }
+
+                errorProvider1.SetError(prijava_button, "Korisnik ne postoji. Pokušajte ponovo!");
+
             }
 
         }
 
         private void username_textbox_TextChanged(object sender, EventArgs e)
         {
-            if (errorProvider1.GetError(username_textbox) != "") errorProvider1.Clear();
+            if (errorProvider1.GetError(username_textbox) == "") errorProvider1.Clear();
             
         }
 
         private void password_textbox_TextChanged(object sender, EventArgs e)
         {
-            if (errorProvider1.GetError(password_textbox) != "") errorProvider1.Clear();
+            if (errorProvider1.GetError(password_textbox) == "") errorProvider1.Clear();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

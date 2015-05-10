@@ -118,6 +118,7 @@
           <Property Name="Username" Type="varchar" MaxLength="20" />
           <Property Name="Password" Type="varchar" MaxLength="20" />
           <Property Name="Opis" Type="int" />
+          <Property Name="DatumRodjenja" Type="date" />
         </EntityType>
         <EntityType Name="rasporedi">
           <Key>
@@ -485,6 +486,7 @@
           <Property Name="Username" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="Password" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
           <Property Name="Opis" Type="Int32" />
+          <Property Name="DatumRodjenja" Type="DateTime" Precision="0" />
           <NavigationProperty Name="kartoni" Relationship="mydbModel.fk_Kartoni_Radnici1" FromRole="radnici" ToRole="kartoni" />
           <NavigationProperty Name="kartoni1" Relationship="mydbModel.fk_Kartoni_Radnici2" FromRole="radnici" ToRole="kartoni" />
           <NavigationProperty Name="kartoni2" Relationship="mydbModel.fk_Kartoni_Radnici3" FromRole="radnici" ToRole="kartoni" />
@@ -792,6 +794,7 @@
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="DatumRodjenja" ColumnName="DatumRodjenja" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

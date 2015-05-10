@@ -74,6 +74,7 @@
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
+
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -82,6 +83,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(145, 143);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+
             // 
             // label1
             // 
@@ -437,6 +439,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             this.ClientSize = new System.Drawing.Size(763, 427);
             this.Controls.Add(this.linkLabel_logOutKorisnik);
             this.Controls.Add(this.tabControl1);
