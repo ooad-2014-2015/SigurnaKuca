@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SafeHouse;
-using SafeHouse;
+
 
 namespace SafeHouse
 {
@@ -385,6 +385,13 @@ namespace SafeHouse
 
 
 
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            StartForm sf = new StartForm();
+            this.Hide();
+            sf.ShowDialog();
         }
 
     }
