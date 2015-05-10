@@ -57,7 +57,10 @@ namespace SafeHouse
             // unos radnika u bazu
             mydbEntities db = new mydbEntities();
             db.radnici.Add(new radnici() { Ime = textbox_imeRadnika.Text, Prezime = textbox_prezimeRadnika.Text, Username = textbox_usernameRadnika.Text, Password = textbox_passwordRadnika.Text, Opis = combobox_opisPoslaRadnika.SelectedIndex });
+            
             db.SaveChanges();
+
+
 
             // dodavanje u liste odgovarajućih zaposlenih sa osnovnim podacima
 
@@ -188,29 +191,35 @@ namespace SafeHouse
 
 
                 // ZA BAZU Podataka
-                // KAD se doda atribut u lokaciju da li je zauzeta da se to promjeni
-                /* mydbEntities db = new mydbEntities();
-                var lokacija = (from l in db.lokacije where l.ID==comboBox_lokacijaKorisnika.SelectedIndex select l).Single();
-                lokacija.Cekiran = true;  
-                 */
+         
+                mydbEntities db = new mydbEntities();
+                var lokacija = (from l in db.lokacije where l.Adresa == comboBox_lokacijaKorisnika.SelectedItem select l).Single();
+                lokacija.Zauzeta = true;  
+                
 
                 string osobe = "";
                 foreach (string s in comboBox_dodaneOsobe.Items)
                     osobe += s;
 
-                mydbEntities db = new mydbEntities();
-                db.korisnici.Add(new korisnici() { Ime = textBox_imeKorisnika.Text, Prezime = textBox_prezimeKorisnika.Text, Username = textBox_usernameKorisnika.Text, Password = textBox_passwordKorisnika.Text, Lokacija_ID = comboBox_lokacijaKorisnika.SelectedIndex });  // promjeniti ovo LOKACIJA_ID kad se ubaci da li je slobodna 
+                bool anoniman = false;
+                if (radioButton_potpunoAnoniman.Checked) anoniman = true;
+
+                db.korisnici.Add(new korisnici() { Ime = textBox_imeKorisnika.Text, Prezime = textBox_prezimeKorisnika.Text, Username = textBox_usernameKorisnika.Text, Password = textBox_passwordKorisnika.Text, Lokacija_ID = lokacija.ID, DatumRodjenja = dateTimePicker_datRodjenjaKorisnika.Value.Date, Anonimnost=anoniman, DodatneOsobe=osobe });
+
+
+                if (radioButton_djelomičnoAnoniman.Checked)
+                // dodavanje kartona
+                {
+                    db.kartoni.Add(new kartoni() { ID_D = comboBox_personalniDoktor.SelectedIndex, ID_Ps = comboBox_personalniPsiholog.SelectedIndex, ID_E = 0, ID_Pr = 0 });
+                }
+                if (radioButton_potpunoAnoniman.Checked)
+                {
+                    db.kartoni.Add(new kartoni() { ID_D=comboBox_personalniDoktorAnonimniKorisnik.SelectedIndex, ID_E=comboBox_personalniEkonomistaAnonimniKorisnik.SelectedIndex, ID_Pr=comboBox_personalniPravnikAnonimniKorisnik.SelectedIndex, ID_Ps = comboBox_personalniPsihologAnonimniKorisnik.SelectedIndex });
+                }
+                
+
                 db.SaveChanges();
-
-                var koris = (from ko in db.korisnici where ko.Username == textBox_usernameKorisnika.Text select ko).Single();
-                int id = koris.ID;
-
-                // dodati dodavanje kartona uporedo
-
-                db.kartoni.Add(new kartoni() { ID_D = comboBox_personalniDoktor.SelectedIndex, ID_Ps = comboBox_personalniPsiholog.SelectedIndex });
-                db.SaveChanges();
-
-                // dodati još dio da se doda opisi nakon nove baze
+               
 
             }
         }
@@ -255,9 +264,12 @@ namespace SafeHouse
 
             groupBox_anonimniKorisnik.Visible = false;
             groupBox_djelomičnoAnonimniKorisnik.Visible = true;
+
             
             // u pozadini
-           /* mydbEntities db = new mydbEntities();
+            comboBox_personalniDoktor.Items.Clear();
+            comboBox_personalniPsiholog.Items.Clear();
+            mydbEntities db = new mydbEntities();
             var doktori = (from d in db.radnici where d.Opis == 0 select d).ToArray();
 
             foreach (var a in doktori)
@@ -267,7 +279,7 @@ namespace SafeHouse
             foreach (var p in psih)
                 comboBox_personalniPsiholog.Items.Add(p.Ime + " " + p.Prezime);
 
-            db.SaveChanges();*/
+            db.SaveChanges();
 
         }
 
@@ -280,11 +292,11 @@ namespace SafeHouse
 
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
-          /*  mydbEntities db = new mydbEntities();
-            var lokacije = (from l in db.lokacije select l).ToArray();  //kasnije: dodati provjeru da li je zauzeta
+            mydbEntities db = new mydbEntities();
+            var lokacije = (from l in db.lokacije where l.Zauzeta == null select l).ToArray();
 
             foreach (var a in lokacije)
-                comboBox_lokacijaKorisnika.Items.Add(a.Adresa);*/
+                comboBox_lokacijaKorisnika.Items.Add(a.Adresa);
         }
 
         private void radioButton_potpunoAnoniman_CheckedChanged(object sender, EventArgs e)
@@ -325,6 +337,30 @@ namespace SafeHouse
 
             groupBox_djelomičnoAnonimniKorisnik.Visible = false;
             groupBox_anonimniKorisnik.Visible = true;
+
+            // u pozadini
+            comboBox_personalniDoktorAnonimniKorisnik.Items.Clear();
+            comboBox_personalniEkonomistaAnonimniKorisnik.Items.Clear();
+            comboBox_personalniPravnikAnonimniKorisnik.Items.Clear();
+            comboBox_personalniPsihologAnonimniKorisnik.Items.Clear();
+            mydbEntities db = new mydbEntities();
+            
+            var doktori = (from d in db.radnici where d.Opis == 0 select d).ToArray();
+            foreach (var a in doktori)
+                comboBox_personalniDoktorAnonimniKorisnik.Items.Add(a.Ime + " " + a.Prezime);
+
+            var psih = (from d in db.radnici where d.Opis == 1 select d).ToArray();
+            foreach (var p in psih)
+                comboBox_personalniPsihologAnonimniKorisnik.Items.Add(p.Ime + " " + p.Prezime);
+
+            var ek = (from eko in db.radnici where eko.Opis == 2 select eko).ToArray();
+            foreach (var a in ek)
+                comboBox_personalniEkonomistaAnonimniKorisnik.Items.Add(a.Ime + " " + a.Prezime);
+
+            var pr = (from p in db.radnici where p.Opis == 3 select p).ToArray();
+            foreach (var a in pr)
+                comboBox_personalniPravnikAnonimniKorisnik.Items.Add(a.Ime + " " + a.Prezime);
+
 
 
         }

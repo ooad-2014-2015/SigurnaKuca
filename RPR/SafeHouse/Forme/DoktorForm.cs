@@ -31,6 +31,9 @@ namespace SafeHouse
             // pronalazak doktora
             var doktor = (from d in db.radnici where d.Username == GlobalneVarijable.TrenutniDoktor select d).Single();
 
+            label3.Text = doktor.Ime;
+            label4.Text = doktor.Prezime;
+
             // pronalazak pacijenata za tog doktora
             var karton = (from kar in db.kartoni where kar.ID_D == doktor.ID select kar.ID).ToArray();
 
@@ -40,6 +43,38 @@ namespace SafeHouse
                 var koris = (from ko in db.korisnici where ko.ID == k select ko).Single();
                 listBox_listaPacijenata.Text += (koris.Ime + " " + koris.Prezime + "\n");
             }
+        }
+
+        private void listBox_listaPacijenata_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mydbEntities db = new mydbEntities();
+
+            string pomocna = listBox_listaPacijenata.SelectedItem.ToString();
+            string[] ime = pomocna.Split(' ');
+
+            var korisnik = (from kor in db.korisnici where kor.Prezime == ime[2] select kor).Single();
+            var korisnikStatus = (from stat in db.status_d where stat.ID_K == korisnik.ID select stat).Single();
+
+            richTextBox3.Text = korisnikStatus.Historija;
+            richTextBox2.Text = korisnikStatus.LicniUtisak;
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            mydbEntities db = new mydbEntities();
+
+            string nalazi = richTextBox1.Text;
+
+            string pomocna = listBox_listaPacijenata.SelectedItem.ToString();
+            string[] ime = pomocna.Split(' ');
+
+            var korisnik = (from kor in db.korisnici where kor.Prezime == ime[2] select kor).Single();
+            var korisnikStatus = (from stat in db.status_d where stat.ID_K == korisnik.ID select stat).Single();
+            korisnikStatus.Nalazi = nalazi;
+            korisnikStatus.Historija+=nalazi;
+            
+            db.SaveChanges();
         }
 
        
