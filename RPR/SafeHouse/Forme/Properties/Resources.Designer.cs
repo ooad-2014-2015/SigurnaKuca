@@ -63,6 +63,26 @@ namespace Forme.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1152x864 {
+            get {
+                object obj = ResourceManager.GetObject("1152x864", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1385950384_user_male2 {
+            get {
+                object obj = ResourceManager.GetObject("1385950384_user_male2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap economics_assignment_help {
             get {
                 object obj = ResourceManager.GetObject("economics-assignment-help", resourceCulture);
