@@ -29,20 +29,20 @@ namespace SafeHouse
         {
             mydbEntities db = new mydbEntities();
             // pronalazak doktora
-            var doktor = (from d in db.radnici where d.Username == GlobalneVarijable.TrenutniDoktor select d).Single();
+             var doktor = (from d in db.radnici where d.Username == GlobalneVarijable.TrenutniDoktor select d).Single();
 
-            label3.Text = doktor.Ime;
-            label4.Text = doktor.Prezime;
+                label3.Text = doktor.Ime;
+                label4.Text = doktor.Prezime;
 
-            // pronalazak pacijenata za tog doktora
-            var karton = (from kar in db.kartoni where kar.ID_D == doktor.ID select kar.ID).ToArray();
+                var karton = (from kar in db.kartoni where kar.ID_D == doktor.ID select kar.ID).ToArray();
 
 
-            foreach (var k in karton)
-            {
-                var koris = (from ko in db.korisnici where ko.ID == k select ko).Single();
-                listBox_listaPacijenata.Items.Add(koris.ID);
-            }
+                foreach (var k in karton)
+                {
+                    var koris = (from ko in db.korisnici where ko.ID == k select ko).Single();
+                    listBox_listaPacijenata.Items.Add(koris.ID);
+                }
+            
         }
 
         private void listBox_listaPacijenata_SelectedIndexChanged(object sender, EventArgs e)
