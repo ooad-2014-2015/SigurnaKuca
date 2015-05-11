@@ -55,7 +55,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.button_addOsobe = new System.Windows.Forms.Button();
             this.textBox_dodajOsobu = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.comboBox_personalniPsiholog = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -315,7 +314,6 @@
             // groupBox_djelomičnoAnonimniKorisnik
             // 
             this.groupBox_djelomičnoAnonimniKorisnik.Controls.Add(this.groupBox3);
-            this.groupBox_djelomičnoAnonimniKorisnik.Controls.Add(this.label12);
             this.groupBox_djelomičnoAnonimniKorisnik.Controls.Add(this.comboBox_personalniPsiholog);
             this.groupBox_djelomičnoAnonimniKorisnik.Controls.Add(this.label11);
             this.groupBox_djelomičnoAnonimniKorisnik.Controls.Add(this.label10);
@@ -342,7 +340,7 @@
             this.groupBox3.Size = new System.Drawing.Size(319, 82);
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
+            this.groupBox3.Text = "Osobe upoznate sa slučajem:";
             // 
             // comboBox_dodaneOsobe
             // 
@@ -377,15 +375,6 @@
             this.textBox_dodajOsobu.Name = "textBox_dodajOsobu";
             this.textBox_dodajOsobu.Size = new System.Drawing.Size(150, 23);
             this.textBox_dodajOsobu.TabIndex = 7;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(9, 123);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(177, 16);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "Osobe upoznate sa slučajem:\r\n";
             // 
             // comboBox_personalniPsiholog
             // 
@@ -701,7 +690,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(599, 349);
+            this.tabPage3.Size = new System.Drawing.Size(655, 349);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Upravljanje zahtjevima";
             // 
@@ -711,7 +700,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(599, 349);
+            this.tabPage4.Size = new System.Drawing.Size(655, 349);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Upravljanje rasporedima";
             // 
@@ -834,7 +823,6 @@
         private System.Windows.Forms.Button button_registrujKorisnika;
         private System.Windows.Forms.Button button_addOsobe;
         private System.Windows.Forms.TextBox textBox_dodajOsobu;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox comboBox_lokacijaKorisnika;
         private System.Windows.Forms.Label label14;

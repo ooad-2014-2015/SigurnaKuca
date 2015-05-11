@@ -78,7 +78,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Location = new System.Drawing.Point(13, 14);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(130, 127);
             this.pictureBox1.TabIndex = 0;
@@ -114,12 +114,11 @@
             this.label3.Size = new System.Drawing.Size(43, 15);
             this.label3.TabIndex = 3;
             this.label3.Text = "ID broj";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(17, 375);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 34);
             this.button1.TabIndex = 4;
@@ -134,11 +133,12 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(151, 14);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(696, 419);
             this.tabControl1.TabIndex = 5;
+            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // tabPage1
             // 
@@ -148,9 +148,9 @@
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.richTextBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(688, 391);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Lični karton";
@@ -162,9 +162,9 @@
             this.groupBox1.Controls.Add(this.radioButton_ekonomskaRjesenjaKorisnik);
             this.groupBox1.Controls.Add(this.radioButton_pravnaRjesenjaKorisnik);
             this.groupBox1.Location = new System.Drawing.Point(21, 246);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(641, 113);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
@@ -174,7 +174,7 @@
             // richTextBox3
             // 
             this.richTextBox3.Location = new System.Drawing.Point(154, 22);
-            this.richTextBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.richTextBox3.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.Size = new System.Drawing.Size(469, 73);
             this.richTextBox3.TabIndex = 2;
@@ -184,7 +184,7 @@
             // 
             this.radioButton_ekonomskaRjesenjaKorisnik.AutoSize = true;
             this.radioButton_ekonomskaRjesenjaKorisnik.Location = new System.Drawing.Point(17, 57);
-            this.radioButton_ekonomskaRjesenjaKorisnik.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton_ekonomskaRjesenjaKorisnik.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton_ekonomskaRjesenjaKorisnik.Name = "radioButton_ekonomskaRjesenjaKorisnik";
             this.radioButton_ekonomskaRjesenjaKorisnik.Size = new System.Drawing.Size(137, 19);
             this.radioButton_ekonomskaRjesenjaKorisnik.TabIndex = 1;
@@ -197,7 +197,7 @@
             // 
             this.radioButton_pravnaRjesenjaKorisnik.AutoSize = true;
             this.radioButton_pravnaRjesenjaKorisnik.Location = new System.Drawing.Point(17, 31);
-            this.radioButton_pravnaRjesenjaKorisnik.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton_pravnaRjesenjaKorisnik.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton_pravnaRjesenjaKorisnik.Name = "radioButton_pravnaRjesenjaKorisnik";
             this.radioButton_pravnaRjesenjaKorisnik.Size = new System.Drawing.Size(110, 19);
             this.radioButton_pravnaRjesenjaKorisnik.TabIndex = 0;
@@ -219,7 +219,7 @@
             // richTextBox2
             // 
             this.richTextBox2.Location = new System.Drawing.Point(18, 153);
-            this.richTextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.richTextBox2.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(644, 85);
             this.richTextBox2.TabIndex = 2;
@@ -238,7 +238,7 @@
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(18, 39);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(644, 84);
             this.richTextBox1.TabIndex = 0;
@@ -250,11 +250,11 @@
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.groupBox_obavjestOZahtjevimaKorisniku);
             this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage2.Size = new System.Drawing.Size(724, 417);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Size = new System.Drawing.Size(688, 391);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Zahtjevi";
             // 
@@ -275,9 +275,9 @@
             // 
             this.groupBox_obavjestOZahtjevimaKorisniku.BackColor = System.Drawing.Color.OldLace;
             this.groupBox_obavjestOZahtjevimaKorisniku.Location = new System.Drawing.Point(18, 250);
-            this.groupBox_obavjestOZahtjevimaKorisniku.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox_obavjestOZahtjevimaKorisniku.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox_obavjestOZahtjevimaKorisniku.Name = "groupBox_obavjestOZahtjevimaKorisniku";
-            this.groupBox_obavjestOZahtjevimaKorisniku.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox_obavjestOZahtjevimaKorisniku.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox_obavjestOZahtjevimaKorisniku.Size = new System.Drawing.Size(640, 154);
             this.groupBox_obavjestOZahtjevimaKorisniku.TabIndex = 2;
             this.groupBox_obavjestOZahtjevimaKorisniku.TabStop = false;
@@ -292,9 +292,9 @@
             this.groupBox2.Controls.Add(this.checkBox4);
             this.groupBox2.Controls.Add(this.checkBox3);
             this.groupBox2.Location = new System.Drawing.Point(15, 7);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(651, 199);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
@@ -305,9 +305,9 @@
             this.groupBox5.Controls.Add(this.checkBox_standardniTermini);
             this.groupBox5.Controls.Add(this.checkBox_dodatniTermini);
             this.groupBox5.Location = new System.Drawing.Point(276, 39);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox5.Size = new System.Drawing.Size(354, 119);
             this.groupBox5.TabIndex = 8;
             this.groupBox5.TabStop = false;
@@ -317,7 +317,7 @@
             // 
             this.checkBox_standardniTermini.AutoSize = true;
             this.checkBox_standardniTermini.Location = new System.Drawing.Point(27, 65);
-            this.checkBox_standardniTermini.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox_standardniTermini.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox_standardniTermini.Name = "checkBox_standardniTermini";
             this.checkBox_standardniTermini.Size = new System.Drawing.Size(323, 19);
             this.checkBox_standardniTermini.TabIndex = 1;
@@ -328,7 +328,7 @@
             // 
             this.checkBox_dodatniTermini.AutoSize = true;
             this.checkBox_dodatniTermini.Location = new System.Drawing.Point(27, 38);
-            this.checkBox_dodatniTermini.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox_dodatniTermini.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox_dodatniTermini.Name = "checkBox_dodatniTermini";
             this.checkBox_dodatniTermini.Size = new System.Drawing.Size(259, 19);
             this.checkBox_dodatniTermini.TabIndex = 0;
@@ -340,18 +340,19 @@
             this.groupBox_zahtjeviZaAnonimnogKorisnika.Controls.Add(this.checkBox1);
             this.groupBox_zahtjeviZaAnonimnogKorisnika.Controls.Add(this.checkBox2);
             this.groupBox_zahtjeviZaAnonimnogKorisnika.Location = new System.Drawing.Point(18, 86);
-            this.groupBox_zahtjeviZaAnonimnogKorisnika.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox_zahtjeviZaAnonimnogKorisnika.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox_zahtjeviZaAnonimnogKorisnika.Name = "groupBox_zahtjeviZaAnonimnogKorisnika";
-            this.groupBox_zahtjeviZaAnonimnogKorisnika.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox_zahtjeviZaAnonimnogKorisnika.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox_zahtjeviZaAnonimnogKorisnika.Size = new System.Drawing.Size(202, 71);
             this.groupBox_zahtjeviZaAnonimnogKorisnika.TabIndex = 7;
             this.groupBox_zahtjeviZaAnonimnogKorisnika.TabStop = false;
+            this.groupBox_zahtjeviZaAnonimnogKorisnika.Visible = false;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(7, 16);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(162, 19);
             this.checkBox1.TabIndex = 0;
@@ -362,7 +363,7 @@
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(7, 43);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(189, 19);
             this.checkBox2.TabIndex = 1;
@@ -372,7 +373,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(522, 165);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(108, 29);
             this.button2.TabIndex = 4;
@@ -383,7 +384,7 @@
             // 
             this.checkBox4.AutoSize = true;
             this.checkBox4.Location = new System.Drawing.Point(18, 66);
-            this.checkBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox4.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(188, 19);
             this.checkBox4.TabIndex = 3;
@@ -394,7 +395,7 @@
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.Location = new System.Drawing.Point(18, 39);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox3.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(184, 19);
             this.checkBox3.TabIndex = 2;
@@ -404,11 +405,11 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.groupBox4);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage3.Size = new System.Drawing.Size(724, 417);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage3.Size = new System.Drawing.Size(688, 391);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Web";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -417,9 +418,9 @@
             // 
             this.groupBox4.Controls.Add(this.webBrowser1);
             this.groupBox4.Location = new System.Drawing.Point(20, 36);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(647, 364);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
@@ -429,7 +430,7 @@
             // 
             this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webBrowser1.Location = new System.Drawing.Point(4, 18);
-            this.webBrowser1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.webBrowser1.Margin = new System.Windows.Forms.Padding(4);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(24, 23);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(639, 342);
@@ -437,22 +438,22 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage4.Size = new System.Drawing.Size(724, 417);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage4.Size = new System.Drawing.Size(688, 391);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Iskustva prethodnih korisnika";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // tabPage5
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 25);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Location = new System.Drawing.Point(4, 24);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage5.Size = new System.Drawing.Size(724, 417);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage5.Size = new System.Drawing.Size(688, 391);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Pomoć";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -490,7 +491,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "KorisnikForm";
             this.Text = "Korisnik";
             this.Load += new System.EventHandler(this.Korisnik_Load);

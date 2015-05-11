@@ -79,9 +79,12 @@ namespace SafeHouse
             }
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
-
+            mydbEntities db = new mydbEntities();
+            // pronalazak korisnika
+            var korisnik = (from k in db.korisnici where k.Username == GlobalneVarijable.TrenutniKorisnik select k).Single();
+            if (korisnik.Anonimnost == true) groupBox_zahtjeviZaAnonimnogKorisnika.Visible = true;
         }
 
         
