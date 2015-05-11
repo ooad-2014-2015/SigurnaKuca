@@ -51,8 +51,9 @@ namespace SafeHouse
 
             string pomocna = listBox_listaPacijenata.SelectedItem.ToString();
             string[] ime = pomocna.Split(' ');
+            string novi = ime[2].Substring(ime[2].Length - 2, ime[2].Length);
 
-            var korisnik = (from kor in db.korisnici where kor.Prezime == ime[2] select kor).Single();
+            var korisnik = (from kor in db.korisnici where kor.Prezime == novi select kor).Single();
             var korisnikStatus = (from stat in db.status_d where stat.ID_K == korisnik.ID select stat).Single();
 
             richTextBox3.Text = korisnikStatus.Historija;

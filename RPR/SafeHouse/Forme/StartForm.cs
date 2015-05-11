@@ -37,7 +37,7 @@ namespace SafeHouse
             }
 
             // ZA DOKTORA
-            else if (user[0] == 'D')
+            else if (user[0] == 'd')
             {
                 
                 try

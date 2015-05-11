@@ -46,8 +46,8 @@
             this.username_label.AutoSize = true;
             this.username_label.BackColor = System.Drawing.Color.Transparent;
             this.username_label.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.username_label.ForeColor = System.Drawing.Color.Red;
-            this.username_label.Location = new System.Drawing.Point(208, 69);
+            this.username_label.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.username_label.Location = new System.Drawing.Point(214, 74);
             this.username_label.Name = "username_label";
             this.username_label.Size = new System.Drawing.Size(85, 18);
             this.username_label.TabIndex = 0;
@@ -58,8 +58,8 @@
             this.password_label.AutoSize = true;
             this.password_label.BackColor = System.Drawing.Color.Transparent;
             this.password_label.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.password_label.ForeColor = System.Drawing.Color.Red;
-            this.password_label.Location = new System.Drawing.Point(214, 97);
+            this.password_label.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.password_label.Location = new System.Drawing.Point(220, 100);
             this.password_label.Name = "password_label";
             this.password_label.Size = new System.Drawing.Size(79, 18);
             this.password_label.TabIndex = 1;
@@ -78,7 +78,7 @@
             // password_textbox
             // 
             this.password_textbox.BackColor = System.Drawing.Color.Gainsboro;
-            this.password_textbox.Location = new System.Drawing.Point(299, 95);
+            this.password_textbox.Location = new System.Drawing.Point(299, 98);
             this.password_textbox.Name = "password_textbox";
             this.password_textbox.Size = new System.Drawing.Size(120, 20);
             this.password_textbox.TabIndex = 3;
@@ -87,10 +87,10 @@
             // 
             // prijava_button
             // 
-            this.prijava_button.BackColor = System.Drawing.Color.Transparent;
+            this.prijava_button.BackColor = System.Drawing.Color.White;
             this.prijava_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.prijava_button.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.prijava_button.ForeColor = System.Drawing.Color.Red;
+            this.prijava_button.ForeColor = System.Drawing.Color.MidnightBlue;
             this.prijava_button.Location = new System.Drawing.Point(336, 139);
             this.prijava_button.Name = "prijava_button";
             this.prijava_button.Size = new System.Drawing.Size(83, 26);
@@ -126,7 +126,7 @@
             this.AcceptButton = this.prijava_button;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::SafeHouse.Properties.Resources.black_background_wood_wallpaper_1600x900;
+            this.BackgroundImage = global::SafeHouse.Properties.Resources.Background_69;
             this.ClientSize = new System.Drawing.Size(522, 282);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);

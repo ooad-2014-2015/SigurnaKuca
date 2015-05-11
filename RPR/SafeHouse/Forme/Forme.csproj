@@ -269,6 +269,21 @@
   <ItemGroup>
     <None Include="Resources\black_background_wood-wallpaper-1600x900.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Simple-Backgrounds-8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grey_background_with_black_bold_lines-1280x800.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foliage-swirls-000122-gray-black.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background_69.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\human_body_logo6.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
