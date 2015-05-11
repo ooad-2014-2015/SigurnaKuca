@@ -127,19 +127,19 @@ namespace SafeHouse
 
             if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 0 && priv[0] != 'd')
             {
-                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
+                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!"); return;
             }
             if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 1 && priv[0] != 'p' && priv[1]!='s')
             {
-                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
+                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!"); return;
             }
             if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 2 && priv[0] != 'e')
             {
-                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
+                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!"); return;
             }
             if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 3 && priv[0] != 'p' && priv[1]!='r')
             {
-                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
+                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!"); return;
             }
         }
 

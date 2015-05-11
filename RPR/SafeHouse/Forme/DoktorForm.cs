@@ -51,6 +51,7 @@ namespace SafeHouse
 
             string pomocna = listBox_listaPacijenata.SelectedItem.ToString();
             string[] ime = pomocna.Split(' ');
+
             string prezime = ime[1];
 
             var korisnik = (from kor in db.korisnici where kor.Prezime == prezime select kor).Single();
