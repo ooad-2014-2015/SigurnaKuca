@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Forme
+namespace SafeHouse
 {
     using System;
     using System.Collections.Generic;
@@ -20,7 +20,6 @@ namespace Forme
         public string Nalazi { get; set; }
         public string LicniUtisak { get; set; }
         public string Historija { get; set; }
-        public Nullable<bool> Psiholog { get; set; }
         public Nullable<System.DateTime> DatumPromjene { get; set; }
     
         public virtual korisnici korisnici { get; set; }

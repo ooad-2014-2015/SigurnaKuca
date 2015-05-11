@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Forme
+namespace SafeHouse
 {
     using System;
     using System.Collections.Generic;
@@ -33,6 +33,7 @@ namespace Forme
         public string Username { get; set; }
         public string Password { get; set; }
         public Nullable<int> Opis { get; set; }
+        public Nullable<System.DateTime> DatumRodjenja { get; set; }
     
         public virtual ICollection<kartoni> kartoni { get; set; }
         public virtual ICollection<kartoni> kartoni1 { get; set; }

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Forme
+namespace SafeHouse
 {
     using System;
     using System.Collections.Generic;
@@ -16,8 +16,8 @@ namespace Forme
     {
         public int ID { get; set; }
         public int ID_D { get; set; }
-        public int ID_Pr { get; set; }
-        public int ID_E { get; set; }
+        public Nullable<int> ID_Pr { get; set; }
+        public Nullable<int> ID_E { get; set; }
         public int ID_Ps { get; set; }
     
         public virtual radnici radnici { get; set; }

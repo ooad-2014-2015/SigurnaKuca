@@ -1,4 +1,4 @@
-﻿namespace Forme
+﻿namespace SafeHouse
 {
     partial class PravnikForm
     {
@@ -35,16 +35,16 @@
             this.listBox_listaKorisnikaPravnik = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.richTextBox_opisProblemaPravnik = new System.Windows.Forms.RichTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.richTextBox_prijedlogRjesenja = new System.Windows.Forms.RichTextBox();
-            this.richTextBox_historijaRjesenjaPravnik = new System.Windows.Forms.RichTextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.richTextBox_licneBiljeskePravnik = new System.Windows.Forms.RichTextBox();
             this.button_azurirajRjesenjePravnik = new System.Windows.Forms.Button();
+            this.richTextBox_licneBiljeskePravnik = new System.Windows.Forms.RichTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.richTextBox_historijaRjesenjaPravnik = new System.Windows.Forms.RichTextBox();
+            this.richTextBox_prijedlogRjesenja = new System.Windows.Forms.RichTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.richTextBox_opisProblemaPravnik = new System.Windows.Forms.RichTextBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -91,6 +91,7 @@
             this.listBox_listaKorisnikaPravnik.Name = "listBox_listaKorisnikaPravnik";
             this.listBox_listaKorisnikaPravnik.Size = new System.Drawing.Size(143, 290);
             this.listBox_listaKorisnikaPravnik.TabIndex = 4;
+            this.listBox_listaKorisnikaPravnik.SelectedIndexChanged += new System.EventHandler(this.listBox_listaKorisnikaPravnik_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -119,66 +120,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Opšti podaci o korisniku";
             // 
-            // linkLabel1
+            // button_azurirajRjesenjePravnik
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(827, 5);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(45, 13);
-            this.linkLabel1.TabIndex = 7;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Log Out";
+            this.button_azurirajRjesenjePravnik.Location = new System.Drawing.Point(436, 108);
+            this.button_azurirajRjesenjePravnik.Name = "button_azurirajRjesenjePravnik";
+            this.button_azurirajRjesenjePravnik.Size = new System.Drawing.Size(100, 24);
+            this.button_azurirajRjesenjePravnik.TabIndex = 8;
+            this.button_azurirajRjesenjePravnik.Text = "Ažuriraj rješenje";
+            this.button_azurirajRjesenjePravnik.UseVisualStyleBackColor = true;
+            this.button_azurirajRjesenjePravnik.Click += new System.EventHandler(this.button_azurirajRjesenjePravnik_Click);
             // 
-            // richTextBox_opisProblemaPravnik
+            // richTextBox_licneBiljeskePravnik
             // 
-            this.richTextBox_opisProblemaPravnik.Location = new System.Drawing.Point(17, 36);
-            this.richTextBox_opisProblemaPravnik.Name = "richTextBox_opisProblemaPravnik";
-            this.richTextBox_opisProblemaPravnik.Size = new System.Drawing.Size(150, 269);
-            this.richTextBox_opisProblemaPravnik.TabIndex = 0;
-            this.richTextBox_opisProblemaPravnik.Text = "";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Opis problema";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(194, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Prijedlog rješenja";
-            // 
-            // richTextBox_prijedlogRjesenja
-            // 
-            this.richTextBox_prijedlogRjesenja.Location = new System.Drawing.Point(197, 36);
-            this.richTextBox_prijedlogRjesenja.Name = "richTextBox_prijedlogRjesenja";
-            this.richTextBox_prijedlogRjesenja.Size = new System.Drawing.Size(339, 66);
-            this.richTextBox_prijedlogRjesenja.TabIndex = 3;
-            this.richTextBox_prijedlogRjesenja.Text = "";
-            // 
-            // richTextBox_historijaRjesenjaPravnik
-            // 
-            this.richTextBox_historijaRjesenjaPravnik.Location = new System.Drawing.Point(200, 150);
-            this.richTextBox_historijaRjesenjaPravnik.Name = "richTextBox_historijaRjesenjaPravnik";
-            this.richTextBox_historijaRjesenjaPravnik.Size = new System.Drawing.Size(339, 70);
-            this.richTextBox_historijaRjesenjaPravnik.TabIndex = 4;
-            this.richTextBox_historijaRjesenjaPravnik.Text = "";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(197, 134);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Historija rješenja";
+            this.richTextBox_licneBiljeskePravnik.Location = new System.Drawing.Point(200, 239);
+            this.richTextBox_licneBiljeskePravnik.Name = "richTextBox_licneBiljeskePravnik";
+            this.richTextBox_licneBiljeskePravnik.Size = new System.Drawing.Size(339, 66);
+            this.richTextBox_licneBiljeskePravnik.TabIndex = 7;
+            this.richTextBox_licneBiljeskePravnik.Text = "";
             // 
             // label7
             // 
@@ -189,22 +147,67 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "Lične bilješke";
             // 
-            // richTextBox_licneBiljeskePravnik
+            // label6
             // 
-            this.richTextBox_licneBiljeskePravnik.Location = new System.Drawing.Point(200, 239);
-            this.richTextBox_licneBiljeskePravnik.Name = "richTextBox_licneBiljeskePravnik";
-            this.richTextBox_licneBiljeskePravnik.Size = new System.Drawing.Size(339, 66);
-            this.richTextBox_licneBiljeskePravnik.TabIndex = 7;
-            this.richTextBox_licneBiljeskePravnik.Text = "";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(197, 134);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Historija rješenja";
             // 
-            // button_azurirajRjesenjePravnik
+            // richTextBox_historijaRjesenjaPravnik
             // 
-            this.button_azurirajRjesenjePravnik.Location = new System.Drawing.Point(436, 108);
-            this.button_azurirajRjesenjePravnik.Name = "button_azurirajRjesenjePravnik";
-            this.button_azurirajRjesenjePravnik.Size = new System.Drawing.Size(100, 24);
-            this.button_azurirajRjesenjePravnik.TabIndex = 8;
-            this.button_azurirajRjesenjePravnik.Text = "Ažuriraj rješenje";
-            this.button_azurirajRjesenjePravnik.UseVisualStyleBackColor = true;
+            this.richTextBox_historijaRjesenjaPravnik.Location = new System.Drawing.Point(200, 150);
+            this.richTextBox_historijaRjesenjaPravnik.Name = "richTextBox_historijaRjesenjaPravnik";
+            this.richTextBox_historijaRjesenjaPravnik.Size = new System.Drawing.Size(339, 70);
+            this.richTextBox_historijaRjesenjaPravnik.TabIndex = 4;
+            this.richTextBox_historijaRjesenjaPravnik.Text = "";
+            // 
+            // richTextBox_prijedlogRjesenja
+            // 
+            this.richTextBox_prijedlogRjesenja.Location = new System.Drawing.Point(197, 36);
+            this.richTextBox_prijedlogRjesenja.Name = "richTextBox_prijedlogRjesenja";
+            this.richTextBox_prijedlogRjesenja.Size = new System.Drawing.Size(339, 66);
+            this.richTextBox_prijedlogRjesenja.TabIndex = 3;
+            this.richTextBox_prijedlogRjesenja.Text = "";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(194, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(86, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Prijedlog rješenja";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Opis problema";
+            // 
+            // richTextBox_opisProblemaPravnik
+            // 
+            this.richTextBox_opisProblemaPravnik.Location = new System.Drawing.Point(17, 36);
+            this.richTextBox_opisProblemaPravnik.Name = "richTextBox_opisProblemaPravnik";
+            this.richTextBox_opisProblemaPravnik.Size = new System.Drawing.Size(150, 269);
+            this.richTextBox_opisProblemaPravnik.TabIndex = 0;
+            this.richTextBox_opisProblemaPravnik.Text = "";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(827, 5);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(45, 13);
+            this.linkLabel1.TabIndex = 7;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Log Out";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // PravnikForm
             // 
@@ -221,6 +224,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "PravnikForm";
             this.Text = "Pravnik";
+            this.Load += new System.EventHandler(this.PravnikForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

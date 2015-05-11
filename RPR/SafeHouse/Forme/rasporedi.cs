@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Forme
+namespace SafeHouse
 {
     using System;
     using System.Collections.Generic;
@@ -20,7 +20,7 @@ namespace Forme
         public int ID_R { get; set; }
         public int ID_K { get; set; }
     
-        public virtual radnici radnici { get; set; }
         public virtual korisnici korisnici { get; set; }
+        public virtual radnici radnici { get; set; }
     }
 }
