@@ -27,7 +27,7 @@ namespace SafeHouse
             label2.Text = prav.Prezime;
 
             // pronalazak pacijenata za tog doktora
-            var karton = (from kar in db.kartoni where kar.ID_D == prav.ID select kar.ID).ToArray();
+            var karton = (from kar in db.kartoni where kar.ID_Pr == prav.ID select kar.ID).ToArray();
 
             // dodavanje u listBox
             foreach (var k in karton)
@@ -60,12 +60,13 @@ namespace SafeHouse
             int pomocna = Convert.ToInt32(listBox_listaKorisnikaPravnik.SelectedItem.ToString());
 
             var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
-            var korisnikStatus = (from stat in db.status_e where stat.ID_K == korisnik.ID select stat).Single();
+            var korisnikStatus = (from stat in db.status_pr where stat.ID_K == korisnik.ID select stat).Single();
             korisnikStatus.PrijedlogRjesenja = nalazi;
-            korisnikStatus.Historija += nalazi;
+            korisnikStatus.HistorijaRjesenja += (nalazi+"\n");
 
             db.SaveChanges();
             richTextBox_prijedlogRjesenja.Text = "";
+            richTextBox_historijaRjesenjaPravnik.Text = korisnikStatus.HistorijaRjesenja;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -75,6 +76,33 @@ namespace SafeHouse
             sf.ShowDialog();
         }
 
-        //kad senka doda Button za azuriranje OPISA PROBELMA dodati i tu metodu.
+        // promjeniti ovu metodu za klik kad se dodaaa :D
+        private void richTextBox_opisProblemaPravnik_Validated(object sender, EventArgs e)
+        {
+            mydbEntities db = new mydbEntities();
+
+            string opisProblema = richTextBox_opisProblemaPravnik.Text;
+
+            int pomocna = Convert.ToInt32(listBox_listaKorisnikaPravnik.SelectedItem.ToString());
+
+            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
+            var korisnikStatus = (from stat in db.status_pr where stat.ID_K == korisnik.ID select stat).Single();
+            korisnikStatus.OpisProblema = opisProblema;
+            db.SaveChanges();
+        }
+
+        private void richTextBox_licneBiljeskePravnik_Validated(object sender, EventArgs e)
+        {
+            mydbEntities db = new mydbEntities();
+
+            string licniUtisak = richTextBox_licneBiljeskePravnik.Text;
+
+            int pomocna = Convert.ToInt32(listBox_listaKorisnikaPravnik.SelectedItem.ToString());
+
+            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
+            var korisnikStatus = (from stat in db.status_pr where stat.ID_K == korisnik.ID select stat).Single();
+            korisnikStatus.LicniUtisak = licniUtisak;
+            db.SaveChanges();
+        }
     }
 }

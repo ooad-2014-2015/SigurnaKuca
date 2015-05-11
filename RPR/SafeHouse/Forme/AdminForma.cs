@@ -127,19 +127,19 @@ namespace SafeHouse
 
             if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 0 && priv[0] != 'd')
             {
-                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
+                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!"); return;
             }
             if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 1 && priv[0] != 'p' && priv[1]!='s')
             {
-                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
+                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!"); return;
             }
             if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 2 && priv[0] != 'e')
             {
-                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
+                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!"); return;
             }
             if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 3 && priv[0] != 'p' && priv[1]!='r')
             {
-                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!");
+                errorProvider1.SetError(textbox_usernameRadnika, "Ovaj username nije validan!"); return;
             }
         }
 
@@ -237,8 +237,12 @@ namespace SafeHouse
                     string[] iDok = iipDok.Split(' ');
                     string[] iPsih = iipPsih.Split(' ');
 
-                    var dok = (from d in db.radnici where (d.Ime == iDok[0] && d.Prezime == iDok[1])  select d).Single();
-                    var psih = (from p in db.radnici where (p.Ime == iPsih[0] && p.Prezime == iPsih[1]) select p).Single();
+                    // krajnje ime i prezime selektovanog doktora i psihologa
+                    string dokI = iDok[0], dokP = iDok[1];
+                    string psiI = iPsih[0], psiP = iPsih[1];
+
+                    var dok = (from d in db.radnici where (d.Ime == dokI && d.Prezime == dokP)  select d).Single();
+                    var psih = (from p in db.radnici where (p.Ime == psiI && p.Prezime == psiP) select p).Single();
 
                     // kreiranje kartona za korisnika
                     db.kartoni.Add(new kartoni() { ID_D = dok.ID, ID_Ps = psih.ID});
@@ -268,12 +272,15 @@ namespace SafeHouse
                     string[] iEk = iipEk.Split(' ');
                     string[] iPr = iipPr.Split(' ');
 
-                    var a = iDok[1];
+                    string dokI = iDok[0], dokP = iDok[1];
+                    string psiI = iPsih[0], psiP = iPsih[1];
+                    string ekI = iEk[0], ekP = iEk[1];
+                    string prI = iPr[0], prP = iPr[1];
 
-                    var dok = (from d in db.radnici where (d.Prezime==a) select d).Single();
-                    var psih = (from p in db.radnici where (p.Prezime == iPsih[1]) select p).Single();
-                    var ek = (from eko in db.radnici where (eko.Prezime == iEk[1]) select eko).Single();
-                    var pr = (from pre in db.radnici where (pre.Prezime == iPr[1]) select pre).Single();
+                    var dok = (from d in db.radnici where (d.Ime == dokI && d.Prezime==dokP) select d).Single();
+                    var psih = (from p in db.radnici where (p.Ime==psiI && p.Prezime == psiP) select p).Single();
+                    var ek = (from eko in db.radnici where (eko.Ime==ekI && eko.Prezime == ekP) select eko).Single();
+                    var pr = (from pre in db.radnici where (pre.Ime==prI && pre.Prezime == prP) select pre).Single();
 
                     // kreiranje kartona za korisnika
                     db.kartoni.Add(new kartoni() { ID_D=dok.ID, ID_E=ek.ID, ID_Pr=pr.ID, ID_Ps = psih.ID });

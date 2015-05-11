@@ -46,7 +46,7 @@ CREATE TABLE `kartoni` (
 
 LOCK TABLES `kartoni` WRITE;
 /*!40000 ALTER TABLE `kartoni` DISABLE KEYS */;
-INSERT INTO `kartoni` VALUES (1,1,NULL,NULL,1),(2,2,1,1,1);
+INSERT INTO `kartoni` VALUES (1,1,NULL,NULL,2),(2,1,4,3,2);
 /*!40000 ALTER TABLE `kartoni` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,7 +79,7 @@ CREATE TABLE `korisnici` (
 
 LOCK TABLES `korisnici` WRITE;
 /*!40000 ALTER TABLE `korisnici` DISABLE KEYS */;
-INSERT INTO `korisnici` VALUES (1,'Nejra','Pasic','NP123','NP123',3,0,'Senka Reha ','1993-10-27'),(2,'Senka','Ibrahimpasic','SI123','SI123',2,1,'Senka Reha ','1994-05-14');
+INSERT INTO `korisnici` VALUES (1,'Nejra','Pasic','NP123','NP123',3,0,'Senka Reha ','1993-10-27'),(2,'Senka','Ibrahimpasic','SI123','SI123',5,1,'Senka Reha ','1994-05-08');
 /*!40000 ALTER TABLE `korisnici` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -104,7 +104,7 @@ CREATE TABLE `lokacije` (
 
 LOCK TABLES `lokacije` WRITE;
 /*!40000 ALTER TABLE `lokacije` DISABLE KEYS */;
-INSERT INTO `lokacije` VALUES (1,'Brcanska 13',NULL),(2,'Muftije Dzabijca 12',1),(3,'Ferde Haupmana 6',1),(4,'Titova 133',NULL),(5,'Ferhadija 18',NULL),(6,'Vrbovska 183',NULL),(7,'Dzemala Bijedica 18',NULL),(8,'Bulevar Mese Selimovica 188',NULL);
+INSERT INTO `lokacije` VALUES (1,'Brcanska 13',NULL),(2,'Muftije Dzabijca 12',NULL),(3,'Ferde Haupmana 6',1),(4,'Titova 133',NULL),(5,'Ferhadija 18',1),(6,'Vrbovska 183',NULL),(7,'Dzemala Bijedica 18',NULL),(8,'Bulevar Mese Selimovica 188',NULL);
 /*!40000 ALTER TABLE `lokacije` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -133,7 +133,7 @@ CREATE TABLE `radnici` (
 
 LOCK TABLES `radnici` WRITE;
 /*!40000 ALTER TABLE `radnici` DISABLE KEYS */;
-INSERT INTO `radnici` VALUES (1,'Faruk','Mustafic','d1337','d1337',0,'1993-05-05'),(2,'Psiho','Ludi','ps1337','ps1337',1,'1987-03-04'),(3,'Ekonom','Maraka','e1337','e1337',2,'1973-01-13'),(4,'Pravnik','Konza','pr1337','pr1337',3,'1973-07-20'),(5,'Haris','Musovic','d1987','d1987',0,'1993-01-11');
+INSERT INTO `radnici` VALUES (1,'Faruk','Mustafic','d1337','d1337',0,'1993-05-05'),(2,'Psiho','Ludi','ps1337','ps1337',1,'1981-03-11'),(3,'Ekonom','Maraka','e1337','e1337',2,'1976-03-02'),(4,'Psiho','Zakon','pr1337','pr1337',3,'1980-06-19'),(5,'Haris','Musovic','d1987','d1987',0,'1994-01-11');
 /*!40000 ALTER TABLE `radnici` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -164,7 +164,7 @@ CREATE TABLE `rasporedi` (
 
 LOCK TABLES `rasporedi` WRITE;
 /*!40000 ALTER TABLE `rasporedi` DISABLE KEYS */;
-INSERT INTO `rasporedi` VALUES (1,NULL,NULL,1,1),(2,NULL,NULL,1,1),(3,NULL,NULL,2,2),(4,NULL,NULL,1,2),(5,NULL,NULL,1,2),(6,NULL,NULL,1,2);
+INSERT INTO `rasporedi` VALUES (1,NULL,NULL,1,1),(2,NULL,NULL,2,1),(3,NULL,NULL,1,2),(4,NULL,NULL,2,2),(5,NULL,NULL,3,2),(6,NULL,NULL,4,2);
 /*!40000 ALTER TABLE `rasporedi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,7 +197,7 @@ CREATE TABLE `status_d` (
 
 LOCK TABLES `status_d` WRITE;
 /*!40000 ALTER TABLE `status_d` DISABLE KEYS */;
-INSERT INTO `status_d` VALUES (1,1,1,NULL,NULL,NULL,NULL),(2,2,2,NULL,NULL,NULL,NULL);
+INSERT INTO `status_d` VALUES (1,1,1,'Noooovoooo','LicniUtisak','\nNoooovoooo','2015-05-11'),(2,2,1,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `status_d` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -229,7 +229,7 @@ CREATE TABLE `status_e` (
 
 LOCK TABLES `status_e` WRITE;
 /*!40000 ALTER TABLE `status_e` DISABLE KEYS */;
-INSERT INTO `status_e` VALUES (1,2,1,NULL,NULL,NULL);
+INSERT INTO `status_e` VALUES (1,2,3,'Biljeska','Rjesenje\n','Rjesenje');
 /*!40000 ALTER TABLE `status_e` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -262,7 +262,7 @@ CREATE TABLE `status_pr` (
 
 LOCK TABLES `status_pr` WRITE;
 /*!40000 ALTER TABLE `status_pr` DISABLE KEYS */;
-INSERT INTO `status_pr` VALUES (1,2,1,NULL,NULL,NULL,NULL);
+INSERT INTO `status_pr` VALUES (1,2,4,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `status_pr` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -295,7 +295,7 @@ CREATE TABLE `status_ps` (
 
 LOCK TABLES `status_ps` WRITE;
 /*!40000 ALTER TABLE `status_ps` DISABLE KEYS */;
-INSERT INTO `status_ps` VALUES (1,1,1,0,NULL,NULL,NULL),(2,2,1,0,NULL,NULL,NULL);
+INSERT INTO `status_ps` VALUES (1,1,2,0,NULL,NULL,NULL),(2,2,2,0,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `status_ps` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -308,4 +308,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-05-11  0:21:34
+-- Dump completed on 2015-05-11 21:12:00

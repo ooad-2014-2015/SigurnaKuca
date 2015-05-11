@@ -36,7 +36,7 @@ namespace SafeHouse
             label_prezimePsiholog.Text = psih.Prezime;
 
             // pronalazak pacijenata za tog doktora
-            var karton = (from kar in db.kartoni where kar.ID_D == psih.ID select kar.ID).ToArray();
+            var karton = (from kar in db.kartoni where kar.ID_Ps == psih.ID select kar.ID).ToArray();
 
             // dodavanje u listBox
             foreach (var k in karton)
@@ -72,10 +72,25 @@ namespace SafeHouse
             var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
             var korisnikStatus = (from stat in db.status_ps where stat.ID_K == korisnik.ID select stat).Single();
             korisnikStatus.Dijagnoza = nalazi;
-            korisnikStatus.Historija += nalazi;
+            korisnikStatus.Historija += (nalazi+"\n");
 
             db.SaveChanges();
             richTextBox_novaDijagnozaPsiholog.Text = "";
+            richTextBox_napredakTerapijePsiholog.Text = korisnikStatus.Historija;
+        }
+
+        private void richTextBox_licneBiljeskePsiholog_Validated(object sender, EventArgs e)
+        {
+            mydbEntities db = new mydbEntities();
+
+            string licniUtisak = richTextBox_licneBiljeskePsiholog.Text;
+
+            int pomocna = Convert.ToInt32(listBox_listaPacijenataPsiholog.SelectedItem.ToString());
+
+            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
+            var korisnikStatus = (from stat in db.status_ps where stat.ID_K == korisnik.ID select stat).Single();
+            korisnikStatus.LicniUtisak = licniUtisak;
+            db.SaveChanges();
         }
 
 

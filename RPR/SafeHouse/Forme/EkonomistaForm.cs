@@ -28,8 +28,7 @@ namespace SafeHouse
             label_prezimeEkonomiste.Text = ekonom.Prezime;
 
             // pronalazak pacijenata za tog doktora
-            var karton = (from kar in db.kartoni where kar.ID_D == ekonom.ID select kar.ID).ToArray();
-
+            var karton = (from kar in db.kartoni where kar.ID_E == ekonom.ID select kar.ID).ToArray();
 
             foreach (var k in karton)
             {
@@ -63,10 +62,11 @@ namespace SafeHouse
             var korisnikStatus = (from stat in db.status_e where stat.ID_K == korisnik.ID select stat).Single();
             
             korisnikStatus.PrijedlogRjesenja = prijedlog;
-            korisnikStatus.Historija += prijedlog;
+            korisnikStatus.Historija += (prijedlog+"\n");
 
             db.SaveChanges();
             richTextBox_prijedlogRjesenjaEkonomist.Text = "";
+            richTextBox_historijaRješenjaEkonomist.Text = korisnikStatus.Historija;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -74,6 +74,21 @@ namespace SafeHouse
             StartForm sf = new StartForm();
             this.Hide();
             sf.ShowDialog();
+        }
+
+        private void richTextBox_licneBiljeskeEkonomist_Validated(object sender, EventArgs e)
+        {
+            mydbEntities db = new mydbEntities();
+
+            string licniUtisak = richTextBox_licneBiljeskeEkonomist.Text;
+
+            int pomocna = Convert.ToInt32(listBox_ListaKorisnikaEkonomist.SelectedItem.ToString());
+
+            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
+            var korisnikStatus = (from stat in db.status_e where stat.ID_K == korisnik.ID select stat).Single();
+            korisnikStatus.LicniUtisak = licniUtisak;
+            
+            db.SaveChanges();
         }
 
        

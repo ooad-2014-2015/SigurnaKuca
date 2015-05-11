@@ -52,11 +52,12 @@ namespace SafeHouse
             int pomocna = Convert.ToInt32(listBox_listaPacijenata.SelectedItem.ToString());
             
             var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
+
             var korisnikStatus = (from stat in db.status_d where stat.ID_K == korisnik.ID select stat).Single();
 
             richTextBox3.Text = korisnikStatus.Historija;
             richTextBox2.Text = korisnikStatus.LicniUtisak;
-
+            label_ispisDatumaSistematskog.Text = korisnikStatus.DatumPromjene.ToString();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -70,10 +71,28 @@ namespace SafeHouse
             var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
             var korisnikStatus = (from stat in db.status_d where stat.ID_K == korisnik.ID select stat).Single();
             korisnikStatus.Nalazi = nalazi;
-            korisnikStatus.Historija+=nalazi;
-            
+            korisnikStatus.Historija+=(nalazi+"\n");
+            korisnikStatus.DatumPromjene = DateTime.Today.Date;
+
             db.SaveChanges();
             richTextBox1.Text = "";
+            richTextBox3.Text = korisnikStatus.Historija;
+            label_ispisDatumaSistematskog.Text = korisnikStatus.DatumPromjene.ToString();
+        }
+
+        private void richTextBox2_Validated(object sender, EventArgs e)
+        {
+            mydbEntities db = new mydbEntities();
+
+            string licniUtisak = richTextBox2.Text;
+
+            int pomocna = Convert.ToInt32(listBox_listaPacijenata.SelectedItem.ToString());
+
+            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
+            var korisnikStatus = (from stat in db.status_d where stat.ID_K == korisnik.ID select stat).Single();
+            korisnikStatus.LicniUtisak = licniUtisak;
+            korisnikStatus.DatumPromjene = DateTime.Today.Date;
+            db.SaveChanges();
         }
 
        

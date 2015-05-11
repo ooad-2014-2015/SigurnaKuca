@@ -63,79 +63,9 @@ namespace SafeHouse.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1152x864 {
+        internal static System.Drawing.Bitmap Background_69 {
             get {
-                object obj = ResourceManager.GetObject("1152x864", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _1385950384_user_male2 {
-            get {
-                object obj = ResourceManager.GetObject("1385950384_user_male2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap black_background_wood_wallpaper_1600x900 {
-            get {
-                object obj = ResourceManager.GetObject("black_background_wood-wallpaper-1600x900", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap economics_assignment_help {
-            get {
-                object obj = ResourceManager.GetObject("economics-assignment-help", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap picture12660783626955 {
-            get {
-                object obj = ResourceManager.GetObject("picture12660783626955", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Serviciil_de_psihologie_cabinet_individual_4916121_1271249488 {
-            get {
-                object obj = ResourceManager.GetObject("Serviciil-de-psihologie-cabinet-individual_4916121_1271249488", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap user {
-            get {
-                object obj = ResourceManager.GetObject("user", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap user1 {
-            get {
-                object obj = ResourceManager.GetObject("user1", resourceCulture);
+                object obj = ResourceManager.GetObject("Background_69", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
