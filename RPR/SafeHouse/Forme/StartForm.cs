@@ -63,7 +63,7 @@ namespace SafeHouse
                     }
                     catch (InvalidOperationException)
                     {
-                        errorProvider1.SetError(prijava_button, "Ne postoji korisnik! Pokušajte ponovo.");
+                        errorProvider1.SetError(prijava_button, "Ne postoji doktor sa unesenim podacima! Pokušajte ponovo.");
                     }
                     
             }
@@ -86,7 +86,7 @@ namespace SafeHouse
                }
                catch (InvalidOperationException)
                {
-                  errorProvider1.SetError(prijava_button, "Ne postoji korisnik! Pokušajte ponovo.");
+                   errorProvider1.SetError(prijava_button, "Ne postoji ekonomista sa unesenim podacima! Pokušajte ponovo.");
                }
                
             }
@@ -108,7 +108,7 @@ namespace SafeHouse
                 }
                catch (InvalidOperationException)
                {
-                  errorProvider1.SetError(prijava_button, "Ne postoji korisnik! Pokušajte ponovo.");
+                   errorProvider1.SetError(prijava_button, "Ne postoji psiholog sa unesenim podacima! Pokušajte ponovo.");
                }
                 
             }
@@ -130,7 +130,7 @@ namespace SafeHouse
                 }
                 catch (InvalidOperationException)
                 {
-                    errorProvider1.SetError(prijava_button, "Ne postoji korisnik! Pokušajte ponovo.");
+                    errorProvider1.SetError(prijava_button, "Ne postoji pravnik sa unesenim podacima! Pokušajte ponovo.");
                 }
                 
             }
@@ -171,12 +171,7 @@ namespace SafeHouse
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            KorisnikForm k = new KorisnikForm();
-            k.ShowDialog();
-            
-        }
+      
 
         
     }
