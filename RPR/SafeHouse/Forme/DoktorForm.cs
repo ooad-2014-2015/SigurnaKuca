@@ -41,7 +41,7 @@ namespace SafeHouse
             foreach (var k in karton)
             {
                 var koris = (from ko in db.korisnici where ko.ID == k select ko).Single();
-                listBox_listaPacijenata.Items.Add(koris.Ime + " " + koris.Prezime + "\n");
+                listBox_listaPacijenata.Items.Add(koris.ID);
             }
         }
 
@@ -49,10 +49,9 @@ namespace SafeHouse
         {
             mydbEntities db = new mydbEntities();
 
-            string pomocna = listBox_listaPacijenata.SelectedItem.ToString();
-            string[] ime = pomocna.Split(' ');
-
-            var korisnik = (from kor in db.korisnici where kor.Prezime == ime[2] select kor).Single();
+            int pomocna = Convert.ToInt32(listBox_listaPacijenata.SelectedItem.ToString());
+            
+            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
             var korisnikStatus = (from stat in db.status_d where stat.ID_K == korisnik.ID select stat).Single();
 
             richTextBox3.Text = korisnikStatus.Historija;
@@ -66,10 +65,9 @@ namespace SafeHouse
 
             string nalazi = richTextBox1.Text;
 
-            string pomocna = listBox_listaPacijenata.SelectedItem.ToString();
-            string[] ime = pomocna.Split(' ');
+            int pomocna = Convert.ToInt32(listBox_listaPacijenata.SelectedItem.ToString());
 
-            var korisnik = (from kor in db.korisnici where kor.Prezime == ime[2] select kor).Single();
+            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
             var korisnikStatus = (from stat in db.status_d where stat.ID_K == korisnik.ID select stat).Single();
             korisnikStatus.Nalazi = nalazi;
             korisnikStatus.Historija+=nalazi;

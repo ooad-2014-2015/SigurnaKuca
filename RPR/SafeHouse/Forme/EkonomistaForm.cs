@@ -34,7 +34,7 @@ namespace SafeHouse
             foreach (var k in karton)
             {
                 var koris = (from ko in db.korisnici where ko.ID == k select ko).Single();
-                listBox_ListaKorisnikaEkonomist.Items.Add(koris.Ime + " " + koris.Prezime + "\n");
+                listBox_ListaKorisnikaEkonomist.Items.Add(koris.ID);
             }
         }
 
@@ -42,10 +42,9 @@ namespace SafeHouse
         {
             mydbEntities db = new mydbEntities();
 
-            string pomocna = listBox_ListaKorisnikaEkonomist.SelectedItem.ToString();
-            string[] ime = pomocna.Split(' ');
+            int pomocna = Convert.ToInt32(listBox_ListaKorisnikaEkonomist.SelectedItem.ToString());
 
-            var korisnik = (from kor in db.korisnici where kor.Prezime == ime[2] select kor).Single();
+            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
             var korisnikStatus = (from stat in db.status_e where stat.ID_K == korisnik.ID select stat).Single();
 
             richTextBox_historijaRješenjaEkonomist.Text = korisnikStatus.Historija;
@@ -58,10 +57,9 @@ namespace SafeHouse
 
             string prijedlog = richTextBox_prijedlogRjesenjaEkonomist.Text;
 
-            string pomocna = listBox_ListaKorisnikaEkonomist.SelectedItem.ToString();
-            string[] ime = pomocna.Split(' ');
+            int pomocna = Convert.ToInt32(listBox_ListaKorisnikaEkonomist.SelectedItem.ToString());
 
-            var korisnik = (from kor in db.korisnici where kor.Prezime == ime[2] select kor).Single();
+            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
             var korisnikStatus = (from stat in db.status_e where stat.ID_K == korisnik.ID select stat).Single();
             
             korisnikStatus.PrijedlogRjesenja = prijedlog;

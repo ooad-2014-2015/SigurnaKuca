@@ -212,9 +212,9 @@ namespace SafeHouse
                 bool anoniman = false;
                 if (radioButton_potpunoAnoniman.Checked) anoniman = true;
 
-                object adres = comboBox_lokacijaKorisnika.SelectedItem;
-                string a = adres.ToString();
-                var lokacija = (from l in db.lokacije where l.Adresa == a select l).Single();
+
+                string adres = this.comboBox_lokacijaKorisnika.GetItemText(this.comboBox_lokacijaKorisnika.SelectedItem);
+                var lokacija = (from l in db.lokacije where l.Adresa == adres select l).Single();
 
                 // dodavanje korisnika
                 db.korisnici.Add(new korisnici() { Ime = textBox_imeKorisnika.Text, Prezime = textBox_prezimeKorisnika.Text, Username = textBox_usernameKorisnika.Text, Password = textBox_passwordKorisnika.Text, Lokacija_ID = lokacija.ID, DatumRodjenja = dateTimePicker_datRodjenjaKorisnika.Value.Date, Anonimnost=anoniman, DodatneOsobe=osobe });
@@ -231,11 +231,14 @@ namespace SafeHouse
                 // dodavanje kartona i statusa za djelomicno anonimnog
                 {
                     // PROMJENITI OVDJE DA PRETRAZUJE PO USERU TJ PO SELEKTOVANOM IMENU
-                    int indexDok = comboBox_personalniDoktor.SelectedIndex+1;
-                    int indexPsih = comboBox_personalniPsiholog.SelectedIndex+1;
+                    string iipDok = this.comboBox_personalniDoktor.GetItemText(this.comboBox_personalniDoktor.SelectedItem); ;
+                    string iipPsih = this.comboBox_personalniPsiholog.GetItemText(this.comboBox_personalniPsiholog.SelectedItem);
 
-                    var dok = (from d in db.radnici where d.ID == indexDok  select d).Single();
-                    var psih = (from p in db.radnici where p.ID == indexPsih select p).Single();
+                    string[] iDok = iipDok.Split(' ');
+                    string[] iPsih = iipPsih.Split(' ');
+
+                    var dok = (from d in db.radnici where (d.Ime == iDok[0] && d.Prezime == iDok[1])  select d).Single();
+                    var psih = (from p in db.radnici where (p.Ime == iPsih[0] && p.Prezime == iPsih[1]) select p).Single();
 
                     // kreiranje kartona za korisnika
                     db.kartoni.Add(new kartoni() { ID_D = dok.ID, ID_Ps = psih.ID});
@@ -254,15 +257,23 @@ namespace SafeHouse
                 if (radioButton_potpunoAnoniman.Checked)
                 {
                     // PROMJENITI OVDJE DA PRETRAZUJE PO USERU TJ PO SELEKTOVANOM IMENU
-                    int indexDok = comboBox_personalniDoktorAnonimniKorisnik.SelectedIndex + 1;
-                    int indexPsih = comboBox_personalniPsihologAnonimniKorisnik.SelectedIndex + 1;
-                    int indexEk = comboBox_personalniEkonomistaAnonimniKorisnik.SelectedIndex + 1;
-                    int indexPr = comboBox_personalniPravnikAnonimniKorisnik.SelectedIndex + 1;
 
-                    var dok = (from d in db.radnici where d.ID == indexDok select d).Single();
-                    var psih = (from p in db.radnici where p.ID == indexPsih select p).Single();
-                    var ek = (from eko in db.radnici where eko.ID == indexEk select eko).Single();
-                    var pr = (from pre in db.radnici where pre.ID == indexPr select pre).Single();
+                    string iipDok = this.comboBox_personalniDoktorAnonimniKorisnik.GetItemText(this.comboBox_personalniDoktorAnonimniKorisnik.SelectedItem);
+                    string iipPsih = this.comboBox_personalniPsihologAnonimniKorisnik.GetItemText(this.comboBox_personalniPsihologAnonimniKorisnik.SelectedItem);
+                    string iipEk = this.comboBox_personalniEkonomistaAnonimniKorisnik.GetItemText(this.comboBox_personalniEkonomistaAnonimniKorisnik.SelectedItem);
+                    string iipPr = this.comboBox_personalniPravnikAnonimniKorisnik.GetItemText(this.comboBox_personalniPravnikAnonimniKorisnik.SelectedItem);
+
+                    string[] iDok = iipDok.Split(' ');
+                    string[] iPsih = iipPsih.Split(' ');
+                    string[] iEk = iipEk.Split(' ');
+                    string[] iPr = iipPr.Split(' ');
+
+                    var a = iDok[1];
+
+                    var dok = (from d in db.radnici where (d.Prezime==a) select d).Single();
+                    var psih = (from p in db.radnici where (p.Prezime == iPsih[1]) select p).Single();
+                    var ek = (from eko in db.radnici where (eko.Prezime == iEk[1]) select eko).Single();
+                    var pr = (from pre in db.radnici where (pre.Prezime == iPr[1]) select pre).Single();
 
                     // kreiranje kartona za korisnika
                     db.kartoni.Add(new kartoni() { ID_D=dok.ID, ID_E=ek.ID, ID_Pr=pr.ID, ID_Ps = psih.ID });
