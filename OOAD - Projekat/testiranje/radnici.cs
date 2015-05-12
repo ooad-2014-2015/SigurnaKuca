@@ -12,16 +12,19 @@ namespace SafeHouse
     using System;
     using System.Collections.Generic;
     
-    public partial class korisnici
+    public partial class radnici
     {
-        public korisnici()
+        public radnici()
         {
+            this.kartoni = new HashSet<kartoni>();
+            this.kartoni1 = new HashSet<kartoni>();
+            this.kartoni2 = new HashSet<kartoni>();
+            this.kartoni3 = new HashSet<kartoni>();
             this.rasporedi = new HashSet<rasporedi>();
             this.status_d = new HashSet<status_d>();
             this.status_e = new HashSet<status_e>();
             this.status_pr = new HashSet<status_pr>();
             this.status_ps = new HashSet<status_ps>();
-            this.zahtjevi = new HashSet<zahtjevi>();
         }
     
         public int ID { get; set; }
@@ -29,17 +32,17 @@ namespace SafeHouse
         public string Prezime { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public int Lokacija_ID { get; set; }
-        public bool Anonimnost { get; set; }
-        public string DodatneOsobe { get; set; }
-        public System.DateTime DatumRodjenja { get; set; }
+        public Nullable<int> Opis { get; set; }
+        public Nullable<System.DateTime> DatumRodjenja { get; set; }
     
-        public virtual lokacije lokacije { get; set; }
+        public virtual ICollection<kartoni> kartoni { get; set; }
+        public virtual ICollection<kartoni> kartoni1 { get; set; }
+        public virtual ICollection<kartoni> kartoni2 { get; set; }
+        public virtual ICollection<kartoni> kartoni3 { get; set; }
         public virtual ICollection<rasporedi> rasporedi { get; set; }
         public virtual ICollection<status_d> status_d { get; set; }
         public virtual ICollection<status_e> status_e { get; set; }
         public virtual ICollection<status_pr> status_pr { get; set; }
         public virtual ICollection<status_ps> status_ps { get; set; }
-        public virtual ICollection<zahtjevi> zahtjevi { get; set; }
     }
 }

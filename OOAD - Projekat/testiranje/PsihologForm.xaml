@@ -1,0 +1,49 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="SafeHouse.PsihologForm"
+	Title="Psiholog" d:DesignWidth="675">
+    <Grid Height="443" Width="848">
+        <GroupBox Margin="0,0,183,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" >
+            <GroupBox.Header>
+                <TextBlock Text="Op?ti podaci o pacijentu"/>
+            </GroupBox.Header>
+            <Canvas Height="395" Width="381" >
+                <RichTextBox x:Name="richTextBox_licneBiljeskePsiholog" Height="72" Width="175" TabIndex="7" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="149" Canvas.Top="292" >
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run/>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+                <RichTextBox x:Name="richTextBox_nalaziSistematskogPsiholog" Height="66" Width="177" TabIndex="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="147" Canvas.Top="178" >
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run/>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+                <RichTextBox x:Name="richTextBox_novaDijagnozaPsiholog" Height="64" Width="177" TabIndex="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="147" Canvas.Top="43" >
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run/>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+                <RichTextBox x:Name="richTextBox_napredakTerapijePsiholog" Height="355" Width="123" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="3" Canvas.Top="32" >
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run/>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+                <Button x:Name="button_azurirajPodatkePsiholog" Content="Button" Height="35" Canvas.Left="240" Canvas.Top="115" Width="84"/>
+            </Canvas>
+        </GroupBox>
+        <ListBox x:Name="listBox_listaPacijenataPsiholog" HorizontalAlignment="Left" Height="380" Margin="124,35,0,0" VerticalAlignment="Top" Width="126"/>
+        <Button x:Name="button_prikaziRasporedPsiholog" Content="Button" HorizontalAlignment="Left" Height="25" Margin="12,332,0,0" VerticalAlignment="Top" Width="92"/>
+        <Button x:Name="button_dodatniTerminPsiholog" Content="Button" HorizontalAlignment="Left" Height="29" Margin="12,386,0,0" VerticalAlignment="Top" Width="92"/>
+        <Label x:Name="label_imePsiholog" Content="Ime" HorizontalAlignment="Left" Margin="12,139,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_prezimePsiholog" Content="Prezime" HorizontalAlignment="Left" Margin="10,179,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

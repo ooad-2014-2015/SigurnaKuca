@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="mydbModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="mydbModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="mydbModelStoreContainer">
           <EntitySet Name="kartoni" EntityType="mydbModel.Store.kartoni" store:Type="Tables" Schema="mydb" />
           <EntitySet Name="korisnici" EntityType="mydbModel.Store.korisnici" store:Type="Tables" Schema="mydb" />
@@ -385,7 +385,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="mydbModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -399,6 +400,7 @@
           <EntitySet Name="status_e" EntityType="mydbModel.status_e" />
           <EntitySet Name="status_pr" EntityType="mydbModel.status_pr" />
           <EntitySet Name="status_ps" EntityType="mydbModel.status_ps" />
+          <EntitySet Name="zahtjevi" EntityType="mydbModel.zahtjevi" />
           <AssociationSet Name="fk_Kartoni_Radnici1" Association="mydbModel.fk_Kartoni_Radnici1">
             <End Role="radnici" EntitySet="radnici" />
             <End Role="kartoni" EntitySet="kartoni" />
@@ -439,6 +441,10 @@
             <End Role="korisnici" EntitySet="korisnici" />
             <End Role="status_ps" EntitySet="status_ps" />
           </AssociationSet>
+          <AssociationSet Name="fk_Zahtjevi_Korisnici1" Association="mydbModel.fk_Zahtjevi_Korisnici1">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="zahtjevi" EntitySet="zahtjevi" />
+          </AssociationSet>
           <AssociationSet Name="fk_Rasporedi_Radnici1" Association="mydbModel.fk_Rasporedi_Radnici1">
             <End Role="radnici" EntitySet="radnici" />
             <End Role="rasporedi" EntitySet="rasporedi" />
@@ -458,11 +464,6 @@
           <AssociationSet Name="fk_Status_Ps_Radnici1" Association="mydbModel.fk_Status_Ps_Radnici1">
             <End Role="radnici" EntitySet="radnici" />
             <End Role="status_ps" EntitySet="status_ps" />
-          </AssociationSet>
-          <EntitySet Name="zahtjevi" EntityType="mydbModel.zahtjevi" />
-          <AssociationSet Name="fk_Zahtjevi_Korisnici1" Association="mydbModel.fk_Zahtjevi_Korisnici1">
-            <End Role="korisnici" EntitySet="korisnici" />
-            <End Role="zahtjevi" EntitySet="zahtjevi" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="kartoni">
@@ -597,6 +598,18 @@
           <NavigationProperty Name="korisnici" Relationship="mydbModel.fk_Status_Ps_Korisnici1" FromRole="status_ps" ToRole="korisnici" />
           <NavigationProperty Name="radnici" Relationship="mydbModel.fk_Status_Ps_Radnici1" FromRole="status_ps" ToRole="radnici" />
         </EntityType>
+        <EntityType Name="zahtjevi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Korisnici_ID" Type="Int32" Nullable="false" />
+          <Property Name="OpisZahtjeva" Type="Int32" Nullable="false" />
+          <Property Name="Obradjen" Type="Boolean" />
+          <Property Name="Seen" Type="Boolean" />
+          <Property Name="DodatniZahtjev" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="korisnici" Relationship="mydbModel.fk_Zahtjevi_Korisnici1" FromRole="zahtjevi" ToRole="korisnici" />
+        </EntityType>
         <Association Name="fk_Kartoni_Radnici1">
           <End Role="radnici" Type="mydbModel.radnici" Multiplicity="1" />
           <End Role="kartoni" Type="mydbModel.kartoni" Multiplicity="*" />
@@ -717,6 +730,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_Zahtjevi_Korisnici1">
+          <End Role="korisnici" Type="mydbModel.korisnici" Multiplicity="1" />
+          <End Role="zahtjevi" Type="mydbModel.zahtjevi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="zahtjevi">
+              <PropertyRef Name="Korisnici_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_Rasporedi_Radnici1">
           <End Role="radnici" Type="mydbModel.radnici" Multiplicity="1" />
           <End Role="rasporedi" Type="mydbModel.rasporedi" Multiplicity="*" />
@@ -774,30 +799,6 @@
             </Principal>
             <Dependent Role="status_ps">
               <PropertyRef Name="ID_R" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="zahtjevi">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="Korisnici_ID" Nullable="false" />
-          <Property Type="Int32" Name="OpisZahtjeva" Nullable="false" />
-          <Property Type="Boolean" Name="Obradjen" />
-          <NavigationProperty Name="korisnici" Relationship="mydbModel.fk_Zahtjevi_Korisnici1" FromRole="zahtjevi" ToRole="korisnici" />
-          <Property Type="Boolean" Name="Seen" />
-          <Property Type="Boolean" Name="DodatniZahtjev" Nullable="false" />
-        </EntityType>
-        <Association Name="fk_Zahtjevi_Korisnici1">
-          <End Type="mydbModel.korisnici" Role="korisnici" Multiplicity="1" />
-          <End Type="mydbModel.zahtjevi" Role="zahtjevi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="korisnici">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="zahtjevi">
-              <PropertyRef Name="Korisnici_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -920,12 +921,12 @@
           <EntitySetMapping Name="zahtjevi">
             <EntityTypeMapping TypeName="mydbModel.zahtjevi">
               <MappingFragment StoreEntitySet="zahtjevi">
-                <ScalarProperty Name="DodatniZahtjev" ColumnName="DodatniZahtjev" />
-                <ScalarProperty Name="Seen" ColumnName="Seen" />
-                <ScalarProperty Name="Obradjen" ColumnName="Obradjen" />
-                <ScalarProperty Name="OpisZahtjeva" ColumnName="OpisZahtjeva" />
-                <ScalarProperty Name="Korisnici_ID" ColumnName="Korisnici_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Korisnici_ID" ColumnName="Korisnici_ID" />
+                <ScalarProperty Name="OpisZahtjeva" ColumnName="OpisZahtjeva" />
+                <ScalarProperty Name="Obradjen" ColumnName="Obradjen" />
+                <ScalarProperty Name="Seen" ColumnName="Seen" />
+                <ScalarProperty Name="DodatniZahtjev" ColumnName="DodatniZahtjev" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

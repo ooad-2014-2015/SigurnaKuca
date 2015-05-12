@@ -1,0 +1,14 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="SafeHouse.StartForm"
+	Title="StartUp Menu" Width="503" Height="268">
+    <Grid Height="282" Width="522">
+        <Label x:Name="label1" Height="22" Width="9" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="5" Margin="279,193,234,67" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+        <Label x:Name="password_label" Height="27" Width="88" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="1" Foreground="MidnightBlue" Background="Transparent" Margin="0,0,240,170" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Password:" />
+        <Label x:Name="username_label" Height="27" Width="94" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="0" Foreground="MidnightBlue" Background="Transparent" Margin="0,0,234,202" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Username:" />
+        <TextBox x:Name="username_textbox" HorizontalAlignment="Left" Height="22" Margin="268,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109" RenderTransformOrigin="0.505,0.037"/>
+        <TextBox x:Name="password_textbox" HorizontalAlignment="Left" Height="22" Margin="268,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109" RenderTransformOrigin="0.505,0.037"/>
+        <Button x:Name="prijava_button" Content="Button" HorizontalAlignment="Left" Height="25" Margin="309,126,0,0" VerticalAlignment="Top" Width="68" Click="prijava_button_Click"/>
+    </Grid>
+</Window>

@@ -1,0 +1,53 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="SafeHouse.DoktorForm"
+	Title="Doktor" d:DesignWidth="786">
+    <Grid Height="376">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="32*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="357*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Margin="0,0,22,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="3" Height="342" Width="418" >
+            <GroupBox.Header>
+                <TextBlock Text="Podaci o korisniku"/>
+            </GroupBox.Header>
+            <Canvas Height="319" Width="418" >
+                <Label x:Name="label7" Height="23" Width="94" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="8" Margin="7,18,780,335" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Historija nalaza" />
+                <Label x:Name="label_ispisDatumaSistematskog" Height="23" Width="92" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="7" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="295" Canvas.Top="13" Content="(ispis datuma)" />
+                <Label x:Name="label6" Height="23" Width="227" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="6" Margin="195,36,459,317" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Datum zadnjeg sistematskog pregleda:" />
+                <RichTextBox x:Name="richTextBox3" Height="272" Width="122" TabIndex="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="48" Canvas.Top="36" >
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run/>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+                <RichTextBox x:Name="richTextBox2" Height="83" Width="199" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="188" Canvas.Top="225" >
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run/>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+                <Label x:Name="label5" Height="23" Width="87" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="2" Margin="195,207,599,146" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Li?ne bilje?ke" />
+                <Label x:Name="label2" Height="23" Width="157" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="1" Margin="195,70,529,283" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Nalazi novog sistematskog" />
+                <RichTextBox x:Name="richTextBox1" Height="78" Width="199" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="188" Canvas.Top="88" >
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run/>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+                <Button x:Name="button3" Content="Button" Height="24" Canvas.Left="303" Canvas.Top="176" Width="84"/>
+            </Canvas>
+        </GroupBox>
+        <Label x:Name="label1" Height="23" Width="107" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="12" Background="Transparent" Margin="0,0,489,343" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="3" Content="Lista pacijenata:" />
+        <Label x:Name="label4" Height="22" Width="104" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="9" Background="Transparent" Margin="0,0,588,176" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="3" Content="Prezime doktora" />
+        <Label x:Name="label3" Height="23" Width="83" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="8" Background="Transparent" Margin="0,0,599,203" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="3" Content="Ime doktora" />
+        <Button x:Name="button1" Content="Button" Grid.Column="3" HorizontalAlignment="Left" Height="35" Margin="10,315,0,0" VerticalAlignment="Top" Width="76"/>
+        <ListBox x:Name="listBox_listaPacijenata" Grid.Column="3" HorizontalAlignment="Left" Height="312" Margin="126,38,0,0" VerticalAlignment="Top" Width="143"/>
+    </Grid>
+</Window>

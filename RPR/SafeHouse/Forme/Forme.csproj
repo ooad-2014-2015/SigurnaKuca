@@ -163,6 +163,9 @@
     <Compile Include="status_ps.cs">
       <DependentUpon>Baza.tt</DependentUpon>
     </Compile>
+    <Compile Include="zahtjevi.cs">
+      <DependentUpon>Baza.tt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminForma.resx">
       <DependentUpon>AdminForma.cs</DependentUpon>
     </EmbeddedResource>
