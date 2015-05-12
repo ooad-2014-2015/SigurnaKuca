@@ -207,8 +207,8 @@ namespace SafeHouse
             {
                 errorProvider1.Clear();
             */
-                Lokacija lok = new Lokacija(comboBox_lokacijaKorisnika.Text);
-                djelimicnoAnonimanKorisnik k = new djelimicnoAnonimanKorisnik(textBox_imeKorisnika.Text, textBox_prezimeKorisnika.Text, dateTimePicker_datRodjenjaKorisnika.SelectedDate.Value, textBox_usernameKorisnika.Text, textBox_passwordKorisnika.Text, lok, dateTimePicker_datumPrijemaKorisnika.SelectedDate.Value, dateTimePicker_datumOtpustaKorisnika.SelectedDate.Value);
+                Lokacija lok = new Lokacija(((ComboBoxItem)comboBox_lokacijaKorisnika.SelectedItem).Content.ToString());
+                djelimicnoAnonimanKorisnik k = new djelimicnoAnonimanKorisnik(textBox_imeKorisnika.Text, textBox_prezimeKorisnika.Text, dateTimePicker_datRodjenjaKorisnika.SelectedDate.Value.Date, textBox_usernameKorisnika.Text, textBox_passwordKorisnika.Text, lok, dateTimePicker_datumPrijemaKorisnika.SelectedDate.Value.Date, dateTimePicker_datumOtpustaKorisnika.SelectedDate.Value.Date);
 
 
                 // ZA BAZU Podataka
@@ -223,8 +223,7 @@ namespace SafeHouse
                 bool anoniman = false;
                 if (radioButton_potpunoAnoniman.IsChecked==true) anoniman = true;
 
-
-                string adres = this.comboBox_lokacijaKorisnika.SelectedValue.ToString();
+                string adres = ((ComboBoxItem)comboBox_lokacijaKorisnika.SelectedItem).Content.ToString();
                 
                 var lokacija = (from l in db.lokacije where l.Adresa == adres select l).Single();
 
@@ -242,9 +241,10 @@ namespace SafeHouse
                 if (radioButton_djelomicnoAnoniman.IsChecked==true)
                 // dodavanje kartona i statusa za djelomicno anonimnog
                 {
+                    
                     // PROMJENITI OVDJE DA PRETRAZUJE PO USERU TJ PO SELEKTOVANOM IMENU
-                    string iipDok = this.comboBox_personalniDoktor.SelectedValue.ToString();
-                    string iipPsih = this.comboBox_personalniPsiholog.SelectedValue.ToString();
+                    string iipDok = ((ComboBoxItem)comboBox_personalniDoktor.SelectedItem).Content.ToString();
+                    string iipPsih = ((ComboBoxItem)comboBox_personalniPsiholog.SelectedItem).Content.ToString();
 
                     string[] iDok = iipDok.Split(' ');
                     string[] iPsih = iipPsih.Split(' ');
@@ -274,10 +274,10 @@ namespace SafeHouse
                 {
                     // PROMJENITI OVDJE DA PRETRAZUJE PO USERU TJ PO SELEKTOVANOM IMENU
 
-                    string iipDok = this.comboBox_personalniDoktorAnonimniKorisnik.SelectedValue.ToString();
-                    string iipPsih = this.comboBox_personalniPsihologAnonimniKorisnik.SelectedValue.ToString();
-                    string iipEk = this.comboBox_personalniEkonomistaAnonimniKorisnik.SelectedValue.ToString();
-                    string iipPr = this.comboBox_personalniPravnikAnonimniKorisnik.SelectedValue.ToString();
+                    string iipDok = ((ComboBoxItem)comboBox_personalniDoktor.SelectedItem).Content.ToString();
+                    string iipPsih = ((ComboBoxItem)comboBox_personalniPsiholog.SelectedItem).Content.ToString();
+                    string iipEk = ((ComboBoxItem)comboBox_personalniEkonomistaAnonimniKorisnik.SelectedItem).Content.ToString();
+                    string iipPr = ((ComboBoxItem)comboBox_personalniPravnikAnonimniKorisnik.SelectedItem).Content.ToString();
 
                     string[] iDok = iipDok.Split(' ');
                     string[] iPsih = iipPsih.Split(' ');
@@ -320,7 +320,34 @@ namespace SafeHouse
         }
 
 
-        private void radioButton_djelomičnoAnoniman_CheckedChanged(object sender, RoutedEventArgs e)
+        private void button_addOsobe_Click(object sender, RoutedEventArgs e)
+        {
+            if (textBox_dodajOsobu.Text != "") comboBox_dodaneOsobe.Items.Add(textBox_dodajOsobu.Text);
+            textBox_dodajOsobu.Text = "";
+
+        }
+
+       
+
+        private void linkLabel1_LinkClicked(object sender, RoutedEventArgs e)
+        {
+            StartForm sf = new StartForm();
+            this.Hide();
+            sf.ShowDialog();
+        }
+
+        private void tabControl1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            mydbEntities db = new mydbEntities();
+
+            var lokacije = (from l in db.lokacije where l.Zauzeta == null select l).ToArray();
+            comboBox_lokacijaKorisnika.Items.Clear();
+            foreach (var a in lokacije)
+                comboBox_lokacijaKorisnika.Items.Add(a.Adresa);
+        }
+
+        private void radioButton_djelomicnoAnoniman_Checked(object sender, RoutedEventArgs e)
         {
             string user = textBox_usernameKorisnika.Text;
 
@@ -357,7 +384,7 @@ namespace SafeHouse
             }
             else errorProvider1.Clear();
             */
-            this.groupBox_anonimniKorisnik.Visibility = Visibility.Hidden;
+            groupBox_anonimniKorisnik.Visibility = Visibility.Hidden;
             groupBox_djelomicnoAnonimniKorisnik.Visibility = Visibility.Visible;
 
 
@@ -375,17 +402,9 @@ namespace SafeHouse
                 comboBox_personalniPsiholog.Items.Add(p.Ime + " " + p.Prezime);
 
             db.SaveChanges();
-
         }
 
-        private void button_addOsobe_Click(object sender, RoutedEventArgs e)
-        {
-            if (textBox_dodajOsobu.Text != "") comboBox_dodaneOsobe.Items.Add(textBox_dodajOsobu.Text);
-            textBox_dodajOsobu.Text = "";
-
-        }
-
-        private void radioButton_potpunoAnoniman_CheckedChanged(object sender, RoutedEventArgs e)
+        private void radioButton_potpunoAnoniman_Checked(object sender, RoutedEventArgs e)
         {
             string user = textBox_usernameKorisnika.Text;
 
@@ -429,7 +448,7 @@ namespace SafeHouse
             comboBox_personalniEkonomistaAnonimniKorisnik.Items.Clear();
             comboBox_personalniPravnikAnonimniKorisnik.Items.Clear();
             comboBox_personalniPsihologAnonimniKorisnik.Items.Clear();
-            
+
             mydbEntities db = new mydbEntities();
 
             var doktori = (from d in db.radnici where d.Opis == 0 select d).ToArray();
@@ -447,23 +466,6 @@ namespace SafeHouse
             var pr = (from p in db.radnici where p.Opis == 3 select p).ToArray();
             foreach (var a in pr)
                 comboBox_personalniPravnikAnonimniKorisnik.Items.Add(a.Ime + " " + a.Prezime);
-        }
-
-        private void linkLabel1_LinkClicked(object sender, RoutedEventArgs e)
-        {
-            StartForm sf = new StartForm();
-            this.Hide();
-            sf.ShowDialog();
-        }
-
-        private void tabControl1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            mydbEntities db = new mydbEntities();
-
-            var lokacije = (from l in db.lokacije where l.Zauzeta == null select l).ToArray();
-            comboBox_lokacijaKorisnika.Items.Clear();
-            foreach (var a in lokacije)
-                comboBox_lokacijaKorisnika.Items.Add(a.Adresa);
         }
 
     }
