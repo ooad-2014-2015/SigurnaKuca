@@ -460,10 +460,10 @@ namespace SafeHouse
         {
             mydbEntities db = new mydbEntities();
 
-            var lokacije = (from l in db.lokacije where l.Zauzeta == null select l).ToArray();
+           /* var lokacije = (from l in db.lokacije where l.Zauzeta == null select l).ToArray();
             comboBox_lokacijaKorisnika.Items.Clear();
             foreach (var a in lokacije)
-                comboBox_lokacijaKorisnika.Items.Add(a.Adresa);
+                comboBox_lokacijaKorisnika.Items.Add(a.Adresa);*/
         }
 
     }
