@@ -2,13 +2,13 @@
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 
-	Title="Admin" Width="812.181" Height="426" BorderBrush="{DynamicResource {x:Static SystemColors.InfoBrushKey}}" Loaded="Window_Loaded_1">
+	Title="Admin" Width="812.181" Height="426" BorderBrush="{DynamicResource {x:Static SystemColors.InfoBrushKey}}" Loaded="Window_Loaded_1" WindowStyle="ThreeDBorderWindow">
     <Grid Margin="0,0,2,-20">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="135*"/>
-            <ColumnDefinition Width="667*"/>
+            <ColumnDefinition Width="115*"/>
+            <ColumnDefinition Width="687*"/>
         </Grid.ColumnDefinitions>
-        <TabControl Name="tabControl1" Height="369" Width="651" TabStripPlacement= "Top" Margin="0,0,11,28" HorizontalAlignment="Right" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Grid.Column="1" >
+        <TabControl Name="tabControl1" Height="369" Width="649" TabStripPlacement= "Top" Margin="0,0,11,28" HorizontalAlignment="Right" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Grid.Column="1" >
             <TabControl.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -18,7 +18,7 @@
                 </TransformGroup>
             </TabControl.RenderTransform>
             <TabItem Name="tabPage1" Header="Registracija novog radnika" Background="GhostWhite" Margin="0,0,-4,1" >
-                <Canvas Name="cantabPage1" Background="GhostWhite" Margin="10,16,15,11" >
+                <Canvas Name="cantabPage1" Margin="20,16,15,11" >
                     <GroupBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="25" Canvas.Top="21" Height="175" Width="258" >
                         <GroupBox.Header>
                             <TextBlock Text="Osnovni podaci"/>
@@ -55,7 +55,7 @@
                 </Canvas>
             </TabItem>
             <TabItem Name="tabPage2" Header="Registracija novog korisnika" Background="GhostWhite" Margin="3,0,-4,0" Height="32" VerticalAlignment="Top" >
-                <Canvas Name="cantabPage2" Background="GhostWhite" Margin="0,0,-2,-1" RenderTransformOrigin="0.732,0.442" >
+                <Canvas Name="cantabPage2" Background="GhostWhite" Margin="0,0,4,-1" RenderTransformOrigin="0.732,0.442" >
                     <GroupBox Name="groupBox_djelomicnoAnonimniKorisnik" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="263" Canvas.Left="289" Canvas.Top="10" RenderTransformOrigin="0.49,0.515" Visibility="Hidden" >
                         <GroupBox.Header>
                             <TextBlock Text="Djelomično anoniman korisnik"/>
