@@ -22,7 +22,7 @@
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox>
-                <RichTextBox x:Name="richTextBox_licneBiljeskeEkonomist" Height="83" Width="295" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="150" Canvas.Top="226" >
+                <RichTextBox x:Name="richTextBox_licneBiljeskeEkonomist" Height="83" Width="295" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="150" Canvas.Top="226" LostFocus="richTextBox_licneBiljeskeEkonomist_LostFocus" >
                     <FlowDocument>
                         <Paragraph>
                             <Run/>
@@ -36,11 +36,11 @@
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox>
-                <Button x:Name="button_azurirajPrijedlogeEkonomist" Content="Ažuriraj rješenja" Height="24" Canvas.Left="342" Canvas.Top="176" Width="103"/>
+                <Button x:Name="button_azurirajPrijedlogeEkonomist" Content="Ažuriraj rješenja" Height="24" Canvas.Left="342" Canvas.Top="176" Width="103" Click="button_azurirajPrijedlogeEkonomist_Click"/>
             </Canvas>
         </GroupBox>
         <Button x:Name="button_pregledRasporedaEkonomist" Content="Raspored" HorizontalAlignment="Left" Height="26" Margin="10,324,0,0" VerticalAlignment="Top" Width="76" Grid.ColumnSpan="4"/>
-        <ListBox x:Name="listBox_ListaKorisnikaEkonomist" Grid.Column="3" HorizontalAlignment="Left" Height="312" Margin="81,43,0,0" VerticalAlignment="Top" Width="143"/>
+        <ListBox x:Name="listBox_ListaKorisnikaEkonomist" Grid.Column="3" HorizontalAlignment="Left" Height="312" Margin="81,43,0,0" VerticalAlignment="Top" Width="143" SelectionChanged="listBox_ListaKorisnikaEkonomist_SelectionChanged"/>
         <Label x:Name="label_imeEkonomiste" Content="Ime" HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.152,0.409" Height="26" Width="44"/>
         <Label x:Name="label_prezimeEkonomiste" Content="Prezime" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" Height="26" Width="60" Grid.ColumnSpan="4"/>
         <Label Content="Lista postojećih korisnika" Grid.Column="3" HorizontalAlignment="Left" Height="28" Margin="81,10,0,0" VerticalAlignment="Top" Width="143"/>

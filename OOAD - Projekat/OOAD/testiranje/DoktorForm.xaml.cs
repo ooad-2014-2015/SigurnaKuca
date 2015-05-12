@@ -33,26 +33,7 @@ namespace SafeHouse
         }
 
 
-        private void listBox_listaPacijenata_SelectedIndexChanged(object sender, RoutedEventArgs e)
-        {
-            mydbEntities db = new mydbEntities();
-
-            int pomocna = Convert.ToInt32(listBox_listaPacijenata.SelectedItem.ToString());
-
-            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
-
-            var korisnikStatus = (from stat in db.status_d where stat.ID_K == korisnik.ID select stat).Single();
-
-            richTextBox1.Document.Blocks.Clear();
-            
-            // valjda radi ovakav upis u textbox ??
-            richTextBox3.Document.Blocks.Clear();
-            richTextBox3.Document.Blocks.Add(new Paragraph(new Run(korisnikStatus.Historija)));
-            richTextBox2.Document.Blocks.Clear();
-            richTextBox2.Document.Blocks.Add(new Paragraph(new Run(korisnikStatus.LicniUtisak)));
-         
-            label_ispisDatumaSistematskog.Content = korisnikStatus.DatumPromjene.ToString();
-        }
+     
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
@@ -75,20 +56,7 @@ namespace SafeHouse
             label_ispisDatumaSistematskog.Content = korisnikStatus.DatumPromjene.ToString();
         }
 
-        private void richTextBox2_Validated(object sender, RoutedEventArgs e)
-        {
-            mydbEntities db = new mydbEntities();
-
-            string licniUtisak = new TextRange(richTextBox2.Document.ContentStart, richTextBox2.Document.ContentEnd).Text;
-
-            int pomocna = Convert.ToInt32(listBox_listaPacijenata.SelectedItem.ToString());
-
-            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
-            var korisnikStatus = (from stat in db.status_d where stat.ID_K == korisnik.ID select stat).Single();
-            korisnikStatus.LicniUtisak = licniUtisak;
-            korisnikStatus.DatumPromjene = DateTime.Today.Date;
-            db.SaveChanges();
-        }
+        
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
@@ -107,6 +75,42 @@ namespace SafeHouse
                 var koris = (from ko in db.korisnici where ko.ID == k select ko).Single();
                 listBox_listaPacijenata.Items.Add(koris.ID);
             }
+        }
+
+        private void richTextBox2_LostFocus(object sender, RoutedEventArgs e)
+        {
+            mydbEntities db = new mydbEntities();
+
+            string licniUtisak = new TextRange(richTextBox2.Document.ContentStart, richTextBox2.Document.ContentEnd).Text;
+
+            int pomocna = Convert.ToInt32(listBox_listaPacijenata.SelectedItem.ToString());
+
+            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
+            var korisnikStatus = (from stat in db.status_d where stat.ID_K == korisnik.ID select stat).Single();
+            korisnikStatus.LicniUtisak = licniUtisak;
+            korisnikStatus.DatumPromjene = DateTime.Today.Date;
+            db.SaveChanges();
+        }
+
+        private void listBox_listaPacijenata_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            mydbEntities db = new mydbEntities();
+
+            int pomocna = Convert.ToInt32(listBox_listaPacijenata.SelectedItem.ToString());
+
+            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
+
+            var korisnikStatus = (from stat in db.status_d where stat.ID_K == korisnik.ID select stat).Single();
+
+            richTextBox1.Document.Blocks.Clear();
+
+            // valjda radi ovakav upis u textbox ??
+            richTextBox3.Document.Blocks.Clear();
+            richTextBox3.Document.Blocks.Add(new Paragraph(new Run(korisnikStatus.Historija)));
+            richTextBox2.Document.Blocks.Clear();
+            richTextBox2.Document.Blocks.Add(new Paragraph(new Run(korisnikStatus.LicniUtisak)));
+
+            label_ispisDatumaSistematskog.Content = korisnikStatus.DatumPromjene.ToString();
         }
 
 

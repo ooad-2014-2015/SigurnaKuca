@@ -23,23 +23,6 @@ namespace SafeHouse
             InitializeComponent();
         }
 
-     
-        private void listBox_ListaKorisnikaEkonomist_SelectedIndexChanged(object sender, RoutedEventArgs e)
-        {
-            mydbEntities db = new mydbEntities();
-
-            int pomocna = Convert.ToInt32(listBox_ListaKorisnikaEkonomist.SelectedItem.ToString());
-
-            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
-            var korisnikStatus = (from stat in db.status_e where stat.ID_K == korisnik.ID select stat).Single();
-
-            richTextBox_historijaRješenjaEkonomist.Document.Blocks.Clear();
-            richTextBox_historijaRješenjaEkonomist.Document.Blocks.Add(new Paragraph(new Run(korisnikStatus.Historija)));
-
-            richTextBox_licneBiljeskeEkonomist.Document.Blocks.Clear();
-            richTextBox_licneBiljeskeEkonomist.Document.Blocks.Add(new Paragraph(new Run(korisnikStatus.LicniUtisak)));
-        }
-
         private void button_azurirajPrijedlogeEkonomist_Click(object sender, RoutedEventArgs e)
         {
             mydbEntities db = new mydbEntities();
@@ -68,20 +51,6 @@ namespace SafeHouse
             sf.ShowDialog();
         }
 
-        private void richTextBox_licneBiljeskeEkonomist_Validated(object sender, RoutedEventArgs e)
-        {
-            mydbEntities db = new mydbEntities();
-
-            string licniUtisak = new TextRange(richTextBox_licneBiljeskeEkonomist.Document.ContentStart, richTextBox_licneBiljeskeEkonomist.Document.ContentEnd).Text;
-
-            int pomocna = Convert.ToInt32(listBox_ListaKorisnikaEkonomist.SelectedItem.ToString());
-
-            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
-            var korisnikStatus = (from stat in db.status_e where stat.ID_K == korisnik.ID select stat).Single();
-            korisnikStatus.LicniUtisak = licniUtisak;
-
-            db.SaveChanges();
-        }
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
@@ -101,6 +70,37 @@ namespace SafeHouse
                 var koris = (from ko in db.korisnici where ko.ID == k select ko).Single();
                 listBox_ListaKorisnikaEkonomist.Items.Add(koris.ID);
             }
+        }
+
+        private void listBox_ListaKorisnikaEkonomist_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            mydbEntities db = new mydbEntities();
+
+            int pomocna = Convert.ToInt32(listBox_ListaKorisnikaEkonomist.SelectedItem.ToString());
+
+            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
+            var korisnikStatus = (from stat in db.status_e where stat.ID_K == korisnik.ID select stat).Single();
+
+            richTextBox_historijaRješenjaEkonomist.Document.Blocks.Clear();
+            richTextBox_historijaRješenjaEkonomist.Document.Blocks.Add(new Paragraph(new Run(korisnikStatus.Historija)));
+
+            richTextBox_licneBiljeskeEkonomist.Document.Blocks.Clear();
+            richTextBox_licneBiljeskeEkonomist.Document.Blocks.Add(new Paragraph(new Run(korisnikStatus.LicniUtisak)));
+        }
+
+        private void richTextBox_licneBiljeskeEkonomist_LostFocus(object sender, RoutedEventArgs e)
+        {
+            mydbEntities db = new mydbEntities();
+
+            string licniUtisak = new TextRange(richTextBox_licneBiljeskeEkonomist.Document.ContentStart, richTextBox_licneBiljeskeEkonomist.Document.ContentEnd).Text;
+
+            int pomocna = Convert.ToInt32(listBox_ListaKorisnikaEkonomist.SelectedItem.ToString());
+
+            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
+            var korisnikStatus = (from stat in db.status_e where stat.ID_K == korisnik.ID select stat).Single();
+            korisnikStatus.LicniUtisak = licniUtisak;
+
+            db.SaveChanges();
         }
 
 

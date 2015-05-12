@@ -12,7 +12,7 @@
         <TabControl x:Name="tabControl1" Height="322" Width="547" TabStripPlacement= "Top" Margin="0,0,198,29" HorizontalAlignment="Right" VerticalAlignment="Bottom" SelectionChanged="tabControl1_SelectionChanged" Grid.ColumnSpan="3" >
             <TabItem x:Name="tabPage1" Header="Li?ni karton" >
                 <Canvas x:Name="cantabPage1" Width="688" Margin="0,0,-168,0" >
-                    <GroupBox Name="groupBox1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Top="197" Height="90" Width="526" >
+                    <GroupBox Name="groupBox1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Top="197" Height="90" Width="526" Visibility="Hidden" >
                         <GroupBox.Header>
                             <TextBlock Text="Ekonomska i pravna pomoć "/>
                         </GroupBox.Header>
@@ -24,8 +24,8 @@
                                     </Paragraph>
                                 </FlowDocument>
                             </RichTextBox>
-                            <RadioButton x:Name="radioButton_ekonomskaRjesenjaKorisnik" Height="19" Width="137" TabIndex="1" Margin="7,42,708,384" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Ekonomska rješenja" />
-                            <RadioButton x:Name="radioButton_pravnaRjesenjaKorisnik" Height="19" Width="110" TabIndex="0" Margin="7,16,735,410" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Pravna rješenja" />
+                            <RadioButton x:Name="radioButton_ekonomskaRjesenjaKorisnik" Height="19" Width="137" TabIndex="1" Margin="7,42,708,384" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Ekonomska rješenja" Checked="radioButton_ekonomskaRjesenjaKorisnik_Checked" />
+                            <RadioButton x:Name="radioButton_pravnaRjesenjaKorisnik" Height="19" Width="110" TabIndex="0" Margin="7,16,735,410" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Pravna rješenja" Checked="radioButton_pravnaRjesenjaKorisnik_Checked" />
                         </Canvas>
                     </GroupBox>
                     <Label x:Name="label5" Height="24" Width="151" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Top="88" Content="Psihoterapijski napredak" />
@@ -67,7 +67,7 @@
                                     <CheckBox x:Name="checkBox_dodatniTermini" Height="19" Width="259" TabIndex="0" Margin="17,23,576,403" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Želim dodatne termine za označene opcije" />
                                 </Canvas>
                             </GroupBox>
-                            <GroupBox Name ="groupBox_zahtjeviZaAnonimnogKorisnika" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="10" Canvas.Top="71" Width="174" >
+                            <GroupBox Name ="groupBox_zahtjeviZaAnonimnogKorisnika" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="10" Canvas.Top="71" Width="174" Visibility="Hidden" >
                                 <GroupBox.Header>
                                     <TextBlock Text=""/>
                                 </GroupBox.Header>

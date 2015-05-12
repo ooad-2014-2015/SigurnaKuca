@@ -115,7 +115,7 @@ namespace SafeHouse
 
 
             // fali raspored button, da kreira prazan raspored za svakog zaposlenog, i obavjesti da je uspješno kreirano ??
-            /*db.lokacije.Add(new lokacije() { Adresa = "Brcanska 13" });
+            db.lokacije.Add(new lokacije() { Adresa = "Brcanska 13" });
             db.lokacije.Add(new lokacije() { Adresa = "Muftije Dzabijca 12" });
             db.lokacije.Add(new lokacije() { Adresa = "Ferde Haupmana 6" });
             db.lokacije.Add(new lokacije() { Adresa = "Titova 133" });
@@ -123,7 +123,7 @@ namespace SafeHouse
             db.lokacije.Add(new lokacije() { Adresa = "Vrbovska 183" });
             db.lokacije.Add(new lokacije() { Adresa = "Dzemala Bijedica 18" });
             db.lokacije.Add(new lokacije() { Adresa = "Bulevar Mese Selimovica 188" });
-            db.SaveChanges(); */
+            db.SaveChanges(); 
 
 
         }

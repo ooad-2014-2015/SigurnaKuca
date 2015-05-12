@@ -32,43 +32,7 @@ namespace SafeHouse
             this.Text = "Učitavanje..";
         } 
         */
-
-      
-
-        private void radioButton_pravnaRjesenjaKorisnik_CheckedChanged(object sender, RoutedEventArgs e)
-        {
-            mydbEntities db = new mydbEntities();
-            // pronalazak korisnika
-            var korisnik = (from k in db.korisnici where k.Username == GlobalneVarijable.TrenutniKorisnik select k).Single();
-            if (radioButton_pravnaRjesenjaKorisnik.IsChecked == true)
-            {
-                var korisnikStatusPravnik = (from p in db.status_pr where p.ID_K == korisnik.ID select p).Single();
-                richTextBox3.Document.Blocks.Clear();
-                richTextBox3.Document.Blocks.Add(new Paragraph(new Run(korisnikStatusPravnik.HistorijaRjesenja)));
-            }
-        }
-
-        private void radioButton_ekonomskaRjesenjaKorisnik_CheckedChanged(object sender, RoutedEventArgs e)
-        {
-            mydbEntities db = new mydbEntities();
-            // pronalazak korisnika
-            var korisnik = (from k in db.korisnici where k.Username == GlobalneVarijable.TrenutniKorisnik select k).Single();
-            if (radioButton_pravnaRjesenjaKorisnik.IsChecked == true)
-            {
-                var korisnikStatusEkonomist = (from p in db.status_e where p.ID_K == korisnik.ID select p).Single();
-
-                richTextBox3.Document.Blocks.Clear();
-                richTextBox3.Document.Blocks.Add(new Paragraph(new Run(korisnikStatusEkonomist.Historija)));
-            }
-        }
-        /*
-        private void tabControl1_Selected(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            mydbEntities db = new mydbEntities();
-            // pronalazak korisnika
-            var korisnik = (from k in db.korisnici where k.Username == GlobalneVarijable.TrenutniKorisnik select k).Single();
-            if (korisnik.Anonimnost == true) groupBox_zahtjeviZaAnonimnogKorisnika.Visible = true;
-        }*/
+        
 
         private void tabControl1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -102,8 +66,33 @@ namespace SafeHouse
             richTextBox2.Document.Blocks.Add(new Paragraph(new Run(korisnikStatusPsiholog.Historija)));
         }
 
+        private void radioButton_pravnaRjesenjaKorisnik_Checked(object sender, RoutedEventArgs e)
+        {
+            mydbEntities db = new mydbEntities();
+            // pronalazak korisnika
+            var korisnik = (from k in db.korisnici where k.Username == GlobalneVarijable.TrenutniKorisnik select k).Single();
+            if (radioButton_pravnaRjesenjaKorisnik.IsChecked == true)
+            {
+                var korisnikStatusPravnik = (from p in db.status_pr where p.ID_K == korisnik.ID select p).Single();
+                richTextBox3.Document.Blocks.Clear();
+                richTextBox3.Document.Blocks.Add(new Paragraph(new Run(korisnikStatusPravnik.HistorijaRjesenja)));
+            }
+        }
 
+        private void radioButton_ekonomskaRjesenjaKorisnik_Checked(object sender, RoutedEventArgs e)
+        {
+            mydbEntities db = new mydbEntities();
+            // pronalazak korisnika
+            var korisnik = (from k in db.korisnici where k.Username == GlobalneVarijable.TrenutniKorisnik select k).Single();
+            if (radioButton_pravnaRjesenjaKorisnik.IsChecked == true)
+            {
+                var korisnikStatusEkonomist = (from p in db.status_e where p.ID_K == korisnik.ID select p).Single();
 
+                richTextBox3.Document.Blocks.Clear();
+                richTextBox3.Document.Blocks.Add(new Paragraph(new Run(korisnikStatusEkonomist.Historija)));
+            }
+        }
 
+        
     }
 }
