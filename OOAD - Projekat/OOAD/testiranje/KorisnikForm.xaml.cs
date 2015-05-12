@@ -33,28 +33,7 @@ namespace SafeHouse
         } 
         */
 
-        private void Korisnik_Load(object sender, RoutedEventArgs e)
-        {
-           // webBrowser1.Navigate("http://www.google.com/");
-
-            mydbEntities db = new mydbEntities();
-            // pronalazak korisnika
-            var korisnik = (from k in db.korisnici where k.Username == GlobalneVarijable.TrenutniKorisnik select k).Single();
-            if (korisnik.Anonimnost == true) groupBox1.Visibility = Visibility.Visible;
-            label1.Content = korisnik.Ime;
-            label2.Content = korisnik.Prezime;
-            label3.Content = korisnik.ID.ToString();
-
-            var korisnikStatusDoktor = (from s in db.status_d where s.ID_K == korisnik.ID select s).Single();
-            var korisnikStatusPsiholog = (from p in db.status_ps where p.ID_K == korisnik.ID select p).Single();
-
-            richTextBox1.Document.Blocks.Clear();
-            richTextBox1.Document.Blocks.Add(new Paragraph(new Run(korisnikStatusDoktor.Historija)));
-            richTextBox2.Document.Blocks.Clear();
-            richTextBox2.Document.Blocks.Add(new Paragraph(new Run(korisnikStatusPsiholog.Historija)));
-
-        }
-
+      
 
         private void radioButton_pravnaRjesenjaKorisnik_CheckedChanged(object sender, RoutedEventArgs e)
         {
@@ -100,6 +79,27 @@ namespace SafeHouse
                 var korisnik = (from k in db.korisnici where k.Username == GlobalneVarijable.TrenutniKorisnik select k).Single();
                 if (korisnik.Anonimnost == true) groupBox_zahtjeviZaAnonimnogKorisnika.Visibility= Visibility.Visible;
             }
+        }
+
+        private void Window_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            // webBrowser1.Navigate("http://www.google.com/");
+
+            mydbEntities db = new mydbEntities();
+            // pronalazak korisnika
+            var korisnik = (from k in db.korisnici where k.Username == GlobalneVarijable.TrenutniKorisnik select k).Single();
+            if (korisnik.Anonimnost == true) groupBox1.Visibility = Visibility.Visible;
+            label1.Content = korisnik.Ime;
+            label2.Content = korisnik.Prezime;
+            label3.Content = korisnik.ID.ToString();
+
+            var korisnikStatusDoktor = (from s in db.status_d where s.ID_K == korisnik.ID select s).Single();
+            var korisnikStatusPsiholog = (from p in db.status_ps where p.ID_K == korisnik.ID select p).Single();
+
+            richTextBox1.Document.Blocks.Clear();
+            richTextBox1.Document.Blocks.Add(new Paragraph(new Run(korisnikStatusDoktor.Historija)));
+            richTextBox2.Document.Blocks.Clear();
+            richTextBox2.Document.Blocks.Add(new Paragraph(new Run(korisnikStatusPsiholog.Historija)));
         }
 
 

@@ -23,26 +23,7 @@ namespace SafeHouse
             InitializeComponent();
         }
 
-        private void EkonomistaForm_Load(object sender, RoutedEventArgs e)
-        {
-            mydbEntities db = new mydbEntities();
-            // pronalazak doktora
-            var ekonom = (from d in db.radnici where d.Username == GlobalneVarijable.TrenutniEkonomista select d).Single();
-            
-            
-            label_imeEkonomiste.Content = ekonom.Ime;
-            label_prezimeEkonomiste.Content = ekonom.Prezime;
-           
-            // pronalazak pacijenata za tog doktora
-            var karton = (from kar in db.kartoni where kar.ID_E == ekonom.ID select kar.ID).ToArray();
-
-            foreach (var k in karton)
-            {
-                var koris = (from ko in db.korisnici where ko.ID == k select ko).Single();
-                listBox_ListaKorisnikaEkonomist.Items.Add(koris.ID);
-            }
-        }
-
+     
         private void listBox_ListaKorisnikaEkonomist_SelectedIndexChanged(object sender, RoutedEventArgs e)
         {
             mydbEntities db = new mydbEntities();
@@ -100,6 +81,26 @@ namespace SafeHouse
             korisnikStatus.LicniUtisak = licniUtisak;
 
             db.SaveChanges();
+        }
+
+        private void Window_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            mydbEntities db = new mydbEntities();
+            // pronalazak doktora
+            var ekonom = (from d in db.radnici where d.Username == GlobalneVarijable.TrenutniEkonomista select d).Single();
+
+
+            label_imeEkonomiste.Content = ekonom.Ime;
+            label_prezimeEkonomiste.Content = ekonom.Prezime;
+
+            // pronalazak pacijenata za tog doktora
+            var karton = (from kar in db.kartoni where kar.ID_E == ekonom.ID select kar.ID).ToArray();
+
+            foreach (var k in karton)
+            {
+                var koris = (from ko in db.korisnici where ko.ID == k select ko).Single();
+                listBox_ListaKorisnikaEkonomist.Items.Add(koris.ID);
+            }
         }
 
 

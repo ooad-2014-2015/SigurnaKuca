@@ -31,26 +31,7 @@ namespace SafeHouse
             sf.ShowDialog();
         }
 
-        private void PsihologForm_Load(object sender, RoutedEventArgs e)
-        {
-            mydbEntities db = new mydbEntities();
-            // pronalazak doktora
-            var psih = (from d in db.radnici where d.Username == GlobalneVarijable.TrenutniPsiholog select d).Single();
-
-            label_imePsiholog.Content = psih.Ime;
-            label_prezimePsiholog.Content = psih.Prezime;
-
-            // pronalazak pacijenata za tog doktora
-            var karton = (from kar in db.kartoni where kar.ID_Ps == psih.ID select kar.ID).ToArray();
-
-            // dodavanje u listBox
-            foreach (var k in karton)
-            {
-                var koris = (from ko in db.korisnici where ko.ID == k select ko).Single();
-                listBox_listaPacijenataPsiholog.Items.Add(koris.ID);
-            }
-        }
-
+        
 
 
         private void listBox_listaPacijenataPsiholog_SelectedIndexChanged(object sender, RoutedEventArgs e)
@@ -104,6 +85,26 @@ namespace SafeHouse
             var korisnikStatus = (from stat in db.status_ps where stat.ID_K == korisnik.ID select stat).Single();
             korisnikStatus.LicniUtisak = licniUtisak;
             db.SaveChanges();
+        }
+
+        private void Window_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            mydbEntities db = new mydbEntities();
+            // pronalazak doktora
+            var psih = (from d in db.radnici where d.Username == GlobalneVarijable.TrenutniPsiholog select d).Single();
+
+            label_imePsiholog.Content = psih.Ime;
+            label_prezimePsiholog.Content = psih.Prezime;
+
+            // pronalazak pacijenata za tog doktora
+            var karton = (from kar in db.kartoni where kar.ID_Ps == psih.ID select kar.ID).ToArray();
+
+            // dodavanje u listBox
+            foreach (var k in karton)
+            {
+                var koris = (from ko in db.korisnici where ko.ID == k select ko).Single();
+                listBox_listaPacijenataPsiholog.Items.Add(koris.ID);
+            }
         }
 
 

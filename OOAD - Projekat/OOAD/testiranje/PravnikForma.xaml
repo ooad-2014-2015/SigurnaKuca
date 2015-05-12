@@ -2,56 +2,57 @@
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="SafeHouse.PravnikForm"
-	Title="Pravnik" d:DesignWidth="629.194">
-    <Grid Height="443" Width="848">
+	Title="Pravnik" Width="762.194" Height="447.5" Loaded="Window_Loaded_1">
+    <Grid Height="443" Margin="0,4,-216,4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="212"/>
         </Grid.ColumnDefinitions>
-        <GroupBox Margin="0,0,28.299,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" >
+        <GroupBox Margin="0,0,19,37" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="475" Height="391" >
             <GroupBox.Header>
-                <TextBlock Text="Op?ti podaci o pacijentu"/>
+                <TextBlock Text="Opšti podaci o pacijentu"/>
             </GroupBox.Header>
-            <Canvas Height="395" Width="353" >
-                <Label x:Name="label7" Height="23" Width="87" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="8" Margin="183,269,578,151" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Li?ne bilje?ke" />
-                <RichTextBox x:Name="richTextBox_licneBiljeskePravnik" Height="73" Width="206" TabIndex="7" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="99" Canvas.Top="312" >
+            <Canvas Margin="53,0,7,1" >
+                <Label x:Name="label7" Height="23" Width="87" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Lične bilješke" Canvas.Left="106" Canvas.Top="269" />
+                <RichTextBox x:Name="richTextBox_licneBiljeskePravnik" Height="71" Width="287" TabIndex="7" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="106" Canvas.Top="297" >
                     <FlowDocument>
                         <Paragraph>
                             <Run/>
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox>
-                <Label x:Name="label6" Height="23" Width="143" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="6" Margin="181,15,524,405" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Dijagnoza nove terapije" />
-                <RichTextBox x:Name="richTextBox_opisProblemaPravnik" Height="59" Width="206" TabIndex="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="99" Canvas.Top="202" RenderTransformOrigin="0.787,0.571" >
+                <Label x:Name="label6" Height="23" Width="143" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Dijagnoza nove terapije" Canvas.Left="106" Canvas.Top="8" />
+                <RichTextBox x:Name="richTextBox_opisProblemaPravnik" Height="72" Width="287" TabIndex="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="106" Canvas.Top="192" RenderTransformOrigin="0.787,0.571" >
                     <FlowDocument>
                         <Paragraph>
                             <Run/>
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox>
-                <Label x:Name="label5" Height="23" Width="170" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="114" Canvas.Top="174" Content="Nalazi sistematskog pregleda" />
-                <RichTextBox x:Name="richTextBox_prijedlogRjesenja" Height="89" Width="192" TabIndex="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="132" Canvas.Top="43" >
+                <Label x:Name="label5" Height="23" Width="170" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="106" Canvas.Top="164" Content="Nalazi sistematskog pregleda" />
+                <RichTextBox x:Name="richTextBox_prijedlogRjesenja" Height="88" Width="287" TabIndex="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="106" Canvas.Top="31" >
                     <FlowDocument>
                         <Paragraph>
                             <Run/>
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox>
-                <Label x:Name="label4" Height="23" Width="145" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="9" Canvas.Top="15" Content="Podaci o napretku terapije" />
-                <RichTextBox x:Name="richTextBox_historijaRjesenjaPravnik" Height="353" Width="91" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="3" Canvas.Top="32" >
+                <Label x:Name="label4" Height="23" Width="145" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="-55" Canvas.Top="8" Content="Podaci o napretku terapije" />
+                <RichTextBox x:Name="richTextBox_historijaRjesenjaPravnik" Height="337" Width="140" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="-55" Canvas.Top="31" >
                     <FlowDocument>
                         <Paragraph>
                             <Run/>
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox>
-                <Button x:Name="button_azurirajRjesenjePravnik" Content="Button" Height="21" Canvas.Left="241" Canvas.Top="137" Width="64"/>
+                <Button x:Name="button_azurirajRjesenjePravnik" Content="Ažuriraj nalaze" Height="21" Canvas.Left="316" Canvas.Top="124" Width="77" RenderTransformOrigin="0.484,0.476"/>
             </Canvas>
         </GroupBox>
-        <Label x:Name="label3" Height="23" Width="99" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="5" Foreground="Black" Margin="0,0,417.299,387" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Lista pacijenata" />
-        <Label x:Name="label_prezimePravnik" Height="23" Width="58" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="2" Foreground="MidnightBlue" Background="Transparent" Margin="0,0,566.299,238" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Prezime" />
-        <Label x:Name="label_imePravnik" Height="23" Width="37" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="1" Foreground="MidnightBlue" Background="Transparent" Margin="0,0,587.299,264" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Ime" />
-        <Button x:Name="button_pregledRasporedaPravnik" Content="Button" HorizontalAlignment="Left" Height="30" Margin="12,376,0,0" VerticalAlignment="Top" Width="94"/>
-        <ListBox x:Name="listBox_listaPacijenataPravnik" HorizontalAlignment="Left" Height="333" Margin="120,61,0,0" VerticalAlignment="Top" Width="118"/>
+        <Label x:Name="label3" Height="23" Width="99" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="5" Foreground="Black" Margin="0,0,518,387" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Lista pacijenata" />
+        <Label x:Name="label_prezimePravnik" Height="23" Width="58" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="2" Foreground="MidnightBlue" Background="Transparent" Margin="0,0,690,238" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Prezime" />
+        <Label x:Name="label_imePravnik" Height="23" Width="37" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="1" Foreground="MidnightBlue" Background="Transparent" Margin="0,0,711,266" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Ime" />
+        <Button x:Name="button_pregledRasporedaPravnik" Content="Raspored" HorizontalAlignment="Left" Height="24" Margin="12,382,0,0" VerticalAlignment="Top" Width="84"/>
+        <ListBox x:Name="listBox_listaPacijenataPravnik" HorizontalAlignment="Left" Height="345" Margin="141,61,0,0" VerticalAlignment="Top" Width="118"/>
+        <Image HorizontalAlignment="Left" Height="121" Margin="12,33,0,0" VerticalAlignment="Top" Width="113"/>
     </Grid>
 </Window>
