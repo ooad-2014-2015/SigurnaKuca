@@ -76,7 +76,7 @@
                                     <CheckBox x:Name="checkBox2" Height="19" Width="189" TabIndex="1" Margin="-3,28,666,398" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za ekonomsku pomoć" />
                                 </Canvas>
                             </GroupBox>
-                            <Button x:Name="button2" Height="26" Width="108" TabIndex="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Podnesi zahtjev" Canvas.Left="388" Canvas.Top="123" />
+                            <Button x:Name="button2" Height="26" Width="108" TabIndex="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Podnesi zahtjev" Canvas.Left="388" Canvas.Top="123" Click="button2_Click" />
                             <CheckBox x:Name="checkBox4" Height="19" Width="188" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za medicinsku pomoć" Canvas.Left="18" Canvas.Top="52" />
                             <CheckBox x:Name="checkBox3" Height="19" Width="184" TabIndex="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za psihološku pomoć" Canvas.Left="18" Canvas.Top="26" />
                         </Canvas>

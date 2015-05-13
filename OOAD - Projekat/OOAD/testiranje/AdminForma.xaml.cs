@@ -13,17 +13,28 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SafeHouse;
+using System.Threading;
+using System.Data;
 
 namespace SafeHouse
 {
     // SAMO JOS PREPRAVITI ERRORPROVIDER I NOTIFYICON
     public partial class AdminForma : Window
     {
+        Thread t;
         sigurnaKuca sk=new sigurnaKuca();
 
         public AdminForma()
         {
             InitializeComponent();
+            t = new Thread(new ThreadStart(this.provjeraBazeZahtjev));
+            t.Start();
+            while (!t.IsAlive) ;
+        }
+
+        ~AdminForma()
+        {
+            t.Abort();
         }
 
         private void combobox_opisPoslaRadnika_SelectedIndexChanged(object sender, RoutedEventArgs e)
@@ -478,6 +489,23 @@ namespace SafeHouse
 
             foreach (var a in lokacije)
                 comboBox_lokacijaKorisnika.Items.Add(a.Adresa);
+        }
+
+        public void provjeraBazeZahtjev()
+        {
+            while (true)
+            {
+                mydbEntities db = new mydbEntities();
+                try
+                {
+                    var zahtjevi = (from z in db.zahtjevi where z.Obradjen == null select z).ToArray();
+                    Console.WriteLine("rehaaa");
+                }
+                catch (ArgumentException e)
+                { }
+                catch (EntityException e)
+                { }
+            }
         }
     }
 }
