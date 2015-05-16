@@ -24,13 +24,13 @@ namespace SafeHouse
 
         private void username_textbox_TextChanged(object sender, EventArgs e)
         {
-            //if (errorProvider1.GetError(username_textbox) == "") errorProvider1.Clear();
+            if(username_textbox.Text !="") errorProvider1.Content=" ";
 
         }
 
         private void password_textbox_TextChanged(object sender, EventArgs e)
         {
-            //if (errorProvider1.GetError(password_textbox) == "") errorProvider1.Clear();
+            if(password_textbox.Text !="") errorProvider1.Content = " ";
 
         }
 
@@ -43,13 +43,13 @@ namespace SafeHouse
             // ZA ADMINA
             if ((user == Convert.ToString("admin") && pass != Convert.ToString("admin")) || (pass == Convert.ToString("admin") && user != Convert.ToString("admin")))
             {
-                //  if (user == Convert.ToString("admin") && pass != Convert.ToString("admin")) { errorProvider1.SetError(password_textbox, "Šifra nije validna. Pokušajte ponovo!"); return; }
-                // if (pass == Convert.ToString("admin") && user != Convert.ToString("admin")) { errorProvider1.SetError(username_textbox, "Username nije validan. Pokušajte ponovo!"); return; }
+                if (user == Convert.ToString("admin") && pass != Convert.ToString("admin")) { errorProvider1.Content = "Šifra nije validna. Pokušajte ponovo!"; return; }
+                if (pass == Convert.ToString("admin") && user != Convert.ToString("admin")) { errorProvider1.Content= "Username nije validan. Pokušajte ponovo!"; return; }
 
             }
             else if (user == Convert.ToString("admin") && pass == Convert.ToString("admin"))
             {
-                // errorProvider1.Clear();
+                errorProvider1.Content="";
                 AdminForma f = new AdminForma();
                 this.Hide();
                 f.ShowDialog();
@@ -72,11 +72,11 @@ namespace SafeHouse
                         doc.ShowDialog();
                         this.Close();
                     }
-                    //else { errorProvider1.SetError(password_textbox, "Pogrešan password, pokušajte ponovo!"); return; }
+                    else { errorProvider1.Content="Pogrešan password, pokušajte ponovo!"; return; }
                 }
                 catch (InvalidOperationException)
                 {
-                    //errorProvider1.SetError(prijava_button, "Ne postoji doktor sa unesenim podacima! Pokušajte ponovo.");
+                    errorProvider1.Content="Ne postoji doktor sa unesenim podacima! Pokušajte ponovo.";
                 }
 
             }
@@ -95,11 +95,11 @@ namespace SafeHouse
                         this.Close();
 
                     }
-                    //else { errorProvider1.SetError(password_textbox, "Pogrešan password, pokušajte ponovo!"); return; }
+                    else { errorProvider1.Content = "Pogrešan password, pokušajte ponovo!"; return; }
                 }
                 catch (InvalidOperationException)
                 {
-                    //errorProvider1.SetError(prijava_button, "Ne postoji ekonomista sa unesenim podacima! Pokušajte ponovo.");
+                    errorProvider1.Content="Ne postoji ekonomista sa unesenim podacima! Pokušajte ponovo.";
                 }
 
             }
@@ -117,11 +117,11 @@ namespace SafeHouse
                         psi.ShowDialog();
                         this.Close();
                     }
-                    //else { errorProvider1.SetError(password_textbox, "Pogrešan password, pokušajte ponovo!"); return; }
+                    else { errorProvider1.Content = "Pogrešan password, pokušajte ponovo!"; return; }
                 }
                 catch (InvalidOperationException)
                 {
-                    //errorProvider1.SetError(prijava_button, "Ne postoji psiholog sa unesenim podacima! Pokušajte ponovo.");
+                    errorProvider1.Content="Ne postoji psiholog sa unesenim podacima! Pokušajte ponovo.";
                 }
 
             }
@@ -139,11 +139,11 @@ namespace SafeHouse
                         pr.ShowDialog();
                         this.Close();
                     }
-                    // else { errorProvider1.SetError(password_textbox, "Pogrešan password, pokušajte ponovo!"); return; }
+                    else { errorProvider1.Content = "Pogrešan password, pokušajte ponovo!"; return; }
                 }
                 catch (InvalidOperationException)
                 {
-                    //errorProvider1.SetError(prijava_button, "Ne postoji pravnik sa unesenim podacima! Pokušajte ponovo.");
+                    errorProvider1.Content="Ne postoji pravnik sa unesenim podacima! Pokušajte ponovo.";
                 }
 
             }
@@ -161,11 +161,11 @@ namespace SafeHouse
                         kf.ShowDialog();
                         this.Close();
                     }
-                    //else { errorProvider1.SetError(password_textbox, "Pogrešan password, pokušajte ponovo!"); }
+                    else { errorProvider1.Content = "Pogrešan password, pokušajte ponovo!"; return; }
                 }
                 catch (InvalidOperationException)
                 {
-                    //errorProvider1.SetError(prijava_button, "Ne postoji korisnik sa unesenim podacima! Pokušajte ponovo.");
+                    errorProvider1.Content="Ne postoji korisnik sa unesenim podacima! Pokušajte ponovo.";
                 }
 
             }
