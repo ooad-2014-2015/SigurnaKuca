@@ -19,7 +19,7 @@
                 <Label x:Name="label7" Height="23" Width="94" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Historija nalaza" Canvas.Left="10" Canvas.Top="10" />
                 <Label x:Name="label_ispisDatumaSistematskog" Height="23" Width="92" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="7" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="353" Canvas.Top="36" Content="(ispis datuma)" />
                 <Label x:Name="label6" Height="23" Width="227" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Datum zadnjeg sistematskog pregleda:" Canvas.Left="153" Canvas.Top="36" />
-                <RichTextBox x:Name="richTextBox3" Height="272" Width="122" TabIndex="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="10" Canvas.Top="36" >
+                <RichTextBox x:Name="richTextBox3" Height="272" Width="122" TabIndex="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="10" Canvas.Top="36" VerticalScrollBarVisibility="Auto" >
                     <FlowDocument>
                         <Paragraph>
                             <Run/>

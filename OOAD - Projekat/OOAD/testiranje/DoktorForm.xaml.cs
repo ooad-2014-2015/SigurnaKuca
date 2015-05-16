@@ -46,8 +46,8 @@ namespace SafeHouse
             var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
             var korisnikStatus = (from stat in db.status_d where stat.ID_K == korisnik.ID select stat).Single();
             korisnikStatus.Nalazi = nalazi;
-            korisnikStatus.Historija += (nalazi + "\n");
-            korisnikStatus.DatumPromjene = DateTime.Today.Date;
+            korisnikStatus.Historija += (System.DateTime.Now + "\n" + nalazi + "\n");
+            korisnikStatus.DatumPromjene = DateTime.Now;
 
             db.SaveChanges();
             richTextBox1.Document.Blocks.Clear();  // brisanje sadržaja richTextBoxa ??

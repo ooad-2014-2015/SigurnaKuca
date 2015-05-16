@@ -36,7 +36,7 @@ namespace SafeHouse
             var korisnikStatus = (from stat in db.status_e where stat.ID_K == korisnik.ID select stat).Single();
 
             korisnikStatus.PrijedlogRjesenja = prijedlog;
-            korisnikStatus.Historija += (prijedlog + "\n");
+            korisnikStatus.Historija += (DateTime.Now + "\n" + prijedlog + "\n");
 
             db.SaveChanges();
             richTextBox_prijedlogRjesenjaEkonomist.Document.Blocks.Clear(); // brise sadrzaj ??

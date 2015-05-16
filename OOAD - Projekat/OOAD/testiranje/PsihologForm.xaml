@@ -30,7 +30,7 @@
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox>
-                <RichTextBox x:Name="richTextBox_napredakTerapijePsiholog" Height="287" Width="116" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="10" Canvas.Top="32" >
+                <RichTextBox x:Name="richTextBox_napredakTerapijePsiholog" Height="287" Width="116" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="10" Canvas.Top="32" VerticalScrollBarVisibility="Auto" >
                     <FlowDocument>
                         <Paragraph>
                             <Run/>
