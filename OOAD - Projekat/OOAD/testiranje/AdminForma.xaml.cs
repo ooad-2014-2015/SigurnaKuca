@@ -499,7 +499,7 @@ namespace SafeHouse
                 try
                 {
                     var zahtjevi = (from z in db.zahtjevi where z.Obradjen == null select z).ToArray();
-                    Console.WriteLine("rehaaa");
+                    
                 }
                 catch (ArgumentException e)
                 { }

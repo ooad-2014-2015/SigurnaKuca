@@ -36,7 +36,7 @@ namespace SafeHouse
             var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
             var korisnikStatus = (from stat in db.status_pr where stat.ID_K == korisnik.ID select stat).Single();
             korisnikStatus.PrijedlogRjesenja = nalazi;
-            korisnikStatus.HistorijaRjesenja += (nalazi + "\n");
+            korisnikStatus.HistorijaRjesenja += (DateTime.Now + "\n" + nalazi + "\n");
 
             db.SaveChanges();
 

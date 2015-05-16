@@ -43,7 +43,7 @@ namespace SafeHouse
             var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
             var korisnikStatus = (from stat in db.status_ps where stat.ID_K == korisnik.ID select stat).Single();
             korisnikStatus.Dijagnoza = nalazi;
-            korisnikStatus.Historija += (nalazi + "\n");
+            korisnikStatus.Historija += (DateTime.Now + "\n" + nalazi + "\n");
 
             db.SaveChanges();
 

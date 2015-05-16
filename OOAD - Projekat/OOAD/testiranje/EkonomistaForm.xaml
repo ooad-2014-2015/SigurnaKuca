@@ -15,7 +15,7 @@
                 <TextBlock Text="Podaci o korisniku"/>
             </GroupBox.Header>
             <Canvas Height="319" Margin="0,0,-2,0" >
-                <RichTextBox x:Name="richTextBox_historijaRješenjaEkonomist" Height="272" Width="122" TabIndex="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="10" Canvas.Top="37" >
+                <RichTextBox x:Name="richTextBox_historijaRješenjaEkonomist" Height="272" Width="122" TabIndex="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="10" Canvas.Top="37" VerticalScrollBarVisibility="Auto" >
                     <FlowDocument>
                         <Paragraph>
                             <Run/>

@@ -38,7 +38,7 @@
                     </FlowDocument>
                 </RichTextBox>
                 <Label x:Name="label4" Height="23" Width="103" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="-37" Canvas.Top="10" Content="Historija rješenja" />
-                <RichTextBox x:Name="richTextBox_historijaRjesenjaPravnik" Height="337" Width="122" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="-37" Canvas.Top="31" >
+                <RichTextBox x:Name="richTextBox_historijaRjesenjaPravnik" Height="337" Width="122" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="-37" Canvas.Top="31" VerticalScrollBarVisibility="Auto" >
                     <FlowDocument>
                         <Paragraph>
                             <Run/>
