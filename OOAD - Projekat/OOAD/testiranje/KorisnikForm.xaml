@@ -3,15 +3,41 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="SafeHouse.KorisnikForm"
 	Title="Korisnik" Width="705.314" Height="370.821" FontSize="10" Loaded="Window_Loaded_1">
-    <Grid Margin="0,0,-171,-20" HorizontalAlignment="Left" Width="883">
+    <Window.Resources>
+        <Color x:Key="tamnaSkroz">#FF363434</Color>
+    </Window.Resources>
+    <Window.Background>
+        <SolidColorBrush Color="{DynamicResource tamnaSkroz}"/>
+    </Window.Background>
+    <Grid Margin="10,10,0,2" HorizontalAlignment="Left" Width="685">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="526*"/>
             <ColumnDefinition Width="57*"/>
             <ColumnDefinition Width="300*"/>
         </Grid.ColumnDefinitions>
-        <TabControl x:Name="tabControl1" Height="322" Width="547" TabStripPlacement= "Top" Margin="0,0,198,29" HorizontalAlignment="Right" VerticalAlignment="Bottom" SelectionChanged="tabControl1_SelectionChanged" Grid.ColumnSpan="3" >
-            <TabItem x:Name="tabPage1" Header="Li?ni karton" >
-                <Canvas x:Name="cantabPage1" Width="688" Margin="0,0,-168,0" >
+        <TabControl x:Name="tabControl1" Height="319" Width="547" TabStripPlacement= "Top" Margin="0,0,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" SelectionChanged="tabControl1_SelectionChanged" Grid.ColumnSpan="3" BorderBrush="White" Foreground="#FFFB6565" >
+            <TabControl.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="50.194" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF363434" Offset="0.358"/>
+                    <GradientStop Color="#FF595959" Offset="1"/>
+                </LinearGradientBrush>
+            </TabControl.Background>
+            <TabItem x:Name="tabPage1" Header="Lični karton" BorderBrush="#FF020202" Foreground="#FFFB5454" >
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FF4F4F4F" Offset="0"/>
+                        <GradientStop Color="#FF999999" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Canvas x:Name="cantabPage1" Margin="10,0,1,0" >
                     <GroupBox Name="groupBox1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Top="197" Height="90" Width="526" Visibility="Hidden" >
                         <GroupBox.Header>
                             <TextBlock Text="Ekonomska i pravna pomoć "/>
@@ -24,20 +50,20 @@
                                     </Paragraph>
                                 </FlowDocument>
                             </RichTextBox>
-                            <RadioButton x:Name="radioButton_ekonomskaRjesenjaKorisnik" Height="19" Width="137" TabIndex="1" Margin="7,42,708,384" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Ekonomska rješenja" Checked="radioButton_ekonomskaRjesenjaKorisnik_Checked" />
-                            <RadioButton x:Name="radioButton_pravnaRjesenjaKorisnik" Height="19" Width="110" TabIndex="0" Margin="7,16,735,410" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Pravna rješenja" Checked="radioButton_pravnaRjesenjaKorisnik_Checked" />
+                            <RadioButton x:Name="radioButton_ekonomskaRjesenjaKorisnik" Height="19" Width="137" TabIndex="1" Margin="7,42,708,384" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Ekonomska rješenja" Checked="radioButton_ekonomskaRjesenjaKorisnik_Checked" Foreground="#FFFDFBFB" />
+                            <RadioButton x:Name="radioButton_pravnaRjesenjaKorisnik" Height="19" Width="110" TabIndex="0" Margin="7,16,735,410" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Pravna rješenja" Checked="radioButton_pravnaRjesenjaKorisnik_Checked" Foreground="#FFFDFBFB" />
                         </Canvas>
                     </GroupBox>
-                    <Label x:Name="label5" Height="24" Width="151" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Top="88" Content="Psihoterapijski napredak" />
-                    <RichTextBox x:Name="richTextBox2" Height="60" Width="513" TabIndex="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Top="117" >
+                    <Label x:Name="label5" Height="24" Width="151" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Top="108" Content="Psihoterapijski napredak" Foreground="#FFFFFBFB" />
+                    <RichTextBox x:Name="richTextBox2" Height="60" Width="513" TabIndex="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Top="137" >
                         <FlowDocument>
                             <Paragraph>
                                 <Run/>
                             </Paragraph>
                         </FlowDocument>
                     </RichTextBox>
-                    <Label x:Name="label4" Height="24" Width="174" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Nalazi sistematskih pregleda" />
-                    <RichTextBox x:Name="richTextBox1" Height="59" Width="513" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Top="24" >
+                    <Label x:Name="label4" Height="24" Width="174" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Nalazi sistematskih pregleda" Foreground="#FFF9F9F9" Canvas.Top="20" />
+                    <RichTextBox x:Name="richTextBox1" Height="59" Width="513" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Top="44" >
                         <FlowDocument>
                             <Paragraph>
                                 <Run/>
@@ -46,54 +72,80 @@
                     </RichTextBox>
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="tabPage2" Header="Zahtjevi" Background="Transparent" >
-                <Canvas x:Name="cantabPage2" Background="Transparent" Margin="0,0,-1,0" >
-                    <GroupBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="76" Canvas.Left="10" Canvas.Top="211" Width="520" >
+            <TabItem x:Name="tabPage2" Header="Zahtjevi" BorderBrush="#FF020202" Foreground="#FFFB5454" >
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FF4F4F4F" Offset="0"/>
+                        <GradientStop Color="#FF999999" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Canvas x:Name="cantabPage2" Background="Transparent" Margin="0,0,4,0" >
+                    <GroupBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="95" Canvas.Left="10" Canvas.Top="179" Width="520" >
                         <GroupBox.Header>
-                            <TextBlock Text="Obavjesti o odobravanju/odbijanju podnesenih zahtjeva"/>
+                            <TextBlock Text="Obavjesti o odobravanju/odbijanju podnesenih zahtjeva" Foreground="#FFFF5C5C"/>
                         </GroupBox.Header>
                     </GroupBox>
-                    <GroupBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="10" Width="520" Height="186" Canvas.Top="10" >
+                    <GroupBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="10" Width="520" Height="164" Canvas.Top="10" >
                         <GroupBox.Header>
-                            <TextBlock Text="Podno?enje zahtjeva"/>
+                            <TextBlock Text="Podnošenje zahtjeva" Foreground="#FFFB6B6B"/>
                         </GroupBox.Header>
                         <Canvas Margin="0,0,-2,3" >
-                            <GroupBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="202" Canvas.Top="26" Width="294" Height="92" >
+                            <GroupBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="206" Canvas.Top="10" Width="294" Height="92" Foreground="#FFFF6969" >
                                 <GroupBox.Header>
                                     <TextBlock Text="Vrsta zahtjeva"/>
                                 </GroupBox.Header>
                                 <Canvas Margin="0,0,-2,2" >
-                                    <CheckBox x:Name="checkBox_standardniTermini" Height="19" Width="270" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Želim standardne termine koji mi trebaju biti dodjeljeni" Canvas.Left="17" Canvas.Top="50" />
-                                    <CheckBox x:Name="checkBox_dodatniTermini" Height="19" Width="259" TabIndex="0" Margin="17,23,576,403" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Želim dodatne termine za označene opcije" />
+                                    <CheckBox x:Name="checkBox_standardniTermini" Height="19" Width="270" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Želim standardne termine koji mi trebaju biti dodjeljeni" Canvas.Left="17" Canvas.Top="50" Foreground="#FFF9F9F9" />
+                                    <CheckBox x:Name="checkBox_dodatniTermini" Height="19" Width="259" TabIndex="0" Margin="17,23,576,403" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Želim dodatne termine za označene opcije" Foreground="#FFF9F9F9" />
                                 </Canvas>
                             </GroupBox>
-                            <GroupBox Name ="groupBox_zahtjeviZaAnonimnogKorisnika" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="10" Canvas.Top="71" Width="174" Visibility="Hidden" >
+                            <GroupBox Name ="groupBox_zahtjeviZaAnonimnogKorisnika" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="18" Canvas.Top="61" Width="174" Height="70" Visibility="Hidden" >
                                 <GroupBox.Header>
-                                    <TextBlock Text=""/>
+                                    <TextBlock Text="Dodatni zahtjevi"/>
                                 </GroupBox.Header>
                                 <Canvas Height="56" Width="187" >
-                                    <CheckBox x:Name="checkBox1" Height="19" Width="162" TabIndex="0" Margin="-3,1,693,425" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za pravnu pomoć" />
-                                    <CheckBox x:Name="checkBox2" Height="19" Width="189" TabIndex="1" Margin="-3,28,666,398" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za ekonomsku pomoć" />
+                                    <CheckBox x:Name="checkBox1" Height="19" Width="162" TabIndex="0" Margin="-3,1,693,425" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za pravnu pomoć" Foreground="#FFF5EFEF" />
+                                    <CheckBox x:Name="checkBox2" Height="19" Width="189" TabIndex="1" Margin="-3,28,666,398" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za ekonomsku pomoć" Foreground="#FFF5EFEF" />
                                 </Canvas>
                             </GroupBox>
-                            <Button x:Name="button2" Height="26" Width="108" TabIndex="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Podnesi zahtjev" Canvas.Left="388" Canvas.Top="123" Click="button2_Click" />
-                            <CheckBox x:Name="checkBox4" Height="19" Width="188" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za medicinsku pomoć" Canvas.Left="18" Canvas.Top="52" />
-                            <CheckBox x:Name="checkBox3" Height="19" Width="184" TabIndex="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za psihološku pomoć" Canvas.Left="18" Canvas.Top="26" />
+                            <Button x:Name="button2" Height="26" Width="108" TabIndex="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Podnesi zahtjev" Canvas.Left="392" Canvas.Top="107" Click="button2_Click" BorderBrush="#FFFBFBFB" Foreground="#FFF9F5F5" >
+                                <Button.Background>
+                                    <ImageBrush/>
+                                </Button.Background>
+                            </Button>
+                            <CheckBox x:Name="checkBox4" Height="19" Width="188" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za medicinsku pomoć" Canvas.Left="18" Canvas.Top="36" Foreground="#FFF9F9F9" />
+                            <CheckBox x:Name="checkBox3" Height="19" Width="184" TabIndex="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za psihološku pomoć" Canvas.Left="18" Canvas.Top="12" Foreground="#FFF9F9F9" />
                         </Canvas>
                     </GroupBox>
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="tabPage4" Header="Iskustva prethodnih korisnika" >
+            <TabItem x:Name="tabPage4" Header="Iskustva prethodnih korisnika" BorderBrush="#FF020202" Foreground="#FFFB5454" >
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FF4F4F4F" Offset="0"/>
+                        <GradientStop Color="#FF999999" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
                 <Canvas x:Name="cantabPage4" Height="391" Width="688" />
             </TabItem>
-            <TabItem x:Name="tabPage5" Header="Pomo?" >
+            <TabItem x:Name="tabPage5" Header="Pomoć" BorderBrush="#FF020202" Foreground="#FFFB5454" >
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FF4F4F4F" Offset="0"/>
+                        <GradientStop Color="#FF999999" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
                 <Canvas x:Name="cantabPage5" Height="391" Width="688" />
             </TabItem>
         </TabControl>
-        <Button x:Name="button1" Height="25" Width="96" TabIndex="4" Margin="0,0,420,29" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Pregled rasporeda" />
-        <Label x:Name="label3" Height="24" Width="52" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="3" Margin="0,0,464,163" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="ID broj" />
-        <Label x:Name="label2" Height="24" Width="62" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="2" Margin="0,0,454,187" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Prezime" />
-        <Label x:Name="label1" Height="24" Width="37" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="1" Background="Transparent" Margin="0,0,479,211" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Ime" />
-        <Image HorizontalAlignment="Left" Height="111" Margin="10,10,0,0" VerticalAlignment="Top" Width="111"/>
+        <Button x:Name="button1" Height="25" Width="96" TabIndex="4" Margin="0,0,302,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Pregled rasporeda" BorderBrush="#FFFDFBFB" Foreground="#FFFDFBFB" >
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Label x:Name="label3" Height="24" Width="52" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="3" Margin="0,0,346,153" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="ID broj" Foreground="#FFF9F7F7" />
+        <Label x:Name="label2" Height="24" Width="62" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="2" Margin="0,0,336,177" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Prezime" Foreground="#FFF9F7F7" />
+        <Label x:Name="label1" Height="24" Width="37" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="1" Background="Transparent" Margin="0,0,361,201" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Ime" Foreground="#FFF9F7F7" />
+        <Image HorizontalAlignment="Left" Height="99" Margin="-1,0,0,0" VerticalAlignment="Top" Width="111"/>
     </Grid>
 </Window>
