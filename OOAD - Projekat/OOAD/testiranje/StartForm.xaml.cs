@@ -20,17 +20,18 @@ namespace SafeHouse
     public partial class StartForm : Window
     {
 
-        
 
-        private void username_textbox_TextChanged(object sender, EventArgs e)
+
+        private void username_textbox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if(username_textbox.Text !="") errorProvider1.Content=" ";
+            if (username_textbox.Text != "") errorProvider1.ContentStringFormat = "";
 
         }
 
-        private void password_textbox_TextChanged(object sender, EventArgs e)
+        private void password_textbox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if(password_textbox.Text !="") errorProvider1.Content = " ";
+            
+            if (password_textbox.Text != "") errorProvider1.Content = "";
 
         }
 
@@ -39,7 +40,7 @@ namespace SafeHouse
             string user = username_textbox.Text;
             string pass = password_textbox.Text;
 
-
+            if (user == "" && pass == "") { errorProvider1.Content = "Niste unijeli nikakve podatke."; return; }
             // ZA ADMINA
             if ((user == Convert.ToString("admin") && pass != Convert.ToString("admin")) || (pass == Convert.ToString("admin") && user != Convert.ToString("admin")))
             {
