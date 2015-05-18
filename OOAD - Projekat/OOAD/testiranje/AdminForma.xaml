@@ -25,7 +25,7 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TabControl Name="tabControl1" Height="364" Width="644" TabStripPlacement= "Top" Margin="0,0,8,9" HorizontalAlignment="Right" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Grid.Column="1" BorderBrush="White" >
+        <TabControl Name="tabControl1" Height="367" Width="644" TabStripPlacement= "Top" Margin="0,0,11,9" HorizontalAlignment="Right" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Grid.Column="1" BorderBrush="White" >
             <TabControl.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF3A3939" Offset="0.448"/>
@@ -157,11 +157,11 @@
                             <Label Name="label16" Height="25" Width="111" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFF7F7F7" Canvas.Left="42" Canvas.Top="14" >Personalni doktor:</Label>
                         </Canvas>
                     </GroupBox>
-                    <Button Name="button_registrujKorisnika" Height="27" Width="127" TabIndex="14" Click="button_registrujKorisnika_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="500" Canvas.Top="278" RenderTransformOrigin="0.408,0.655" BorderBrush="White" Foreground="White" >
+                    <Button Name="button_registrujKorisnika" Height="27" Width="127" TabIndex="14" Click="button_registrujKorisnika_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="501" Canvas.Top="273" RenderTransformOrigin="0.408,0.655" BorderBrush="White" Foreground="White" >
                         <Button.Background>
                             <ImageBrush/>
                         </Button.Background> Registruj korisnika</Button>
-                    <GroupBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="263" Canvas.Left="25" Canvas.Top="10" Width="246" FontSize="11" Foreground="#FFFB5C5C" BorderBrush="#FFFDFDFD" >
+                    <GroupBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="250" Canvas.Left="25" Canvas.Top="10" Width="246" FontSize="11" Foreground="#FFFB5C5C" BorderBrush="#FFFDFDFD" >
                         <GroupBox.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="#FF363434" Offset="0"/>
@@ -198,8 +198,9 @@
                            
                         </Canvas>
                     </GroupBox>
-                    <RadioButton Name="radioButton_potpunoAnoniman" Height="17" Width="166" TabIndex="11" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="29" Canvas.Top="303" Checked="radioButton_potpunoAnoniman_Checked" Foreground="#FFFBF5F5" >Potpuno anoniman korisnik</RadioButton>
-                    <RadioButton Name="radioButton_djelomicnoAnoniman" Height="18" Width="186" TabIndex="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="29" Canvas.Top="278" Checked="radioButton_djelomicnoAnoniman_Checked" Foreground="#FFFBF5F5" >Djelomično anoniman korisnik</RadioButton>
+                    <RadioButton Name="radioButton_potpunoAnoniman" Height="17" Width="166" TabIndex="11" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="29" Canvas.Top="299" Checked="radioButton_potpunoAnoniman_Checked" Foreground="#FFFBF5F5" >Potpuno anoniman korisnik</RadioButton>
+                    <RadioButton Name="radioButton_djelomicnoAnoniman" Height="18" Width="186" TabIndex="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="29" Canvas.Top="273" Checked="radioButton_djelomicnoAnoniman_Checked" Foreground="#FFFBF5F5" >Djelomično anoniman korisnik</RadioButton>
+                    <Label x:Name="errorProvider2" Content="" Height="27" Canvas.Left="276" Canvas.Top="313" Width="362" Foreground="#FFFD7272"/>
                 </Canvas>
             </TabItem>
             <TabItem Name="tabPage3" Header="Upravljanje zahtjevima" Margin="7,0,-14,0" BorderBrush="Black" Foreground="#FFFF7C7C" FontFamily="Tahoma" >
@@ -244,7 +245,7 @@
                     <CheckBox x:Name="comboBox11" Content="Dodaj" Canvas.Left="139" Canvas.Top="253" Checked="CheckBox_Checked_1"/>
                 </Canvas>
             </TabItem>
-            <TabItem Name="tabPage4" Header="Upravljanje rasporedima" Margin="16,0,-18,0" BorderBrush="Black" Foreground="#FFFF6666" FontFamily="Tahoma" >
+            <TabItem Name="tabPage4" Header="Upravljanje rasporedima" Margin="16,0,-16,0" BorderBrush="Black" Foreground="#FFFF6666" FontFamily="Tahoma" >
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FF464646" Offset="0.22"/>
@@ -254,6 +255,7 @@
                 </TabItem.Background>
                 <Canvas Name="cantabPage4" Height="349" Margin="0,0,5,0" />
             </TabItem>
+            <Label x:Name="errorProvider3"  HorizontalAlignment="Left" Height="28" Margin="295,303,-6,0" VerticalAlignment="Top" Width="349" Foreground="#FFFD7070"/>
         </TabControl>
     </Grid>
 </Window>

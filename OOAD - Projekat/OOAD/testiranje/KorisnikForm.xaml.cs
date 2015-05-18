@@ -166,11 +166,11 @@ namespace SafeHouse
                     //dodati dalje sta ce se raditi sa tim izlistanim zahtjevima koje je admin odgovorio a korisnik nije vidio.
 
                 }
-                catch (ArgumentException e)
+                catch (ArgumentException )
                 {
 
                 }
-                catch (EntityException e)
+                catch (EntityException )
                 { }
             }
         }
