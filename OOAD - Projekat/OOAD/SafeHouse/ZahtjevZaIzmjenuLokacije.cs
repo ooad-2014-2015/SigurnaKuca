@@ -11,8 +11,8 @@ namespace SafeHouse
         private Lokacija pocLokacija;
         
         //konstruktor
-        public zahtjevZaIzmjenuLokacije(String oz, Lokacija pl)
-            : base(oz)
+        public zahtjevZaIzmjenuLokacije(int i, string ip, String oz, bool dodat, Lokacija pl)
+            : base(i, ip, oz, dodat)
         {
             pocLokacija = pl;
         }

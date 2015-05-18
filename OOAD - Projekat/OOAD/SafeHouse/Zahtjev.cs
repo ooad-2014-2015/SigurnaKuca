@@ -6,21 +6,32 @@ using System.Threading.Tasks;
 
 namespace SafeHouse
 {
-    abstract public class Zahtjev
+    public class Zahtjev
     {
         //atributi
+        private int id;
+        private string iip;
+
+        public string IIP
+        {
+            get { return iip; }
+            set { iip = value; }
+        }
+        
         private String opisZahtjeva;
         private bool odobren;
-        private String prijedlogRjesenja;
         private bool obradjen;
+        private bool dodatni;
 
         //konstruktor
-        public Zahtjev(String oz)
+        public Zahtjev(int i, string ip, String oz, bool dodat)
         {
+            ID=i;
+            IIP = ip;
             opisZahtjeva = oz;
-            obradjen = false;
-            prijedlogRjesenja = "";
-            odobren = false;
+            Dodatni = dodat;
+//            obradjen = false;
+//            odobren = false;
         }
 
 
@@ -30,11 +41,7 @@ namespace SafeHouse
             get { return opisZahtjeva; }
             set { opisZahtjeva = value; }
         }
-        public String PrijedlogRjesenja
-        {
-            get { return prijedlogRjesenja; }
-            set { prijedlogRjesenja = value; }
-        }
+  
         public bool Odobren
         {
             get { return odobren; }
@@ -45,9 +52,17 @@ namespace SafeHouse
         {
             opisZahtjeva = oZahtjeva;
         }
-        public void PredloziRjesenje(String rZahtjeva)
+       
+        public int ID
         {
-            prijedlogRjesenja = rZahtjeva;
+            get { return id; }
+            set { id = value; }
+        }
+
+        public bool Dodatni
+        {
+            get { return dodatni; }
+            set { dodatni = value; }
         }
     }
 }

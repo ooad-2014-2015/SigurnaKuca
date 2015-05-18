@@ -495,10 +495,32 @@ namespace SafeHouse
         {
             while (true)
             {
-                mydbEntities db = new mydbEntities();
+                mydbEntities db = new mydbEntities(); 
                 try
                 {
                     var zahtjevi = (from z in db.zahtjevi where z.Obradjen == null select z).ToArray();
+
+                    foreach (var z in zahtjevi)
+                    {
+                        string opis="";
+                        if (z.DodatniZahtjev == false)
+                        {
+                            if (z.OpisZahtjeva == 0) opis = "Zahtjev za medicinsku pomoć";
+                            else if (z.OpisZahtjeva == 1) opis = "Zahtjev za psihološku pomoć";
+                            else if (z.OpisZahtjeva == 2) opis = "Zahtjev za ekonomsku pomoć";
+                            else if (z.OpisZahtjeva == 3) opis = "Zahtjev za pravnu pomoć";
+                        }
+                        else 
+                        {
+                            if (z.OpisZahtjeva == 0) opis = "Zahtjev za dodatnu medicinsku pomoć";
+                            else if (z.OpisZahtjeva == 1) opis = "Zahtjev za dodatnu psihološku pomoć";
+                            else if (z.OpisZahtjeva == 2) opis = "Zahtjev za dodatnu ekonomsku pomoć";
+                            else if (z.OpisZahtjeva == 3) opis = "Zahtjev za dodatnu pravnu pomoć";
+                        }
+                        var koris = (from k in db.korisnici where k.ID == z.Korisnici_ID select k).Single();
+                        Zahtjev x = new Zahtjev(z.ID, koris.Ime + " " + koris.Prezime, opis, z.DodatniZahtjev);
+                        listView1.Items.Add(x);
+                    }
                     
                 }
                 catch (ArgumentException e)
@@ -506,6 +528,22 @@ namespace SafeHouse
                 catch (EntityException e)
                 { }
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CheckBox_Checked_1(object sender, RoutedEventArgs e)
+        {
+            mydbEntities db = new mydbEntities();
+
+            var korisnik = (from k in db.korisnici where k.ID == 1 select k).Single();
+            db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, OpisZahtjeva = 0, DodatniZahtjev = false });
+            db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, OpisZahtjeva = 1, DodatniZahtjev = false });
+            db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, OpisZahtjeva = 2, DodatniZahtjev = true });
+            db.SaveChanges();
         }
     }
 }

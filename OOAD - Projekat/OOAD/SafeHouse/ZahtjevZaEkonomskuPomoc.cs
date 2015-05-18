@@ -9,8 +9,8 @@ namespace SafeHouse
     public class zahtjevZaEkonomskuPomoc : zahtjevZaPomoc
     {
         //konstruktor
-        public zahtjevZaEkonomskuPomoc(String oz)
-            : base(oz)
+        public zahtjevZaEkonomskuPomoc(int i, string ip, String oz, bool dodat)
+            : base(i, ip, oz, dodat)
         {
 
         }

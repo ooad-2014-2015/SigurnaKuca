@@ -8,8 +8,8 @@ namespace SafeHouse
 {
     public class zahtjevZaIzmjenu : Zahtjev
     {
-        public zahtjevZaIzmjenu(String oz)
-            : base(oz)
+        public zahtjevZaIzmjenu(int i, string ip, String oz, bool dodat)
+            : base(i, ip, oz, dodat)
         {
 
         }

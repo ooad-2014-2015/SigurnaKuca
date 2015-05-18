@@ -218,6 +218,30 @@
                             <GradientStop Color="#FF454343" Offset="0.655"/>
                         </LinearGradientBrush>
                     </Canvas.Background>
+                    <ListView x:Name="listView1" Height="205" Canvas.Left="10" Canvas.Top="10" Width="512" RenderTransformOrigin="0.495,0.579">
+                        <ListView.View>
+                            <GridView>
+                                <GridView.Columns>
+
+                                    <GridViewColumn DisplayMemberBinding="{Binding ID}" Header="ID" Width="25"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding IIP}" Header="Ime i prezime" Width="120"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding OpisZahtjeva}" Header="Opis" Width="220" />
+                                    <GridViewColumn Header="Akcija" Width="120">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="122" >
+                                                    <ComboBoxItem>Prihvati</ComboBoxItem>
+                                                    <ComboBoxItem>Odbij</ComboBoxItem>
+                                                </ComboBox>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView.Columns>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Button Content="Primjeni" Height="26" Canvas.Left="428" Canvas.Top="264" Width="94" Click="Button_Click_1"/>
+                    <CheckBox x:Name="comboBox11" Content="Dodaj" Canvas.Left="139" Canvas.Top="253" Checked="CheckBox_Checked_1"/>
                 </Canvas>
             </TabItem>
             <TabItem Name="tabPage4" Header="Upravljanje rasporedima" Margin="16,0,-18,0" BorderBrush="Black" Foreground="#FFFF6666" FontFamily="Tahoma" >
