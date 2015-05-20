@@ -37,7 +37,7 @@ CREATE TABLE `kartoni` (
   CONSTRAINT `fk_Kartoni_Radnici2` FOREIGN KEY (`ID_Pr`) REFERENCES `radnici` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Kartoni_Radnici3` FOREIGN KEY (`ID_E`) REFERENCES `radnici` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Kartoni_Radnici4` FOREIGN KEY (`ID_Ps`) REFERENCES `radnici` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,6 +46,7 @@ CREATE TABLE `kartoni` (
 
 LOCK TABLES `kartoni` WRITE;
 /*!40000 ALTER TABLE `kartoni` DISABLE KEYS */;
+INSERT INTO `kartoni` VALUES (1,1,NULL,NULL,2),(2,1,4,3,2);
 /*!40000 ALTER TABLE `kartoni` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -69,7 +70,7 @@ CREATE TABLE `korisnici` (
   PRIMARY KEY (`ID`),
   KEY `fk_Korisnici_Lokacija_idx` (`Lokacija_ID`),
   CONSTRAINT `fk_Korisnici_Lokacija` FOREIGN KEY (`Lokacija_ID`) REFERENCES `lokacije` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -78,6 +79,7 @@ CREATE TABLE `korisnici` (
 
 LOCK TABLES `korisnici` WRITE;
 /*!40000 ALTER TABLE `korisnici` DISABLE KEYS */;
+INSERT INTO `korisnici` VALUES (1,'Nejra','Pasic','NP123','NP123',1,0,'Senka ','1993-10-27'),(2,'Senka','Ibrahimpasic','SI123','SI123',2,1,'Senka ','1994-05-14');
 /*!40000 ALTER TABLE `korisnici` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,7 +95,7 @@ CREATE TABLE `lokacije` (
   `Adresa` varchar(45) DEFAULT NULL,
   `Zauzeta` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,6 +104,7 @@ CREATE TABLE `lokacije` (
 
 LOCK TABLES `lokacije` WRITE;
 /*!40000 ALTER TABLE `lokacije` DISABLE KEYS */;
+INSERT INTO `lokacije` VALUES (1,'Brcanska 13',1),(2,'Muftije Dzabijca 12',1),(3,'Ferde Haupmana 6',NULL),(4,'Titova 133',NULL),(5,'Ferhadija 18',NULL),(6,'Vrbovska 183',NULL),(7,'Dzemala Bijedica 18',NULL),(8,'Bulevar Mese Selimovica 188',NULL);
 /*!40000 ALTER TABLE `lokacije` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,7 +124,7 @@ CREATE TABLE `radnici` (
   `Opis` int(11) DEFAULT NULL,
   `DatumRodjenja` date DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,7 +133,7 @@ CREATE TABLE `radnici` (
 
 LOCK TABLES `radnici` WRITE;
 /*!40000 ALTER TABLE `radnici` DISABLE KEYS */;
-INSERT INTO `radnici` VALUES (1,'Reha','Rehic','ps123','p123',1,'2015-05-08');
+INSERT INTO `radnici` VALUES (1,'Faruk','Mustafic','d1337','d1337',0,'2015-05-13'),(2,'Psiho','Ludi','e1337','e1337',1,'2015-05-13'),(3,'Ekonom','Maraka','e1337','e1337',2,'2015-05-13'),(4,'Pravo','Zakon','pr1337','pr1337',3,'2015-05-13'),(5,'Haris','Musovic','d1987','d1987',0,'2015-05-13');
 /*!40000 ALTER TABLE `radnici` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -150,9 +153,9 @@ CREATE TABLE `rasporedi` (
   PRIMARY KEY (`ID`),
   KEY `fk_Rasporedi_Radnici1_idx` (`ID_R`),
   KEY `fk_Rasporedi_Korisnici1_idx` (`ID_K`),
-  CONSTRAINT `fk_Rasporedi_Radnici1` FOREIGN KEY (`ID_R`) REFERENCES `radnici` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Rasporedi_Korisnici1` FOREIGN KEY (`ID_K`) REFERENCES `korisnici` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_Rasporedi_Korisnici1` FOREIGN KEY (`ID_K`) REFERENCES `korisnici` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Rasporedi_Radnici1` FOREIGN KEY (`ID_R`) REFERENCES `radnici` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -161,6 +164,7 @@ CREATE TABLE `rasporedi` (
 
 LOCK TABLES `rasporedi` WRITE;
 /*!40000 ALTER TABLE `rasporedi` DISABLE KEYS */;
+INSERT INTO `rasporedi` VALUES (1,NULL,NULL,1,1),(2,NULL,NULL,2,1),(3,NULL,NULL,1,2),(4,NULL,NULL,2,2),(5,NULL,NULL,3,2),(6,NULL,NULL,4,2);
 /*!40000 ALTER TABLE `rasporedi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -184,7 +188,7 @@ CREATE TABLE `status_d` (
   KEY `fk_Status_D_Radnici1_idx` (`ID_R`),
   CONSTRAINT `fk_Status_D_Korisnici1` FOREIGN KEY (`ID_K`) REFERENCES `korisnici` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Status_D_Radnici1` FOREIGN KEY (`ID_R`) REFERENCES `radnici` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -193,6 +197,7 @@ CREATE TABLE `status_d` (
 
 LOCK TABLES `status_d` WRITE;
 /*!40000 ALTER TABLE `status_d` DISABLE KEYS */;
+INSERT INTO `status_d` VALUES (1,1,1,'Sistematskii\r\n','Biljeska o piscu\r\n\r\n','18.5.2015. 13:29:45\nSistematskii\r\n\n','2015-05-19'),(2,2,1,'Novooo\r\n','Biljeska o piscu 2\r\n','18.5.2015. 13:30:08\nNovooo\r\n\n','2015-05-18');
 /*!40000 ALTER TABLE `status_d` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -215,7 +220,7 @@ CREATE TABLE `status_e` (
   KEY `fk_Status_E_Radnici1_idx` (`ID_R`),
   CONSTRAINT `fk_Status_E_Korisnici1` FOREIGN KEY (`ID_K`) REFERENCES `korisnici` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Status_E_Radnici1` FOREIGN KEY (`ID_R`) REFERENCES `radnici` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -224,6 +229,7 @@ CREATE TABLE `status_e` (
 
 LOCK TABLES `status_e` WRITE;
 /*!40000 ALTER TABLE `status_e` DISABLE KEYS */;
+INSERT INTO `status_e` VALUES (1,2,3,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `status_e` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -247,7 +253,7 @@ CREATE TABLE `status_pr` (
   KEY `fk_Status_Pr_Radnici1_idx` (`ID_R`),
   CONSTRAINT `fk_Status_Pr_Korisnici1` FOREIGN KEY (`ID_K`) REFERENCES `korisnici` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Status_Pr_Radnici1` FOREIGN KEY (`ID_R`) REFERENCES `radnici` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -256,6 +262,7 @@ CREATE TABLE `status_pr` (
 
 LOCK TABLES `status_pr` WRITE;
 /*!40000 ALTER TABLE `status_pr` DISABLE KEYS */;
+INSERT INTO `status_pr` VALUES (1,2,4,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `status_pr` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -279,7 +286,7 @@ CREATE TABLE `status_ps` (
   KEY `fk_Status_Ps_Radnici1_idx` (`ID_R`),
   CONSTRAINT `fk_Status_Ps_Korisnici1` FOREIGN KEY (`ID_K`) REFERENCES `korisnici` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Status_Ps_Radnici1` FOREIGN KEY (`ID_R`) REFERENCES `radnici` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -288,6 +295,7 @@ CREATE TABLE `status_ps` (
 
 LOCK TABLES `status_ps` WRITE;
 /*!40000 ALTER TABLE `status_ps` DISABLE KEYS */;
+INSERT INTO `status_ps` VALUES (1,1,2,0,NULL,NULL,NULL),(2,2,2,0,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `status_ps` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -301,14 +309,15 @@ DROP TABLE IF EXISTS `zahtjevi`;
 CREATE TABLE `zahtjevi` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Korisnici_ID` int(11) NOT NULL,
-  `OpisZahtjeva` int(11) NOT NULL,
+  `OpisZahtjeva` varchar(50) DEFAULT NULL,
   `Obradjen` tinyint(1) DEFAULT NULL,
   `Seen` tinyint(1) DEFAULT NULL,
   `DodatniZahtjev` tinyint(1) NOT NULL,
+  `SifraZahtjeva` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `fk_Zahtjevi_Korisnici1_idx` (`Korisnici_ID`),
   CONSTRAINT `fk_Zahtjevi_Korisnici1` FOREIGN KEY (`Korisnici_ID`) REFERENCES `korisnici` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -317,6 +326,7 @@ CREATE TABLE `zahtjevi` (
 
 LOCK TABLES `zahtjevi` WRITE;
 /*!40000 ALTER TABLE `zahtjevi` DISABLE KEYS */;
+INSERT INTO `zahtjevi` VALUES (1,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(2,1,'Zahtjev za psiholosku pomoc',1,1,0,2),(3,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3),(4,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(5,1,'Zahtjev za psiholosku pomoc',1,1,0,2),(6,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3),(7,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(8,1,'Zahtjev za psiholosku pomoc',1,1,0,2),(9,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3),(10,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(11,1,'Zahtjev za psiholosku pomoc',1,1,0,2),(12,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3),(13,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(14,1,'Zahtjev za psiholosku pomoc',1,1,0,2),(15,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3),(16,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(17,1,'Zahtjev za psiholosku pomoc',1,1,0,2),(18,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3),(19,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(20,1,'Zahtjev za psiholosku pomoc',1,1,0,2),(21,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3),(22,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(23,1,'Zahtjev za psiholosku pomoc',1,1,0,2),(24,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3),(25,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(26,1,'Zahtjev za psiholosku pomoc',1,1,0,2),(27,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3),(28,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(29,1,'Zahtjev za psiholosku pomoc',1,1,0,2),(30,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3),(31,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(32,1,'Zahtjev za psiholosku pomoc',1,1,0,2),(33,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3),(34,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(35,1,'Zahtjev za psiholosku pomoc',1,1,0,2),(36,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3),(37,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(38,1,'Zahtjev za psiholosku pomoc',1,1,0,2),(39,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3),(40,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(41,1,'Zahtjev za psiholosku pomoc',1,1,0,2),(42,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3),(43,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(44,1,'Zahtjev za psiholosku pomoc',0,1,0,2),(45,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3),(46,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(47,1,'Zahtjev za psiholosku pomoc',1,1,0,2),(48,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3),(49,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(50,1,'Zahtjev za psiholosku pomoc',0,1,0,2),(51,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3),(52,1,'Zahtjev za medicinsku pomoc',0,1,0,1),(53,1,'Zahtjev za psiholosku pomoc',1,1,0,2),(54,1,'Zahtjev za dodatnu ekonomsku pomoc',0,1,1,3),(55,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(56,1,'Zahtjev za psiholosku pomoc',1,1,0,2),(57,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3),(58,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(59,1,'Zahtjev za psiholosku pomoc',0,1,0,2),(60,1,'Zahtjev za dodatnu ekonomsku pomoc',0,1,1,3),(61,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(62,1,'Zahtjev za psiholosku pomoc',0,1,0,2),(63,1,'Zahtjev za dodatnu ekonomsku pomoc',0,1,1,3),(64,1,'Zahtjev za medicinsku pomoc',0,1,0,1),(65,1,'Zahtjev za psiholosku pomoc',0,1,0,2),(66,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3),(67,1,'Zahtjev za medicinsku pomoc',0,1,0,1),(68,1,'Zahtjev za psiholosku pomoc',1,1,0,2),(69,1,'Zahtjev za dodatnu ekonomsku pomoc',0,1,1,3),(70,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(71,1,'Zahtjev za psiholosku pomoc',0,1,0,2),(72,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3),(73,1,'Zahtjev za medicinsku pomoc',1,1,0,1),(74,1,'Zahtjev za psiholosku pomoc',0,1,0,2),(75,1,'Zahtjev za dodatnu ekonomsku pomoc',1,1,1,3);
 /*!40000 ALTER TABLE `zahtjevi` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -329,4 +339,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-05-12 16:47:42
+-- Dump completed on 2015-05-20 23:15:56
