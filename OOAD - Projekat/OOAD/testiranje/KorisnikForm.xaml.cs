@@ -152,7 +152,7 @@ namespace SafeHouse
             db.SaveChanges();
         }
         List<zahtjevi> zahtjevi1;
-        void provjeraBazeSeen()
+        public void provjeraBazeSeen()
         {
             while (true)
             {
@@ -173,6 +173,7 @@ namespace SafeHouse
                 {
                 
                 }
+                
             }
         }
 
