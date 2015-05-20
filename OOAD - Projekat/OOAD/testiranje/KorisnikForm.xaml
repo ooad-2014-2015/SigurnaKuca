@@ -30,7 +30,7 @@
                     <GradientStop Color="#FF595959" Offset="1"/>
                 </LinearGradientBrush>
             </TabControl.Background>
-            <TabItem x:Name="tabPage1" Header="Lični karton" BorderBrush="#FF020202" Foreground="#FFFB5454" Margin="0,0,-48,-3" FontSize="12" FontStretch="Expanded">
+            <TabItem x:Name="tabPage1" Header="Lični karton" FontFamily="Tahoma" BorderBrush="#FF020202" Foreground="#FFFB5454" Margin="0,0,-48,-3" FontSize="12" FontStretch="Expanded" >
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FF4F4F4F" Offset="0"/>
@@ -72,7 +72,7 @@
                     </RichTextBox>
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="tabPage2" Header="Zahtjevi" BorderBrush="#FF020202" Foreground="#FFFB5454" RenderTransformOrigin="1.868,0.15" Margin="45,0,-88,-3" FontSize="12" MouseDoubleClick="tabPage2_MouseDoubleClick" >
+            <TabItem x:Name="tabPage2" Header="Zahtjevi" BorderBrush="#FF020202" Foreground="#FFFB5454" RenderTransformOrigin="1.868,0.15" Margin="45,0,-88,-3" FontFamily="Tahoma" FontSize="12" MouseDoubleClick="tabPage2_MouseDoubleClick" >
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FF4F4F4F" Offset="0"/>
@@ -126,7 +126,7 @@
                     </GroupBox>
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="tabPage4" Header="Iskustva prethodnih korisnika" BorderBrush="#FF020202" Foreground="#FFFB5454" Margin="86,0,-90,-3" FontSize="12" FontStretch="Expanded" >
+            <TabItem x:Name="tabPage4" Header="Iskustva prethodnih korisnika" BorderBrush="#FF020202" FontFamily="Tahoma" Foreground="#FFFB5454" Margin="86,0,-90,-3" FontSize="12" FontStretch="Expanded" >
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FF4F4F4F" Offset="0"/>
@@ -135,7 +135,7 @@
                 </TabItem.Background>
                 <Canvas x:Name="cantabPage4" Height="391" Width="688" />
             </TabItem>
-            <TabItem x:Name="tabPage5" Header="Pomoć" BorderBrush="#FF020202" Foreground="#FFFB5454" Margin="90,0,-130,-3" FontSize="12" >
+            <TabItem x:Name="tabPage5" Header="Pomoć" BorderBrush="#FF020202" Foreground="#FFFB5454" FontFamily="Tahoma" Margin="90,0,-137,-3" FontSize="12" >
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FF4F4F4F" Offset="0"/>
