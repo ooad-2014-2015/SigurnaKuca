@@ -9,8 +9,8 @@ namespace SafeHouse
   
     public class zahtjevZaIzmjenuOsoblja : zahtjevZaIzmjenu
     {
-        public zahtjevZaIzmjenuOsoblja(int i, string ip, String oz, bool dodat)
-            : base(i, ip, oz, dodat)
+        public zahtjevZaIzmjenuOsoblja(int i, String oz, bool dodat)
+            : base(i, oz, dodat)
         {
 
         }

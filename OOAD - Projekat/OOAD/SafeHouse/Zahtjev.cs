@@ -10,24 +10,17 @@ namespace SafeHouse
     {
         //atributi
         private int id;
-        private string iip;
-
-        public string IIP
-        {
-            get { return iip; }
-            set { iip = value; }
-        }
-        
         private String opisZahtjeva;
-        private bool odobren;
-        private bool obradjen;
+        public bool  Obradjen {get; set; }
+        public bool Seen { get; set; }
         private bool dodatni;
+        public int sifraZahtjeva { get; set; }
 
         //konstruktor
-        public Zahtjev(int i, string ip, String oz, bool dodat)
+        public Zahtjev(int i, String oz, bool dodat)
         {
             ID=i;
-            IIP = ip;
+
             opisZahtjeva = oz;
             Dodatni = dodat;
 //            obradjen = false;
@@ -42,11 +35,7 @@ namespace SafeHouse
             set { opisZahtjeva = value; }
         }
   
-        public bool Odobren
-        {
-            get { return odobren; }
-            set { odobren = value; }
-        }
+      
         //metode
         public void PostaviOpis(String oZahtjeva)
         {

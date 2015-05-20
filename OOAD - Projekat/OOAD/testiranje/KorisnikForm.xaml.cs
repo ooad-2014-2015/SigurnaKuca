@@ -124,34 +124,34 @@ namespace SafeHouse
             if (med == 1)
             {
                 if (standard == 1)
-                    db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = false, OpisZahtjeva = 1 });
+                    db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = false, SifraZahtjeva = 1, OpisZahtjeva = "Zahtjev za medicinsku pomoć" });
                 if (dodatni == 1)
-                    db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = true, OpisZahtjeva = 1 });
+                    db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = true, SifraZahtjeva = 1, OpisZahtjeva = "Zahtjev za dodatnu medicinsku pomoć" });
             }
             if (psih == 1)
             {
                 if (standard == 1)
-                    db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = false, OpisZahtjeva = 2 });
+                    db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = false, SifraZahtjeva = 2, OpisZahtjeva = "Zahtjev za psihološku pomoć" });
                 if (dodatni == 1)
-                    db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = true, OpisZahtjeva = 2 });
+                    db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = true, SifraZahtjeva = 2, OpisZahtjeva = "Zahtjev za dodatnu psihološku pomoć" });
             }
             if (ek == 1)
             {
                 if (standard == 1)
-                    db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = false, OpisZahtjeva = 3 });
+                    db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = false, SifraZahtjeva = 3, OpisZahtjeva = "Zahtjev za ekonomsku pomoć" });
                 if (dodatni == 1)
-                    db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = true, OpisZahtjeva = 3 });
+                    db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = true, SifraZahtjeva = 3, OpisZahtjeva = "Zahtjev za dodatnu ekonomsku pomoć" });
             }
             if (prav == 1)
             {
                 if (standard == 1)
-                    db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = false, OpisZahtjeva = 4 });
+                    db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = false, SifraZahtjeva = 4, OpisZahtjeva = "Zahtjev za pravnu pomoć" });
                 if (dodatni == 1)
-                    db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = true, OpisZahtjeva = 4 });
+                    db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = true, SifraZahtjeva = 4, OpisZahtjeva = "Zahtjev za dodatnu pravnu pomoć" });
             }
             db.SaveChanges();
         }
-
+        List<zahtjevi> zahtjevi1;
         void provjeraBazeSeen()
         {
             while (true)
@@ -161,18 +161,45 @@ namespace SafeHouse
                 var korisnik = (from k in db.korisnici where k.Username == GlobalneVarijable.TrenutniKorisnik select k).Single();
                 try
                 {
-                    var zahtjevi = (from z in db.zahtjevi where (z.Seen == false && z.Korisnici_ID == korisnik.ID && z.Obradjen != null) select z).ToArray();
-
-                    //dodati dalje sta ce se raditi sa tim izlistanim zahtjevima koje je admin odgovorio a korisnik nije vidio.
-
+                    zahtjevi1 = (from z in db.zahtjevi where (z.Seen == false && z.Korisnici_ID == korisnik.ID && z.Obradjen != null) select z).ToList();
+                    tabPage2.Dispatcher.Invoke(new Action(delegate() { tabPage2.Header = "Zahtjevi" + ("(" + zahtjevi1.Count + ")"); }));
+                 
                 }
                 catch (ArgumentException )
                 {
 
                 }
                 catch (EntityException )
-                { }
+                {
+                
+                }
             }
+        }
+
+        private void tabPage2_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Korisnik_Obavijesti.Document.Blocks.Clear();
+            mydbEntities db = new mydbEntities();
+            if (zahtjevi1.Count == 0) 
+            {
+                Korisnik_Obavijesti.Document.Blocks.Clear();
+                Korisnik_Obavijesti.Document.Blocks.Add(new Paragraph(new Run("Nemate zahtjeva na čekanju")));
+
+            }
+            string ricTekst="";
+            foreach (var z in zahtjevi1)
+            {
+                var zah = (from za in db.zahtjevi where za.ID == z.ID select za).Single();
+                string opis = zah.OpisZahtjeva;
+                string akcija;
+                if (zah.Obradjen == true) akcija = " je odobren! \n";
+                else akcija = " je odbijen! \n";
+                ricTekst += ("Vaš " + opis + akcija); 
+                
+                zah.Seen = true;
+            }
+            Korisnik_Obavijesti.Document.Blocks.Add(new Paragraph(new Run(ricTekst)));
+            db.SaveChanges();
         }
         
     }

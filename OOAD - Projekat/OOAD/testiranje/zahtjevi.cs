@@ -16,10 +16,11 @@ namespace SafeHouse
     {
         public int ID { get; set; }
         public int Korisnici_ID { get; set; }
-        public int OpisZahtjeva { get; set; }
+        public string OpisZahtjeva { get; set; }
         public Nullable<bool> Obradjen { get; set; }
         public Nullable<bool> Seen { get; set; }
         public bool DodatniZahtjev { get; set; }
+        public Nullable<int> SifraZahtjeva { get; set; }
     
         public virtual korisnici korisnici { get; set; }
     }
