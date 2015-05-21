@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Navigation;
 
 namespace SafeHouse
 {
@@ -31,17 +32,19 @@ namespace SafeHouse
         {
             t.Abort();
         }
-        /*
-        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+
+         
+        private void webBrowser1_DocumentCompleted(object sender, NavigationEventArgs e)
         {
-            this.Text = e.Url.ToString() + "loaded";
+            this.Content ="Loaded.";
         }
 
-        private void webBrowser1_Navigating(object sender, WebBrowserNavigatingEventArgs e)
+        private void webBrowser1_Navigating(object sender, NavigationEventArgs e)
         {
-            this.Text = "Učitavanje..";
-        } 
-        */
+            this.Content = "Loading..";
+        }
+         
+        
         
 
         private void tabControl1_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -55,9 +58,26 @@ namespace SafeHouse
             }
         }
 
+        private void button_web_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Uri n = new Uri("http://" + textbox_web.Text.Trim(), UriKind.RelativeOrAbsolute);
+                this.webBrowser1.Navigate(n);
+                this.webBrowser1.Source=n;
+                webBrowser1.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
-            // webBrowser1.Navigate("http://www.google.com/");
+            this.webBrowser1.Navigate("http://www.google.com/");
+
+            //webBrowser1.Source = new Uri("http://www.google.com"); 
 
             mydbEntities db = new mydbEntities();
             // pronalazak korisnika

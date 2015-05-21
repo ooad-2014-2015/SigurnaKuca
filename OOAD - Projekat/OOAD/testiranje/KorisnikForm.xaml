@@ -15,7 +15,7 @@
             <ColumnDefinition Width="57*"/>
             <ColumnDefinition Width="300*"/>
         </Grid.ColumnDefinitions>
-        <TabControl x:Name="tabControl1" Height="367" Width="644" TabStripPlacement= "Top" Margin="0,-1,-98,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" SelectionChanged="tabControl1_SelectionChanged" Grid.ColumnSpan="3" BorderBrush="White" Foreground="#FFFB6565" >
+        <TabControl x:Name="tabControl1" Width="643" TabStripPlacement= "Top" Margin="0,0,-106,9" HorizontalAlignment="Right" SelectionChanged="tabControl1_SelectionChanged" Grid.ColumnSpan="3" BorderBrush="White" Foreground="#FFFB6565" >
             <TabControl.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <LinearGradientBrush.RelativeTransform>
@@ -72,7 +72,7 @@
                     </RichTextBox>
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="tabPage2" Header="Zahtjevi" BorderBrush="#FF020202" Foreground="#FFFB5454" RenderTransformOrigin="1.868,0.15" Margin="45,0,-88,-3" FontFamily="Tahoma" FontSize="12" MouseDoubleClick="tabPage2_MouseDoubleClick" >
+            <TabItem x:Name="tabPage2" Header="Zahtjevi" BorderBrush="#FF020202" Foreground="#FFFB5454" RenderTransformOrigin="1.868,0.15" Margin="46,0,-46,-3" FontFamily="Tahoma" FontSize="12" MouseDoubleClick="tabPage2_MouseDoubleClick" >
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FF4F4F4F" Offset="0"/>
@@ -126,7 +126,7 @@
                     </GroupBox>
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="tabPage4" Header="Iskustva prethodnih korisnika" BorderBrush="#FF020202" FontFamily="Tahoma" Foreground="#FFFB5454" Margin="86,0,-90,-3" FontSize="12" FontStretch="Expanded" >
+            <TabItem x:Name="tabPage4" Header="Iskustva prethodnih korisnika" BorderBrush="#FF020202" FontFamily="Tahoma" Foreground="#FFFB5454" Margin="44,0,-48,-3" FontSize="12" FontStretch="Expanded" >
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FF4F4F4F" Offset="0"/>
@@ -135,15 +135,37 @@
                 </TabItem.Background>
                 <Canvas x:Name="cantabPage4" Height="391" Width="688" />
             </TabItem>
-            <TabItem x:Name="tabPage5" Header="Pomoć" BorderBrush="#FF020202" Foreground="#FFFB5454" FontFamily="Tahoma" Margin="90,0,-137,-3" FontSize="12" >
+            <TabItem x:Name="tabPage5" Header="Pomoć" BorderBrush="#FF020202" Foreground="#FFFB5454" FontFamily="Tahoma" Margin="139,0,-139,-3" FontSize="12" HorizontalAlignment="Left" Width="94" RenderTransformOrigin="0.372,0.476" >
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FF4F4F4F" Offset="0"/>
                         <GradientStop Color="#FF999999" Offset="1"/>
                     </LinearGradientBrush>
                 </TabItem.Background>
-                <Canvas x:Name="cantabPage5" Height="391" Width="688" />
+                <Canvas x:Name="cantabPage5" Height="391" Margin="0,0,1,0" />
             </TabItem>
+            <TabItem x:Name="tabPage5_Copy" Header="Web" BorderBrush="#FF020202" Foreground="#FFFB5454" FontFamily="Tahoma" Margin="-46,0,-1,-3" FontSize="12" RenderTransformOrigin="0.5,0.5" >
+                <TabItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.412"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TabItem.RenderTransform>
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FF4F4F4F" Offset="0"/>
+                        <GradientStop Color="#FF999999" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Canvas x:Name="cantabPage3" Height="391" Margin="0,0,-2,0" >
+                    <WebBrowser x:Name="webBrowser1" Height="294" Canvas.Left="10" Canvas.Top="40" Width="619" ClipToBounds="True"/>
+                    <TextBox x:Name="textbox_web" Height="25" Canvas.Left="10" TextWrapping="Wrap" Text="TextBox" Canvas.Top="10" Width="271"/>
+                    <Button x:Name="button_web" Content="Go" Height="25" Canvas.Left="286" Canvas.Top="10" Width="41"/>
+                </Canvas>
+            </TabItem>
+            
         </TabControl>
         <Button x:Name="button1" Height="25" Width="96" TabIndex="4" Margin="0,0,302,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Pregled rasporeda" BorderBrush="#FFFDFBFB" Foreground="#FFFDFBFB" >
             <Button.Background>
