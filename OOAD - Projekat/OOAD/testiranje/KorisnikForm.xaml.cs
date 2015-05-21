@@ -20,12 +20,16 @@ namespace SafeHouse
     public partial class KorisnikForm : Window
     {
         Thread t;
+        string priv = "";
         public KorisnikForm()
         {
             InitializeComponent();
             t = new Thread(new ThreadStart(this.provjeraBazeSeen));
             t.Start();
             while (!t.IsAlive) ;
+
+            webBrowser1.Navigate("http://www.google.com");
+
         }
 
         ~KorisnikForm()
@@ -33,6 +37,7 @@ namespace SafeHouse
             t.Abort();
         }
 
+        
          
         private void webBrowser1_DocumentCompleted(object sender, NavigationEventArgs e)
         {
@@ -43,9 +48,8 @@ namespace SafeHouse
         {
             this.Content = "Loading..";
         }
-         
-        
-        
+
+       
 
         private void tabControl1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -58,19 +62,27 @@ namespace SafeHouse
             }
         }
 
+        private void textbox_web_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            priv.Insert(0, textbox_web.Text);
+        }
+
         private void button_web_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                Uri n = new Uri("http://" + textbox_web.Text.Trim(), UriKind.RelativeOrAbsolute);
+                
+                Uri n = new Uri("http://"+priv); //.Trim(), UriKind.RelativeOrAbsolute
+                webBrowser1.Refresh();
                 this.webBrowser1.Navigate(n);
                 this.webBrowser1.Source=n;
-                webBrowser1.Refresh();
+                
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
+            } 
         }
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
