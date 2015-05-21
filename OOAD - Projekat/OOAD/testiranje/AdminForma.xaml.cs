@@ -50,11 +50,7 @@ namespace SafeHouse
             var color = (Color)ColorConverter.ConvertFromString("#FFDCDADA");
             var brush = new SolidColorBrush(color);
             if (textbox_imeRadnika.Background == Brushes.IndianRed) textbox_imeRadnika.Background = brush;
-            
-
         }
-
-      
 
         private void registracija_radnika_Click(object sender, RoutedEventArgs e)
         {
@@ -341,8 +337,7 @@ namespace SafeHouse
                 // dodavanje kartona i statusa za anonimnog korisnika
                 if (radioButton_potpunoAnoniman.IsChecked == true)
                 {
-                    // PROMJENITI OVDJE DA PRETRAZUJE PO USERU TJ PO SELEKTOVANOM IMENU
-
+                    
                     var iipDok = comboBox_personalniDoktorAnonimniKorisnik.Text;
                     var iipPsih = comboBox_personalniPsihologAnonimniKorisnik.Text;
                     var iipEk = comboBox_personalniEkonomistaAnonimniKorisnik.Text;
