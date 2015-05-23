@@ -16,7 +16,7 @@ namespace SafeHouse
     {
         public int ID { get; set; }
         public string Dan { get; set; }
-        public Nullable<System.TimeSpan> Vrijeme { get; set; }
+        public string Vrijeme { get; set; }
         public int ID_R { get; set; }
         public int ID_K { get; set; }
     

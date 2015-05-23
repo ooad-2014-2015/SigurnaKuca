@@ -33,6 +33,7 @@ namespace SafeHouse
         public bool Anonimnost { get; set; }
         public string DodatneOsobe { get; set; }
         public System.DateTime DatumRodjenja { get; set; }
+        public System.DateTime DatumPrijema { get; set; }
     
         public virtual lokacije lokacije { get; set; }
         public virtual ICollection<rasporedi> rasporedi { get; set; }
