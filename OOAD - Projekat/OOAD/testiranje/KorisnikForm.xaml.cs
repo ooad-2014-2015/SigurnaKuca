@@ -13,36 +13,43 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Navigation;
 
 namespace SafeHouse
 {
     public partial class KorisnikForm : Window
     {
         Thread t;
+        string priv = "";
         public KorisnikForm()
         {
             InitializeComponent();
             t = new Thread(new ThreadStart(this.provjeraBazeSeen));
             t.Start();
             while (!t.IsAlive) ;
+
+            webBrowser1.Navigate("http://www.google.com");
+
         }
 
         ~KorisnikForm()
         {
             t.Abort();
         }
-        /*
-        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+
+        
+         
+        private void webBrowser1_DocumentCompleted(object sender, NavigationEventArgs e)
         {
-            this.Text = e.Url.ToString() + "loaded";
+            this.Content ="Loaded.";
         }
 
-        private void webBrowser1_Navigating(object sender, WebBrowserNavigatingEventArgs e)
+        private void webBrowser1_Navigating(object sender, NavigationEventArgs e)
         {
-            this.Text = "Učitavanje..";
-        } 
-        */
-        
+            this.Content = "Loading..";
+        }
+
+       
 
         private void tabControl1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -55,9 +62,34 @@ namespace SafeHouse
             }
         }
 
+        private void textbox_web_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            priv.Insert(0, textbox_web.Text);
+        }
+
+        private void button_web_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                
+                Uri n = new Uri("http://"+priv); //.Trim(), UriKind.RelativeOrAbsolute
+                webBrowser1.Refresh();
+                this.webBrowser1.Navigate(n);
+                this.webBrowser1.Source=n;
+                
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } 
+        }
+
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
-            // webBrowser1.Navigate("http://www.google.com/");
+            this.webBrowser1.Navigate("http://www.google.com/");
+
+            //webBrowser1.Source = new Uri("http://www.google.com"); 
 
             mydbEntities db = new mydbEntities();
             // pronalazak korisnika

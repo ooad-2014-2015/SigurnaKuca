@@ -44,36 +44,65 @@ namespace SafeHouse
             if (combobox_opisPoslaRadnika.SelectedIndex != -1) groupBox_dodjelaPristupa.Visibility = Visibility.Visible;
         }
 
+        //da vrati na staru boju !!!!
+        private void textbox_imeRadnika_TextChanged(object sender, RoutedEventArgs e)
+        {
+            var color = (Color)ColorConverter.ConvertFromString("#FFDCDADA");
+            var brush = new SolidColorBrush(color);
+            if (textbox_imeRadnika.Background == Brushes.IndianRed) textbox_imeRadnika.Background = brush;
+        }
+
         private void registracija_radnika_Click(object sender, RoutedEventArgs e)
         {
+            
             // validacija pri regisraciji
-            if (textbox_imeRadnika.Text.Any(x => Char.IsDigit(x))) { errorProvider3.Content = "Ne možete unositi brojeve"; }
-            else errorProvider3.Content = "";
-
-            if (textbox_prezimeRadnika.Text.Any(x => Char.IsDigit(x))) { errorProvider3.Content = "Ne možete unositi brojeve"; return; }
-            else errorProvider3.Content = "";
-
-            if (textbox_imeRadnika.Text.Count() == 0 || textbox_prezimeRadnika.Text.Count() == 0 || textbox_usernameRadnika.Text.Count() == 0 || textbox_passwordRadnika.Text.Count() == 0 || textbox_prezimeRadnika.Text.Any(x => Char.IsDigit(x)) || textbox_imeRadnika.Text.Any(x => Char.IsDigit(x)))
+            if (textbox_imeRadnika.Text.Any(x => Char.IsDigit(x)))
             {
-                if (textbox_imeRadnika.Text.Count() == 0) { errorProvider3.Content = "Molimo Vas unesite podatak"; return; }
-                else errorProvider3.Content = "";
+                MessageBox.Show("Ne možete unositi brojeve! ", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+               return;
+            }
 
-                if (textbox_prezimeRadnika.Text.Count() == 0) { errorProvider3.Content = "Molimo Vas unesite podatak"; return; }
-                else errorProvider3.Content = "";
+            if (textbox_prezimeRadnika.Text.Any(x => Char.IsDigit(x)))
+            {
+                MessageBox.Show("Ne možete unositi brojeve! ", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            
 
-                if (textbox_usernameRadnika.Text.Count() == 0) { errorProvider3.Content = "Molimo Vas unesite podatak"; return; }
-                else errorProvider3.Content = "";
+            if (textbox_imeRadnika.Text.Count() == 0 || textbox_prezimeRadnika.Text.Count() == 0 || textbox_usernameRadnika.Text.Count() == 0 || textbox_passwordRadnika.Text.Count() == 0 )
+            {
+                if (textbox_imeRadnika.Text.Count() == 0)
+                {
+                    MessageBox.Show("Molimo vas unesite podatak!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    textbox_imeRadnika.Background = Brushes.IndianRed; return;
+                }
+                
 
-                if (textbox_passwordRadnika.Text.Count() == 0) { errorProvider3.Content = "Molimo Vas unesite podatak"; return; }
+                if (textbox_prezimeRadnika.Text.Count() == 0)
+                {
+                    MessageBox.Show("Molimo vas unesite podatak!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    textbox_prezimeRadnika.Background = Brushes.IndianRed; return;
+                }
+
+
+                if (textbox_usernameRadnika.Text.Count() == 0)
+                {
+                    MessageBox.Show("Molimo vas unesite podatak!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    textbox_usernameRadnika.Background = Brushes.IndianRed; return;
+                }
+
+
+                if (textbox_passwordRadnika.Text.Count() == 0)
+                {
+                    MessageBox.Show("Molimo vas unesite podatak!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    textbox_passwordRadnika.Background = Brushes.IndianRed; return;
+                }
 
 
             }
             else
             {
-                errorProvider3.Content = "";
-
-
-
+                
                 // unos radnika u bazu
                 mydbEntities db = new mydbEntities();
                 db.radnici.Add(new radnici() { Ime = textbox_imeRadnika.Text, Prezime = textbox_prezimeRadnika.Text, Username = textbox_usernameRadnika.Text, Password = textbox_passwordRadnika.Text, Opis = combobox_opisPoslaRadnika.SelectedIndex, DatumRodjenja = dateTimePicker1.SelectedDate });
@@ -88,6 +117,7 @@ namespace SafeHouse
                 {
                     Doktor d = new Doktor(textbox_imeRadnika.Text, textbox_prezimeRadnika.Text, dateTimePicker1.SelectedDate.Value, textbox_usernameRadnika.Text, textbox_passwordRadnika.Text);
                     sk.dodajDoktora(d);
+                    MessageBox.Show("Uspješno ste registrovali novog doktora!", "", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 }
 
@@ -95,6 +125,7 @@ namespace SafeHouse
                 {
                     Psiholog p = new Psiholog(textbox_imeRadnika.Text, textbox_prezimeRadnika.Text, dateTimePicker1.SelectedDate.Value, textbox_usernameRadnika.Text, textbox_passwordRadnika.Text);
                     sk.dodajPsihologa(p);
+                    MessageBox.Show("Uspješno ste registrovali novog psihologa!", "", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 }
 
@@ -102,6 +133,7 @@ namespace SafeHouse
                 {
                     Ekonomista ek = new Ekonomista(textbox_imeRadnika.Text, textbox_prezimeRadnika.Text, dateTimePicker1.SelectedDate.Value, textbox_usernameRadnika.Text, textbox_passwordRadnika.Text);
                     sk.dodajEkonomistu(ek);
+                    MessageBox.Show("Uspješno ste registrovali novog ekonomistu!", "", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 }
 
@@ -109,6 +141,7 @@ namespace SafeHouse
                 {
                     Pravnik p = new Pravnik(textbox_imeRadnika.Text, textbox_prezimeRadnika.Text, dateTimePicker1.SelectedDate.Value, textbox_usernameRadnika.Text, textbox_passwordRadnika.Text);
                     sk.dodajPravnika(p);
+                    MessageBox.Show("Uspješno ste registrovali novog pravnika!", "", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 }
 
@@ -131,23 +164,27 @@ namespace SafeHouse
         private void textbox_usernameRadnika_TextChanged(object sender, RoutedEventArgs e)
         {
             string priv = Convert.ToString(textbox_usernameRadnika.Text);
-            if (priv == "") errorProvider3.Content = "";
+           
 
             if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 0 && priv[0] != 'd')
             {
-                errorProvider3.Content = "Ovaj username nije validan!"; return;
+                MessageBox.Show("Uneseni username nije validan! Pokušajte ponovo!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                textbox_usernameRadnika.Background = Brushes.IndianRed; return;
             }
             if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 1 && priv[0] != 'p' && priv[1] != 's')
             {
-                errorProvider3.Content = "Ovaj username nije validan!"; return;
+                MessageBox.Show("Uneseni username nije validan! Pokušajte ponovo!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                textbox_usernameRadnika.Background = Brushes.IndianRed; return;
             }
             if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 2 && priv[0] != 'e')
             {
-                errorProvider3.Content = "Ovaj username nije validan!"; return;
+                MessageBox.Show("Uneseni username nije validan! Pokušajte ponovo!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                textbox_usernameRadnika.Background = Brushes.IndianRed; return;
             }
             if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 3 && priv[0] != 'p' && priv[1] != 'r')
             {
-                errorProvider3.Content = "Ovaj username nije validan!"; return;
+                MessageBox.Show("Uneseni username nije validan! Pokušajte ponovo!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                textbox_usernameRadnika.Background = Brushes.IndianRed; return;
             }
 
         }
@@ -156,23 +193,27 @@ namespace SafeHouse
         private void textbox_passwordRadnika_TextChanged(object sender, RoutedEventArgs e)
         {
             string priv = Convert.ToString(textbox_passwordRadnika.Text);
-            if (priv == "") errorProvider3.Content = "";
+           
 
             if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 0 && priv[0] != 'd')
             {
-                errorProvider3.Content = "Ovaj password nije validan!";
+                MessageBox.Show("Uneseni password nije validan! Pokušajte ponovo!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                textbox_passwordRadnika.Background = Brushes.IndianRed; return;
             }
             if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 1 && priv[0] != 'p' && priv[1] != 's')
             {
-                errorProvider3.Content = "Ovaj password nije validan!";
+                MessageBox.Show("Uneseni password nije validan! Pokušajte ponovo!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                textbox_passwordRadnika.Background = Brushes.IndianRed; return;
             }
             if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 2 && priv[0] != 'e')
             {
-                errorProvider3.Content = "Ovaj password nije validan!";
+                MessageBox.Show("Uneseni password nije validan! Pokušajte ponovo!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                textbox_passwordRadnika.Background = Brushes.IndianRed; return;
             }
             if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 3 && priv[0] != 'p' && priv[1] != 'r')
             {
-                errorProvider3.Content = "Ovaj password nije validan!";
+                MessageBox.Show("Uneseni password nije validan! Pokušajte ponovo!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                textbox_passwordRadnika.Background = Brushes.IndianRed; return;
             }
 
         }
@@ -181,32 +222,56 @@ namespace SafeHouse
         {
             if (radioButton_potpunoAnoniman.IsChecked == true && (comboBox_personalniDoktorAnonimniKorisnik.SelectedIndex == -1 || comboBox_personalniEkonomistaAnonimniKorisnik.SelectedIndex == -1 || comboBox_personalniPravnikAnonimniKorisnik.SelectedIndex == -1 || comboBox_personalniPsihologAnonimniKorisnik.SelectedIndex == -1))
             {
-                if (comboBox_personalniDoktorAnonimniKorisnik.SelectedIndex == -1) { errorProvider2.Content = "Molimo Vas izaberite podatak"; return; }
-                else errorProvider2.Content = "";
+                if (comboBox_personalniDoktorAnonimniKorisnik.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Molimo vas izaberite jednu od ponuđenih opcija!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    comboBox_personalniDoktorAnonimniKorisnik.Background = Brushes.IndianRed; return;
+                }
 
-                if (comboBox_personalniEkonomistaAnonimniKorisnik.SelectedIndex == -1) { errorProvider2.Content = "Molimo Vas izaberite podatak"; return; }
-                else errorProvider2.Content = "";
 
-                if (comboBox_personalniPravnikAnonimniKorisnik.SelectedIndex == -1) { errorProvider2.Content = "Molimo Vas izaberite podatak"; return; }
-                else errorProvider2.Content = "";
+                if (comboBox_personalniEkonomistaAnonimniKorisnik.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Molimo vas izaberite jednu od ponuđenih opcija!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    comboBox_personalniEkonomistaAnonimniKorisnik.Background = Brushes.IndianRed; return;
+                }
 
-                if (comboBox_personalniPsihologAnonimniKorisnik.SelectedIndex == -1) { errorProvider2.Content = "Molimo Vas izaberite podatak"; return; }
-                else errorProvider2.Content = "";
+
+                if (comboBox_personalniPravnikAnonimniKorisnik.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Molimo vas izaberite jednu od ponuđenih opcija!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    comboBox_personalniPravnikAnonimniKorisnik.Background = Brushes.IndianRed; return;
+                }
+
+
+                if (comboBox_personalniPsihologAnonimniKorisnik.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Molimo vas izaberite jednu od ponuđenih opcija!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    comboBox_personalniPsihologAnonimniKorisnik.Background = Brushes.IndianRed; return;
+                }
+                
             }
             else if (radioButton_djelomicnoAnoniman.IsChecked == true && (comboBox_personalniDoktor.SelectedIndex == -1 || comboBox_personalniPsiholog.SelectedIndex == -1))
             {
-                if (comboBox_personalniDoktor.SelectedIndex == -1) { errorProvider2.Content = "Molimo Vas izaberite podatak"; return; }
-                else errorProvider2.Content = "";
+                if (comboBox_personalniDoktor.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Molimo vas izaberite jednu od ponuđenih opcija!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    comboBox_personalniDoktor.Background = Brushes.IndianRed; return;
+                }
+               
 
-                if (comboBox_personalniPsiholog.SelectedIndex == -1) { errorProvider2.Content = "Molimo Vas izaberite podatak"; return; }
-                else errorProvider2.Content = "";
+                if (comboBox_personalniPsiholog.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Molimo vas izaberite jednu od ponuđenih opcija!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    comboBox_personalniPsiholog.Background = Brushes.IndianRed; return;
+                }
+                
 
             }
             else
             {
-                errorProvider2.Content = "";
-
+                
                 //Lokacija lok = new Lokacija(comboBox_lokacijaKorisnika.Text);
+
                 //djelimicnoAnonimanKorisnik k = new djelimicnoAnonimanKorisnik(textBox_imeKorisnika.Text, textBox_prezimeKorisnika.Text, dateTimePicker_datRodjenjaKorisnika.SelectedDate.Value.Date, textBox_usernameKorisnika.Text, textBox_passwordKorisnika.Text, lok, dateTimePicker_datumPrijemaKorisnika.SelectedDate.Value.Date, dateTimePicker_datumOtpustaKorisnika.SelectedDate.Value.Date);
 
 
@@ -267,12 +332,12 @@ namespace SafeHouse
                     db.rasporedi.Add(new rasporedi() { ID_K = korisnik.ID, ID_R = psih.ID });
 
                     db.SaveChanges();
+                    MessageBox.Show("Uspješno ste registrovali novog korisnika!", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 // dodavanje kartona i statusa za anonimnog korisnika
                 if (radioButton_potpunoAnoniman.IsChecked == true)
                 {
-                    // PROMJENITI OVDJE DA PRETRAZUJE PO USERU TJ PO SELEKTOVANOM IMENU
-
+                    
                     var iipDok = comboBox_personalniDoktorAnonimniKorisnik.Text;
                     var iipPsih = comboBox_personalniPsihologAnonimniKorisnik.Text;
                     var iipEk = comboBox_personalniEkonomistaAnonimniKorisnik.Text;
@@ -308,6 +373,8 @@ namespace SafeHouse
                     db.rasporedi.Add(new rasporedi() { ID_K = korisnik.ID, ID_R = ek.ID });
                     db.rasporedi.Add(new rasporedi() { ID_K = korisnik.ID, ID_R = pr.ID });
                     db.SaveChanges();
+
+                    MessageBox.Show("Uspješno ste registrovali novog korisnika!", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 comboBox_lokacijaKorisnika.Items.Clear();
                 var lokacije = (from l in db.lokacije where l.Zauzeta == null select l).ToArray();
@@ -327,18 +394,7 @@ namespace SafeHouse
 
         }
 
-        /*
-        private void tabControl1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-            mydbEntities db = new mydbEntities();
-
-            var lokacije = (from l in db.lokacije where l.Zauzeta == null select l).ToArray();
-            comboBox_lokacijaKorisnika.Items.Clear();
-            foreach (var a in lokacije)
-                comboBox_lokacijaKorisnika.Items.Add(a.Adresa);
-        }
-        */
+       
         private void radioButton_djelomicnoAnoniman_Checked(object sender, RoutedEventArgs e)
         {
             string user = textBox_usernameKorisnika.Text;
@@ -346,34 +402,20 @@ namespace SafeHouse
             string ime = textBox_imeKorisnika.Text;
             string prez = textBox_prezimeKorisnika.Text;
 
-            if (user[0] != ime[0] || user[1] != prez[0])
+            if (user.Length==0) { errorProvider2.Content = "Unesite username!"; return; }
+            else if (ime.Length == 0) { errorProvider2.Content = "Unesite ime korisnika!"; return; }
+            else if (prez.Length == 0) { errorProvider2.Content = "Unesite prezime korisnika!"; return; }
+            else if (comboBox_lokacijaKorisnika.SelectedIndex == -1) { errorProvider2.Content = "Molimo Vas izaberite neku od lokacija"; return; }
+                
+            else if (user[0] != ime[0] || user[1] != prez[0])
             {
                 if (user[0] != ime[0]) { errorProvider2.Content = "Prvo slovo username-a mora biti isto kao prvo slovo imena"; return; }
-                else errorProvider2.Content = "";
+                
 
                 if (user[1] != ime[1]) { errorProvider2.Content = "Drugo slovo username-a mora biti isto kao prvo slovo prezimena"; return; }
-                else errorProvider2.Content = "";
+                
             }
-            else if (textBox_imeKorisnika.Text.Count() == 0 || textBox_prezimeKorisnika.Text.Count() == 0 || textBox_usernameKorisnika.Text.Count() == 0 || textBox_passwordKorisnika.Text.Count() == 0)
-            {
-                radioButton_djelomicnoAnoniman.IsChecked = false;
-
-                if (textBox_imeKorisnika.Text.Count() == 0) { errorProvider2.Content = "Molimo Vas unesite podatak"; return; }
-                else errorProvider2.Content = "";
-
-                if (textBox_prezimeKorisnika.Text.Count() == 0) { errorProvider2.Content = "Molimo Vas unesite podatak"; return; }
-                else errorProvider2.Content = "";
-
-                if (textBox_usernameKorisnika.Text.Count() == 0) { errorProvider2.Content = "Molimo Vas unesite podatak"; return; }
-                else errorProvider2.Content = "";
-
-                if (textBox_passwordKorisnika.Text.Count() == 0) { errorProvider2.Content = "Molimo Vas unesite podatak"; return; }
-                else errorProvider2.Content = "";
-
-                if (comboBox_lokacijaKorisnika.SelectedIndex == -1) { errorProvider2.Content = "Molimo Vas unesite podatak"; return; }
-                else errorProvider2.Content = "";
-
-            }
+          
             else errorProvider2.Content = "";
 
             groupBox_anonimniKorisnik.Visibility = Visibility.Hidden;
@@ -403,33 +445,20 @@ namespace SafeHouse
             string ime = textBox_imeKorisnika.Text;
             string prez = textBox_prezimeKorisnika.Text;
 
+            if (user.Length == 0) { errorProvider2.Content = "Unesite username!"; return; }
+            if (ime.Length == 0) { errorProvider2.Content = "Unesite ime korisnika!"; return; }
+            if (prez.Length == 0) { errorProvider2.Content = "Unesite prezime korisnika!"; return; }
+            if (comboBox_lokacijaKorisnika.SelectedIndex == -1) { errorProvider2.Content = "Molimo Vas izaberite neku od lokacija"; return; }
+
             if (user[0] != ime[0] || user[1] != prez[0])
             {
                 if (user[0] != ime[0]) { errorProvider2.Content = "Prvo slovo username-a mora biti isto kao prvo slovo imena"; return; }
-                else errorProvider2.Content = "";
+               
 
                 if (user[1] != ime[1]) { errorProvider2.Content = "Drugo slovo username-a mora biti isto kao prvo slovo prezimena"; return; }
-                else errorProvider2.Content = "";
+                
             }
-            else if (textBox_imeKorisnika.Text.Count() == 0 || textBox_prezimeKorisnika.Text.Count() == 0 || textBox_usernameKorisnika.Text.Count() == 0 || textBox_passwordKorisnika.Text.Count() == 0)
-            {
-                radioButton_potpunoAnoniman.IsChecked = false;
-
-                if (textBox_imeKorisnika.Text.Count() == 0) { errorProvider2.Content = "Molimo Vas unesite podatak"; return; }
-                else errorProvider2.Content = "";
-
-                if (textBox_prezimeKorisnika.Text.Count() == 0) { errorProvider2.Content = "Molimo Vas unesite podatak"; return; }
-                else errorProvider2.Content = "";
-
-                if (textBox_usernameKorisnika.Text.Count() == 0) { errorProvider2.Content = "Molimo Vas unesite podatak"; return; }
-                else errorProvider2.Content = "";
-
-                if (textBox_passwordKorisnika.Text.Count() == 0) { errorProvider2.Content = "Molimo Vas unesite podatak"; return; }
-                else errorProvider2.Content = "";
-
-                if (comboBox_lokacijaKorisnika.SelectedIndex == -1) { errorProvider2.Content = "Molimo Vas unesite podatak"; return; }
-                else errorProvider2.Content = "";
-            }
+            
             else errorProvider2.Content = "";
 
             groupBox_djelomicnoAnonimniKorisnik.Visibility = Visibility.Hidden;
@@ -461,12 +490,14 @@ namespace SafeHouse
         }
 
 
-        private void linkLabel1_LinkClicked(object sender, RoutedEventArgs e)
+       /*  LOG OUT LINK LABEL
+        
+         private void linkLabel1_LinkClicked(object sender, RoutedEventArgs e)
         {
             StartForm sf = new StartForm();
             this.Hide();
             sf.ShowDialog();
-        }
+        } */ 
 
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)

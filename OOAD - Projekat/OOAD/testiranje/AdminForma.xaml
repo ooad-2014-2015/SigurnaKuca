@@ -7,6 +7,7 @@
         <Color x:Key="Color1">#FF363434</Color>
         <Color x:Key="Color2">#FF5D5C5C</Color>
         <Color x:Key="Color3">#FF555555</Color>
+        <Color x:Key="textbox_boja">#FFDCDADA</Color>
     </Window.Resources>
     <Grid Margin="0,0,-2,0" Background="#FF363434" RenderTransformOrigin="0.5,0.5">
         <Grid.RenderTransform>
@@ -62,7 +63,11 @@
                         <Canvas Height="152" Margin="0,0,12,1" >
                             <DatePicker Name="dateTimePicker1" Height="28" Width="106" TabIndex="13" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="128" Canvas.Top="72" Background="#FFDADADA" BorderBrush="#FF131313" />
                             <TextBox Name="textbox_imeRadnika" Height="23" Width="106" TabIndex="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" TextWrapping="Wrap" Background="#FFDCDADA" Canvas.Left="128" Canvas.Top="14" BorderBrush="#FF131313" />
-                            <TextBox Name="textbox_prezimeRadnika" Height="23" Width="106" TabIndex="11" HorizontalAlignment="Right" VerticalAlignment="Bottom" TextWrapping="Wrap" Background="#FFDCDADA" Canvas.Left="128" Canvas.Top="43" BorderBrush="#FF131313" />
+                            <TextBox Name="textbox_prezimeRadnika" Height="23" Width="106" TabIndex="11" HorizontalAlignment="Right" VerticalAlignment="Bottom" TextWrapping="Wrap" Canvas.Left="128" Canvas.Top="43" BorderBrush="#FF131313" >
+                                <TextBox.Background>
+                                    <SolidColorBrush Color="{DynamicResource textbox_boja}"/>
+                                </TextBox.Background>
+                            </TextBox>
                             <ComboBox Name="combobox_opisPoslaRadnika" Height="24" Width="106" TabIndex="8" HorizontalAlignment="Right" VerticalAlignment="Bottom" SelectionChanged="combobox_opisPoslaRadnika_SelectedIndexChanged" Background="#FFDCDADA" Canvas.Left="128" Canvas.Top="105" BorderBrush="#FF131313" >
                                 <ComboBoxItem>Doktor</ComboBoxItem>
                                 <ComboBoxItem>Psiholog</ComboBoxItem>
@@ -221,7 +226,7 @@
                             <GradientStop Color="#FF454343" Offset="0.655"/>
                         </LinearGradientBrush>
                     </Canvas.Background>
-                    <ListView x:Name="listView1" Height="205" Canvas.Left="8" Canvas.Top="11" Width="563" RenderTransformOrigin="0.495,0.579">
+                    <ListView x:Name="listView1" Height="205" Canvas.Left="8" Canvas.Top="11" Width="563" RenderTransformOrigin="0.495,0.579" Background="#FF494747" Foreground="#FFFBFBFB" BorderBrush="#FFF9F9F9">
                         <ListView.View>
                             <GridView>
                                 <GridView.Columns>
@@ -260,7 +265,7 @@
                 </TabItem.Background>
                 <Canvas Name="cantabPage4" Height="349" Margin="0,0,5,0" />
             </TabItem>
-            <Label x:Name="errorProvider3"  HorizontalAlignment="Left" Height="28" Margin="295,303,-6,0" VerticalAlignment="Top" Width="349" Foreground="#FFFD7070"/>
+            <Label x:Name="errorProvider3" HorizontalAlignment="Left" Height="25" Margin="302,309,0,0" VerticalAlignment="Top" Width="329" Foreground="#FFF71313"/>
         </TabControl>
     </Grid>
 </Window>
