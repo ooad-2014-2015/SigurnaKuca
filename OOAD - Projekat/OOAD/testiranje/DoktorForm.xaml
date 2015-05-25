@@ -66,7 +66,7 @@
         <Label x:Name="label1" Height="23" Width="107" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="12" Background="Transparent" Margin="0,0,490,344" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="3" Content="Lista pacijenata:" Foreground="#FFFFF6F6" />
         <Label x:Name="label4" Height="22" Width="104" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="9" Background="Transparent" Margin="0,0,628,175" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Prezime doktora" Grid.ColumnSpan="4" Foreground="#FFFFF6F6" />
         <Label x:Name="label3" Height="23" Width="83" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="8" Background="Transparent" Margin="0,0,649,197" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Ime doktora" Grid.ColumnSpan="4" Foreground="#FFFFF6F6" />
-        <Button x:Name="button1" Content="Raspored" HorizontalAlignment="Left" Height="26" Margin="10,324,0,0" VerticalAlignment="Top" Width="78" Grid.ColumnSpan="4" BorderBrush="#FFF9F9F9" Foreground="White">
+        <Button x:Name="button1" Content="Raspored" HorizontalAlignment="Left" Height="26" Margin="10,324,0,0" VerticalAlignment="Top" Width="78" Grid.ColumnSpan="4" BorderBrush="#FFF9F9F9" Foreground="White" Click="button1_Click">
             <Button.Background>
                 <ImageBrush/>
             </Button.Background>

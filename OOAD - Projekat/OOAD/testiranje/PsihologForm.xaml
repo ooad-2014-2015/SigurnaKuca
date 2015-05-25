@@ -59,7 +59,7 @@
             </Canvas>
         </GroupBox>
         <ListBox x:Name="listBox_listaPacijenataPsiholog" HorizontalAlignment="Left" Height="322" Margin="134,51,0,0" VerticalAlignment="Top" Width="116" SelectionChanged="listBox_listaPacijenataPsiholog_SelectionChanged"/>
-        <Button x:Name="button_prikaziRasporedPsiholog" Content="Raspored" HorizontalAlignment="Left" Height="25" Margin="12,314,0,0" VerticalAlignment="Top" Width="92" BorderBrush="White" Foreground="White">
+        <Button x:Name="button_prikaziRasporedPsiholog" Content="Raspored" HorizontalAlignment="Left" Height="25" Margin="12,314,0,0" VerticalAlignment="Top" Width="92" BorderBrush="White" Foreground="White" Click="button_prikaziRasporedPsiholog_Click">
             <Button.Background>
                 <ImageBrush/>
             </Button.Background>

@@ -26,7 +26,7 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TabControl Name="tabControl1" Height="367" Width="644" TabStripPlacement= "Top" Margin="0,0,11,9" HorizontalAlignment="Right" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Grid.Column="1" BorderBrush="White" >
+        <TabControl Name="tabControl1" Height="367" Width="644" TabStripPlacement= "Top" Margin="0,0,10,13" HorizontalAlignment="Right" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Grid.Column="1" BorderBrush="White" >
             <TabControl.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF3A3939" Offset="0.448"/>
@@ -91,7 +91,7 @@
                             <TextBlock Text="Dodjela pristupnih podataka" Foreground="#FFFF6666"/>
                         </GroupBox.Header>
                         <Canvas Height="152" Width="249" >
-                            <TextBox Name="textbox_usernameRadnika" Height="23" Width="104" TabIndex="10" TextChanged="textbox_usernameRadnika_TextChanged" Margin="124,43,617,340" HorizontalAlignment="Right" VerticalAlignment="Bottom" TextWrapping="Wrap" Background="#FFDCDADA" BorderBrush="#FF131313" />
+                            <TextBox Name="textbox_usernameRadnika" Height="23" Width="104" TabIndex="10" LostKeyboardFocus="textbox_usernameRadnika_Validated" Margin="124,43,617,340" HorizontalAlignment="Right" VerticalAlignment="Bottom" TextWrapping="Wrap" Background="#FFDCDADA" BorderBrush="#FF131313" />
                             <Label Name="label1" Height="25" Width="67" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White" Canvas.Left="57" Canvas.Top="44" >Username:</Label>
                             <TextBox Name="textbox_passwordRadnika" Height="23" Width="104" TabIndex="9" TextChanged="textbox_passwordRadnika_TextChanged" Margin="124,74,617,309" HorizontalAlignment="Right" VerticalAlignment="Bottom" TextWrapping="Wrap" Background="#FFDCDADA" BorderBrush="#FF131313" />
                             <Label Name="label2" Height="25" Width="67" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White" Canvas.Left="57" Canvas.Top="74" >Password:</Label>
@@ -255,7 +255,8 @@
                     <CheckBox x:Name="comboBox11" Content="Dodaj" Canvas.Left="139" Canvas.Top="253" Checked="CheckBox_Checked_1"/>
                 </Canvas>
             </TabItem>
-            <TabItem Name="tabPage4" Header="Upravljanje rasporedima" Margin="16,0,-16,0" BorderBrush="Black" Foreground="#FFFF6666" FontFamily="Tahoma" >
+            <TabItem Name="tabPage4" Header="Upravljanje rasporedima" Margin="16,0,-2,0" BorderBrush="Black" Foreground="#FFFF6666" FontFamily="Tahoma" >
+                
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FF464646" Offset="0.22"/>
@@ -263,9 +264,14 @@
                         <GradientStop Color="#FF747474" Offset="0.625"/>
                     </LinearGradientBrush>
                 </TabItem.Background>
+                
                 <Canvas Name="cantabPage4" Height="349" Margin="0,0,5,0" />
+                
             </TabItem>
             <Label x:Name="errorProvider3" HorizontalAlignment="Left" Height="25" Margin="302,309,0,0" VerticalAlignment="Top" Width="329" Foreground="#FFF71313"/>
+            
+
+
         </TabControl>
     </Grid>
 </Window>

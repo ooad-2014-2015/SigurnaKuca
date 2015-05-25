@@ -32,9 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\..\..\RPR\SafeHouse\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -59,6 +61,7 @@
     <Compile Include="Karton.cs" />
     <Compile Include="Korisnik.cs" />
     <Compile Include="Lokacija.cs" />
+    <Compile Include="mydbEntities.cs" />
     <Compile Include="Osoba.cs" />
     <Compile Include="PotpunoAnonimniKorisnik.cs" />
     <Compile Include="Pravnik.cs" />
@@ -69,6 +72,8 @@
     <Compile Include="Raspored.cs" />
     <Compile Include="sigurnaKuca.cs" />
     <Compile Include="Termin.cs" />
+    <Compile Include="TerminSaEkonomistom.cs" />
+    <Compile Include="terminSaPravnikom.cs" />
     <Compile Include="TerminTerapije.cs" />
     <Compile Include="Zahtjev.cs" />
     <Compile Include="ZahtjevZaEkonomskuPomoc.cs" />

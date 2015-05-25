@@ -110,5 +110,11 @@ namespace SafeHouse
             korisnikStatus.OpisProblema = opisProblema;
             db.SaveChanges();
         }
+
+        private void button_pregledRasporedaPravnik_Click(object sender, RoutedEventArgs e)
+        {
+            RasporedProzor rp = new RasporedProzor(GlobalneVarijable.trenutnaOsoba);
+            rp.ShowDialog();
+        }
     }
 }
