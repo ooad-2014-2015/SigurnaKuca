@@ -198,13 +198,11 @@ namespace SafeHouse
                  
                 }
                 catch (ArgumentException )
-                {
-
-                }
+                { }
                 catch (EntityException )
-                {
-                
-                }
+                { }
+                catch (TaskCanceledException )
+                { }
                 
             }
         }

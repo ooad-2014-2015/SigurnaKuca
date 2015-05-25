@@ -119,53 +119,6 @@
                             <GradientStop Color="#FF575656" Offset="1"/>
                         </LinearGradientBrush>
                     </Canvas.Background>
-                    <GroupBox Name="groupBox_djelomicnoAnonimniKorisnik" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="263" Canvas.Left="289" Canvas.Top="10" RenderTransformOrigin="0.49,0.515" Foreground="#FFFF6464" BorderBrush="White" Visibility="Hidden" >
-                        <GroupBox.Header>
-                            <TextBlock Text="Djelomično anoniman korisnik"/>
-                        </GroupBox.Header>
-                        <Canvas Width="326" Margin="0,0,0,11" >
-                            <GroupBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Top="116" Width="306" Canvas.Left="10" Height="112" BorderBrush="White" >
-                                <GroupBox.Header>
-                                    <TextBlock Text="Osobe upoznate sa slučajem:"/>
-                                </GroupBox.Header>
-                                <Canvas Height="67" Width="304" >
-                                    <ComboBox Name="comboBox_dodaneOsobe" Height="24" Width="167" TabIndex="11" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="115" Canvas.Top="35"  SelectedValuePath="Content" />
-                                    <Label Name="label15" Height="25" Width="92" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White" Canvas.Left="18" Canvas.Top="35" >Dodane osobe:</Label>
-                                    <Button Name="button_addOsobe" Height="25" Width="100" TabIndex="8" Click="button_addOsobe_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="182" Canvas.Top="2" BorderBrush="White" Foreground="White" >
-                                        <Button.Background>
-                                            <ImageBrush/>
-                                        </Button.Background> Dodaj osobu</Button>
-                                    <TextBox Name="textBox_dodajOsobu" Height="23" Width="145" TabIndex="7" HorizontalAlignment="Right" VerticalAlignment="Bottom" TextWrapping="Wrap" Canvas.Left="18" Canvas.Top="4" />
-                                </Canvas>
-                            </GroupBox>
-                            <ComboBox Name="comboBox_personalniPsiholog" Height="24" Width="130" TabIndex="5" Margin="176,64,539,318" HorizontalAlignment="Right" VerticalAlignment="Bottom"  SelectedValuePath="Content"/>
-                            <Label Name="label11" Height="25" Width="126" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White" Canvas.Left="50" Canvas.Top="64" >Personalni psiholog:</Label>
-                            <Label Name="label10" Height="25" Width="116" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White" Canvas.Left="60" Canvas.Top="34" >Personalni doktor:</Label>
-                            <ComboBox Name="comboBox_personalniDoktor" Height="24" Width="130" TabIndex="2" Margin="176,34,539,348" HorizontalAlignment="Right" VerticalAlignment="Bottom"  SelectedValuePath="Content"/>
-                            <DatePicker Name="dateTimePicker_datumOtpustaKorisnika" Height="23" Width="130" TabIndex="1" Margin="176,6,539,377" HorizontalAlignment="Right" VerticalAlignment="Bottom" ></DatePicker>
-                            <Label Name="label9" Height="21" Width="91" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White" Canvas.Left="71" Canvas.Top="8" >Datum otpusta:</Label>
-                        </Canvas>
-                    </GroupBox>
-
-                    <GroupBox Name="groupBox_anonimniKorisnik" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="263" Canvas.Left="289" Canvas.Top="10" Width="338" BorderBrush="White" Foreground="#FFF7F7F7" Visibility="Hidden" >
-                        <GroupBox.Header>
-                            <TextBlock Text="Potpuno aninimni korisnik" Foreground="#FFF96D6D"/>
-                        </GroupBox.Header>
-                        <Canvas Height="222" Width="303" >
-                            <ComboBox Name="comboBox_personalniPravnikAnonimniKorisnik" Height="24" Width="126" TabIndex="7" Margin="152,114,567,268" HorizontalAlignment="Right" VerticalAlignment="Bottom"  SelectedValuePath="Content" />
-                            <ComboBox Name="comboBox_personalniEkonomistaAnonimniKorisnik" Height="24" Width="126" TabIndex="6" Margin="152,85,567,297" HorizontalAlignment="Right" VerticalAlignment="Bottom"  SelectedValuePath="Content" />
-                            <ComboBox Name="comboBox_personalniPsihologAnonimniKorisnik" Height="24" Width="126" TabIndex="5" Margin="152,52,567,330" HorizontalAlignment="Right" VerticalAlignment="Bottom"  SelectedValuePath="Content"/>
-                            <ComboBox Name="comboBox_personalniDoktorAnonimniKorisnik" Height="24" Width="126" TabIndex="4" Margin="152,14,567,368" HorizontalAlignment="Right" VerticalAlignment="Bottom" SelectedValuePath="Content" />
-                            <Label Name="label19" Height="25" Width="111" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFF7F7F7" Canvas.Left="42" Canvas.Top="113" >Personalni pravnik:</Label>
-                            <Label Name="label18" Height="25" Width="130" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFF7F7F7" Canvas.Left="23" Canvas.Top="85" >Personalni ekonomista:</Label>
-                            <Label Name="label17" Height="25" Width="119" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFF7F7F7" Canvas.Left="34" Canvas.Top="51" >Personalni psiholog:</Label>
-                            <Label Name="label16" Height="25" Width="111" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFF7F7F7" Canvas.Left="42" Canvas.Top="14" >Personalni doktor:</Label>
-                        </Canvas>
-                    </GroupBox>
-                    <Button Name="button_registrujKorisnika" Height="27" Width="127" TabIndex="14" Click="button_registrujKorisnika_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="501" Canvas.Top="273" RenderTransformOrigin="0.408,0.655" BorderBrush="White" Foreground="White" >
-                        <Button.Background>
-                            <ImageBrush/>
-                        </Button.Background> Registruj korisnika</Button>
                     <GroupBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="250" Canvas.Left="25" Canvas.Top="10" Width="246" FontSize="11" Foreground="#FFFB5C5C" BorderBrush="#FFFDFDFD" >
                         <GroupBox.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -177,16 +130,16 @@
                             <TextBlock Text="Osnovni podaci o korisniku"/>
                         </GroupBox.Header>
                         <Canvas Height="246" Margin="0,0,-2,-5" >
-                            <Label Name="label14" Height="21" Width="83" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Canvas.Left="20" Canvas.Top="173" >Datum prijema:</Label>
-                            <DatePicker Name="dateTimePicker_datumPrijemaKorisnika" Height="23" Width="115" TabIndex="11" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="108" Canvas.Top="171" Background="#FFF3E9E9" />
-                            <ComboBox Name="comboBox_lokacijaKorisnika" Height="24" Width="115" TabIndex="10" Margin="108,203,622,179" HorizontalAlignment="Right" VerticalAlignment="Bottom" SelectedValuePath="Content" Background="#FFF3E9E9"/>
-                            <Label Name="label13" Height="24" Width="58" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Canvas.Left="50" Canvas.Top="203" >Lokacija:</Label>
-                            <Label Name="label8" Height="25" Width="88" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="9" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Canvas.Left="20" Canvas.Top="77" >Datum rođenja:</Label>
-                            <TextBox Name="textBox_passwordKorisnika" Height="23" Width="115" TabIndex="8" Margin="108,142,622,241" HorizontalAlignment="Right" VerticalAlignment="Bottom" TextWrapping="Wrap" Background="#FFF3E9E9" ></TextBox>
-                            <TextBox Name="textBox_usernameKorisnika" Height="23" Width="115" TabIndex="7" Margin="108,111,622,272" HorizontalAlignment="Right" VerticalAlignment="Bottom" TextWrapping="Wrap" Background="#FFF3E9E9" ></TextBox>
-                            <TextBox Name="textBox_prezimeKorisnika" Height="23" Width="115" TabIndex="6" Margin="108,48,622,335" HorizontalAlignment="Right" VerticalAlignment="Bottom" TextWrapping="Wrap" Background="#FFF3E9E9" ></TextBox>
-                            <TextBox Name="textBox_imeKorisnika" Height="23" Width="115" TabIndex="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" TextWrapping="Wrap" Canvas.Left="108" Canvas.Top="14" Background="#FFF3E9E9" />
-                            <DatePicker Name="dateTimePicker_datRodjenjaKorisnika" Height="23" Width="115" TabIndex="4" Margin="108,79,622,304" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="#FFF3E9E9" >
+                            <Label x:Name="label14" Height="21" Width="83" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Canvas.Left="20" Canvas.Top="173" Content="Datum prijema:" />
+                            <DatePicker x:Name="dateTimePicker_datumPrijemaKorisnika" Height="23" Width="115" TabIndex="11" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="108" Canvas.Top="171" Background="#FFF3E9E9" />
+                            <ComboBox x:Name="comboBox_lokacijaKorisnika" Height="24" Width="115" TabIndex="10" Margin="108,203,622,179" HorizontalAlignment="Right" VerticalAlignment="Bottom" SelectedValuePath="Content" Background="#FFF3E9E9"  />
+                            <Label x:Name="label13" Height="24" Width="58" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Canvas.Left="50" Canvas.Top="203" Content="Lokacija:" />
+                            <Label x:Name="label8" Height="25" Width="88" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="9" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Canvas.Left="20" Canvas.Top="77" Content="Datum rođenja:" />
+                            <TextBox x:Name="textBox_passwordKorisnika" Height="23" Width="115" TabIndex="8" Margin="108,142,622,241" HorizontalAlignment="Right" VerticalAlignment="Bottom" TextWrapping="Wrap" Background="#FFF3E9E9" />
+                            <TextBox x:Name="textBox_usernameKorisnika" Height="23" Width="115" TabIndex="7" Margin="108,111,622,272" HorizontalAlignment="Right" VerticalAlignment="Bottom" TextWrapping="Wrap" Background="#FFF3E9E9" />
+                            <TextBox x:Name="textBox_prezimeKorisnika" Height="23" Width="115" TabIndex="6" Margin="108,48,622,335" HorizontalAlignment="Right" VerticalAlignment="Bottom" TextWrapping="Wrap" Background="#FFF3E9E9" />
+                            <TextBox x:Name="textBox_imeKorisnika" Height="23" Width="115" TabIndex="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" TextWrapping="Wrap" Canvas.Left="108" Canvas.Top="14" Background="#FFF3E9E9" />
+                            <DatePicker x:Name="dateTimePicker_datRodjenjaKorisnika" Height="23" Width="115" TabIndex="4" Margin="108,79,622,304" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="#FFF3E9E9" >
                                 <DatePicker.BorderBrush>
                                     <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
                                         <GradientStop Color="#FFA3AEB9" Offset="0"/>
@@ -196,15 +149,64 @@
                                     </LinearGradientBrush>
                                 </DatePicker.BorderBrush>
                             </DatePicker>
-                            <Label Name="label7" Height="24" Width="67" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Canvas.Left="41" Canvas.Top="141" >Password:</Label>
-                            <Label Name="label6" Height="23" Width="62" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Canvas.Left="41" Canvas.Top="111" >Username:</Label>
-                            <Label Name="label5" Height="23" Width="58" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Canvas.Left="50" Canvas.Top="48" >Prezime:</Label>
-                            <Label Name="label4" Height="23" Width="43" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Canvas.Left="75" Canvas.Top="14" >Ime:</Label>
-                           
+                            <Label x:Name="label7" Height="24" Width="67" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Canvas.Left="41" Canvas.Top="141" Content="Password:" />
+                            <Label x:Name="label6" Height="23" Width="62" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Canvas.Left="41" Canvas.Top="111" Content="Username:" />
+                            <Label x:Name="label5" Height="23" Width="58" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Canvas.Left="50" Canvas.Top="48" Content="Prezime:" />
+                            <Label x:Name="label4" Height="23" Width="43" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFFBFBFB" Canvas.Left="75" Canvas.Top="14" Content="Ime:" />
+
                         </Canvas>
                     </GroupBox>
-                    <RadioButton Name="radioButton_potpunoAnoniman" Height="17" Width="166" TabIndex="11" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="29" Canvas.Top="299" Checked="radioButton_potpunoAnoniman_Checked" Foreground="#FFFBF5F5" >Potpuno anoniman korisnik</RadioButton>
-                    <RadioButton Name="radioButton_djelomicnoAnoniman" Height="18" Width="186" TabIndex="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="29" Canvas.Top="273" Checked="radioButton_djelomicnoAnoniman_Checked" Foreground="#FFFBF5F5" >Djelomično anoniman korisnik</RadioButton>
+                    <GroupBox x:Name="groupBox_djelomicnoAnonimniKorisnik" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="263" Canvas.Left="289" Canvas.Top="10" RenderTransformOrigin="0.49,0.515" Foreground="#FFFF6464" BorderBrush="White" Visibility="Hidden" >
+                        <GroupBox.Header>
+                            <TextBlock Text="Djelomično anoniman korisnik"/>
+                        </GroupBox.Header>
+                        <Canvas Width="326" Margin="0,0,0,11" >
+                            <GroupBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Top="116" Width="306" Canvas.Left="10" Height="112" BorderBrush="White" >
+                                <GroupBox.Header>
+                                    <TextBlock Text="Osobe upoznate sa slučajem:"/>
+                                </GroupBox.Header>
+                                <Canvas Height="67" Width="304" >
+                                    <ComboBox x:Name="comboBox_dodaneOsobe" Height="24" Width="167" TabIndex="11" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="115" Canvas.Top="35"  SelectedValuePath="Content" />
+                                    <Label x:Name="label15" Height="25" Width="92" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White" Canvas.Left="18" Canvas.Top="35" Content="Dodane osobe:" />
+                                    <Button x:Name="button_addOsobe" Height="25" Width="100" TabIndex="8" Click="button_addOsobe_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="182" Canvas.Top="2" BorderBrush="White" Foreground="White" Content="Dodaj osobu" >
+                                        <Button.Background>
+                                            <ImageBrush/>
+                                        </Button.Background>
+                                    </Button>
+                                    <TextBox x:Name="textBox_dodajOsobu" Height="23" Width="145" TabIndex="7" HorizontalAlignment="Right" VerticalAlignment="Bottom" TextWrapping="Wrap" Canvas.Left="18" Canvas.Top="4" />
+                                </Canvas>
+                            </GroupBox>
+                            <ComboBox x:Name="comboBox_personalniPsiholog" Height="24" Width="130" TabIndex="5" Margin="176,64,539,318" HorizontalAlignment="Right" VerticalAlignment="Bottom"  SelectedValuePath="Content"/>
+                            <Label x:Name="label11" Height="25" Width="126" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White" Canvas.Left="50" Canvas.Top="64" Content="Personalni psiholog:" />
+                            <Label x:Name="label10" Height="25" Width="116" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White" Canvas.Left="60" Canvas.Top="34" Content="Personalni doktor:" />
+                            <ComboBox x:Name="comboBox_personalniDoktor" Height="24" Width="130" TabIndex="2" Margin="176,34,539,348" HorizontalAlignment="Right" VerticalAlignment="Bottom"  SelectedValuePath="Content"/>
+                            <DatePicker x:Name="dateTimePicker_datumOtpustaKorisnika" Height="23" Width="130" TabIndex="1" Margin="176,6,539,377" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+                            <Label x:Name="label9" Height="21" Width="91" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White" Canvas.Left="71" Canvas.Top="8" Content="Datum otpusta:" />
+                        </Canvas>
+                    </GroupBox>
+
+                    <GroupBox x:Name="groupBox_anonimniKorisnik" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="263" Canvas.Left="289" Canvas.Top="10" Width="338" BorderBrush="White" Foreground="#FFF7F7F7" Visibility="Hidden" >
+                        <GroupBox.Header>
+                            <TextBlock Text="Potpuno aninimni korisnik" Foreground="#FFF96D6D"/>
+                        </GroupBox.Header>
+                        <Canvas Height="222" Width="303" >
+                            <ComboBox x:Name="comboBox_personalniPravnikAnonimniKorisnik" Height="24" Width="126" TabIndex="7" Margin="152,114,567,268" HorizontalAlignment="Right" VerticalAlignment="Bottom"  SelectedValuePath="Content" />
+                            <ComboBox x:Name="comboBox_personalniEkonomistaAnonimniKorisnik" Height="24" Width="126" TabIndex="6" Margin="152,85,567,297" HorizontalAlignment="Right" VerticalAlignment="Bottom"  SelectedValuePath="Content" />
+                            <ComboBox x:Name="comboBox_personalniPsihologAnonimniKorisnik" Height="24" Width="126" TabIndex="5" Margin="152,52,567,330" HorizontalAlignment="Right" VerticalAlignment="Bottom"  SelectedValuePath="Content"/>
+                            <ComboBox x:Name="comboBox_personalniDoktorAnonimniKorisnik" Height="24" Width="126" TabIndex="4" Margin="152,14,567,368" HorizontalAlignment="Right" VerticalAlignment="Bottom" SelectedValuePath="Content" />
+                            <Label x:Name="label19" Height="25" Width="111" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFF7F7F7" Canvas.Left="42" Canvas.Top="113" Content="Personalni pravnik:" />
+                            <Label x:Name="label18" Height="25" Width="130" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFF7F7F7" Canvas.Left="23" Canvas.Top="85" Content="Personalni ekonomista:" />
+                            <Label x:Name="label17" Height="25" Width="119" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFF7F7F7" Canvas.Left="34" Canvas.Top="51" Content="Personalni psiholog:" />
+                            <Label x:Name="label16" Height="25" Width="111" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="#FFF7F7F7" Canvas.Left="42" Canvas.Top="14" Content="Personalni doktor:" />
+                        </Canvas>
+                    </GroupBox>
+                    <Button x:Name="button_registrujKorisnika" Height="27" Width="127" TabIndex="14" Click="button_registrujKorisnika_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="501" Canvas.Top="273" RenderTransformOrigin="0.408,0.655" BorderBrush="White" Foreground="White" Content="Registruj korisnika" >
+                        <Button.Background>
+                            <ImageBrush/>
+                        </Button.Background>
+                    </Button>
+                    <RadioButton x:Name="radioButton_potpunoAnoniman" Height="17" Width="166" TabIndex="11" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="29" Canvas.Top="299" Checked="radioButton_potpunoAnoniman_Checked" Foreground="#FFFBF5F5" Content="Potpuno anoniman korisnik" />
+                    <RadioButton x:Name="radioButton_djelomicnoAnoniman" Height="18" Width="186" TabIndex="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="29" Canvas.Top="273" Checked="radioButton_djelomicnoAnoniman_Checked" Foreground="#FFFBF5F5" Content="Djelomično anoniman korisnik" />
                     <Label x:Name="errorProvider2" Content="" Height="27" Canvas.Left="276" Canvas.Top="313" Width="362" Foreground="#FFFD7272"/>
                 </Canvas>
             </TabItem>

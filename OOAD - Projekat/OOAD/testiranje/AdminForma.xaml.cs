@@ -155,7 +155,7 @@ namespace SafeHouse
                 db.lokacije.Add(new lokacije() { Adresa = "Vrbovska 183" });
                 db.lokacije.Add(new lokacije() { Adresa = "Dzemala Bijedica 18" });
                 db.lokacije.Add(new lokacije() { Adresa = "Bulevar Mese Selimovica 188" }); 
-                db.SaveChanges(); */
+                db.SaveChanges(); */ 
 
             }
         }
@@ -271,8 +271,8 @@ namespace SafeHouse
             else
             {
                 
+                //Lokacija lok = new Lokacija(comboBox_lokacijaKorisnika.Text);
 
-                //Lokacija lok = new Lokacija(((ComboBoxItem)comboBox_lokacijaKorisnika.SelectedItem).Content.ToString());
                 //djelimicnoAnonimanKorisnik k = new djelimicnoAnonimanKorisnik(textBox_imeKorisnika.Text, textBox_prezimeKorisnika.Text, dateTimePicker_datRodjenjaKorisnika.SelectedDate.Value.Date, textBox_usernameKorisnika.Text, textBox_passwordKorisnika.Text, lok, dateTimePicker_datumPrijemaKorisnika.SelectedDate.Value.Date, dateTimePicker_datumOtpustaKorisnika.SelectedDate.Value.Date);
 
 
@@ -293,7 +293,7 @@ namespace SafeHouse
                 var lokacija = (from l in db.lokacije where l.Adresa == adres select l).Single();
 
                 // dodavanje korisnika
-                db.korisnici.Add(new korisnici() { Ime = textBox_imeKorisnika.Text, Prezime = textBox_prezimeKorisnika.Text, Username = textBox_usernameKorisnika.Text, Password = textBox_passwordKorisnika.Text, Lokacija_ID = lokacija.ID, DatumRodjenja = dateTimePicker_datRodjenjaKorisnika.SelectedDate.Value, Anonimnost = anoniman, DodatneOsobe = osobe });
+                db.korisnici.Add(new korisnici() { Ime = textBox_imeKorisnika.Text, Prezime = textBox_prezimeKorisnika.Text, Username = textBox_usernameKorisnika.Text, Password = textBox_passwordKorisnika.Text, Lokacija_ID = lokacija.ID, DatumRodjenja = dateTimePicker_datRodjenjaKorisnika.SelectedDate.Value, Anonimnost = anoniman, DodatneOsobe = osobe, DatumPrijema=dateTimePicker_datumPrijemaKorisnika.SelectedDate.Value });
 
                 // promjena u odabranoj lokaciji da je zauzeta
                 lokacija.Zauzeta = true;
@@ -377,7 +377,11 @@ namespace SafeHouse
 
                     MessageBox.Show("Uspješno ste registrovali novog korisnika!", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
+                comboBox_lokacijaKorisnika.Items.Clear();
+                var lokacije = (from l in db.lokacije where l.Zauzeta == null select l).ToArray();
 
+                foreach (var a in lokacije)
+                    comboBox_lokacijaKorisnika.Items.Add(a.Adresa);
 
             }
             //automatsko popunjavanje NULL vrijednosti u rasporedu!!!!
@@ -534,6 +538,9 @@ namespace SafeHouse
                 catch (EntityException)
                 { }
                 catch (InvalidOperationException) { }
+
+                catch (TaskCanceledException) 
+                { }
             }
         }
 
