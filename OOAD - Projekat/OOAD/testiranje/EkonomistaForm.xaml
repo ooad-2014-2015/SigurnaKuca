@@ -57,7 +57,7 @@
                 </Button>
             </Canvas>
         </GroupBox>
-        <Button x:Name="button_pregledRasporedaEkonomist" Content="Raspored" HorizontalAlignment="Left" Height="26" Margin="10,324,0,0" VerticalAlignment="Top" Width="76" Grid.ColumnSpan="4" BorderBrush="#FFF1F1F1" Foreground="#FFF7F7F7">
+        <Button x:Name="button_pregledRasporedaEkonomist" Content="Raspored" HorizontalAlignment="Left" Height="26" Margin="10,324,0,0" VerticalAlignment="Top" Width="76" Grid.ColumnSpan="4" BorderBrush="#FFF1F1F1" Foreground="#FFF7F7F7" Click="button_pregledRasporedaEkonomist_Click">
             <Button.Background>
                 <ImageBrush/>
             </Button.Background>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="mydbModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="mydbModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="mydbModelStoreContainer">
           <EntitySet Name="kartoni" EntityType="mydbModel.Store.kartoni" store:Type="Tables" Schema="mydb" />
           <EntitySet Name="korisnici" EntityType="mydbModel.Store.korisnici" store:Type="Tables" Schema="mydb" />
@@ -104,6 +104,7 @@
           <Property Name="Anonimnost" Type="bool" Nullable="false" />
           <Property Name="DodatneOsobe" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="DatumRodjenja" Type="date" Nullable="false" />
+          <Property Name="DatumPrijema" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="lokacije">
           <Key>
@@ -131,7 +132,7 @@
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Dan" Type="varchar" MaxLength="45" />
-          <Property Name="Vrijeme" Type="time" />
+          <Property Name="Vrijeme" Type="varchar" MaxLength="10" />
           <Property Name="ID_R" Type="int" Nullable="false" />
           <Property Name="ID_K" Type="int" Nullable="false" />
         </EntityType>
@@ -494,6 +495,7 @@
           <Property Name="Anonimnost" Type="Boolean" Nullable="false" />
           <Property Name="DodatneOsobe" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
           <Property Name="DatumRodjenja" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DatumPrijema" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="lokacije" Relationship="mydbModel.fk_Korisnici_Lokacija" FromRole="korisnici" ToRole="lokacije" />
           <NavigationProperty Name="rasporedi" Relationship="mydbModel.fk_Rasporedi_Korisnici1" FromRole="korisnici" ToRole="rasporedi" />
           <NavigationProperty Name="status_d" Relationship="mydbModel.fk_Status_D_Korisnici1" FromRole="korisnici" ToRole="status_d" />
@@ -538,7 +540,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="Dan" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
-          <Property Name="Vrijeme" Type="Time" Precision="0" />
+          <Property Name="Vrijeme" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
           <Property Name="ID_R" Type="Int32" Nullable="false" />
           <Property Name="ID_K" Type="Int32" Nullable="false" />
           <NavigationProperty Name="korisnici" Relationship="mydbModel.fk_Rasporedi_Korisnici1" FromRole="rasporedi" ToRole="korisnici" />
@@ -833,6 +835,7 @@
                 <ScalarProperty Name="Anonimnost" ColumnName="Anonimnost" />
                 <ScalarProperty Name="DodatneOsobe" ColumnName="DodatneOsobe" />
                 <ScalarProperty Name="DatumRodjenja" ColumnName="DatumRodjenja" />
+                <ScalarProperty Name="DatumPrijema" ColumnName="DatumPrijema" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

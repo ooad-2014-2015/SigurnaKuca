@@ -113,6 +113,12 @@ namespace SafeHouse
             label_ispisDatumaSistematskog.Content = korisnikStatus.DatumPromjene.ToString();
         }
 
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            RasporedProzor rp = new RasporedProzor(GlobalneVarijable.trenutnaOsoba);
+            rp.ShowDialog();
+        }
+
 
 
     }

@@ -167,7 +167,7 @@
             </TabItem>
             
         </TabControl>
-        <Button x:Name="button1" Height="25" Width="96" TabIndex="4" Margin="0,0,302,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Pregled rasporeda" BorderBrush="#FFFDFBFB" Foreground="#FFFDFBFB" >
+        <Button x:Name="button1" Height="25" Width="96" TabIndex="4" Margin="0,0,302,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Pregled rasporeda" BorderBrush="#FFFDFBFB" Foreground="#FFFDFBFB" Click="button1_Click" >
             <Button.Background>
                 <ImageBrush/>
             </Button.Background>

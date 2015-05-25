@@ -105,6 +105,12 @@ namespace SafeHouse
             richTextBox_nalaziSistematskogPsiholog.Document.Blocks.Add(new Paragraph(new Run(korisnikStatusDoktor.Nalazi)));
         }
 
+        private void button_prikaziRasporedPsiholog_Click(object sender, RoutedEventArgs e)
+        {
+            RasporedProzor rp = new RasporedProzor(GlobalneVarijable.trenutnaOsoba);
+            rp.ShowDialog();
+        }
+
 
     }
 }

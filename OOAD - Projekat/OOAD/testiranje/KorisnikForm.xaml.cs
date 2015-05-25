@@ -234,6 +234,14 @@ namespace SafeHouse
             Korisnik_Obavijesti.Document.Blocks.Add(new Paragraph(new Run(ricTekst)));
             db.SaveChanges();
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            RasporedProzor rp = new RasporedProzor(GlobalneVarijable.trenutnaOsoba);
+            rp.ShowDialog();
+        }
+
+        
         
     }
 }

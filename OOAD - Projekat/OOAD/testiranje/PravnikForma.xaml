@@ -69,7 +69,7 @@
         <Label x:Name="label3" Height="23" Width="100" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="5" Foreground="#FFF9F5F5" Margin="0,0,326,380" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Lista pacijenata" />
         <Label x:Name="label_prezimePravnik" Height="24" Width="58" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="2" Foreground="#FFF5F5F9" Background="Transparent" Margin="0,0,480,227" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Prezime" />
         <Label x:Name="label_imePravnik" Height="23" Width="36" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="1" Foreground="#FFF5F5F7" Background="Transparent" Margin="0,0,500,256" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Ime" RenderTransformOrigin="0.5,0.522" />
-        <Button x:Name="button_pregledRasporedaPravnik" Content="Raspored" HorizontalAlignment="Left" Height="24" Margin="10,383,0,0" VerticalAlignment="Top" Width="84" BorderBrush="White" Foreground="White">
+        <Button x:Name="button_pregledRasporedaPravnik" Content="Raspored" HorizontalAlignment="Left" Height="24" Margin="10,383,0,0" VerticalAlignment="Top" Width="84" BorderBrush="White" Foreground="White" Click="button_pregledRasporedaPravnik_Click">
             <Button.Background>
                 <ImageBrush/>
             </Button.Background>

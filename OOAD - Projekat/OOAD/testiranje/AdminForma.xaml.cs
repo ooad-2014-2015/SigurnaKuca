@@ -145,9 +145,9 @@ namespace SafeHouse
 
                 }
 
-                /*
+                
                 // fali raspored button, da kreira prazan raspored za svakog zaposlenog, i obavjesti da je uspješno kreirano ??
-                db.lokacije.Add(new lokacije() { Adresa = "Brcanska 13" });
+               /* db.lokacije.Add(new lokacije() { Adresa = "Brcanska 13" });
                 db.lokacije.Add(new lokacije() { Adresa = "Muftije Dzabijca 12" });
                 db.lokacije.Add(new lokacije() { Adresa = "Ferde Haupmana 6" });
                 db.lokacije.Add(new lokacije() { Adresa = "Titova 133" });
@@ -161,7 +161,7 @@ namespace SafeHouse
         }
 
         // validacija username-a, mora počinjati sa prvim slovom opisa posla!
-        private void textbox_usernameRadnika_TextChanged(object sender, RoutedEventArgs e)
+        private void textbox_usernameRadnika_Validated(object sender, RoutedEventArgs e)
         {
             string priv = Convert.ToString(textbox_usernameRadnika.Text);
            
@@ -220,6 +220,7 @@ namespace SafeHouse
 
         private void button_registrujKorisnika_Click(object sender, RoutedEventArgs e)
         {
+            
             if (radioButton_potpunoAnoniman.IsChecked == true && (comboBox_personalniDoktorAnonimniKorisnik.SelectedIndex == -1 || comboBox_personalniEkonomistaAnonimniKorisnik.SelectedIndex == -1 || comboBox_personalniPravnikAnonimniKorisnik.SelectedIndex == -1 || comboBox_personalniPsihologAnonimniKorisnik.SelectedIndex == -1))
             {
                 if (comboBox_personalniDoktorAnonimniKorisnik.SelectedIndex == -1)
@@ -379,7 +380,9 @@ namespace SafeHouse
 
 
             }
-
+            //automatsko popunjavanje NULL vrijednosti u rasporedu!!!!
+            RasporedKontroler rk = new RasporedKontroler();
+            rk.popuniRaspored();
         }
 
 
@@ -483,6 +486,8 @@ namespace SafeHouse
             var pr = (from p in db.radnici where p.Opis == 3 select p).ToArray();
             foreach (var a in pr)
                 comboBox_personalniPravnikAnonimniKorisnik.Items.Add(a.Ime + " " + a.Prezime);
+
+            
         }
 
 
@@ -500,11 +505,17 @@ namespace SafeHouse
         {
             comboBox_lokacijaKorisnika.Items.Clear();
             mydbEntities db = new mydbEntities();
-
-            var lokacije = (from l in db.lokacije where l.Zauzeta == null select l).ToArray();
-
-            foreach (var a in lokacije)
-                comboBox_lokacijaKorisnika.Items.Add(a.Adresa);
+            try
+            {
+                var lokacije = (from l in db.lokacije where l.Zauzeta == null select l).ToArray();
+                foreach (var a in lokacije)
+                    comboBox_lokacijaKorisnika.Items.Add(a.Adresa);
+            }
+            catch (InvalidOperationException)
+            { 
+            
+            }
+           
         }
 
         List<zahtjevi> zahtjevi1;
@@ -522,6 +533,7 @@ namespace SafeHouse
                 { }
                 catch (EntityException)
                 { }
+                catch (InvalidOperationException) { }
             }
         }
 

@@ -13,6 +13,14 @@ namespace SafeHouse
         DateTime datumRodjenja;
         string username;
         string password;
+        int ID;
+
+        public int ID1
+        {
+            get { return ID; }
+            set { ID = value; }
+        }
+
 
         public Osoba() { }
 
