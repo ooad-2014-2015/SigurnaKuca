@@ -12,13 +12,10 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace StartMeni
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+
     public sealed partial class MainPage : Page
     {
         public MainPage()
@@ -26,13 +23,109 @@ namespace StartMeni
             this.InitializeComponent();
         }
 
-        /// <summary>
-        /// Invoked when this page is about to be displayed in a Frame.
-        /// </summary>
-        /// <param name="e">Event data that describes how this page was reached.  The Parameter
-        /// property is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+           this.Content =new GamePage();
+        }
+
+        private void button_changeLevel_Click(object sender, RoutedEventArgs e)
+        {
+            grid_changeLevel.Visibility = Visibility.Visible;
+            grid_start.Visibility = Visibility.Collapsed;
+        }
+
+        private void button_backLevel_Click(object sender, RoutedEventArgs e)
+        {
+            grid_start.Visibility = Visibility.Visible;
+            grid_changeLevel.Visibility = Visibility.Collapsed;
+        }
+
+        private void image_1_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            grid_selectedLevel.Visibility = Visibility.Visible;
+        }
+
+        private void image_1_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            if(image_1.Opacity!=50) grid_selectedLevel.Visibility = Visibility.Collapsed;
+        }
+
+        private void image_2_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            grid_selectedLevel.Visibility = Visibility.Visible;
+        }
+
+        private void image_2_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            if (image_2.Opacity != 50) grid_selectedLevel.Visibility = Visibility.Collapsed;
+        }
+
+        private void image_3_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            grid_selectedLevel.Visibility = Visibility.Visible;
+        }
+
+        private void image_3_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            if (image_3.Opacity != 50) grid_selectedLevel.Visibility = Visibility.Collapsed;
+        }
+
+        private void image_4_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            grid_selectedLevel.Visibility = Visibility.Visible;
+        }
+
+        private void image_4_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            if (image_4.Opacity != 50) grid_selectedLevel.Visibility = Visibility.Collapsed;
+        }
+
+        private void image_5_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            grid_selectedLevel.Visibility = Visibility.Visible;
+        }
+
+        private void image_5_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            if (image_5.Opacity != 50) grid_selectedLevel.Visibility = Visibility.Collapsed;
+        }
+
+        private void image_1_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            grid_selectedLevel.Visibility = Visibility.Visible;
+            image_1.Opacity = 50;
+        }
+
+        private void image_2_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            grid_selectedLevel.Visibility = Visibility.Visible;
+            image_2.Opacity = 50;
+        }
+
+        private void image_3_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            grid_selectedLevel.Visibility = Visibility.Visible;
+            image_3.Opacity = 50;
+        }
+
+        private void image_4_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            grid_selectedLevel.Visibility = Visibility.Visible;
+            image_4.Opacity = 50;
+        }
+
+        private void image_5_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            grid_selectedLevel.Visibility = Visibility.Visible;
+            image_5.Opacity = 50;
+        }
+
+      
+
+    
     }
 }
