@@ -575,6 +575,9 @@ namespace SafeHouse
             zah.Obradjen = true;
             zah.Seen = false;
             listView1.Items.Remove(listView1.SelectedItem);
+
+
+            /*   */
             
             db.SaveChanges();
         }

@@ -52,7 +52,7 @@ namespace SafeHouse
             {
                 errorProvider1.Content="";
                 AdminForma f = new AdminForma();
-                this.Hide();
+                this.Close();
                 f.ShowDialog();
             }
 
@@ -91,19 +91,20 @@ namespace SafeHouse
             //ZA EKONOMISTU
             else if (user[0] == 'e')
             {
+                string dok = "";
                 mydbEntities db = new mydbEntities();
                 try
                 {
-                    string dok = (from r in db.radnici where (r.Opis == 2 && r.Username == user) select r.Password).Single();
+                    dok = (from r in db.radnici where (r.Opis == 2 && r.Username == user) select r.Password).Single();
                     if (dok == pass)
                     {
                         GlobalneVarijable.TrenutniEkonomista = user;
-                        String ime = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.Ime).Single();
-                        String prezime = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.Prezime).Single();
-                        var dr = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.DatumRodjenja).Single();
-                        int id = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.ID).Single();
-                        String u = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.Username).Single();
-                        String p = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.Password).Single();
+                        String ime = (from r in db.radnici where (r.Opis == 2 && r.Username == user) select r.Ime).Single();
+                        String prezime = (from r in db.radnici where (r.Opis == 2 && r.Username == user) select r.Prezime).Single();
+                        var dr = (from r in db.radnici where (r.Opis == 2 && r.Username == user) select r.DatumRodjenja).Single();
+                        int id = (from r in db.radnici where (r.Opis == 2 && r.Username == user) select r.ID).Single();
+                        String u = (from r in db.radnici where (r.Opis == 2 && r.Username == user) select r.Username).Single();
+                        String p = (from r in db.radnici where (r.Opis == 2 && r.Username == user) select r.Password).Single();
                         (GlobalneVarijable.trenutnaOsoba) = new Ekonomista(ime, prezime, dr.Value, u, p);  
                         EkonomistaForm ek = new EkonomistaForm();
                         ek.ShowDialog();
@@ -121,19 +122,20 @@ namespace SafeHouse
             // ZA PSIHOLOGA
             else if (user[0] == 'p' && user[1] == 's')
             {
+                mydbEntities db = new mydbEntities();
+                string dok = "";
                 try
                 {
-                    mydbEntities db = new mydbEntities();
-                    string dok = (from r in db.radnici where (r.Opis == 1 && r.Username == user) select r.Password).Single();
+                    dok = (from r in db.radnici where (r.Opis == 1 && r.Username == user) select r.Password).Single();
                     if (dok == pass)
                     {
                         GlobalneVarijable.TrenutniPsiholog = user;
-                        String ime = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.Ime).Single();
-                        String prezime = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.Prezime).Single();
-                        var dr = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.DatumRodjenja).Single();
-                        int id = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.ID).Single();
-                        String u = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.Username).Single();
-                        String p = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.Password).Single();
+                        String ime = (from r in db.radnici where (r.Opis == 1 && r.Username == user) select r.Ime).Single();
+                        String prezime = (from r in db.radnici where (r.Opis == 1 && r.Username == user) select r.Prezime).Single();
+                        var dr = (from r in db.radnici where (r.Opis == 1 && r.Username == user) select r.DatumRodjenja).Single();
+                        int id = (from r in db.radnici where (r.Opis == 1 && r.Username == user) select r.ID).Single();
+                        String u = (from r in db.radnici where (r.Opis == 1 && r.Username == user) select r.Username).Single();
+                        String p = (from r in db.radnici where (r.Opis == 1 && r.Username == user) select r.Password).Single();
                         (GlobalneVarijable.trenutnaOsoba) = new Psiholog(ime, prezime, dr.Value, u, p); 
                         PsihologForm psi = new PsihologForm();
                         psi.ShowDialog();
@@ -150,19 +152,20 @@ namespace SafeHouse
             // ZA PRAVNIKA
             else if (user[0] == 'p' && user[1] == 'r')
             {
+                string dok = "";
+                mydbEntities db = new mydbEntities();
                 try
                 {
-                    mydbEntities db = new mydbEntities();
-                    string dok = (from r in db.radnici where (r.Opis == 3 && r.Username == user) select r.Password).Single();
+                    dok = (from r in db.radnici where (r.Opis == 3 && r.Username == user) select r.Password).Single();
                     if (dok == pass)
                     {
                         GlobalneVarijable.TrenutniPravnik = user;
-                        String ime = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.Ime).Single();
-                        String prezime = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.Prezime).Single();
-                        var dr = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.DatumRodjenja).Single();
-                        int id = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.ID).Single();
-                        String u = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.Username).Single();
-                        String p = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.Password).Single();
+                        String ime = (from r in db.radnici where (r.Opis == 3 && r.Username == user) select r.Ime).Single();
+                        String prezime = (from r in db.radnici where (r.Opis == 3 && r.Username == user) select r.Prezime).Single();
+                        var dr = (from r in db.radnici where (r.Opis == 3 && r.Username == user) select r.DatumRodjenja).Single();
+                        int id = (from r in db.radnici where (r.Opis == 3 && r.Username == user) select r.ID).Single();
+                        String u = (from r in db.radnici where (r.Opis == 3 && r.Username == user) select r.Username).Single();
+                        String p = (from r in db.radnici where (r.Opis == 3 && r.Username == user) select r.Password).Single();
                         (GlobalneVarijable.trenutnaOsoba) = new Pravnik(ime, prezime, dr.Value, u, p); 
                         PravnikForm pr = new PravnikForm();
                         pr.ShowDialog();
