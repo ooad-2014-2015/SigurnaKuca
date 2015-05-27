@@ -62,11 +62,7 @@ namespace SafeHouse
             }
         }
 
-        private void textbox_web_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            priv.Insert(0, textbox_web.Text);
-        }
-
+      
         private void button_web_Click(object sender, RoutedEventArgs e)
         {
             try

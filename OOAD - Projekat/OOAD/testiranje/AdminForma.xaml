@@ -211,7 +211,7 @@
                     </GroupBox>
                 </Canvas>
             </TabItem>
-            <TabItem Name="tabPage3" Header="Upravljanje zahtjevima" Margin="7,0,-14,0" BorderBrush="Black" Foreground="#FFFF7C7C" FontFamily="Tahoma" MouseDoubleClick="tabPage3_MouseDoubleClick"  >
+            <TabItem Name="tabPage3" Header="Upravljanje zahtjevima" Margin="8,0,-8,0" BorderBrush="Black" Foreground="#FFFF7C7C" FontFamily="Tahoma" MouseDoubleClick="tabPage3_MouseDoubleClick" HorizontalAlignment="Left" Width="133"  >
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FF464646" Offset="0.091"/>
@@ -255,19 +255,6 @@
                     </ListView> 
                     <CheckBox x:Name="comboBox11" Content="Dodaj" Canvas.Left="139" Canvas.Top="253" Checked="CheckBox_Checked_1"/>
                 </Canvas>
-            </TabItem>
-            <TabItem Name="tabPage4" Header="Upravljanje rasporedima" Margin="16,0,-2,0" BorderBrush="Black" Foreground="#FFFF6666" FontFamily="Tahoma" >
-                
-                <TabItem.Background>
-                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                        <GradientStop Color="#FF464646" Offset="0.22"/>
-                        <GradientStop Color="#FF838383" Offset="1"/>
-                        <GradientStop Color="#FF747474" Offset="0.625"/>
-                    </LinearGradientBrush>
-                </TabItem.Background>
-                
-                <Canvas Name="cantabPage4" Height="349" Margin="0,0,5,0" />
-                
             </TabItem>
             <Label x:Name="errorProvider3" HorizontalAlignment="Left" Height="25" Margin="302,309,0,0" VerticalAlignment="Top" Width="329" Foreground="#FFF71313"/>
             

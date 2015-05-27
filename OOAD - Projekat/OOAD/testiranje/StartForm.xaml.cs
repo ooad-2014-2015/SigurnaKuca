@@ -31,14 +31,14 @@ namespace SafeHouse
         private void password_textbox_TextChanged(object sender, TextChangedEventArgs e)
         {
             
-            if (password_textbox.Text != "") errorProvider1.Content = "";
+            if (password_textbox.Password != "") errorProvider1.Content = "";
 
         }
 
         private void prijava_button_Click(object sender, RoutedEventArgs e)
         {
             string user = username_textbox.Text;
-            string pass = password_textbox.Text;
+            string pass = password_textbox.Password;
 
             if (user == "" && pass == "") { errorProvider1.Content = "Niste unijeli nikakve podatke."; return; }
             // ZA ADMINA

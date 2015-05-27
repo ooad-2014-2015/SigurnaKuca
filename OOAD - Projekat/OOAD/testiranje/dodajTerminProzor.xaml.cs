@@ -33,7 +33,7 @@ namespace SafeHouse
             // zahtjev za ek pomoc = 3;
             // zahtjev za prav pomoc = 4;
             
-            rasporedi odabraniTermin;
+            
             RasporedKontroler rk = new RasporedKontroler();
             zahtjevi z = (from zh in DB.zahtjevi where id_zahtjeva == zh.ID select zh).Single();
             id_korisnika = z.Korisnici_ID;
