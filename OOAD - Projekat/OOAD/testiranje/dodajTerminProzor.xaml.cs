@@ -37,11 +37,10 @@ namespace SafeHouse
             RasporedKontroler rk = new RasporedKontroler();
             zahtjevi z = (from zh in DB.zahtjevi where id_zahtjeva == zh.ID select zh).Single();
             id_korisnika = z.Korisnici_ID;
-            
             if (z.SifraZahtjeva == 1) id_radnika = (from kr in DB.kartoni where kr.ID == id_korisnika select kr.ID_D).Single();
             else if (z.SifraZahtjeva == 2) id_radnika = (from kr in DB.kartoni where kr.ID == id_korisnika select kr.ID_Ps).Single();
-            else if (z.SifraZahtjeva == 3) id_radnika = (from kr in DB.kartoni where kr.ID == id_korisnika select kr.ID_E.Value).Single();
-            else id_radnika = (from kr in DB.kartoni where kr.ID == id_korisnika select kr.ID_Pr.Value).Single();
+            else if (z.SifraZahtjeva == 3) id_radnika = (from kr in DB.kartoni where (kr.ID == id_korisnika) select kr.ID_E.Value).Single();
+            else if(z.SifraZahtjeva == 4) id_radnika = (from kr in DB.kartoni where kr.ID == id_korisnika select kr.ID_Pr.Value).Single();
 
             dostupni = rk.dajDostupneTermine(id_korisnika, id_radnika);            
             
@@ -87,6 +86,8 @@ namespace SafeHouse
         {
             DB.rasporedi.Add(new rasporedi() { Dan = dan, Vrijeme = vrijeme, ID_K = id_korisnika, ID_R = id_radnika });
             DB.SaveChanges();
+            MessageBox.Show("Uspjesno ste dodali novi termin za datog korisnika");
+            this.Close();
         }
     }
 }

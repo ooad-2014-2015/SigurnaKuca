@@ -11,7 +11,7 @@
             <ColumnDefinition Width="674*"/>
             <ColumnDefinition Width="85*"/>
         </Grid.ColumnDefinitions>
-        <GroupBox Margin="0,0,10,24" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="3" Height="342" Width="515" Grid.ColumnSpan="2" BorderBrush="#FFFDFDFD" Foreground="#FFF76C6C" >
+        <GroupBox Margin="0,0,10,12" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="3" Height="342" Width="515" Grid.ColumnSpan="2" BorderBrush="#FFFDFDFD" Foreground="#FFF76C6C" >
             <GroupBox.Header>
                 <TextBlock Text="Podaci o korisniku"/>
             </GroupBox.Header>
@@ -73,5 +73,10 @@
         </Button>
         <ListBox x:Name="listBox_listaPacijenata" Grid.Column="3" HorizontalAlignment="Left" Height="318" Margin="77,32,0,0" VerticalAlignment="Top" Width="134" SelectionChanged="listBox_listaPacijenata_SelectionChanged"/>
         <Image Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="123" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Grid.Column="4" HorizontalAlignment="Left" Margin="26,0,0,0" VerticalAlignment="Top">
+            <Hyperlink Click="Hyperlink_Click">
+                LogOut
+            </Hyperlink>
+        </Label>
     </Grid>
 </Window>

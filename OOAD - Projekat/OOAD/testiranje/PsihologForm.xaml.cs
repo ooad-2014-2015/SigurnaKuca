@@ -24,12 +24,7 @@ namespace SafeHouse
         }
 
 
-        private void linkLabel1_LinkClicked(object sender, RoutedEventArgs e)
-        {
-            StartForm sf = new StartForm();
-            this.Hide();
-            sf.ShowDialog();
-        }
+        
 
 
         private void button_azurirajPodatkePsiholog_Click(object sender, RoutedEventArgs e)
@@ -109,6 +104,13 @@ namespace SafeHouse
         {
             RasporedProzor rp = new RasporedProzor(GlobalneVarijable.trenutnaOsoba);
             rp.ShowDialog();
+        }
+
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            StartForm st = new StartForm();
+            st.Show();
+            this.Close();
         }
 
 

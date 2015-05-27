@@ -53,7 +53,7 @@ namespace SafeHouse
                 errorProvider1.Content="";
                 AdminForma f = new AdminForma();
                 this.Close();
-                f.ShowDialog();
+                f.Show();
             }
 
             // ZA DOKTORA
@@ -77,7 +77,7 @@ namespace SafeHouse
                         String p = (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.Password).Single();
                         (GlobalneVarijable.trenutnaOsoba) = new Doktor(ime, prezime, dr.Value, u, p); 
                         DoktorForm doc = new DoktorForm();
-                        doc.ShowDialog();
+                        doc.Show();
                         this.Close();
                     }
                     else { errorProvider1.Content="Pogrešan password, pokušajte ponovo!"; return; }
@@ -107,7 +107,7 @@ namespace SafeHouse
                         String p = (from r in db.radnici where (r.Opis == 2 && r.Username == user) select r.Password).Single();
                         (GlobalneVarijable.trenutnaOsoba) = new Ekonomista(ime, prezime, dr.Value, u, p);  
                         EkonomistaForm ek = new EkonomistaForm();
-                        ek.ShowDialog();
+                        ek.Show();
                         this.Close();
 
                     }
@@ -138,7 +138,7 @@ namespace SafeHouse
                         String p = (from r in db.radnici where (r.Opis == 1 && r.Username == user) select r.Password).Single();
                         (GlobalneVarijable.trenutnaOsoba) = new Psiholog(ime, prezime, dr.Value, u, p); 
                         PsihologForm psi = new PsihologForm();
-                        psi.ShowDialog();
+                        psi.Show();
                         this.Close();
                     }
                     else { errorProvider1.Content = "Pogrešan password, pokušajte ponovo!"; return; }
@@ -168,7 +168,7 @@ namespace SafeHouse
                         String p = (from r in db.radnici where (r.Opis == 3 && r.Username == user) select r.Password).Single();
                         (GlobalneVarijable.trenutnaOsoba) = new Pravnik(ime, prezime, dr.Value, u, p); 
                         PravnikForm pr = new PravnikForm();
-                        pr.ShowDialog();
+                        pr.Show();
                         this.Close();
                     }
                     else { errorProvider1.Content = "Pogrešan password, pokušajte ponovo!"; return; }
@@ -194,7 +194,7 @@ namespace SafeHouse
                         (GlobalneVarijable.trenutnaOsoba as Korisnik).Prezime_osobe = (from r in db.korisnici where  r.Username == user select r.Prezime).Single();
                         (GlobalneVarijable.trenutnaOsoba as Korisnik).ID1 = (from r in db.korisnici where  r.Username == user select r.ID).Single(); 
                         KorisnikForm kf = new KorisnikForm();
-                        kf.ShowDialog();
+                        kf.Show();
                         this.Close();
                     }
                     else { errorProvider1.Content = "Pogrešan password, pokušajte ponovo!"; return; }

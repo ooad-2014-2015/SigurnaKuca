@@ -104,21 +104,13 @@
                             <TextBlock Text="Podnošenje zahtjeva" Foreground="#FFFB6B6B"/>
                         </GroupBox.Header>
                         <Canvas Margin="0,0,-38,3" >
-                            <GroupBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="211" Canvas.Top="10" Width="338" Height="92" Foreground="#FFFF6969" >
-                                <GroupBox.Header>
-                                    <TextBlock Text="Vrsta zahtjeva"/>
-                                </GroupBox.Header>
-                                <Canvas Margin="0,0,-2,2" >
-                                    <CheckBox x:Name="checkBox_dodatniTermini" Height="19" Width="259" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Želim dodatne termine za označene opcije" Foreground="#FFF9F9F9" Canvas.Left="10" Canvas.Top="10"  />
-                                </Canvas>
-                            </GroupBox>
-                            <GroupBox Name ="groupBox_zahtjeviZaAnonimnogKorisnika" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="10" Canvas.Top="60" Width="196" Height="70" Visibility="Hidden" >
+                            <GroupBox Name ="groupBox_zahtjeviZaAnonimnogKorisnika" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="10" Canvas.Top="60" Width="250" Height="70" Visibility="Hidden" >
                                 <GroupBox.Header>
                                     <TextBlock Text="Dodatni zahtjevi"/>
                                 </GroupBox.Header>
-                                <Canvas Height="56" Width="187" >
-                                    <CheckBox x:Name="checkBox1" Height="19" Width="162" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za pravnu pomoć" Foreground="#FFF5EFEF" Canvas.Left="10" />
-                                    <CheckBox x:Name="checkBox2" Height="19" Width="189" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za ekonomsku pomoć" Foreground="#FFF5EFEF" Canvas.Left="10" Canvas.Top="27" />
+                                <Canvas Height="56" Width="135" Margin="52,0,51,-7">
+                                    <CheckBox x:Name="checkBox1" Height="19" Width="238" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za dodatnu pravnu pomoć" Foreground="#FFF5EFEF" Canvas.Left="-44" Canvas.Top="3" />
+                                    <CheckBox x:Name="checkBox2" Height="19" Width="238" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za dodatnu ekonomsku pomoć" Foreground="#FFF5EFEF" Canvas.Left="-44" Canvas.Top="27" />
                                 </Canvas>
                             </GroupBox>
                             <Button x:Name="button2" Height="26" Width="108" TabIndex="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Podnesi zahtjev" Canvas.Left="441" Canvas.Top="111" Click="button2_Click" BorderBrush="#FFFBFBFB" Foreground="#FFF9F5F5" >
@@ -126,8 +118,8 @@
                                     <ImageBrush/>
                                 </Button.Background>
                             </Button>
-                            <CheckBox x:Name="checkBox4" Height="19" Width="183" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za medicinsku pomoć" Canvas.Left="28" Canvas.Top="41" Foreground="#FFF9F9F9" />
-                            <CheckBox x:Name="checkBox3" Height="19" Width="184" TabIndex="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za psihološku pomoć" Canvas.Left="28" Canvas.Top="17" Foreground="#FFF9F9F9" />
+                            <CheckBox x:Name="checkBox4" Height="19" Width="238" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za dodatnu medicinsku pomoć" Canvas.Left="28" Canvas.Top="41" Foreground="#FFF9F9F9" />
+                            <CheckBox x:Name="checkBox3" Height="19" Width="238" TabIndex="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za dodatnu psihološku pomoć" Canvas.Left="28" Canvas.Top="17" Foreground="#FFF9F9F9" />
                         </Canvas>
                     </GroupBox>
                 </Canvas>

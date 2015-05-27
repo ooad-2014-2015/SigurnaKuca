@@ -141,9 +141,6 @@ namespace SafeHouse
             // zahtjev za izmjenu rasporeda =5;
             mydbEntities db = new mydbEntities();
 
-            int standard = Convert.ToInt32(checkBox_standardniTermini.IsChecked);
-            int dodatni = Convert.ToInt32(checkBox_dodatniTermini.IsChecked);
-
             int med = Convert.ToInt32(checkBox3.IsChecked);
             int psih = Convert.ToInt32(checkBox4.IsChecked);
             int ek = Convert.ToInt32(checkBox2.IsChecked);
@@ -152,30 +149,19 @@ namespace SafeHouse
 
             if (med == 1)
             {
-                if (standard == 1)
-                    db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = false, SifraZahtjeva = 1, OpisZahtjeva = "Zahtjev za medicinsku pomoć" });
-                if (dodatni == 1)
                     db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = true, SifraZahtjeva = 1, OpisZahtjeva = "Zahtjev za dodatnu medicinsku pomoć" });
             }
             if (psih == 1)
             {
-                if (standard == 1)
-                    db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = false, SifraZahtjeva = 2, OpisZahtjeva = "Zahtjev za psihološku pomoć" });
-                if (dodatni == 1)
+
                     db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = true, SifraZahtjeva = 2, OpisZahtjeva = "Zahtjev za dodatnu psihološku pomoć" });
             }
             if (ek == 1)
             {
-                if (standard == 1)
-                    db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = false, SifraZahtjeva = 3, OpisZahtjeva = "Zahtjev za ekonomsku pomoć" });
-                if (dodatni == 1)
                     db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = true, SifraZahtjeva = 3, OpisZahtjeva = "Zahtjev za dodatnu ekonomsku pomoć" });
             }
             if (prav == 1)
             {
-                if (standard == 1)
-                    db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = false, SifraZahtjeva = 4, OpisZahtjeva = "Zahtjev za pravnu pomoć" });
-                if (dodatni == 1)
                     db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, DodatniZahtjev = true, SifraZahtjeva = 4, OpisZahtjeva = "Zahtjev za dodatnu pravnu pomoć" });
             }
             db.SaveChanges();
