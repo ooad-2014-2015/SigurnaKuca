@@ -1,6 +1,7 @@
-﻿<Window x:Class="SafeHouse.RasporedProzor"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="SafeHouse.RasporedProzor"
         Title="RasporedProzor" Height="391" Width="999">
     <Grid>
         <GroupBox x:Name="t1" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="10,10,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
@@ -36,23 +37,6 @@
         <TextBlock x:Name="txt16" HorizontalAlignment="Left" Height="40" Margin="536,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
         <TextBlock x:Name="txt12" HorizontalAlignment="Left" Height="40" Margin="536,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
         <TextBlock x:Name="txt8" HorizontalAlignment="Left" Height="40" Margin="536,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
-        <Label x:Name="oznaciteLabel" Content="Oznacite termin koji zelite izmijeniti:" HorizontalAlignment="Left" Height="25" Margin="755,108,0,0" VerticalAlignment="Top" Width="201" Visibility="Hidden"/>
-        <RadioButton x:Name="rb1" Content="RadioButton" HorizontalAlignment="Left" Height="20" Margin="747,148,0,0" VerticalAlignment="Top" Width="117" Visibility="Hidden"/>
-        <RadioButton x:Name="rb14" Content="RadioButton" HorizontalAlignment="Left" Height="20" Margin="864,268,0,0" VerticalAlignment="Top" Width="117" Visibility="Hidden"/>
-        <RadioButton x:Name="rb12" Content="RadioButton" HorizontalAlignment="Left" Height="20" Margin="864,248,0,0" VerticalAlignment="Top" Width="117" Visibility="Hidden"/>
-        <RadioButton x:Name="rb10" Content="RadioButton" HorizontalAlignment="Left" Height="20" Margin="864,228,0,0" VerticalAlignment="Top" Width="117" Visibility="Hidden"/>
-        <RadioButton x:Name="rb8" Content="RadioButton" HorizontalAlignment="Left" Height="20" Margin="864,208,0,0" VerticalAlignment="Top" Width="117" Visibility="Hidden"/>
-        <RadioButton x:Name="rb6" Content="RadioButton" HorizontalAlignment="Left" Height="20" Margin="864,188,0,0" VerticalAlignment="Top" Width="117" Visibility="Hidden"/>
-        <RadioButton x:Name="rb4" Content="RadioButton" HorizontalAlignment="Left" Height="20" Margin="864,168,0,0" VerticalAlignment="Top" Width="117" Visibility="Hidden"/>
-        <RadioButton x:Name="rb2" Content="RadioButton" HorizontalAlignment="Left" Height="20" Margin="864,148,0,0" VerticalAlignment="Top" Width="117" Visibility="Hidden"/>
-        <RadioButton x:Name="rb16" Content="RadioButton" HorizontalAlignment="Left" Height="20" Margin="864,288,0,0" VerticalAlignment="Top" Width="117" Visibility="Hidden"/>
-        <RadioButton x:Name="rb15" Content="RadioButton" HorizontalAlignment="Left" Height="20" Margin="747,288,0,0" VerticalAlignment="Top" Width="117" Visibility="Hidden"/>
-        <RadioButton x:Name="rb13" Content="RadioButton" HorizontalAlignment="Left" Height="20" Margin="747,268,0,0" VerticalAlignment="Top" Width="117" Visibility="Hidden"/>
-        <RadioButton x:Name="rb11" Content="RadioButton" HorizontalAlignment="Left" Height="20" Margin="747,248,0,0" VerticalAlignment="Top" Width="117" Visibility="Hidden"/>
-        <RadioButton x:Name="rb9" Content="RadioButton" HorizontalAlignment="Left" Height="20" Margin="747,228,0,0" VerticalAlignment="Top" Width="117" Visibility="Hidden"/>
-        <RadioButton x:Name="rb7" Content="RadioButton" HorizontalAlignment="Left" Height="20" Margin="747,208,0,0" VerticalAlignment="Top" Width="117" Visibility="Hidden"/>
-        <RadioButton x:Name="rb5" Content="RadioButton" HorizontalAlignment="Left" Height="20" Margin="747,188,0,0" VerticalAlignment="Top" Width="117" Visibility="Hidden"/>
-        <RadioButton x:Name="rb3" Content="RadioButton" HorizontalAlignment="Left" Height="20" Margin="747,168,0,0" VerticalAlignment="Top" Width="117" Visibility="Hidden"/>
 
     </Grid>
 </Window>

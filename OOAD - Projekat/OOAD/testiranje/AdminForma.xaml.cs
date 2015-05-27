@@ -570,13 +570,17 @@ namespace SafeHouse
             var item = cb.DataContext;
             listView1.SelectedItem = item;
             zahtjevi z = (zahtjevi)listView1.SelectedItems[0];
-
             var zah = (from zahtjev in db.zahtjevi where (z.ID == zahtjev.ID) select zahtjev).Single();
             zah.Obradjen = true;
             zah.Seen = false;
+            if (zah.DodatniZahtjev==true)
+            {
+                dodajTerminProzor dtp = new dodajTerminProzor(z.ID);
+                dtp.ShowDialog();
+            }
             listView1.Items.Remove(listView1.SelectedItem);
 
-
+            
             /*   */
             
             db.SaveChanges();

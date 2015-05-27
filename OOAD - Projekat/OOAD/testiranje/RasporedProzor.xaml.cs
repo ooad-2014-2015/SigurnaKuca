@@ -88,7 +88,9 @@ namespace SafeHouse
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            RasporedKontroler rk = new RasporedKontroler(GlobalneVarijable.trenutnaOsoba);
+            IzmjenaTermina ik = new IzmjenaTermina();
+            ik.ShowDialog();
+            /*RasporedKontroler rk = new RasporedKontroler(GlobalneVarijable.trenutnaOsoba);
             List<RadioButton> terminirb = new List<RadioButton>();
             terminirb.Add(rb1);
             terminirb.Add(rb2);
@@ -111,7 +113,7 @@ namespace SafeHouse
                 terminirb[i].Content = rk.ZauzetiTermini[i].Dan + ", " + rk.ZauzetiTermini[i].Vrijeme + ":00";
                 terminirb[i].Visibility = Visibility.Visible;
             }
-
+            */
         }
 
         

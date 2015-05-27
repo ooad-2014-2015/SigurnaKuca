@@ -36,8 +36,8 @@ namespace SafeHouse
                 zauzetiTermini = (from z in DB.rasporedi where z.ID_R == o.ID1 select z).ToList();
             }
         }
-
-        List<int> dajDostupneTermine(int idk, int idr)
+        
+        public List<int> dajDostupneTermine(int idk, int idr)
         {
             List<rasporedi> termini = new List<rasporedi>();
             List<int> dostupniTermini = new List<int>();

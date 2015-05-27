@@ -1,0 +1,11 @@
+﻿<Window x:Class="SafeHouse.IzmjenaTermina"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="IzmjenaTermina" Height="400" Width="940">
+    <Grid Margin="0,0,2,0">
+        <ListBox x:Name="DostupniListBox" HorizontalAlignment="Left" Height="284" Margin="542,44,0,0" VerticalAlignment="Top" Width="253" Visibility="Hidden" SelectionChanged="DostupniListBox_SelectionChanged"/>
+        <ListBox x:Name="TerminiListBox" HorizontalAlignment="Left" Height="283" Margin="47,45,0,0" VerticalAlignment="Top" ItemsSource="{Binding rasporedi}" DisplayMemberPath="Dan" Width="254" SelectionChanged="TerminiListBox_SelectionChanged"/>
+        <Button x:Name="potvrdiButton" Content="Potvrdi oznacenu izmjenu" HorizontalAlignment="Left" Height="31" Margin="404,329,0,0" VerticalAlignment="Top" Width="146" Click="potvrdiButton_Click"/>
+
+    </Grid>
+</Window>

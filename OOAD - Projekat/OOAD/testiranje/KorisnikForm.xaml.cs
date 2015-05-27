@@ -141,7 +141,8 @@ namespace SafeHouse
             // zahtjev za psih pomoc = 2;
             // zahtjev za ek pomoc = 3;
             // zahtjev za prav pomoc = 4;
-            // dodatni zahtjev = 1;
+            // dodatni zahtjev = 1; 
+            // zahtjev za izmjenu rasporeda =5;
             mydbEntities db = new mydbEntities();
 
             int standard = Convert.ToInt32(checkBox_standardniTermini.IsChecked);

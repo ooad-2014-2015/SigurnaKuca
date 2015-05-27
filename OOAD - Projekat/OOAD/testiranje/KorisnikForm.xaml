@@ -103,7 +103,7 @@
                                 </GroupBox.Header>
                                 <Canvas Margin="0,0,-2,2" >
                                     <CheckBox x:Name="checkBox_standardniTermini" Height="19" Width="308" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Želim standardne termine koji mi trebaju biti dodjeljeni" Canvas.Left="10" Canvas.Top="39" Foreground="#FFF9F9F9" />
-                                    <CheckBox x:Name="checkBox_dodatniTermini" Height="19" Width="259" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Želim dodatne termine za označene opcije" Foreground="#FFF9F9F9" Canvas.Left="10" Canvas.Top="10" />
+                                    <CheckBox x:Name="checkBox_dodatniTermini" Height="19" Width="259" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Želim dodatne termine za označene opcije" Foreground="#FFF9F9F9" Canvas.Left="10" Canvas.Top="10"  />
                                 </Canvas>
                             </GroupBox>
                             <GroupBox Name ="groupBox_zahtjeviZaAnonimnogKorisnika" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="10" Canvas.Top="60" Width="196" Height="70" Visibility="Hidden" >
@@ -126,7 +126,7 @@
                     </GroupBox>
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="tabPage4" Header="Iskustva prethodnih korisnika" BorderBrush="#FF020202" FontFamily="Tahoma" Foreground="#FFFB5454" Margin="44,0,-48,-3" FontSize="12" FontStretch="Expanded" >
+            <TabItem x:Name="tabPage4" Header="Iskustva prethodnih korisnika" BorderBrush="#FF020202" FontFamily="Tahoma" Foreground="#FFFB5454" Margin="48,0,-48,-3" FontSize="12" FontStretch="Expanded" >
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FF4F4F4F" Offset="0"/>

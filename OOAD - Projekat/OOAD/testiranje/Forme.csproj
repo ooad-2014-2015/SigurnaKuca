@@ -114,11 +114,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Baza.edmx</DependentUpon>
     </Compile>
+    <Compile Include="dodajTerminProzor.xaml.cs">
+      <DependentUpon>dodajTerminProzor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DoktorForm.xaml.cs">
       <DependentUpon>DoktorForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="EkonomistaForm.xaml.cs">
       <DependentUpon>EkonomistaForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IzmjenaTermina.xaml.cs">
+      <DependentUpon>IzmjenaTermina.xaml</DependentUpon>
     </Compile>
     <Compile Include="kartoni.cs">
       <DependentUpon>Baza.tt</DependentUpon>
@@ -175,11 +181,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="dodajTerminProzor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DoktorForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EkonomistaForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IzmjenaTermina.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
