@@ -8,29 +8,30 @@
     mc:Ignorable="d" Height="762" Width="1372">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,10,0">
-    	<Grid x:Name="grid_changeLevel" HorizontalAlignment="Left" Height="557" Margin="276,72,0,0" VerticalAlignment="Top" Width="982">
-    		<Image x:Name="image_1" HorizontalAlignment="Left" Height="39" Margin="251,16,0,0" VerticalAlignment="Top" Width="62" Source="Assets/StoreLogo.png" RenderTransformOrigin="0.5,0.5" PointerEntered="image_1_PointerEntered" PointerExited="image_1_PointerExited" PointerPressed="image_1_PointerPressed">
-    			<Image.RenderTransform>
-    				<CompositeTransform ScaleX="-1"/>
-    			</Image.RenderTransform>
-    		</Image>
-    		<Image x:Name="image_2" HorizontalAlignment="Left" Height="39" Margin="341,10,0,0" VerticalAlignment="Top" Width="79" Source="Assets/StoreLogo.png" RenderTransformOrigin="0.734,1.359" PointerExited="image_2_PointerExited" PointerEntered="image_2_PointerEntered" PointerPressed="image_2_PointerPressed"/>
-    		<Image x:Name="image_3" HorizontalAlignment="Left" Height="39" Margin="471,10,0,0" VerticalAlignment="Top" Width="79" Source="Assets/StoreLogo.png" PointerExited="image_3_PointerExited" PointerEntered="image_3_PointerEntered" PointerPressed="image_3_PointerPressed"/>
-    		<Image x:Name="image_4" HorizontalAlignment="Left" Height="39" Margin="626,10,0,0" VerticalAlignment="Top" Width="102" Source="Assets/StoreLogo.png" PointerEntered="image_4_PointerEntered" PointerExited="image_4_PointerExited" PointerPressed="image_4_PointerPressed"/>
-    		<Image x:Name="image_5" HorizontalAlignment="Left" Height="39" Margin="844,10,0,0" VerticalAlignment="Top" Width="125" Source="Assets/StoreLogo.png" PointerEntered="image_5_PointerEntered" PointerExited="image_5_PointerExited" PointerPressed="image_5_PointerPressed"/>
-    		<Button x:Name="button_backLevel" Content="Back" HorizontalAlignment="Left" Height="51" Margin="35,10,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.55,0.5" Click="button_backLevel_Click">
+    	<Grid x:Name="grid_changeLevel" HorizontalAlignment="Left" Height="557" Margin="270,90,0,0" VerticalAlignment="Top" Width="982" Visibility="Collapsed">
+            <Image x:Name="image_2" HorizontalAlignment="Left" Height="39" Margin="330,32,0,0" VerticalAlignment="Top" Width="131" Source="Assets/level2.png" RenderTransformOrigin="0.734,1.359" PointerExited="image_2_PointerExited" PointerEntered="image_2_PointerEntered" PointerPressed="image_2_PointerPressed"/>
+    		<Image x:Name="image_3" HorizontalAlignment="Left" Height="39" Margin="496,32,0,0" VerticalAlignment="Top" Width="131" Source="Assets/level3.png" PointerExited="image_3_PointerExited" PointerEntered="image_3_PointerEntered" PointerPressed="image_3_PointerPressed"/>
+    		<Image x:Name="image_4" HorizontalAlignment="Left" Height="39" Margin="662,32,0,0" VerticalAlignment="Top" Width="131" Source="Assets/level4.png" PointerEntered="image_4_PointerEntered" PointerExited="image_4_PointerExited" PointerPressed="image_4_PointerPressed"/>
+    		<Image x:Name="image_5" HorizontalAlignment="Left" Height="39" Margin="820,32,0,0" VerticalAlignment="Top" Width="131" Source="Assets/level5.png" PointerEntered="image_5_PointerEntered" PointerExited="image_5_PointerExited" PointerPressed="image_5_PointerPressed"/>
+            <Image x:Name="image_1" HorizontalAlignment="Left" Height="39" Margin="161,32,0,0" VerticalAlignment="Top" Width="131" Source="Assets/level1.png" RenderTransformOrigin="0.496,0.513" PointerExited="image_1_PointerExited" PointerEntered="image_1_PointerEntered" PointerPressed="image_1_PointerPressed"/>
+    		<Button x:Name="button_backLevel" Content="Back" HorizontalAlignment="Left" Height="40.5" Margin="16.337,31,0,0" VerticalAlignment="Top" Width="64.222" RenderTransformOrigin="0.55,0.5" Click="button_backLevel_Click" UseLayoutRounding="False" d:LayoutRounding="Auto">
     			<Button.RenderTransform>
     				<CompositeTransform ScaleX="1.05" SkewX="1"/>
     			</Button.RenderTransform>
     		</Button>
-    		<Grid x:Name="grid_selectedLevel" HorizontalAlignment="Left" Height="406" Margin="72,122,0,0" VerticalAlignment="Top" Width="862" Background="#FF424242" Visibility="Collapsed">
+    		<Grid x:Name="grid_selectedLevel" HorizontalAlignment="Left" Height="406" Margin="72,122,0,0" VerticalAlignment="Top" Width="862" Background="#FF424242">
     			<Button x:Name="button_startSelected" Content="Start this level" HorizontalAlignment="Left" Height="54" Margin="692,342,0,0" VerticalAlignment="Top" Width="138"/>
+    			<TextBox x:Name="textbox_level1" HorizontalAlignment="Left" Height="244" Margin="60,56,0,0" TextWrapping="Wrap" Text="Opis levela 1, koji jokeri, koliko vremena itd..." VerticalAlignment="Top" Width="742" IsReadOnly="True" FontSize="18.667" Background="#FF636363" Foreground="#FFFFDDDD" BorderBrush="Black" Visibility="Collapsed"/>
+    			<TextBox x:Name="textbox_level2" HorizontalAlignment="Left" Height="244" Margin="60,56,0,0" TextWrapping="Wrap" Text="LEVEL 2 OPIS" VerticalAlignment="Top" Width="742" IsReadOnly="True" FontSize="18.667" Background="#FF636363" Foreground="#FFFFDDDD" BorderBrush="Black" Visibility="Collapsed"/>
+    			<TextBox x:Name="textbox_level3" HorizontalAlignment="Left" Height="244" Margin="60,56,0,0" TextWrapping="Wrap" Text="opis levela 3" VerticalAlignment="Top" Width="742" IsReadOnly="True" FontSize="18.667" Background="#FF636363" Foreground="#FFFFDDDD" BorderBrush="Black" Visibility="Collapsed"/>
+    			<TextBox x:Name="textbox_level4" HorizontalAlignment="Left" Height="244" Margin="60,56,0,0" TextWrapping="Wrap" Text="Opis levela 4 ksakoadoaodkaokda" VerticalAlignment="Top" Width="742" IsReadOnly="True" FontSize="18.667" Background="#FF636363" Foreground="#FFFFDDDD" BorderBrush="Black" Visibility="Collapsed"/>
+    			<TextBox x:Name="textbox_level5" HorizontalAlignment="Left" Height="244" Margin="60,56,0,0" TextWrapping="Wrap" Text="opis zadnjeg levela 5 kakakakakaakak" VerticalAlignment="Top" Width="742" IsReadOnly="True" FontSize="18.667" Background="#FF636363" Foreground="#FFFFDDDD" BorderBrush="Black" Visibility="Collapsed"/>
     		</Grid>
-    	</Grid>
+        </Grid>
     	<Grid x:Name="grid_start" HorizontalAlignment="Left" Margin="58,268,0,133" Width="156">
     		<Button Content="Start new game" HorizontalAlignment="Left" Height="45" Margin="10,28,0,0" VerticalAlignment="Top" Width="131" Click="Button_Click_1"/>
     		<Button x:Name="button_changeLevel" Content="Change level" HorizontalAlignment="Left" Height="45" Margin="10,108,0,0" VerticalAlignment="Top" Width="131" Click="button_changeLevel_Click"/>
-    		<Button Content="High scores" HorizontalAlignment="Left" Height="45" Margin="10,183,0,0" VerticalAlignment="Top" Width="131"/>
+    		<Button Content="High scores" HorizontalAlignment="Left" Height="45" Margin="10,183,0,0" VerticalAlignment="Top" Width="131" Click="Button_Click_2"/>
     		<Button Content="Help" HorizontalAlignment="Left" Height="45" Margin="10,257,0,0" VerticalAlignment="Top" Width="131"/>
     	</Grid>
 
