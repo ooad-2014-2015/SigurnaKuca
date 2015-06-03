@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SafeHouse
 {
+    //┻━┻︵ \(°□°)/ ︵ ┻━┻
     class RadniciKontroler
     {
         public static void AzurirajNalaze(int kID, string nalazi)
