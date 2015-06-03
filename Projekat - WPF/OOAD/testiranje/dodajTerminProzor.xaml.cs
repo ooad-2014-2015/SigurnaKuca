@@ -36,7 +36,7 @@ namespace SafeHouse
             
             RasporedKontroler rk = new RasporedKontroler();
 
-            AdminFormaKontroler.dajIDRadnika(id_zahtjeva);            
+            id_radnika = AdminFormaKontroler.dajIDRadnika(id_zahtjeva);            
             id_korisnika = AdminFormaKontroler.dajIDKorisnika(id_zahtjeva);         
             dostupni = rk.dajDostupneTermine(id_korisnika, id_radnika);           
 
