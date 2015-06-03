@@ -10,6 +10,7 @@ namespace SafeHouse
 {
     class AdminFormaKontroler
     {
+        //ᕦ(ò_óˇ)ᕤ
         static public void RegistrujRadnika(String ime, String prezime, String username, String password, int OpisPosla, DateTime datumrodj)
         {
             mydbEntities db = new mydbEntities();

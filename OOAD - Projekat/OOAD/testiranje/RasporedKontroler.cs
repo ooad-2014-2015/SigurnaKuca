@@ -10,6 +10,7 @@ namespace SafeHouse
 {
     public class RasporedKontroler
     {
+        //♪┏(°.°)┛┗(°.°)┓┗(°.°)┛┏(°.°)┓ ♪
 
         List<rasporedi> zauzetiTermini;
 
