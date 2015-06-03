@@ -147,6 +147,12 @@ namespace SafeHouse
 
                 }
 
+                textbox_imeRadnika.Text = "";
+                textbox_prezimeRadnika.Text = "";
+                textbox_usernameRadnika.Text = "";
+                textbox_passwordRadnika.Text = "";
+                dateTimePicker1.SelectedDate = DateTime.Today;
+                combobox_opisPoslaRadnika.SelectedIndex = -1;
                 
                 // fali raspored button, da kreira prazan raspored za svakog zaposlenog, i obavjesti da je uspješno kreirano ??
                /* db.lokacije.Add(new lokacije() { Adresa = "Brcanska 13" });
@@ -303,8 +309,6 @@ namespace SafeHouse
                 if (radioButton_djelomicnoAnoniman.IsChecked == true)
                 // dodavanje kartona i statusa za djelomicno anonimnog
                 {
-
-                    // PROMJENITI OVDJE DA PRETRAZUJE PO USERU TJ PO SELEKTOVANOM IMENU
                     var iipDok = comboBox_personalniDoktor.Text;
                     var iipPsih = comboBox_personalniPsiholog.Text;
 
@@ -322,6 +326,7 @@ namespace SafeHouse
 
                     MessageBox.Show("Uspješno ste registrovali novog korisnika!", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
+
                 // dodavanje kartona i statusa za anonimnog korisnika
                 if (radioButton_potpunoAnoniman.IsChecked == true)
                 {
@@ -347,12 +352,30 @@ namespace SafeHouse
 
                     MessageBox.Show("Uspješno ste registrovali novog korisnika!", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
+                
+                // refresh lokacija u comboBoxu
                 comboBox_lokacijaKorisnika.Items.Clear();
                 var lokacije = AdminFormaKontroler.DajSlobodneLokacije();
                 foreach (var a in lokacije)
                     comboBox_lokacijaKorisnika.Items.Add(a.Adresa);
 
+                // da obrise sva polja nakon registracije radnika
+                textBox_imeKorisnika.Text = "";
+                textBox_prezimeKorisnika.Text = "";
+                dateTimePicker_datRodjenjaKorisnika.SelectedDate = DateTime.Today;
+                textBox_usernameKorisnika.Text = "";
+                textBox_passwordKorisnika.Text = "";
+                dateTimePicker_datumPrijemaKorisnika.SelectedDate = DateTime.Today;
+                radioButton_djelomicnoAnoniman.IsChecked = false;
+                radioButton_potpunoAnoniman.IsChecked = false;
+                groupBox_anonimniKorisnik.Visibility = Visibility.Hidden;
+                groupBox_djelomicnoAnonimniKorisnik.Visibility = Visibility.Hidden;
+
+                //automatsko popunjavanje NULL vrijednosti u rasporedu!!!!
+                RasporedKontroler rk = new RasporedKontroler();
+                rk.popuniRaspored();
             }
+
         }
             
         
@@ -499,7 +522,7 @@ namespace SafeHouse
                 try
                 {
                     zahtjevi1 = (from z in db.zahtjevi where (z.Obradjen == null) select z).ToList();
-                    tabPage3.Dispatcher.Invoke(new Action(delegate() { tabPage3.Header = "Upravljanje zahtjevima" + ("(" + zahtjevi1.Count + ")"); }));
+                    tabPage3.Dispatcher.Invoke(new Action(delegate() { tabPage3.Header = ("(" + zahtjevi1.Count + ")") + "Upravljanje zahtjevima"; }));
                 }
                 catch (ArgumentException)
                 { }
@@ -516,9 +539,12 @@ namespace SafeHouse
         {
             //ovo je samo za testiranje threada, pa necu praviti metodu u klasi!
             mydbEntities db = new mydbEntities();
-            var korisnik = (from k in db.korisnici where k.ID == 24 select k).Single();
-            db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, SifraZahtjeva = 1, DodatniZahtjev = false, OpisZahtjeva = "Zahtjev za medicinsku pomoć" });
-            db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, SifraZahtjeva = 2, DodatniZahtjev = false, OpisZahtjeva = "Zahtjev za psiholosku pomoć" });
+
+           
+            var korisnik = (from k in db.korisnici where k.ID == 4 select k).Single();
+            db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, SifraZahtjeva = 1, DodatniZahtjev = true, OpisZahtjeva = "Zahtjev za dodatnu medicinsku pomoć" });
+            db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, SifraZahtjeva = 2, DodatniZahtjev = true, OpisZahtjeva = "Zahtjev za dodatnu psiholosku pomoć" });
+
             db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, SifraZahtjeva = 3, DodatniZahtjev = true, OpisZahtjeva = "Zahtjev za dodatnu ekonomsku pomoć" });
             db.SaveChanges();
         }
@@ -567,6 +593,8 @@ namespace SafeHouse
          
             
         }
+
+       
 
     }
 

@@ -60,11 +60,7 @@ namespace SafeHouse
             }
         }
 
-        private void textbox_web_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            priv.Insert(0, textbox_web.Text);
-        }
-
+      
         private void button_web_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -136,15 +132,20 @@ namespace SafeHouse
             // zahtjev za izmjenu rasporeda =5;
            
 
+
            // int standard = Convert.ToInt32(checkBox_standardniTermini.IsChecked);
             int dodatni = Convert.ToInt32(checkBox_dodatniTermini.IsChecked);
+
             int med = Convert.ToInt32(checkBox3.IsChecked);
             int psih = Convert.ToInt32(checkBox4.IsChecked);
             int ek = Convert.ToInt32(checkBox2.IsChecked);
             int prav = Convert.ToInt32(checkBox1.IsChecked);
+
           
             KorisniciKontroler.dodajZahtjev(med, psih, ek, prav,  dodatni);
             
+
+
         }
         List<zahtjevi> zahtjevi1;
         public void provjeraBazeSeen()

@@ -76,6 +76,7 @@ namespace SafeHouse
 
         private void richTextBox_opisProblemaPravnik_LostFocus(object sender, RoutedEventArgs e)
         {
+            //ovo uopste ne znam za sta sluzi..
            /* mydbEntities db = new mydbEntities();
 
             string opisProblema = new TextRange(richTextBox_opisProblemaPravnik.Document.ContentStart, richTextBox_opisProblemaPravnik.Document.ContentEnd).Text;

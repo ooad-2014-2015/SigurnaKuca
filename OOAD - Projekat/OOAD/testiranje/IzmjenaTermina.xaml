@@ -1,11 +1,23 @@
 ﻿<Window x:Class="SafeHouse.IzmjenaTermina"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="IzmjenaTermina" Height="400" Width="940">
-    <Grid Margin="0,0,2,0">
+        Title="Izmjena Termina" Height="400" Width="824.94">
+    <Grid Margin="0,0,2,0" Background="#FF363434">
         <ListBox x:Name="DostupniListBox" HorizontalAlignment="Left" Height="284" Margin="542,44,0,0" VerticalAlignment="Top" Width="253" Visibility="Hidden" SelectionChanged="DostupniListBox_SelectionChanged"/>
-        <ListBox x:Name="TerminiListBox" HorizontalAlignment="Left" Height="283" Margin="47,45,0,0" VerticalAlignment="Top" ItemsSource="{Binding rasporedi}" DisplayMemberPath="Dan" Width="254" SelectionChanged="TerminiListBox_SelectionChanged"/>
-        <Button x:Name="potvrdiButton" Content="Potvrdi oznacenu izmjenu" HorizontalAlignment="Left" Height="31" Margin="404,329,0,0" VerticalAlignment="Top" Width="146" Click="potvrdiButton_Click"/>
+        <ListBox x:Name="TerminiListBox" HorizontalAlignment="Left" Height="293" Margin="28,30,0,0" VerticalAlignment="Top" ItemsSource="{Binding rasporedi}" DisplayMemberPath="Dan" Width="254" SelectionChanged="TerminiListBox_SelectionChanged">
+            <ListBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF363434" Offset="0"/>
+                    <GradientStop Color="#FF636363" Offset="1"/>
+                </LinearGradientBrush>
+            </ListBox.Background>
+        </ListBox>
+        <Button x:Name="potvrdiButton" Content="Potvrdi oznacenu izmjenu" HorizontalAlignment="Left" Height="31" Margin="136,328,0,0" VerticalAlignment="Top" Width="146" Click="potvrdiButton_Click" BorderBrush="#FFF9F9F9" Foreground="#FFFFFCFC">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Label Content="Odaberite jedan od ponuđenih termina" HorizontalAlignment="Left" Height="25" Margin="28,0,0,0" VerticalAlignment="Top" Width="225" Foreground="#FFF37B7B"/>
 
     </Grid>
 </Window>

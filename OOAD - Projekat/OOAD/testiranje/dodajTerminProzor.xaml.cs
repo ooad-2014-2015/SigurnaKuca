@@ -33,11 +33,13 @@ namespace SafeHouse
             // zahtjev za ek pomoc = 3;
             // zahtjev za prav pomoc = 4;
             
-            rasporedi odabraniTermin;
+            
             RasporedKontroler rk = new RasporedKontroler();
+
             AdminFormaKontroler.dajIDRadnika(id_zahtjeva);            
             id_korisnika = AdminFormaKontroler.dajIDKorisnika(id_zahtjeva);         
             dostupni = rk.dajDostupneTermine(id_korisnika, id_radnika);           
+
             
             foreach (int i in dostupni)
             {
@@ -58,7 +60,12 @@ namespace SafeHouse
 
         private void dodajButton_Click(object sender, RoutedEventArgs e)
         {
+
             RasporedKontroler.dodajTermin(dan, vrijeme, id_korisnika, id_radnika);
+
+            MessageBox.Show("Uspjesno ste dodali novi termin za datog korisnika");
+            this.Close();
+
         }
     }
 }

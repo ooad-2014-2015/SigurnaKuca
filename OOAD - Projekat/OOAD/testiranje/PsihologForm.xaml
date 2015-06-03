@@ -77,5 +77,10 @@
         <Label Content="Nalazi sistematskog pregleda" HorizontalAlignment="Left" Height="29" Margin="419,176,0,0" VerticalAlignment="Top" Width="168" Foreground="White"/>
         <Label Content="Lične bilješke" HorizontalAlignment="Left" Height="25" Margin="419,273,0,0" VerticalAlignment="Top" Width="85" Foreground="White"/>
         <Image HorizontalAlignment="Left" Height="106" Margin="9,15,0,0" VerticalAlignment="Top" Width="110"/>
+        <Label HorizontalAlignment="Left" Margin="626,2,0,0" VerticalAlignment="Top">
+            <Hyperlink Click="Hyperlink_Click">
+                LogOut
+            </Hyperlink>
+        </Label>
     </Grid>
 </Window>

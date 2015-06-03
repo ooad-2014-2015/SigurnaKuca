@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="SafeHouse.RasporedProzor"
         Title="RasporedProzor" Height="391" Width="999">
-    <Grid>
+    <Grid Background="#FF363434">
         <GroupBox x:Name="t1" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="10,10,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
         <GroupBox x:Name="t13" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="10,241,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
         <GroupBox x:Name="t9" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="10,164,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
@@ -12,7 +12,11 @@
         <TextBlock x:Name="txt13" HorizontalAlignment="Left" Height="40" Margin="21,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
         <TextBlock x:Name="txt9" HorizontalAlignment="Left" Height="40" Margin="21,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
         <TextBlock x:Name="txt5" HorizontalAlignment="Left" Height="40" Margin="21,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
-        <Button Content="Zatrazi izmjenu termina" HorizontalAlignment="Left" Height="36" Margin="755,61,0,0" VerticalAlignment="Top" Width="212" Click="Button_Click_1" />
+        <Button Content="Zatrazi izmjenu termina" HorizontalAlignment="Left" Height="36" Margin="837,315,0,0" VerticalAlignment="Top" Width="144" Click="Button_Click_1" BorderBrush="#FFF9F9F9" Foreground="#FFFBF7F7" >
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
         <GroupBox x:Name="t2" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="182,10,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
         <GroupBox x:Name="t14" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="182,241,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
         <GroupBox x:Name="t10" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="182,164,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>

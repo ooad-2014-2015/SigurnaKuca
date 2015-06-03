@@ -98,7 +98,11 @@ namespace SafeHouse
             rp.ShowDialog();
         }
 
-
-
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            var st = new StartForm();
+            st.Show();
+            this.Close();
+        }
     }
 }
