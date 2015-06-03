@@ -1,0 +1,46 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="SafeHouse.RasporedProzor"
+        Title="RasporedProzor" Height="391" Width="999">
+    <Grid Background="#FF363434">
+        <GroupBox x:Name="t1" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="10,10,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
+        <GroupBox x:Name="t13" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="10,241,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
+        <GroupBox x:Name="t9" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="10,164,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
+        <GroupBox x:Name="t5" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="10,87,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
+        <TextBlock x:Name="txt1" HorizontalAlignment="Left" Height="40" Margin="21,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
+        <TextBlock x:Name="txt13" HorizontalAlignment="Left" Height="40" Margin="21,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
+        <TextBlock x:Name="txt9" HorizontalAlignment="Left" Height="40" Margin="21,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
+        <TextBlock x:Name="txt5" HorizontalAlignment="Left" Height="40" Margin="21,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
+        <Button Content="Zatrazi izmjenu termina" HorizontalAlignment="Left" Height="36" Margin="837,315,0,0" VerticalAlignment="Top" Width="144" Click="Button_Click_1" BorderBrush="#FFF9F9F9" Foreground="#FFFBF7F7" >
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <GroupBox x:Name="t2" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="182,10,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
+        <GroupBox x:Name="t14" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="182,241,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
+        <GroupBox x:Name="t10" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="182,164,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
+        <GroupBox x:Name="t6" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="182,87,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
+        <TextBlock x:Name="txt2" HorizontalAlignment="Left" Height="40" Margin="193,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
+        <TextBlock x:Name="txt14" HorizontalAlignment="Left" Height="40" Margin="193,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
+        <TextBlock x:Name="txt10" HorizontalAlignment="Left" Height="40" Margin="193,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
+        <TextBlock x:Name="txt6" HorizontalAlignment="Left" Height="40" Margin="193,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
+        <GroupBox x:Name="t3" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="355,10,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
+        <GroupBox x:Name="t15" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="355,241,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
+        <GroupBox x:Name="t11" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="355,164,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
+        <GroupBox x:Name="t7" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="355,87,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
+        <TextBlock x:Name="txt3" HorizontalAlignment="Left" Height="40" Margin="366,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
+        <TextBlock x:Name="txt15" HorizontalAlignment="Left" Height="40" Margin="366,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
+        <TextBlock x:Name="txt11" HorizontalAlignment="Left" Height="40" Margin="366,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
+        <TextBlock x:Name="txt7" HorizontalAlignment="Left" Height="40" Margin="366,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
+        <GroupBox x:Name="t4" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="525,10,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
+        <GroupBox x:Name="t16" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="525,241,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
+        <GroupBox x:Name="t12" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="525,164,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
+        <GroupBox x:Name="t8" Header="GroupBox" HorizontalAlignment="Left" Height="72" Margin="525,87,0,0" VerticalAlignment="Top" Width="165" Visibility="Hidden"/>
+        <TextBlock x:Name="txt4" HorizontalAlignment="Left" Height="40" Margin="536,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
+        <TextBlock x:Name="txt16" HorizontalAlignment="Left" Height="40" Margin="536,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
+        <TextBlock x:Name="txt12" HorizontalAlignment="Left" Height="40" Margin="536,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
+        <TextBlock x:Name="txt8" HorizontalAlignment="Left" Height="40" Margin="536,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Visibility="Hidden"><Run Text="TextBlock"/></TextBlock>
+
+    </Grid>
+</Window>

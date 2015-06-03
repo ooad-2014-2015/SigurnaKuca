@@ -1,0 +1,87 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="SafeHouse.PravnikForm"
+	Title="Pravnik" Width="756.194" Height="449" Loaded="Window_Loaded_1">
+    <Grid Margin="0,0,2,2" Background="#FF363434">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Margin="0,0,10,6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="488" Height="397" Grid.ColumnSpan="2" BorderBrush="White" Foreground="#FFFB6363" >
+            <GroupBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="45" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF363434" Offset="0.556"/>
+                    <GradientStop Color="#FF727171" Offset="1"/>
+                </LinearGradientBrush>
+            </GroupBox.Background>
+            <GroupBox.Header>
+                <TextBlock Text="Opšti podaci o pacijentu"/>
+            </GroupBox.Header>
+            <Canvas Margin="46,0,7,1" >
+                <Label x:Name="label7" Height="23" Width="87" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Lične bilješke" Canvas.Left="106" Canvas.Top="269" Foreground="White" />
+                <RichTextBox x:Name="richTextBox_licneBiljeskePravnik" Height="71" Width="300" TabIndex="7" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="106" Canvas.Top="297" LostFocus="richTextBox_licneBiljeskePravnik_LostFocus" >
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run/>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+                <Label x:Name="label6" Height="23" Width="143" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Prijedlog rješenja" Canvas.Left="106" Canvas.Top="8" Foreground="White" />
+                <RichTextBox x:Name="richTextBox_opisProblemaPravnik" Height="72" Width="300" TabIndex="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="106" Canvas.Top="192" RenderTransformOrigin="0.787,0.571" LostFocus="richTextBox_opisProblemaPravnik_LostFocus" >
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run/>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+                <Label x:Name="label5" Height="23" Width="170" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="106" Canvas.Top="164" Content="Opis problema" Foreground="White" />
+                <RichTextBox x:Name="richTextBox_prijedlogRjesenja" Height="88" Width="300" TabIndex="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="106" Canvas.Top="31" >
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run/>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+                <Label x:Name="label4" Height="23" Width="103" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="-37" Canvas.Top="10" Content="Historija rješenja" Foreground="White" />
+                <RichTextBox x:Name="richTextBox_historijaRjesenjaPravnik" Height="337" Width="122" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="-37" Canvas.Top="31" VerticalScrollBarVisibility="Auto" >
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run/>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+                <Button x:Name="button_azurirajRjesenjePravnik" Content="Ažuriraj nalaze" Height="26" Canvas.Left="316" Canvas.Top="124" Width="90" RenderTransformOrigin="0.484,0.476" Click="button_azurirajRjesenjePravnik_Click" BorderBrush="#FFF7F7F7" Foreground="#FFFDFBFB">
+                    <Button.Background>
+                        <ImageBrush/>
+                    </Button.Background>
+                </Button>
+            </Canvas>
+        </GroupBox>
+        <Label x:Name="label3" Height="23" Width="100" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="5" Foreground="#FFF9F5F5" Margin="0,0,326,380" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Lista pacijenata" />
+        <Label x:Name="label_prezimePravnik" Height="24" Width="58" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="2" Foreground="#FFF5F5F9" Background="Transparent" Margin="0,0,480,227" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Prezime" />
+        <Label x:Name="label_imePravnik" Height="23" Width="36" FontSize="11" FontFamily="Microsoft Sans Serif" TabIndex="1" Foreground="#FFF5F5F7" Background="Transparent" Margin="0,0,500,256" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Ime" RenderTransformOrigin="0.5,0.522" />
+        <Button x:Name="button_pregledRasporedaPravnik" Content="Raspored" HorizontalAlignment="Left" Height="24" Margin="10,383,0,0" VerticalAlignment="Top" Width="84" BorderBrush="White" Foreground="White" Click="button_pregledRasporedaPravnik_Click">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <ListBox x:Name="listBox_listaPacijenataPravnik" HorizontalAlignment="Left" Height="365" Margin="120,42,0,0" VerticalAlignment="Top" Width="112" SelectionChanged="listBox_listaPacijenataPravnik_SelectionChanged"/>
+        <Image HorizontalAlignment="Left" Height="102" Margin="8,14,0,0" VerticalAlignment="Top" Width="103">
+            <Image.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Image.OpacityMask>
+        </Image>
+    </Grid>
+</Window>
