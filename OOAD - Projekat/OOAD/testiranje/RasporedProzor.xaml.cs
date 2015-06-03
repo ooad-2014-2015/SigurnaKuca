@@ -22,7 +22,7 @@ namespace SafeHouse
         public RasporedProzor(Osoba O)
         {
             InitializeComponent();
-            mydbEntities DB = new mydbEntities();
+            
             RasporedKontroler rk = new RasporedKontroler(O);
             List<GroupBox> terminigroup = new List<GroupBox>();
             List<TextBlock> terminitxt = new List<TextBlock>();
@@ -63,22 +63,7 @@ namespace SafeHouse
             for (int i = 0; i < rk.ZauzetiTermini.Count; i++)
             {
                 terminigroup[i].Header = rk.ZauzetiTermini[i].Dan + ", " + rk.ZauzetiTermini[i].Vrijeme;
-                if (O is Korisnik)
-                {
-                    String ime, prezime;
-                    int IDr = rk.ZauzetiTermini[i].ID_R;
-                    ime = (from r in DB.radnici where r.ID == IDr select r.Ime).Single();
-                    prezime = (from r in DB.radnici where r.ID == IDr select r.Prezime).Single();
-                    terminitxt[i].Text = ime + " " + prezime;
-                }
-                else
-                {
-                    String ime, prezime;
-                    int IDk = rk.ZauzetiTermini[i].ID_K;
-                    ime = (from r in DB.korisnici where r.ID == IDk select r.Ime).Single();
-                    prezime = (from r in DB.korisnici where r.ID == IDk select r.Prezime).Single();
-                    terminitxt[i].Text = ime + " " + prezime;
-                }
+                terminitxt[i].Text = rk.dajDrugog(O,i);
                 terminigroup[i].Visibility = Visibility.Visible;
                 terminitxt[i].Visibility = Visibility.Visible;
             }
@@ -90,30 +75,7 @@ namespace SafeHouse
         {
             IzmjenaTermina ik = new IzmjenaTermina();
             ik.ShowDialog();
-            /*RasporedKontroler rk = new RasporedKontroler(GlobalneVarijable.trenutnaOsoba);
-            List<RadioButton> terminirb = new List<RadioButton>();
-            terminirb.Add(rb1);
-            terminirb.Add(rb2);
-            terminirb.Add(rb3);
-            terminirb.Add(rb4);
-            terminirb.Add(rb5);
-            terminirb.Add(rb6);
-            terminirb.Add(rb7);
-            terminirb.Add(rb8);
-            terminirb.Add(rb9);
-            terminirb.Add(rb10);
-            terminirb.Add(rb11);
-            terminirb.Add(rb12);
-            terminirb.Add(rb13);
-            terminirb.Add(rb14);
-            terminirb.Add(rb15);
-            terminirb.Add(rb16);
-            for (int i = 0; i < rk.ZauzetiTermini.Count; i++)
-            {
-                terminirb[i].Content = rk.ZauzetiTermini[i].Dan + ", " + rk.ZauzetiTermini[i].Vrijeme + ":00";
-                terminirb[i].Visibility = Visibility.Visible;
-            }
-            */
+           
         }
 
         

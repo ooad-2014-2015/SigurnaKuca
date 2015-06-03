@@ -29,6 +29,8 @@ namespace SafeHouse
         public AdminForma()
         {
             InitializeComponent();
+            
+            
             t = new Thread(new ThreadStart(this.provjeraBazeZahtjev));
             t.Start();
             while (!t.IsAlive) ;
@@ -104,18 +106,15 @@ namespace SafeHouse
             {
                 
                 // unos radnika u bazu
-                mydbEntities db = new mydbEntities();
-                db.radnici.Add(new radnici() { Ime = textbox_imeRadnika.Text, Prezime = textbox_prezimeRadnika.Text, Username = textbox_usernameRadnika.Text, Password = textbox_passwordRadnika.Text, Opis = combobox_opisPoslaRadnika.SelectedIndex, DatumRodjenja = dateTimePicker1.SelectedDate });
-
-                db.SaveChanges();
-
-
+                
+                AdminFormaKontroler.RegistrujRadnika(textbox_imeRadnika.Text, textbox_prezimeRadnika.Text, textbox_usernameRadnika.Text,textbox_passwordRadnika.Text, combobox_opisPoslaRadnika.SelectedIndex,  dateTimePicker1.SelectedDate??DateTime.Now );
 
                 // dodavanje u liste odgovarajućih zaposlenih sa osnovnim podacima
 
                 if (combobox_opisPoslaRadnika.SelectedIndex == 0)
                 {
-                    Doktor d = new Doktor(textbox_imeRadnika.Text, textbox_prezimeRadnika.Text, dateTimePicker1.SelectedDate.Value, textbox_usernameRadnika.Text, textbox_passwordRadnika.Text);
+                    Doktor d = new Doktor(textbox_imeRadnika.Text, textbox_prezimeRadnika.Text, dateTimePicker1.SelectedDate.Value, 
+                        textbox_usernameRadnika.Text, textbox_passwordRadnika.Text, AdminFormaKontroler.dajIDRadnika(textbox_usernameRadnika.Text));
                     sk.dodajDoktora(d);
                     MessageBox.Show("Uspješno ste registrovali novog doktora!", "", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -123,7 +122,8 @@ namespace SafeHouse
 
                 if (combobox_opisPoslaRadnika.SelectedIndex == 1)
                 {
-                    Psiholog p = new Psiholog(textbox_imeRadnika.Text, textbox_prezimeRadnika.Text, dateTimePicker1.SelectedDate.Value, textbox_usernameRadnika.Text, textbox_passwordRadnika.Text);
+                    Psiholog p = new Psiholog(textbox_imeRadnika.Text, textbox_prezimeRadnika.Text, dateTimePicker1.SelectedDate.Value, 
+                        textbox_usernameRadnika.Text, textbox_passwordRadnika.Text, AdminFormaKontroler.dajIDRadnika(textbox_usernameRadnika.Text));
                     sk.dodajPsihologa(p);
                     MessageBox.Show("Uspješno ste registrovali novog psihologa!", "", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -131,7 +131,8 @@ namespace SafeHouse
 
                 if (combobox_opisPoslaRadnika.SelectedIndex == 2)
                 {
-                    Ekonomista ek = new Ekonomista(textbox_imeRadnika.Text, textbox_prezimeRadnika.Text, dateTimePicker1.SelectedDate.Value, textbox_usernameRadnika.Text, textbox_passwordRadnika.Text);
+                    Ekonomista ek = new Ekonomista(textbox_imeRadnika.Text, textbox_prezimeRadnika.Text, dateTimePicker1.SelectedDate.Value,
+                        textbox_usernameRadnika.Text, textbox_passwordRadnika.Text,AdminFormaKontroler.dajIDRadnika(textbox_usernameRadnika.Text));
                     sk.dodajEkonomistu(ek);
                     MessageBox.Show("Uspješno ste registrovali novog ekonomistu!", "", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -139,7 +140,8 @@ namespace SafeHouse
 
                 if (combobox_opisPoslaRadnika.SelectedIndex == 3)
                 {
-                    Pravnik p = new Pravnik(textbox_imeRadnika.Text, textbox_prezimeRadnika.Text, dateTimePicker1.SelectedDate.Value, textbox_usernameRadnika.Text, textbox_passwordRadnika.Text);
+                    Pravnik p = new Pravnik(textbox_imeRadnika.Text, textbox_prezimeRadnika.Text, dateTimePicker1.SelectedDate.Value, 
+                        textbox_usernameRadnika.Text, textbox_passwordRadnika.Text, AdminFormaKontroler.dajIDRadnika(textbox_usernameRadnika.Text));
                     sk.dodajPravnika(p);
                     MessageBox.Show("Uspješno ste registrovali novog pravnika!", "", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -220,7 +222,7 @@ namespace SafeHouse
 
         private void button_registrujKorisnika_Click(object sender, RoutedEventArgs e)
         {
-            
+
             if (radioButton_potpunoAnoniman.IsChecked == true && (comboBox_personalniDoktorAnonimniKorisnik.SelectedIndex == -1 || comboBox_personalniEkonomistaAnonimniKorisnik.SelectedIndex == -1 || comboBox_personalniPravnikAnonimniKorisnik.SelectedIndex == -1 || comboBox_personalniPsihologAnonimniKorisnik.SelectedIndex == -1))
             {
                 if (comboBox_personalniDoktorAnonimniKorisnik.SelectedIndex == -1)
@@ -249,7 +251,7 @@ namespace SafeHouse
                     MessageBox.Show("Molimo vas izaberite jednu od ponuđenih opcija!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
                     comboBox_personalniPsihologAnonimniKorisnik.Background = Brushes.IndianRed; return;
                 }
-                
+
             }
             else if (radioButton_djelomicnoAnoniman.IsChecked == true && (comboBox_personalniDoktor.SelectedIndex == -1 || comboBox_personalniPsiholog.SelectedIndex == -1))
             {
@@ -258,27 +260,27 @@ namespace SafeHouse
                     MessageBox.Show("Molimo vas izaberite jednu od ponuđenih opcija!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
                     comboBox_personalniDoktor.Background = Brushes.IndianRed; return;
                 }
-               
+
 
                 if (comboBox_personalniPsiholog.SelectedIndex == -1)
                 {
                     MessageBox.Show("Molimo vas izaberite jednu od ponuđenih opcija!", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
                     comboBox_personalniPsiholog.Background = Brushes.IndianRed; return;
                 }
-                
+
 
             }
             else
             {
-                
+
                 //Lokacija lok = new Lokacija(comboBox_lokacijaKorisnika.Text);
 
                 //djelimicnoAnonimanKorisnik k = new djelimicnoAnonimanKorisnik(textBox_imeKorisnika.Text, textBox_prezimeKorisnika.Text, dateTimePicker_datRodjenjaKorisnika.SelectedDate.Value.Date, textBox_usernameKorisnika.Text, textBox_passwordKorisnika.Text, lok, dateTimePicker_datumPrijemaKorisnika.SelectedDate.Value.Date, dateTimePicker_datumOtpustaKorisnika.SelectedDate.Value.Date);
 
 
-                // ZA BAZU Podataka
 
-                mydbEntities db = new mydbEntities();
+
+
 
                 // dodavanje u comboBox u formi unesene osobe
                 string osobe = "";
@@ -290,18 +292,13 @@ namespace SafeHouse
 
                 var adres = comboBox_lokacijaKorisnika.Text;
 
-                var lokacija = (from l in db.lokacije where l.Adresa == adres select l).Single();
+
 
                 // dodavanje korisnika
-                db.korisnici.Add(new korisnici() { Ime = textBox_imeKorisnika.Text, Prezime = textBox_prezimeKorisnika.Text, Username = textBox_usernameKorisnika.Text, Password = textBox_passwordKorisnika.Text, Lokacija_ID = lokacija.ID, DatumRodjenja = dateTimePicker_datRodjenjaKorisnika.SelectedDate.Value, Anonimnost = anoniman, DodatneOsobe = osobe, DatumPrijema=dateTimePicker_datumPrijemaKorisnika.SelectedDate.Value });
 
-                // promjena u odabranoj lokaciji da je zauzeta
-                lokacija.Zauzeta = true;
+                AdminFormaKontroler.RegistrujKorisnika(textBox_imeKorisnika.Text, textBox_prezimeKorisnika.Text, textBox_usernameKorisnika.Text, textBox_passwordKorisnika.Text, adres,
+                    dateTimePicker_datRodjenjaKorisnika.SelectedDate.Value, anoniman, osobe, dateTimePicker_datumPrijemaKorisnika.SelectedDate.Value);
 
-                db.SaveChanges();
-
-                // pretraga tog dodanog korisnika
-                var korisnik = (from kor in db.korisnici where kor.Username == textBox_usernameKorisnika.Text select kor).Single();
 
                 if (radioButton_djelomicnoAnoniman.IsChecked == true)
                 // dodavanje kartona i statusa za djelomicno anonimnog
@@ -318,27 +315,17 @@ namespace SafeHouse
                     string dokI = iDok[0], dokP = iDok[1];
                     string psiI = iPsih[0], psiP = iPsih[1];
 
-                    var dok = (from d in db.radnici where (d.Ime == dokI && d.Prezime == dokP) select d).Single();
-                    var psih = (from p in db.radnici where (p.Ime == psiI && p.Prezime == psiP) select p).Single();
 
-                    // kreiranje kartona za korisnika
-                    db.kartoni.Add(new kartoni() { ID_D = dok.ID, ID_Ps = psih.ID });
 
-                    // kreiranje statusa
-                    db.status_d.Add(new status_d() { ID_K = korisnik.ID, ID_R = dok.ID });
-                    db.status_ps.Add(new status_ps() { ID_K = korisnik.ID, ID_R = psih.ID });
+                    AdminFormaKontroler.dodajOstaloDA(dokI, dokP, psiI, psiP, textBox_usernameKorisnika.Text);//kreira karton, status, raspored                   
 
-                    // kreiranje terina za raspored
-                    db.rasporedi.Add(new rasporedi() { ID_K = korisnik.ID, ID_R = dok.ID });
-                    db.rasporedi.Add(new rasporedi() { ID_K = korisnik.ID, ID_R = psih.ID });
 
-                    db.SaveChanges();
                     MessageBox.Show("Uspješno ste registrovali novog korisnika!", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 // dodavanje kartona i statusa za anonimnog korisnika
                 if (radioButton_potpunoAnoniman.IsChecked == true)
                 {
-                    
+
                     var iipDok = comboBox_personalniDoktorAnonimniKorisnik.Text;
                     var iipPsih = comboBox_personalniPsihologAnonimniKorisnik.Text;
                     var iipEk = comboBox_personalniEkonomistaAnonimniKorisnik.Text;
@@ -354,40 +341,22 @@ namespace SafeHouse
                     string ekI = iEk[0], ekP = iEk[1];
                     string prI = iPr[0], prP = iPr[1];
 
-                    var dok = (from d in db.radnici where (d.Ime == dokI && d.Prezime == dokP) select d).Single();
-                    var psih = (from p in db.radnici where (p.Ime == psiI && p.Prezime == psiP) select p).Single();
-                    var ek = (from eko in db.radnici where (eko.Ime == ekI && eko.Prezime == ekP) select eko).Single();
-                    var pr = (from pre in db.radnici where (pre.Ime == prI && pre.Prezime == prP) select pre).Single();
+                    AdminFormaKontroler.dodajOstaloPA(dokI, dokP, psiI, psiP, ekI, ekP, prI, prP, textBox_usernameKorisnika.Text);
 
-                    // kreiranje kartona za korisnika
-                    db.kartoni.Add(new kartoni() { ID_D = dok.ID, ID_E = ek.ID, ID_Pr = pr.ID, ID_Ps = psih.ID });
 
-                    // kreiranje statusa za korisnika
-                    db.status_d.Add(new status_d() { ID_K = korisnik.ID, ID_R = dok.ID });
-                    db.status_ps.Add(new status_ps() { ID_K = korisnik.ID, ID_R = psih.ID });
-                    db.status_e.Add(new status_e() { ID_K = korisnik.ID, ID_R = ek.ID });
-                    db.status_pr.Add(new status_pr() { ID_K = korisnik.ID, ID_R = pr.ID });
-
-                    // kreiranje termina za raspored
-                    db.rasporedi.Add(new rasporedi() { ID_K = korisnik.ID, ID_R = dok.ID });
-                    db.rasporedi.Add(new rasporedi() { ID_K = korisnik.ID, ID_R = psih.ID });
-                    db.rasporedi.Add(new rasporedi() { ID_K = korisnik.ID, ID_R = ek.ID });
-                    db.rasporedi.Add(new rasporedi() { ID_K = korisnik.ID, ID_R = pr.ID });
-                    db.SaveChanges();
 
                     MessageBox.Show("Uspješno ste registrovali novog korisnika!", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 comboBox_lokacijaKorisnika.Items.Clear();
-                var lokacije = (from l in db.lokacije where l.Zauzeta == null select l).ToArray();
-
+                var lokacije = AdminFormaKontroler.DajSlobodneLokacije();
                 foreach (var a in lokacije)
                     comboBox_lokacijaKorisnika.Items.Add(a.Adresa);
 
             }
-            //automatsko popunjavanje NULL vrijednosti u rasporedu!!!!
-            RasporedKontroler rk = new RasporedKontroler();
-            rk.popuniRaspored();
         }
+            
+        
+
 
 
         private void button_addOsobe_Click(object sender, RoutedEventArgs e)
@@ -428,17 +397,16 @@ namespace SafeHouse
             // u pozadini
             comboBox_personalniDoktor.Items.Clear();
             comboBox_personalniPsiholog.Items.Clear();
-            mydbEntities db = new mydbEntities();
-            var doktori = (from d in db.radnici where d.Opis == 0 select d).ToArray();
+            var doktori = AdminFormaKontroler.DajRadnike(0);
 
             foreach (var a in doktori)
                 comboBox_personalniDoktor.Items.Add(a.Ime + " " + a.Prezime);
 
-            var psih = (from d in db.radnici where d.Opis == 1 select d).ToArray();
+            var psih = AdminFormaKontroler.DajRadnike(1); 
             foreach (var p in psih)
                 comboBox_personalniPsiholog.Items.Add(p.Ime + " " + p.Prezime);
 
-            db.SaveChanges();
+            
         }
 
         private void radioButton_potpunoAnoniman_Checked(object sender, RoutedEventArgs e)
@@ -473,21 +441,21 @@ namespace SafeHouse
             comboBox_personalniPravnikAnonimniKorisnik.Items.Clear();
             comboBox_personalniPsihologAnonimniKorisnik.Items.Clear();
 
-            mydbEntities db = new mydbEntities();
+            
 
-            var doktori = (from d in db.radnici where d.Opis == 0 select d).ToArray();
+            var doktori = AdminFormaKontroler.DajRadnike(0);
             foreach (var a in doktori)
                 comboBox_personalniDoktorAnonimniKorisnik.Items.Add(a.Ime + " " + a.Prezime);
 
-            var psih = (from d in db.radnici where d.Opis == 1 select d).ToArray();
+            var psih = AdminFormaKontroler.DajRadnike(1); 
             foreach (var p in psih)
                 comboBox_personalniPsihologAnonimniKorisnik.Items.Add(p.Ime + " " + p.Prezime);
 
-            var ek = (from eko in db.radnici where eko.Opis == 2 select eko).ToArray();
+            var ek = AdminFormaKontroler.DajRadnike(2);
             foreach (var a in ek)
                 comboBox_personalniEkonomistaAnonimniKorisnik.Items.Add(a.Ime + " " + a.Prezime);
 
-            var pr = (from p in db.radnici where p.Opis == 3 select p).ToArray();
+            var pr = AdminFormaKontroler.DajRadnike(3);
             foreach (var a in pr)
                 comboBox_personalniPravnikAnonimniKorisnik.Items.Add(a.Ime + " " + a.Prezime);
 
@@ -508,10 +476,10 @@ namespace SafeHouse
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
             comboBox_lokacijaKorisnika.Items.Clear();
-            mydbEntities db = new mydbEntities();
+            
             try
             {
-                var lokacije = (from l in db.lokacije where l.Zauzeta == null select l).ToArray();
+                var lokacije = AdminFormaKontroler.DajSlobodneLokacije();
                 foreach (var a in lokacije)
                     comboBox_lokacijaKorisnika.Items.Add(a.Adresa);
             }
@@ -527,7 +495,7 @@ namespace SafeHouse
         {
             while (true)
             {
-                mydbEntities db = new mydbEntities();
+                mydbEntities db = new mydbEntities();//THREAD - NECU DIRATI!!!
                 try
                 {
                     zahtjevi1 = (from z in db.zahtjevi where (z.Obradjen == null) select z).ToList();
@@ -546,9 +514,9 @@ namespace SafeHouse
 
         private void CheckBox_Checked_1(object sender, RoutedEventArgs e)
         {
+            //ovo je samo za testiranje threada, pa necu praviti metodu u klasi!
             mydbEntities db = new mydbEntities();
-
-            var korisnik = (from k in db.korisnici where k.ID == 1 select k).Single();
+            var korisnik = (from k in db.korisnici where k.ID == 24 select k).Single();
             db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, SifraZahtjeva = 1, DodatniZahtjev = false, OpisZahtjeva = "Zahtjev za medicinsku pomoć" });
             db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, SifraZahtjeva = 2, DodatniZahtjev = false, OpisZahtjeva = "Zahtjev za psiholosku pomoć" });
             db.zahtjevi.Add(new zahtjevi() { Korisnici_ID = korisnik.ID, SifraZahtjeva = 3, DodatniZahtjev = true, OpisZahtjeva = "Zahtjev za dodatnu ekonomsku pomoć" });
@@ -565,15 +533,15 @@ namespace SafeHouse
         private void PrihvatiOvoo(object sender, RoutedEventArgs e)
         {
             
-            mydbEntities db = new mydbEntities();
+            
             var cb = sender as Button;
             var item = cb.DataContext;
             listView1.SelectedItem = item;
             zahtjevi z = (zahtjevi)listView1.SelectedItems[0];
-            var zah = (from zahtjev in db.zahtjevi where (z.ID == zahtjev.ID) select zahtjev).Single();
-            zah.Obradjen = true;
-            zah.Seen = false;
-            if (zah.DodatniZahtjev==true)
+
+            AdminFormaKontroler.prihvatiZahtjev(item, z);
+            
+            if (z.DodatniZahtjev==true)
             {
                 dodajTerminProzor dtp = new dodajTerminProzor(z.ID);
                 dtp.ShowDialog();
@@ -583,23 +551,21 @@ namespace SafeHouse
             
             /*   */
             
-            db.SaveChanges();
+            
         }
 
         private void OdbijOvo(object sender, RoutedEventArgs e)
         {
-            mydbEntities db = new mydbEntities();
+            
             var cb = sender as Button;
             var item = cb.DataContext;
             listView1.SelectedItem = item;
             zahtjevi z = (zahtjevi)listView1.SelectedItems[0];
-
-            var zah = (from zahtjev in db.zahtjevi where (z.ID == zahtjev.ID) select zahtjev).Single();
-            zah.Obradjen = false;
-            zah.Seen = false;
+            AdminFormaKontroler.odbijZahtjev(item, z);
+            
             listView1.Items.Remove(listView1.SelectedItem);
          
-            db.SaveChanges();
+            
         }
 
     }

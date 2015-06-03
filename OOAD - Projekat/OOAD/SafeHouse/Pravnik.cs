@@ -12,8 +12,8 @@ namespace SafeHouse
         private List<potpunoAnonimanKorisnik> korisnici;
 
         //konstruktor
-        public Pravnik(String i, String p, DateTime dr, string u, string pw)
-            : base(i, p, dr, u, pw)
+        public Pravnik(String i, String p, DateTime dr, string u, string pw, int ID)
+            : base(i, p, dr, u, pw, ID)
         {
             korisnici = new List<potpunoAnonimanKorisnik>();
         }

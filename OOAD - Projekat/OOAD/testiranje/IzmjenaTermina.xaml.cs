@@ -43,23 +43,11 @@ namespace SafeHouse
             odabraniTermin = (rasporedi)TerminiListBox.SelectedItem;
             rk = new RasporedKontroler();
             dostupni = rk.dajDostupneTermine(odabraniTermin.ID_K, odabraniTermin.ID_R);
-            zaListBox = new List<String>();
+         //   zaListBox = new List<String>(); 
             foreach (int i in dostupni)
             {
-                int pomocna = i;
-                String Vrijeme;
-                String Dan;
-                if (pomocna % 10 == 0) Vrijeme = "09";
-                else if (pomocna % 10 == 1) Vrijeme = "11";
-                else if (pomocna % 10 == 2) Vrijeme = "13";
-                else if (pomocna % 10 == 3) Vrijeme = "15";
-                else Vrijeme = "17";
-                if (pomocna / 10 == 0) Dan = "Ponedjeljak";
-                else if (pomocna / 10 == 1) Dan = "Utorak";
-                else if (pomocna / 10 == 2) Dan = "Srijeda";
-                else if (pomocna / 10 == 3) Dan = "Cetvrtak";
-                else Dan = "Petak";
-                DostupniListBox.Items.Add(Vrijeme + ":00, " + Dan);
+                int pomocna = i;              
+                DostupniListBox.Items.Add(RasporedKontroler.dajVrijeme(pomocna) + ":00, " + RasporedKontroler.dajDan(pomocna));
             }
             DostupniListBox.Visibility = Visibility.Visible;
         }
@@ -69,29 +57,16 @@ namespace SafeHouse
             
             int indeks = DostupniListBox.SelectedIndex;
             int zakodiraniTermin = dostupni[indeks];
-            
-            int pomocna = zakodiraniTermin;
-            if (pomocna % 10 == 0) Vrijeme = "09";
-            else if (pomocna % 10 == 1) Vrijeme = "11";
-            else if (pomocna % 10 == 2) Vrijeme = "13";
-            else if (pomocna % 10 == 3) Vrijeme = "15";
-            else Vrijeme = "17";
-            if (pomocna / 10 == 0) Dan = "Ponedjeljak";
-            else if (pomocna / 10 == 1) Dan = "Utorak";
-            else if (pomocna / 10 == 2) Dan = "Srijeda";
-            else if (pomocna / 10 == 3) Dan = "Cetvrtak";
-            else Dan = "Petak";
+            Vrijeme = RasporedKontroler.dajVrijeme(zakodiraniTermin);
+            Dan = RasporedKontroler.dajDan(zakodiraniTermin);            
             
         }
 
         private void potvrdiButton_Click(object sender, RoutedEventArgs e)
         {
-            var termin = (from rs in DB.rasporedi where rs.ID_K == odabraniTermin.ID_K && rs.ID_R == odabraniTermin.ID_R select rs).First();
-            termin.Vrijeme = Vrijeme;
-            termin.Dan = Dan;
-            DB.SaveChanges();
-            DB.zahtjevi.Add(new zahtjevi() { Korisnici_ID = odabraniTermin.ID_K, OpisZahtjeva = "Promjena termina u rasporedu", SifraZahtjeva = 5 });
-            DB.SaveChanges();
+            RasporedKontroler.IzmijeniTermin(Dan, Vrijeme, odabraniTermin.ID_K, odabraniTermin.ID_R);
+
+            
             MessageBox.Show("Uspjesno ste obavili izmjenu rasporeda!");
         }
     }

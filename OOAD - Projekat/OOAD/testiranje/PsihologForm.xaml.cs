@@ -39,70 +39,53 @@ namespace SafeHouse
             string nalazi = new TextRange(richTextBox_novaDijagnozaPsiholog.Document.ContentStart, richTextBox_novaDijagnozaPsiholog.Document.ContentEnd).Text;
 
             int pomocna = Convert.ToInt32(listBox_listaPacijenataPsiholog.SelectedItem.ToString());
-
-            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
-            var korisnikStatus = (from stat in db.status_ps where stat.ID_K == korisnik.ID select stat).Single();
-            korisnikStatus.Dijagnoza = nalazi;
-            korisnikStatus.Historija += (DateTime.Now + "\n" + nalazi + "\n");
-
-            db.SaveChanges();
+            RadniciKontroler.AzurirajNalaze(pomocna, nalazi);
+            
 
             richTextBox_novaDijagnozaPsiholog.Document.Blocks.Clear();
             richTextBox_napredakTerapijePsiholog.Document.Blocks.Clear();
-            richTextBox_napredakTerapijePsiholog.Document.Blocks.Add(new Paragraph(new Run(korisnikStatus.Historija)));
+            richTextBox_napredakTerapijePsiholog.Document.Blocks.Add(new Paragraph(new Run(RadniciKontroler.dajHistoriju(pomocna))));
 
         }
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
-            mydbEntities db = new mydbEntities();
-            // pronalazak doktora
-            var psih = (from d in db.radnici where d.Username == GlobalneVarijable.TrenutniPsiholog select d).Single();
 
-            label_imePsiholog.Content = psih.Ime;
-            label_prezimePsiholog.Content = psih.Prezime;
+            label_imePsiholog.Content = GlobalneVarijable.trenutnaOsoba.Ime_osobe;
+            label_prezimePsiholog.Content = GlobalneVarijable.trenutnaOsoba.Prezime_osobe;
 
             // pronalazak pacijenata za tog doktora
-            var karton = (from kar in db.kartoni where kar.ID_Ps == psih.ID select kar.ID).ToArray();
+            List<int> pacijenti = RadniciKontroler.dajPacijente(GlobalneVarijable.trenutnaOsoba.ID1);
 
             // dodavanje u listBox
-            foreach (var k in karton)
+            foreach (var k in pacijenti)
             {
-                var koris = (from ko in db.korisnici where ko.ID == k select ko).Single();
-                listBox_listaPacijenataPsiholog.Items.Add(koris.ID);
+                
+                listBox_listaPacijenataPsiholog.Items.Add(k);
             }
         }
 
         private void richTextBox_licneBiljeskePsiholog_LostFocus(object sender, RoutedEventArgs e)
         {
-            mydbEntities db = new mydbEntities();
+            
 
             string licniUtisak = new TextRange(richTextBox_licneBiljeskePsiholog.Document.ContentStart, richTextBox_licneBiljeskePsiholog.Document.ContentEnd).Text;
 
             int pomocna = Convert.ToInt32(listBox_listaPacijenataPsiholog.SelectedItem.ToString());
-
-            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
-            var korisnikStatus = (from stat in db.status_ps where stat.ID_K == korisnik.ID select stat).Single();
-            korisnikStatus.LicniUtisak = licniUtisak;
-            db.SaveChanges();
+            RadniciKontroler.AzurirajLicniUtisak(pomocna, licniUtisak);
+            
         }
 
         private void listBox_listaPacijenataPsiholog_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            mydbEntities db = new mydbEntities();
 
             int pomocna = Convert.ToInt32(listBox_listaPacijenataPsiholog.SelectedItem.ToString());
-
-            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
-            var korisnikStatus = (from stat in db.status_ps where stat.ID_K == korisnik.ID select stat).Single();
-            var korisnikStatusDoktor = (from stat in db.status_d where stat.ID_K == korisnik.ID select stat).Single();
-
             richTextBox_napredakTerapijePsiholog.Document.Blocks.Clear();
-            richTextBox_napredakTerapijePsiholog.Document.Blocks.Add(new Paragraph(new Run(korisnikStatus.Historija)));
+            richTextBox_napredakTerapijePsiholog.Document.Blocks.Add(new Paragraph(new Run(RadniciKontroler.dajHistoriju(pomocna))));
             richTextBox_licneBiljeskePsiholog.Document.Blocks.Clear();
-            richTextBox_licneBiljeskePsiholog.Document.Blocks.Add(new Paragraph(new Run(korisnikStatus.LicniUtisak)));
-            richTextBox_nalaziSistematskogPsiholog.Document.Blocks.Clear();
-            richTextBox_nalaziSistematskogPsiholog.Document.Blocks.Add(new Paragraph(new Run(korisnikStatusDoktor.Nalazi)));
+            richTextBox_licneBiljeskePsiholog.Document.Blocks.Add(new Paragraph(new Run(RadniciKontroler.dajLicniUtisak(pomocna))));
+            richTextBox_nalaziSistematskogPsiholog.Document.Blocks.Clear();            
+            richTextBox_nalaziSistematskogPsiholog.Document.Blocks.Add(new Paragraph(new Run(RadniciKontroler.dajNalaze(pomocna))));
         }
 
         private void button_prikaziRasporedPsiholog_Click(object sender, RoutedEventArgs e)

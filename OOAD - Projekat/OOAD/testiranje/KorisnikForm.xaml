@@ -99,10 +99,9 @@
                         <Canvas Margin="0,0,-38,3" >
                             <GroupBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="211" Canvas.Top="10" Width="338" Height="92" Foreground="#FFFF6969" >
                                 <GroupBox.Header>
-                                    <TextBlock Text="Vrsta zahtjeva"/>
+                                    <TextBlock Text="Dodatne opcije"/>
                                 </GroupBox.Header>
                                 <Canvas Margin="0,0,-2,2" >
-                                    <CheckBox x:Name="checkBox_standardniTermini" Height="19" Width="308" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Želim standardne termine koji mi trebaju biti dodjeljeni" Canvas.Left="10" Canvas.Top="39" Foreground="#FFF9F9F9" />
                                     <CheckBox x:Name="checkBox_dodatniTermini" Height="19" Width="259" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Želim dodatne termine za označene opcije" Foreground="#FFF9F9F9" Canvas.Left="10" Canvas.Top="10"  />
                                 </Canvas>
                             </GroupBox>

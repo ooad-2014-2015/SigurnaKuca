@@ -24,13 +24,14 @@ namespace SafeHouse
 
         public Osoba() { }
 
-        public Osoba( string ime, string prezime, DateTime datumRodj, string user, string pass)
+        public Osoba( string ime, string prezime, DateTime datumRodj, string user, string pass, int ID)
         {
             this.ime_osobe=ime;
             this.prezime_osobe=prezime;
             this.datumRodjenja=datumRodj;
             this.username = user;
             this.password = pass;
+            this.ID = ID;
         }
 
         public string Ime_osobe

@@ -11,8 +11,8 @@ namespace SafeHouse
         DateTime datumOtpusta;
 
         //konstruktor
-        public djelimicnoAnonimanKorisnik(String i, String p, DateTime datum_rodj, string us, string pass,  Lokacija lok, DateTime dat_prijema, DateTime dat_otpusta)
-            : base(i, p, datum_rodj, us, pass, lok, dat_prijema)
+        public djelimicnoAnonimanKorisnik(String i, String p, DateTime datum_rodj, string us, string pass,  Lokacija lok, DateTime dat_prijema, DateTime dat_otpusta, int ID)
+            : base(i, p, datum_rodj, us, pass, lok, dat_prijema, ID)
         {
             this.datumOtpusta = dat_otpusta;
         }

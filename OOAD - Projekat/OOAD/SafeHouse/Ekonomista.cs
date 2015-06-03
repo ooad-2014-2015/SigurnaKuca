@@ -17,8 +17,8 @@ namespace SafeHouse
             set { zahtjeviZaEkPomoc = value; }
         }
         //konstruktor
-        public Ekonomista(String i, String p, DateTime dr, string u, string pw)
-            : base(i, p, dr, u, pw)
+        public Ekonomista(String i, String p, DateTime dr, string u, string pw, int ID)
+            : base(i, p, dr, u, pw, ID)
         {
             zahtjeviZaEkPomoc = new List<zahtjevZaEkonomskuPomoc>();
         }

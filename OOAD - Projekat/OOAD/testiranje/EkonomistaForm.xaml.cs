@@ -25,23 +25,17 @@ namespace SafeHouse
 
         private void button_azurirajPrijedlogeEkonomist_Click(object sender, RoutedEventArgs e)
         {
-            mydbEntities db = new mydbEntities();
+            
 
 
             string prijedlog = new TextRange(richTextBox_prijedlogRjesenjaEkonomist.Document.ContentStart, richTextBox_prijedlogRjesenjaEkonomist.Document.ContentEnd).Text;
 
             int pomocna = Convert.ToInt32(listBox_ListaKorisnikaEkonomist.SelectedItem.ToString());
 
-            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
-            var korisnikStatus = (from stat in db.status_e where stat.ID_K == korisnik.ID select stat).Single();
-
-            korisnikStatus.PrijedlogRjesenja = prijedlog;
-            korisnikStatus.Historija += (DateTime.Now + "\n" + prijedlog + "\n");
-
-            db.SaveChanges();
+            RadniciKontroler.dodajPrijedlogRjesenja(pomocna, prijedlog);
             richTextBox_prijedlogRjesenjaEkonomist.Document.Blocks.Clear(); // brise sadrzaj ??
             richTextBox_historijaRješenjaEkonomist.Document.Blocks.Clear();
-            richTextBox_historijaRješenjaEkonomist.Document.Blocks.Add(new Paragraph(new Run(korisnikStatus.Historija)));
+            richTextBox_historijaRješenjaEkonomist.Document.Blocks.Add(new Paragraph(new Run(RadniciKontroler.dajHistoriju(pomocna))));
         }
 
         private void linkLabel1_LinkClicked(object sender, RoutedEventArgs e)
@@ -54,53 +48,41 @@ namespace SafeHouse
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
-            mydbEntities db = new mydbEntities();
-            // pronalazak doktora
-            var ekonom = (from d in db.radnici where d.Username == GlobalneVarijable.TrenutniEkonomista select d).Single();
+            
 
-
-            label_imeEkonomiste.Content = ekonom.Ime;
-            label_prezimeEkonomiste.Content = ekonom.Prezime;
-
-            // pronalazak pacijenata za tog doktora
-            var karton = (from kar in db.kartoni where kar.ID_E == ekonom.ID select kar.ID).ToArray();
-
-            foreach (var k in karton)
-            {
-                var koris = (from ko in db.korisnici where ko.ID == k select ko).Single();
-                listBox_ListaKorisnikaEkonomist.Items.Add(koris.ID);
+            label_imeEkonomiste.Content = GlobalneVarijable.trenutnaOsoba.Ime_osobe;
+            label_prezimeEkonomiste.Content = GlobalneVarijable.trenutnaOsoba.Prezime_osobe; 
+            //nadje sve pacijente
+            var pacijenti = RadniciKontroler.dajPacijente(GlobalneVarijable.trenutnaOsoba.ID1);
+            
+            
+            foreach (var k in pacijenti)
+            {                
+                listBox_ListaKorisnikaEkonomist.Items.Add(k);
             }
         }
 
         private void listBox_ListaKorisnikaEkonomist_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            mydbEntities db = new mydbEntities();
+            
 
             int pomocna = Convert.ToInt32(listBox_ListaKorisnikaEkonomist.SelectedItem.ToString());
 
-            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
-            var korisnikStatus = (from stat in db.status_e where stat.ID_K == korisnik.ID select stat).Single();
 
             richTextBox_historijaRješenjaEkonomist.Document.Blocks.Clear();
-            richTextBox_historijaRješenjaEkonomist.Document.Blocks.Add(new Paragraph(new Run(korisnikStatus.Historija)));
+            richTextBox_historijaRješenjaEkonomist.Document.Blocks.Add(new Paragraph(new Run(RadniciKontroler.dajHistoriju(pomocna))));
 
             richTextBox_licneBiljeskeEkonomist.Document.Blocks.Clear();
-            richTextBox_licneBiljeskeEkonomist.Document.Blocks.Add(new Paragraph(new Run(korisnikStatus.LicniUtisak)));
+            richTextBox_licneBiljeskeEkonomist.Document.Blocks.Add(new Paragraph(new Run(RadniciKontroler.dajLicniUtisak(pomocna))));
         }
 
         private void richTextBox_licneBiljeskeEkonomist_LostFocus(object sender, RoutedEventArgs e)
         {
-            mydbEntities db = new mydbEntities();
-
+            
             string licniUtisak = new TextRange(richTextBox_licneBiljeskeEkonomist.Document.ContentStart, richTextBox_licneBiljeskeEkonomist.Document.ContentEnd).Text;
-
             int pomocna = Convert.ToInt32(listBox_ListaKorisnikaEkonomist.SelectedItem.ToString());
-
-            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
-            var korisnikStatus = (from stat in db.status_e where stat.ID_K == korisnik.ID select stat).Single();
-            korisnikStatus.LicniUtisak = licniUtisak;
-
-            db.SaveChanges();
+            RadniciKontroler.AzurirajLicniUtisak(pomocna, licniUtisak);
+            
         }
 
         private void button_pregledRasporedaEkonomist_Click(object sender, RoutedEventArgs e)

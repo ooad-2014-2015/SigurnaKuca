@@ -19,8 +19,8 @@ namespace SafeHouse
 
         public Korisnik() { }
         //konstruktor
-        public Korisnik(String i, String p, DateTime dat_rodj, string user, string pass,  Lokacija lok, DateTime dat_prijema)
-            : base(i, p, dat_rodj, user, pass)
+        public Korisnik(String i, String p, DateTime dat_rodj, string user, string pass,  Lokacija lok, DateTime dat_prijema, int ID)
+            : base(i, p, dat_rodj, user, pass, ID)
         {
             DatumPrijema = dat_rodj;
             LokKorisnika = lok;

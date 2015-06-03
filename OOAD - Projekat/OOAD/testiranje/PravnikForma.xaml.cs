@@ -27,79 +27,56 @@ namespace SafeHouse
 
         private void button_azurirajRjesenjePravnik_Click(object sender, RoutedEventArgs e)
         {
-            mydbEntities db = new mydbEntities();
+            
 
             string nalazi = new TextRange(richTextBox_prijedlogRjesenja.Document.ContentStart, richTextBox_prijedlogRjesenja.Document.ContentEnd).Text;
 
             int pomocna = Convert.ToInt32(listBox_listaPacijenataPravnik.SelectedItem.ToString());
-
-            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
-            var korisnikStatus = (from stat in db.status_pr where stat.ID_K == korisnik.ID select stat).Single();
-            korisnikStatus.PrijedlogRjesenja = nalazi;
-            korisnikStatus.HistorijaRjesenja += (DateTime.Now + "\n" + nalazi + "\n");
-
-            db.SaveChanges();
+            RadniciKontroler.dodajPrijedlogRjesenja(pomocna, nalazi);
+            
 
             richTextBox_prijedlogRjesenja.Document.Blocks.Clear();
             richTextBox_historijaRjesenjaPravnik.Document.Blocks.Clear();
-            richTextBox_historijaRjesenjaPravnik.Document.Blocks.Add(new Paragraph(new Run(korisnikStatus.HistorijaRjesenja)));
+            richTextBox_historijaRjesenjaPravnik.Document.Blocks.Add(new Paragraph(new Run(RadniciKontroler.dajHistoriju(pomocna))));
         }
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
-            mydbEntities db = new mydbEntities();
-            // pronalazak doktora
-            var prav = (from d in db.radnici where d.Username == GlobalneVarijable.TrenutniPravnik select d).Single();
-
-            label_imePravnik.Content = prav.Ime;
-            label_prezimePravnik.Content = prav.Prezime;
-
-            // pronalazak pacijenata za tog doktora
-            var karton = (from kar in db.kartoni where kar.ID_Pr == prav.ID select kar.ID).ToArray();
+            label_imePravnik.Content = GlobalneVarijable.trenutnaOsoba.Ime_osobe;
+            label_prezimePravnik.Content = GlobalneVarijable.trenutnaOsoba.Prezime_osobe;
+            var pacijenti = RadniciKontroler.dajPacijente(GlobalneVarijable.trenutnaOsoba.ID1);
 
             // dodavanje u listBox
-            foreach (var k in karton)
-            {
-                var koris = (from ko in db.korisnici where ko.ID == k select ko).Single();
-                listBox_listaPacijenataPravnik.Items.Add(koris.ID);
+            foreach (var k in pacijenti)
+            {                
+                listBox_listaPacijenataPravnik.Items.Add(k);
             }
         }
 
         private void richTextBox_licneBiljeskePravnik_LostFocus(object sender, RoutedEventArgs e)
         {
-            mydbEntities db = new mydbEntities();
-
-
             string licniUtisak = new TextRange(richTextBox_licneBiljeskePravnik.Document.ContentStart, richTextBox_licneBiljeskePravnik.Document.ContentEnd).Text;
-
             int pomocna = Convert.ToInt32(listBox_listaPacijenataPravnik.SelectedItem.ToString());
-
-            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
-            var korisnikStatus = (from stat in db.status_pr where stat.ID_K == korisnik.ID select stat).Single();
-            korisnikStatus.LicniUtisak = licniUtisak;
-            db.SaveChanges();
+            RadniciKontroler.AzurirajLicniUtisak(pomocna, licniUtisak);
         }
 
         private void listBox_listaPacijenataPravnik_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            mydbEntities db = new mydbEntities();
-
+            
             int pomocna = Convert.ToInt32(listBox_listaPacijenataPravnik.SelectedItem.ToString());
-
-            var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
-            var korisnikStatus = (from stat in db.status_pr where stat.ID_K == korisnik.ID select stat).Single();
+            
 
             richTextBox_opisProblemaPravnik.Document.Blocks.Clear();
-            richTextBox_opisProblemaPravnik.Document.Blocks.Add(new Paragraph(new Run(korisnikStatus.OpisProblema)));
+            richTextBox_opisProblemaPravnik.Document.Blocks.Add(new Paragraph(new Run(RadniciKontroler.dajOpisProblema(pomocna))));
             richTextBox_licneBiljeskePravnik.Document.Blocks.Clear();
-            richTextBox_licneBiljeskePravnik.Document.Blocks.Add(new Paragraph(new Run(korisnikStatus.LicniUtisak)));
+            richTextBox_licneBiljeskePravnik.Document.Blocks.Add(new Paragraph(new Run(RadniciKontroler.dajLicniUtisak(pomocna))));
             richTextBox_historijaRjesenjaPravnik.Document.Blocks.Clear();
-            richTextBox_historijaRjesenjaPravnik.Document.Blocks.Add(new Paragraph(new Run(korisnikStatus.HistorijaRjesenja)));
+            richTextBox_historijaRjesenjaPravnik.Document.Blocks.Add(new Paragraph(new Run(RadniciKontroler.dajHistoriju(pomocna))));
         }
 
         private void richTextBox_opisProblemaPravnik_LostFocus(object sender, RoutedEventArgs e)
         {
-            mydbEntities db = new mydbEntities();
+           /* mydbEntities db = new mydbEntities();
 
             string opisProblema = new TextRange(richTextBox_opisProblemaPravnik.Document.ContentStart, richTextBox_opisProblemaPravnik.Document.ContentEnd).Text;
 
@@ -108,7 +85,7 @@ namespace SafeHouse
             var korisnik = (from kor in db.korisnici where kor.ID == pomocna select kor).Single();
             var korisnikStatus = (from stat in db.status_pr where stat.ID_K == korisnik.ID select stat).Single();
             korisnikStatus.OpisProblema = opisProblema;
-            db.SaveChanges();
+            db.SaveChanges();*/
         }
 
         private void button_pregledRasporedaPravnik_Click(object sender, RoutedEventArgs e)

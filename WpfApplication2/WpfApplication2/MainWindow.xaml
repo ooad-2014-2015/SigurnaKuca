@@ -1,0 +1,6 @@
+﻿<Window x:Class="WpfApplication2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Button x:Name="nivo1" Content="Nivo 1" HorizontalAlignment="Left" Height="37" Margin="158,63,0,0" VerticalAlignment="Top" Width="188" Click="nivo1_Click"/>
+</Window>

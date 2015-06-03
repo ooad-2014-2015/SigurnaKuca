@@ -2,7 +2,7 @@
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="SafeHouse.EkonomistaForm"
-	Title="Ekonomista" d:DesignWidth="786" Height="401.075" Loaded="Window_Loaded_1" Background="#FF363434">
+	Title="Ekonomista" Height="401.075" Loaded="Window_Loaded_1" Background="#FF363434" Width="782.667" ResizeMode="NoResize">
     <Grid Margin="0,7,0,4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="32*"/>
@@ -10,7 +10,7 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="357*"/>
         </Grid.ColumnDefinitions>
-        <GroupBox Margin="0,0,10,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="3" Height="341" Width="463" BorderBrush="White" Foreground="#FFFB6565" >
+        <GroupBox Margin="0,0,10,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="3" Height="341" Width="460" BorderBrush="White" Foreground="#FFFB6565" >
             <GroupBox.Header>
                 <TextBlock Text="Podaci o korisniku"/>
             </GroupBox.Header>
@@ -36,21 +36,21 @@
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox>
-                <RichTextBox x:Name="richTextBox_licneBiljeskeEkonomist" Height="122" Width="295" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="150" Canvas.Top="187" LostFocus="richTextBox_licneBiljeskeEkonomist_LostFocus" >
+                <RichTextBox x:Name="richTextBox_licneBiljeskeEkonomist" Height="122" Width="290" TabIndex="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="150" Canvas.Top="187" LostFocus="richTextBox_licneBiljeskeEkonomist_LostFocus" >
                     <FlowDocument>
                         <Paragraph>
                             <Run/>
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox>
-                <RichTextBox x:Name="richTextBox_prijedlogRjesenjaEkonomist" Height="90" Width="295" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="150" Canvas.Top="30" >
+                <RichTextBox x:Name="richTextBox_prijedlogRjesenjaEkonomist" Height="90" Width="290" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="150" Canvas.Top="30" >
                     <FlowDocument>
                         <Paragraph>
                             <Run/>
                         </Paragraph>
                     </FlowDocument>
                 </RichTextBox>
-                <Button x:Name="button_azurirajPrijedlogeEkonomist" Content="Ažuriraj rješenja" Height="24" Canvas.Left="342" Canvas.Top="125" Width="103" Click="button_azurirajPrijedlogeEkonomist_Click" BorderBrush="#FFFBF7F7" Foreground="#FFFDFDFD">
+                <Button x:Name="button_azurirajPrijedlogeEkonomist" Content="Ažuriraj rješenja" Height="24" Canvas.Left="337" Canvas.Top="125" Width="103" Click="button_azurirajPrijedlogeEkonomist_Click" BorderBrush="#FFFBF7F7" Foreground="#FFFDFDFD">
                     <Button.Background>
                         <ImageBrush/>
                     </Button.Background>

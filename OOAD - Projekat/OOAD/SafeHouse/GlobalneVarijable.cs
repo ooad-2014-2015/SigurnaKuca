@@ -16,6 +16,7 @@ namespace SafeHouse
 
         public static object Obradjen { get; set; }
         public static Osoba trenutnaOsoba { get; set; }
+        
 
     }
 }

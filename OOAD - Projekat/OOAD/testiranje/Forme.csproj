@@ -99,6 +99,7 @@
     <Compile Include="AdminForma.xaml.cs">
       <DependentUpon>AdminForma.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminFormaKontroler.cs" />
     <Compile Include="Baza.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -132,6 +133,7 @@
     <Compile Include="korisnici.cs">
       <DependentUpon>Baza.tt</DependentUpon>
     </Compile>
+    <Compile Include="KorisniciKontroler.cs" />
     <Compile Include="KorisnikForm.xaml.cs">
       <DependentUpon>KorisnikForm.xaml</DependentUpon>
     </Compile>
@@ -148,6 +150,7 @@
     <Compile Include="radnici.cs">
       <DependentUpon>Baza.tt</DependentUpon>
     </Compile>
+    <Compile Include="RadniciKontroler.cs" />
     <Compile Include="rasporedi.cs">
       <DependentUpon>Baza.tt</DependentUpon>
     </Compile>
@@ -162,6 +165,7 @@
     <Compile Include="RasporedProzor.xaml.cs">
       <DependentUpon>RasporedProzor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StartFormaKontroler.cs" />
     <Compile Include="status_d.cs">
       <DependentUpon>Baza.tt</DependentUpon>
     </Compile>

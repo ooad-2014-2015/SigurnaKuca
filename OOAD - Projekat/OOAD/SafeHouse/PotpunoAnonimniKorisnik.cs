@@ -12,8 +12,8 @@ namespace SafeHouse
         private List<zahtjevZaPravnuPomoc> zahtjeviZaPrPomoc;
 
         //konstruktor
-        public potpunoAnonimanKorisnik(String i, String p, DateTime dat_rodjenja, string us, string pass, Lokacija lok, DateTime dat_prijema)
-            : base(i, p, dat_rodjenja, us, pass, lok, dat_prijema)
+        public potpunoAnonimanKorisnik(String i, String p, DateTime dat_rodjenja, string us, string pass, Lokacija lok, DateTime dat_prijema, int ID)
+            : base(i, p, dat_rodjenja, us, pass, lok, dat_prijema, ID)
         {
             zahtjeviZaEkPomoc = new List<zahtjevZaEkonomskuPomoc>();
             zahtjeviZaPrPomoc = new List<zahtjevZaPravnuPomoc>();

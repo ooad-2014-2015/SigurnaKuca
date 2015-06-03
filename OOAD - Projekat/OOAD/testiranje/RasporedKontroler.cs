@@ -112,6 +112,58 @@ namespace SafeHouse
             
         }
         
+        public static string dajDan(int i)
+        {
+            if (i / 10 == 0) return "Ponedjeljak";
+            else if (i / 10 == 1) return "Utorak";
+            else if (i / 10 == 2) return "Srijeda";
+            else if (i / 10 == 3) return "Cetvrtak";
+            else return "Petak";
+        }
+        public static string dajVrijeme(int i)
+        {
+            if (i % 10 == 0) return "09";
+            else if (i % 10 == 1) return "11";
+            else if (i % 10 == 2) return "13";
+            else if (i % 10 == 3) return "15";
+            else return "17";
+        }
+        public static void dodajTermin(string dan, string vrijeme, int idk, int idr)
+        {
+            mydbEntities DB = new mydbEntities();
+            DB.rasporedi.Add(new rasporedi() { Dan = dan, Vrijeme = vrijeme, ID_K = idk, ID_R = idr });
+            DB.SaveChanges();
+        }
 
+        public static void IzmijeniTermin(string dan, string vrijeme, int idk, int idr)
+        {
+            mydbEntities DB = new mydbEntities();
+            var termin = (from rs in DB.rasporedi where rs.ID_K == idk && rs.ID_R == idr select rs).First();
+            termin.Vrijeme = vrijeme;
+            termin.Dan = dan;
+            DB.SaveChanges();
+            DB.zahtjevi.Add(new zahtjevi() { Korisnici_ID = idk, OpisZahtjeva = "Promjena termina u rasporedu", SifraZahtjeva = 5 });
+            DB.SaveChanges();
+        }
+        public string dajDrugog(Osoba o, int i)
+        {
+            mydbEntities db = new mydbEntities();
+            if (o is Korisnik)
+            {
+                String ime, prezime;
+                int IDr = zauzetiTermini[i].ID_R;
+                ime = (from r in DB.radnici where r.ID == IDr select r.Ime).Single();
+                prezime = (from r in DB.radnici where r.ID == IDr select r.Prezime).Single();
+                return ime + " " + prezime;
+            }
+            else
+            {
+                String ime, prezime;
+                int IDk = zauzetiTermini[i].ID_K;
+                ime = (from r in DB.korisnici where r.ID == IDk select r.Ime).Single();
+                prezime = (from r in DB.korisnici where r.ID == IDk select r.Prezime).Single();
+                return ime + " " + prezime;
+            }
+        }
     }
 }

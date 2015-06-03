@@ -14,8 +14,8 @@ namespace SafeHouse
         private List<zahtjevZaMedPomoc> zahtjeviZaMedPomoc;
 
         //konstruktor
-        public Doktor(String i, String p, DateTime dr, string u, string pw)
-            : base(i, p, dr, u, pw)
+        public Doktor(String i, String p, DateTime dr, string u, string pw, int ID)
+            : base(i, p, dr, u, pw, ID)
         {
             pacijenti = new List<Korisnik>();
             preglediDoktor = new List<pregledKodDoktora>();
