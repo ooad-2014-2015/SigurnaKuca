@@ -12,10 +12,11 @@ namespace WpfApplication2
     using System;
     using System.Collections.Generic;
     
-    public partial class stringovi
+    public partial class highscore
     {
-        public int indeks { get; set; }
+        public int id { get; set; }
         public string Ime { get; set; }
-        public string Kategorija { get; set; }
+        public Nullable<int> Vrijeme { get; set; }
+        public Nullable<int> Nivo { get; set; }
     }
 }

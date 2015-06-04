@@ -36,7 +36,7 @@
   <ItemGroup>
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\..\Projekat - WPF\OOAD\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data.CF, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
@@ -66,27 +66,40 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Igrica.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Igrica.Context.tt</DependentUpon>
+    <Compile Include="highscore.cs">
+      <DependentUpon>igricaBaza.tt</DependentUpon>
     </Compile>
-    <Compile Include="Igrica.cs">
+    <Compile Include="igricaBaza.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Igrica.tt</DependentUpon>
+      <DependentUpon>igricaBaza.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Igrica.Designer.cs">
+    <Compile Include="igricaBaza.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Igrica.edmx</DependentUpon>
+      <DependentUpon>igricaBaza.tt</DependentUpon>
+    </Compile>
+    <Compile Include="igricaBaza.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>igricaBaza.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ispisHigh.xaml.cs">
+      <DependentUpon>ispisHigh.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pitanja.xaml.cs">
       <DependentUpon>Pitanja.xaml</DependentUpon>
     </Compile>
     <Compile Include="stringovi.cs">
-      <DependentUpon>Igrica.tt</DependentUpon>
+      <DependentUpon>igricaBaza.tt</DependentUpon>
     </Compile>
+    <Compile Include="unesiHigh.xaml.cs">
+      <DependentUpon>unesiHigh.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ispisHigh.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -100,6 +113,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pitanja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="unesiHigh.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -123,22 +140,22 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
-    <EntityDeploy Include="Igrica.edmx">
+    <EntityDeploy Include="igricaBaza.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Igrica.Designer.cs</LastGenOutput>
+      <LastGenOutput>igricaBaza.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Igrica.Context.tt">
+    <None Include="igricaBaza.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Igrica.edmx</DependentUpon>
-      <LastGenOutput>Igrica.Context.cs</LastGenOutput>
+      <DependentUpon>igricaBaza.edmx</DependentUpon>
+      <LastGenOutput>igricaBaza.Context.cs</LastGenOutput>
     </None>
-    <None Include="Igrica.edmx.diagram">
-      <DependentUpon>Igrica.edmx</DependentUpon>
+    <None Include="igricaBaza.edmx.diagram">
+      <DependentUpon>igricaBaza.edmx</DependentUpon>
     </None>
-    <None Include="Igrica.tt">
+    <None Include="igricaBaza.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Igrica.edmx</DependentUpon>
-      <LastGenOutput>Igrica.cs</LastGenOutput>
+      <DependentUpon>igricaBaza.edmx</DependentUpon>
+      <LastGenOutput>igricaBaza.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

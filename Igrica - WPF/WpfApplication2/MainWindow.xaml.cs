@@ -14,23 +14,65 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
+using System.Windows.Media.Animation;
 
 namespace WpfApplication2
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    /// 
 
-    
     public partial class MainWindow : Window
     {
+        private void myrect_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Storyboard s = (Storyboard)TryFindResource("sd");
+            s.Begin();	// Start animation
+        }
 
-        
-        private void nivo1_Click(object sender, RoutedEventArgs e)
+        private void buttonNivo1_Click(object sender, RoutedEventArgs e)
         {
             Pitanja p = new Pitanja(1);
-            p.ShowDialog();
+            this.Hide();
+            p.Show();
+            
+           
         }
+
+        
+
+        private void buttonNivo2_Click(object sender, RoutedEventArgs e)
+        {
+            Pitanja p = new Pitanja(2);
+            this.Hide();
+            p.Show();
+        }
+
+        private void buttonNivo3_Click(object sender, RoutedEventArgs e)
+        {
+            Pitanja p = new Pitanja(3);
+            this.Hide();
+            p.Show();
+        }
+
+        private void buttonNivo4_Click(object sender, RoutedEventArgs e)
+        {
+            Pitanja p = new Pitanja(4);
+            this.Hide();
+            p.Show();
+        }
+
+        private void buttonNivo5_Click(object sender, RoutedEventArgs e)
+        {
+            Pitanja p = new Pitanja(5);
+            this.Hide();
+            p.Show();
+        }
+
+        private void buttonPrikaz_Click(object sender, RoutedEventArgs e)
+        {
+            ispisHigh i = new ispisHigh();
+            this.Hide();
+            i.Show();
+        }
+
+
     }
 }

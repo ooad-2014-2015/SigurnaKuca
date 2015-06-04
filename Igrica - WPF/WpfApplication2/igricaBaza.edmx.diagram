@@ -4,8 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="863acda7dcab428ba5dfd5db605b5d05" Name="Diagram1">
-        <EntityTypeShape EntityType="igricaModel.stringovi" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="14781c3727e247f49b0dc0bf87e01b29" Name="Diagram1">
+        <EntityTypeShape EntityType="igricabazaModel.highscore" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igricabazaModel.stringovi" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -13,10 +13,10 @@ namespace WpfApplication2
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class igricaEntities1 : DbContext
+    public partial class igricaEntities : DbContext
     {
-        public igricaEntities1()
-            : base("name=igricaEntities1")
+        public igricaEntities()
+            : base("name=igricaEntities")
         {
         }
     
@@ -25,6 +25,7 @@ namespace WpfApplication2
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<highscore> highscore { get; set; }
         public DbSet<stringovi> stringovi { get; set; }
     }
 }

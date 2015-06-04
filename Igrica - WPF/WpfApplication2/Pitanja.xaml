@@ -3,6 +3,41 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Pitanja" Height="300" Width="508">
     <Grid Margin="8,10,-8,-10">
+        <Rectangle Name="myrect" Canvas.Left="-23" Canvas.Top="-14" GotFocus="myrect_GotFocus" Margin="-8,-11,10,0">
+            <Rectangle.Fill>
+                <LinearGradientBrush x:Name="brush" StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop x:Name="stop1" Offset="0" Color="Red"/>
+                    <GradientStop x:Name="stop2" Offset="0.5" Color="Green"/>
+                    <GradientStop x:Name="stop3" Offset="1" Color="Blue"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+            <Rectangle.Triggers>
+                <EventTrigger RoutedEvent="Window.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard x:Name="sd" RepeatBehavior="Forever">
+                            <ColorAnimation Storyboard.TargetName="stop1" Storyboard.TargetProperty="Color" 
+                       From="Red" To="Green" Duration="0:0:1" BeginTime="0:0:0"/>
+                            <ColorAnimation Storyboard.TargetName="stop1" Storyboard.TargetProperty="Color" 
+                       From="Green" To="Blue" Duration="0:0:1" BeginTime="0:0:0.5"/>
+                            <ColorAnimation Storyboard.TargetName="stop1" Storyboard.TargetProperty="Color" 
+                       From="Blue" To="Red" Duration="0:0:1" BeginTime="0:0:1"/>
+                            <ColorAnimation Storyboard.TargetName="stop2" Storyboard.TargetProperty="Color" 
+                       From="Green" To="Blue" Duration="0:0:1" BeginTime="0:0:0"/>
+                            <ColorAnimation Storyboard.TargetName="stop2" Storyboard.TargetProperty="Color" 
+                       From="Blue" To="Red" Duration="0:0:1" BeginTime="0:0:0.5"/>
+                            <ColorAnimation Storyboard.TargetName="stop2" Storyboard.TargetProperty="Color" 
+                       From="Red" To="Green" Duration="0:0:1" BeginTime="0:0:1"/>
+                            <ColorAnimation Storyboard.TargetName="stop3" Storyboard.TargetProperty="Color" 
+                       From="Blue" To="Red" Duration="0:0:1" BeginTime="0:0:0"/>
+                            <ColorAnimation Storyboard.TargetName="stop3" Storyboard.TargetProperty="Color" 
+                       From="Red" To="Green" Duration="0:0:1" BeginTime="0:0:0.5"/>
+                            <ColorAnimation Storyboard.TargetName="stop3" Storyboard.TargetProperty="Color" 
+                       From="Green" To="Blue" Duration="0:0:1" BeginTime="0:0:1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Rectangle.Triggers>
+        </Rectangle>
         <TextBox x:Name="txt1" HorizontalAlignment="Left" Height="24" Margin="10,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="17" MaxLength="1" MaxLines="1"/>
         <TextBox x:Name="txt20" HorizontalAlignment="Left" Height="24" Margin="428,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="17" MaxLength="1" MaxLines="1"/>
         <TextBox x:Name="txt19" HorizontalAlignment="Left" Height="24" Margin="406,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="17" MaxLength="1" MaxLines="1"/>
@@ -24,10 +59,14 @@
         <TextBox x:Name="txt3" HorizontalAlignment="Left" Height="24" Margin="54,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="17" MaxLength="1" MaxLines="1"/>
         <TextBox x:Name="txt2" HorizontalAlignment="Left" Height="24" Margin="32,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="17" RenderTransformOrigin="2.118,0.458" MaxLength="1" MaxLines="1"/>
         <Grid x:Name="gridzaslova1" HorizontalAlignment="Left" Height="48" Margin="0,65,0,0" VerticalAlignment="Top" Width="458"/>
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Height="43" Margin="10,173,0,0" VerticalAlignment="Top" Width="127" />
-        <Label Content="Pogodite ime izvodjaca!" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="215"/>
-        <Button Content="Pauziraj Vrijeme" HorizontalAlignment="Left" Margin="313,154,0,0" VerticalAlignment="Top" Width="110" />
-        <Button Content="Daj Jos Slova" HorizontalAlignment="Left" Margin="313,208,0,0" VerticalAlignment="Top" Width="110"/>
-        <Button Content="Promijeni Pitanje" HorizontalAlignment="Left" Margin="313,181,0,0" VerticalAlignment="Top" Width="110"/>
+        <Button x:Name="buttonPotvrdi" Content="Potvrdi" HorizontalAlignment="Left" Height="43" Margin="32,170,0,0" VerticalAlignment="Top" Width="149" Click="buttonPotvrdi_Click" />
+        <Label Content="Pogodite ime izvodjaca!" HorizontalAlignment="Left" Height="27" Margin="10,10,0,0" VerticalAlignment="Top" Width="215"/>
+        <Button x:Name="buttonPauziraj" Content="Pauziraj Vrijeme" HorizontalAlignment="Left" Margin="313,154,0,0" VerticalAlignment="Top" Width="110" Click="buttonPauziraj_Click" />
+        <Button x:Name="buttonDajSlova" Content="Daj Jos Slova" HorizontalAlignment="Left" Margin="313,208,0,0" VerticalAlignment="Top" Width="110" Click="buttonDajSlova_Click"/>
+        <Button x:Name="buttonPromjeni" Content="Promijeni Pitanje" HorizontalAlignment="Left" Margin="313,181,0,0" VerticalAlignment="Top" Width="110" Click="buttonPromjeni_Click"/>
+        <Label x:Name="labelPitanje" Content="" HorizontalAlignment="Left" Margin="435,0,0,0" VerticalAlignment="Top" FontSize="13" FontFamily="Microsoft Sans Serif" />
+        <Label x:Name="labelPotvrda" FontWeight="Bold" Content="" HorizontalAlignment="Left" Margin="10,230,0,0" VerticalAlignment="Top" Width="298" FontSize="12" FontFamily="Microsoft Sans Serif" />
+        <Label x:Name="labelJokeri" Content="Džokeri:" HorizontalAlignment="Left" Margin="313,128,0,0" VerticalAlignment="Top" FontSize="12" FontFamily="Microsoft Sans Serif"/>
+        <TextBlock x:Name="labelaStoperica" Text="" HorizontalAlignment="Left" Margin="428,30,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" FontSize="13" FontFamily="Microsoft Sans Serif"/>
     </Grid>
 </Window>
