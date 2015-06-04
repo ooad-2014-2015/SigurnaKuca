@@ -73,6 +73,11 @@ namespace WpfApplication2
             i.Show();
         }
 
+        private void buttonNivo1_MouseEnter(object sender, MouseEventArgs e)
+        {
+            buttonNivo1.Background.Freeze();
+        }
+
 
     }
 }

@@ -3,11 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="unesiHigh" Height="227.801" Width="300">
     <Grid>
-        <Rectangle Name="myrect" Canvas.Left="-23" Canvas.Top="-14" GotFocus="myrect_GotFocus" Margin="2,-11,0,0" HorizontalAlignment="Left" Width="290">
+        <Rectangle Name="myrect" Canvas.Left="-23" Canvas.Top="-14" GotFocus="myrect_GotFocus" HorizontalAlignment="Left" Width="292">
             <Rectangle.Fill>
                 <LinearGradientBrush x:Name="brush" StartPoint="0,0" EndPoint="1,1">
                     <GradientStop x:Name="stop1" Offset="0" Color="Red"/>
-                    <GradientStop x:Name="stop2" Offset="0.5" Color="Green"/>
+                    <GradientStop x:Name="stop2" Offset="0.5" Color="Purple"/>
                     <GradientStop x:Name="stop3" Offset="1" Color="Blue"/>
                 </LinearGradientBrush>
             </Rectangle.Fill>
@@ -16,33 +16,37 @@
                     <BeginStoryboard>
                         <Storyboard x:Name="sd" RepeatBehavior="Forever">
                             <ColorAnimation Storyboard.TargetName="stop1" Storyboard.TargetProperty="Color" 
-                       From="Red" To="Green" Duration="0:0:1" BeginTime="0:0:0"/>
+                       From="Red" To="Purple" Duration="0:0:1" BeginTime="0:0:0"/>
                             <ColorAnimation Storyboard.TargetName="stop1" Storyboard.TargetProperty="Color" 
-                       From="Green" To="Blue" Duration="0:0:1" BeginTime="0:0:0.5"/>
+                       From="Purple" To="Blue" Duration="0:0:1" BeginTime="0:0:1"/>
                             <ColorAnimation Storyboard.TargetName="stop1" Storyboard.TargetProperty="Color" 
-                       From="Blue" To="Red" Duration="0:0:1" BeginTime="0:0:1"/>
+                       From="Blue" To="Red" Duration="0:0:1" BeginTime="0:0:2"/>
                             <ColorAnimation Storyboard.TargetName="stop2" Storyboard.TargetProperty="Color" 
-                       From="Green" To="Blue" Duration="0:0:1" BeginTime="0:0:0"/>
+                       From="Red" To="Purple" Duration="0:0:1" BeginTime="0:0:0"/>
                             <ColorAnimation Storyboard.TargetName="stop2" Storyboard.TargetProperty="Color" 
-                       From="Blue" To="Red" Duration="0:0:1" BeginTime="0:0:0.5"/>
+                       From="Purple" To="Blue" Duration="0:0:1" BeginTime="0:0:1"/>
                             <ColorAnimation Storyboard.TargetName="stop2" Storyboard.TargetProperty="Color" 
-                       From="Red" To="Green" Duration="0:0:1" BeginTime="0:0:1"/>
+                       From="Blue" To="Red" Duration="0:0:1"  BeginTime="0:0:2"/>
                             <ColorAnimation Storyboard.TargetName="stop3" Storyboard.TargetProperty="Color" 
-                       From="Blue" To="Red" Duration="0:0:1" BeginTime="0:0:0"/>
+                       From="Red" To="Purple" Duration="0:0:1" BeginTime="0:0:0"/>
                             <ColorAnimation Storyboard.TargetName="stop3" Storyboard.TargetProperty="Color" 
-                       From="Red" To="Green" Duration="0:0:1" BeginTime="0:0:0.5"/>
+                       From="Purple" To="Blue" Duration="0:0:1" BeginTime="0:0:1"/>
                             <ColorAnimation Storyboard.TargetName="stop3" Storyboard.TargetProperty="Color" 
-                       From="Green" To="Blue" Duration="0:0:1" BeginTime="0:0:1"/>
+                       From="Blue" To="Red" Duration="0:0:1" BeginTime="0:0:2"/>
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
             </Rectangle.Triggers>
         </Rectangle>
-        <TextBlock HorizontalAlignment="Left" FontWeight="Bold" Height="36" Margin="10,0,0,0" TextWrapping="Wrap" Text="Čestitamo!" VerticalAlignment="Top" Width="177" FontSize="17" FontFamily="Microsoft Sans Serif"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,36,0,0" TextWrapping="Wrap" Text="Vaš rezultat je među 5 najboljih." VerticalAlignment="Top" FontWeight="Bold" FontSize="15" FontFamily="Microsoft Sans Serif" />
-        <Label Content="Unesite Vaše ime:" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" FontSize="12" FontFamily="Microsoft Sans Serif"/>
-        <TextBox x:Name="textBoxIme" HorizontalAlignment="Left" Height="23" Margin="122,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160"/>
-        <Button x:Name="buttonZavrsi" Content="Završi" HorizontalAlignment="Left" Margin="156,153,0,0" VerticalAlignment="Top" Width="104" Click="buttonZavrsi_Click"/>
+        <TextBlock HorizontalAlignment="Left" FontWeight="Bold" Height="23" Margin="95,10,0,0" TextWrapping="Wrap" Text="Čestitamo!" VerticalAlignment="Top" Width="93" FontSize="17" FontFamily="Microsoft Sans Serif" Foreground="#FFF9F9F9"/>
+        <TextBlock HorizontalAlignment="Left" Margin="43,38,0,0" TextWrapping="Wrap" Text="Vaš rezultat je među 5 najboljih." VerticalAlignment="Top" FontWeight="Bold" FontSize="15" FontFamily="Microsoft Sans Serif" Foreground="#FFBFB4B4" />
+        <Label Content="Unesite Vaše ime:" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" FontSize="12" FontFamily="Microsoft Sans Serif" Foreground="#FFFBFBFB"/>
+        <TextBox x:Name="textBoxIme" HorizontalAlignment="Left" Height="23" Margin="122,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Background="#FFCFCFCF"/>
+        <Button x:Name="buttonZavrsi" Content="Završi" HorizontalAlignment="Left" Margin="207,168,0,0" VerticalAlignment="Top" Width="75" Click="buttonZavrsi_Click" BorderBrush="#FFFDFDFD" Foreground="#FFFBF9F9">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>

@@ -3,11 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Canvas HorizontalAlignment="Left" Height="285" Margin="19,13,0,0" VerticalAlignment="Top" Width="486">
-        <Rectangle Name="myrect" Width="522" Height="318" GotFocus="myrect_GotFocus" Canvas.Left="-17" Canvas.Top="-13">
+        <Rectangle Name="myrect" Width="518" Height="320" GotFocus="myrect_GotFocus" Canvas.Left="-19" Canvas.Top="-13" Cursor="Hand">
             <Rectangle.Fill>
                 <LinearGradientBrush x:Name="brush" StartPoint="0,0" EndPoint="1,1">
                     <GradientStop x:Name="stop1" Offset="0" Color="Red"/>
-                    <GradientStop x:Name="stop2" Offset="0.5" Color="Green"/>
+                    <GradientStop x:Name="stop2" Offset="0.5" Color="Purple"/>
                     <GradientStop x:Name="stop3" Offset="1" Color="Blue"/>
                 </LinearGradientBrush>
             </Rectangle.Fill>
@@ -16,35 +16,60 @@
                     <BeginStoryboard>
                         <Storyboard x:Name="sd" RepeatBehavior="Forever">
                             <ColorAnimation Storyboard.TargetName="stop1" Storyboard.TargetProperty="Color" 
-                       From="Red" To="Green" Duration="0:0:1" BeginTime="0:0:0"/>
+                       From="Red" To="Purple" Duration="0:0:1" BeginTime="0:0:0"/>
                             <ColorAnimation Storyboard.TargetName="stop1" Storyboard.TargetProperty="Color" 
-                       From="Green" To="Blue" Duration="0:0:1" BeginTime="0:0:0.5"/>
+                       From="Purple" To="Blue" Duration="0:0:1" BeginTime="0:0:1"/>
                             <ColorAnimation Storyboard.TargetName="stop1" Storyboard.TargetProperty="Color" 
-                       From="Blue" To="Red" Duration="0:0:1" BeginTime="0:0:1"/>
+                       From="Blue" To="Red" Duration="0:0:1" BeginTime="0:0:2"/>
                             <ColorAnimation Storyboard.TargetName="stop2" Storyboard.TargetProperty="Color" 
-                       From="Green" To="Blue" Duration="0:0:1" BeginTime="0:0:0"/>
+                       From="Red" To="Purple" Duration="0:0:1" BeginTime="0:0:0"/>
                             <ColorAnimation Storyboard.TargetName="stop2" Storyboard.TargetProperty="Color" 
-                       From="Blue" To="Red" Duration="0:0:1" BeginTime="0:0:0.5"/>
+                       From="Purple" To="Blue" Duration="0:0:1" BeginTime="0:0:1"/>
                             <ColorAnimation Storyboard.TargetName="stop2" Storyboard.TargetProperty="Color" 
-                       From="Red" To="Green" Duration="0:0:1" BeginTime="0:0:1"/>
+                       From="Blue" To="Red" Duration="0:0:1"  BeginTime="0:0:2"/>
                             <ColorAnimation Storyboard.TargetName="stop3" Storyboard.TargetProperty="Color" 
-                       From="Blue" To="Red" Duration="0:0:1" BeginTime="0:0:0"/>
+                       From="Red" To="Purple" Duration="0:0:1" BeginTime="0:0:0"/>
                             <ColorAnimation Storyboard.TargetName="stop3" Storyboard.TargetProperty="Color" 
-                       From="Red" To="Green" Duration="0:0:1" BeginTime="0:0:0.5"/>
+                       From="Purple" To="Blue" Duration="0:0:1" BeginTime="0:0:1"/>
                             <ColorAnimation Storyboard.TargetName="stop3" Storyboard.TargetProperty="Color" 
-                       From="Green" To="Blue" Duration="0:0:1" BeginTime="0:0:1"/>
+                       From="Blue" To="Red" Duration="0:0:1" BeginTime="0:0:2"/>
+                            
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
             </Rectangle.Triggers>
         </Rectangle>
-        <TextBlock Canvas.Left="10" TextWrapping="Wrap" Text="Odabir nivoa: " Canvas.Top="10" FontSize="20" FontFamily="Microsoft Sans Serif" />
-        <Button x:Name="buttonNivo1" Content="Nivo 1" Canvas.Left="36" Canvas.Top="31" Width="203" Click="buttonNivo1_Click" Height="35"/>
-        <Button x:Name="buttonNivo2" Content="Nivo 2" Canvas.Left="36" Canvas.Top="71" Width="203" Height="35" Click="buttonNivo2_Click"/>
-        <Button x:Name="buttonNivo3" Content="Nivo 3" Canvas.Left="36" Canvas.Top="113" Width="203" Height="35" Click="buttonNivo3_Click"/>
-        <Button x:Name="buttonNivo4" Content="Nivo 4" Canvas.Left="36" Canvas.Top="153" Width="203" Height="35" Click="buttonNivo4_Click"/>
-        <Button x:Name="buttonNivo5" Content="Nivo 5" Canvas.Left="36" Canvas.Top="192" Width="203" Height="35" Click="buttonNivo5_Click"/>
-        <Button x:Name="buttonPrikaz" Content="Prikaži rezultate" Canvas.Left="322" Canvas.Top="192" Width="132" Height="35" Click="buttonPrikaz_Click"/>
+        <TextBlock Canvas.Left="10" TextWrapping="Wrap" Text="Odabir nivoa: " Canvas.Top="8" FontSize="18" FontFamily="Mangal" Foreground="White" FontWeight="Bold" />
+        <Button x:Name="buttonNivo1" Content="Nivo 1" Canvas.Left="32" Canvas.Top="52" Width="129" Click="buttonNivo1_Click" Height="35" BorderBrush="#FFF9F7F7" Foreground="White" Cursor="Hand">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="buttonNivo2" Content="Nivo 2" Canvas.Left="95" Canvas.Top="101" Width="129" Height="35" Click="buttonNivo2_Click" BorderBrush="#FFF9F7F7" Foreground="White" Cursor="Hand">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="buttonNivo3" Content="Nivo 3" Canvas.Left="188" Canvas.Top="141" Width="129" Height="35" Click="buttonNivo3_Click" BorderBrush="#FFF9F7F7" Foreground="White" Cursor="Hand">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="buttonNivo4" Content="Nivo 4" Canvas.Left="263" Canvas.Top="190" Width="129" Height="35" Click="buttonNivo4_Click" BorderBrush="#FFF9F7F7" Foreground="White" Cursor="Hand">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="buttonNivo5" Content="Nivo 5" Canvas.Left="347" Canvas.Top="240" Width="129" Height="35" Click="buttonNivo5_Click" BorderBrush="#FFF9F7F7" Foreground="White" Cursor="Hand">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="buttonPrikaz" Content="Prikaži rezultate" Canvas.Left="368" Canvas.Top="10" Width="108" Height="28" Click="buttonPrikaz_Click" BorderBrush="#FFFDFDFD" Foreground="#FFFDFDFD">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
     </Canvas>
 
 </Window>
