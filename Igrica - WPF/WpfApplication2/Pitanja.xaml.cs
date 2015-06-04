@@ -28,12 +28,12 @@ namespace WpfApplication2
         DispatcherTimer dt1 = new DispatcherTimer();
 
         int n;
-        const string nivo1 = "00:02:00"; 
-        const string nivo2 = "00:01:40";
-        const string nivo3 = "00:01:10";
-        const string nivo4 = "00:01:00";
-        const string nivo5 = "00:00:40";
-        const string pauza = "00:00:05";
+        const string nivo1 = "00:03:00"; 
+        const string nivo2 = "00:02:40";
+        const string nivo3 = "00:02:10";
+        const string nivo4 = "00:02:00";
+        const string nivo5 = "00:01:40";
+        const string pauza = "00:00:10";
         string sekunde = "";
         int vrijeme;
         const int br_pitanja = 10;
@@ -123,9 +123,8 @@ namespace WpfApplication2
                 if (trenutnoVrijeme == sekunde)
                 {
                     MessageBox.Show("Žao nam je Vaše vrijeme je isteklo.", "Igra je gotova");
-                    //MainWindow MW = new MainWindow();
                     this.Close();
-                   // MW.Show();
+
                 }
             }
         }
@@ -227,17 +226,18 @@ namespace WpfApplication2
         private void provjeriVrijeme()
         {
             igricaEntities db = new igricaEntities();
-            var rezultati = (from rez in db.highscore orderby rez.Vrijeme descending where rez.Nivo == n select rez).ToList();
+            var rezultati = (from rez in db.highscore where rez.Nivo == n select rez).ToList();
+            var sortirani = rezultati.OrderBy(o => o.Vrijeme).ToList();
             for (int i = 0; i < 1; i++)
             {
                 string[] s = trenutnoVrijeme.Split(':');
                 vrijeme = Convert.ToInt32(s[1]) * 60 + Convert.ToInt32(s[2]);
-                if (vrijeme > rezultati[i].Vrijeme)
+                if (vrijeme < sortirani[i].Vrijeme)
                 {
                     MessageBox.Show("Vaše vrijeme je isteklo.", "Igra je gotova", MessageBoxButton.OK);
                     unesiHigh uH = new unesiHigh(n, vrijeme);
                     this.Close();
-                    uH.Show();
+                    uH.ShowDialog();
                 }
                 else
                 {

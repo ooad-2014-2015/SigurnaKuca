@@ -29,48 +29,44 @@ namespace WpfApplication2
 
         private void buttonNivo1_Click(object sender, RoutedEventArgs e)
         {
-            Pitanja p = new Pitanja(1);
-            this.Hide();
-            p.Show();
+            Pitanja p = new Pitanja(1);            
+            p.ShowDialog();
             
            
         }
 
-        
-
         private void buttonNivo2_Click(object sender, RoutedEventArgs e)
         {
             Pitanja p = new Pitanja(2);
-            this.Hide();
-            p.Show();
+            p.ShowDialog();
         }
 
         private void buttonNivo3_Click(object sender, RoutedEventArgs e)
         {
             Pitanja p = new Pitanja(3);
-            this.Hide();
-            p.Show();
+
+            p.ShowDialog();
         }
 
         private void buttonNivo4_Click(object sender, RoutedEventArgs e)
         {
             Pitanja p = new Pitanja(4);
-            this.Hide();
-            p.Show();
+
+            p.ShowDialog();
         }
 
         private void buttonNivo5_Click(object sender, RoutedEventArgs e)
         {
             Pitanja p = new Pitanja(5);
-            this.Hide();
-            p.Show();
+
+            p.ShowDialog();
         }
 
         private void buttonPrikaz_Click(object sender, RoutedEventArgs e)
         {
             ispisHigh i = new ispisHigh();
-            this.Hide();
-            i.Show();
+
+            i.ShowDialog();
         }
 
         private void buttonNivo1_MouseEnter(object sender, MouseEventArgs e)

@@ -29,7 +29,7 @@ namespace SafeHouse
         {
             StartForm sf = new StartForm();
             this.Hide();
-            sf.ShowDialog();
+            sf.Show();
         }
 
 
@@ -100,8 +100,6 @@ namespace SafeHouse
 
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
-            var st = new StartForm();
-            st.Show();
             this.Close();
         }
     }

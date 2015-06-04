@@ -594,6 +594,11 @@ namespace SafeHouse
             
         }
 
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
        
 
     }

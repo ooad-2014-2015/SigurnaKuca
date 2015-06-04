@@ -40,9 +40,7 @@ namespace SafeHouse
 
         private void linkLabel1_LinkClicked(object sender, RoutedEventArgs e)
         {
-            StartForm sf = new StartForm();
-            this.Hide();
-            sf.ShowDialog();
+            this.Close();
         }
 
 

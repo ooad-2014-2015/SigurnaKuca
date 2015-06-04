@@ -209,6 +209,11 @@ namespace SafeHouse
             rp.ShowDialog();
         }
 
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
   
     }
 }

@@ -91,8 +91,7 @@ namespace SafeHouse
 
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
-            StartForm st = new StartForm();
-            st.Show();
+            
             this.Close();
         }
 

@@ -42,6 +42,7 @@ namespace WpfApplication2
             igricaEntities db = new igricaEntities();
             db.highscore.Add(new highscore() { Ime = ime, Nivo = n, Vrijeme = v });
             db.SaveChanges();
+            this.Close();
         }
     }
 }

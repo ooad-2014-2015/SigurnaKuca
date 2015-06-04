@@ -83,5 +83,12 @@
                 </LinearGradientBrush>
             </Image.OpacityMask>
         </Image>
+        <Label HorizontalAlignment="Left" Margin="140,0,0,0" VerticalAlignment="Top" Grid.Column="1">
+            <Hyperlink Click="Hyperlink_Click">
+                <Run Text="LogOut"/>
+            </Hyperlink>
+        </Label>
+
+
     </Grid>
 </Window>

@@ -94,5 +94,10 @@ namespace SafeHouse
             RasporedProzor rp = new RasporedProzor(GlobalneVarijable.trenutnaOsoba);
             rp.ShowDialog();
         }
+
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

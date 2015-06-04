@@ -52,8 +52,7 @@ namespace SafeHouse
             {
                 errorProvider1.Content="";
                 AdminForma f = new AdminForma();
-                this.Close();
-                f.Show();
+                f.ShowDialog();
             }
 
             // ZA DOKTORA
@@ -70,8 +69,8 @@ namespace SafeHouse
                     {
                         StartFormaKontroler.PostaviTrenutnuOsobuR(user);
                         DoktorForm doc = new DoktorForm();
-                        doc.Show();
-                        this.Close();
+                        doc.ShowDialog();
+                        
                     }
                     else { errorProvider1.Content="Pogrešan password, pokušajte ponovo!"; return; }
                 }
@@ -93,8 +92,8 @@ namespace SafeHouse
                     {
                         StartFormaKontroler.PostaviTrenutnuOsobuR(user);  
                         EkonomistaForm ek = new EkonomistaForm();
-                        ek.Show();
-                        this.Close();
+                        ek.ShowDialog();
+                        
 
                     }
                     else { errorProvider1.Content = "Pogrešan password, pokušajte ponovo!"; return; }
@@ -117,8 +116,8 @@ namespace SafeHouse
                     {
                         StartFormaKontroler.PostaviTrenutnuOsobuR(user);
                         PsihologForm psi = new PsihologForm();
-                        psi.Show();
-                        this.Close();
+                        psi.ShowDialog();
+                        
                     }
                     else { errorProvider1.Content = "Pogrešan password, pokušajte ponovo!"; return; }
                 }
@@ -140,8 +139,8 @@ namespace SafeHouse
                     {
                         StartFormaKontroler.PostaviTrenutnuOsobuR(user);
                         PravnikForm pr = new PravnikForm();
-                        pr.Show();
-                        this.Close();
+                        pr.ShowDialog();
+                        
                     }
                     else { errorProvider1.Content = "Pogrešan password, pokušajte ponovo!"; return; }
                 }
@@ -163,8 +162,8 @@ namespace SafeHouse
                         StartFormaKontroler.PostaviTrenutnuOsobuK(user);
                         
                         KorisnikForm kf = new KorisnikForm();
-                        kf.Show();
-                        this.Close();
+                        kf.ShowDialog();
+                        
                     }
                     else { errorProvider1.Content = "Pogrešan password, pokušajte ponovo!"; return; }
                 }

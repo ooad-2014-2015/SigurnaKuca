@@ -39,15 +39,31 @@ namespace WpfApplication2
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // prepraviti ovo ne radi ovo orderby i da se ispis fino piše u formatu 00:00:00
-            int nivo = comboxNivo.SelectedIndex;
+            int nivo = comboxNivo.SelectedIndex+1;
             igricaEntities db = new igricaEntities();
-            var rezultati = (from rez in db.highscore  where rez.Nivo == nivo orderby rez.Vrijeme descending select rez).ToList();
+            var rezultati = (from rez in db.highscore  where rez.Nivo == nivo select rez).ToList();
+            var sortirani = rezultati.OrderBy(o => o.Vrijeme).ToList();
 
-            t1.Text = "Ime: " + rezultati[0].Ime + "   Vrijeme: " + rezultati[0].Vrijeme.ToString();
-            t2.Text = "Ime: " + rezultati[1].Ime + "   Vrijeme: " + rezultati[1].Vrijeme.ToString();
-            t3.Text = "Ime: " + rezultati[2].Ime + "   Vrijeme: " + rezultati[2].Vrijeme.ToString();
-            t4.Text = "Ime: " + rezultati[3].Ime + "   Vrijeme: " + rezultati[3].Vrijeme.ToString();
-            t5.Text = "Ime: " + rezultati[4].Ime + "   Vrijeme: " + rezultati[4].Vrijeme.ToString();
+            t1.Text = "Ime: " + sortirani[0].Ime + "   Vrijeme: " + vratiVrijeme(sortirani[0].Vrijeme.Value);
+            t2.Text = "Ime: " + sortirani[1].Ime + "   Vrijeme: " + vratiVrijeme(sortirani[1].Vrijeme.Value);
+            t3.Text = "Ime: " + sortirani[2].Ime + "   Vrijeme: " + vratiVrijeme(sortirani[2].Vrijeme.Value);
+            t4.Text = "Ime: " + sortirani[3].Ime + "   Vrijeme: " + vratiVrijeme(sortirani[3].Vrijeme.Value);
+            t5.Text = "Ime: " + sortirani[4].Ime + "   Vrijeme: " + vratiVrijeme(sortirani[4].Vrijeme.Value);
+        }
+
+        private string vratiVrijeme(int vrijeme)
+        {
+            if (vrijeme >= 60)
+            {
+                int minute = vrijeme / 60;
+                int sekunde = vrijeme % 60;
+
+                return String.Format("{0:00}:{1:00}:{2:00}", 0, minute, sekunde);
+            }
+            else
+            {
+                return String.Format("{0:00}:{1:00}:{2:00}", 0, 0, vrijeme);
+            }
         }
     }
 }
