@@ -35,7 +35,11 @@ namespace SafeHouse
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
             string appDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().GetName().CodeBase);
-            string nova = appDir + @"\HelpSafeHouse\HelpSafeHouse.htm";
+            string[] doFoldera = appDir.Split('\\');
+            string nova = "";
+            for (int i = 0; i < doFoldera.Count() - 3; i++) nova += (doFoldera[i]+"\\");
+            MessageBox.Show(nova);
+            nova += @"HelpSafeHouse\HelpSafeHouse.htm";
             web_help.Source = new Uri(nova);
             web_help.Navigate(nova);
         }
