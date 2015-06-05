@@ -174,9 +174,5 @@ namespace SafeHouse
 
             }
         }
-
-
-
-
     }
 }

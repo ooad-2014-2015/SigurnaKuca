@@ -74,6 +74,5 @@ namespace WpfApplication2
             buttonNivo1.Background.Freeze();
         }
 
-
     }
 }
