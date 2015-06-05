@@ -42,12 +42,12 @@ namespace SafeHouse
            // kreiranje statusa
            db.status_d.Add(new status_d() { ID_K = korisnik.ID, ID_R = dok.ID });
            db.status_ps.Add(new status_ps() { ID_K = korisnik.ID, ID_R = psih.ID });
-
+            db.SaveChanges();
            
            // kreiranje terina za raspored
            db.rasporedi.Add(new rasporedi() { ID_K = korisnik.ID, ID_R = dok.ID });
            db.rasporedi.Add(new rasporedi() { ID_K = korisnik.ID, ID_R = psih.ID });
-          // db.Entry(db.rasporedi).Reload();
+            //db.Entry(db.rasporedi).Reload();
            db.SaveChanges();
            //automatsko popunjavanje NULL vrijednosti u rasporedu!!!!
            RasporedKontroler rk = new RasporedKontroler();
@@ -72,7 +72,7 @@ namespace SafeHouse
             db.status_ps.Add(new status_ps() { ID_K = korisnik.ID, ID_R = psih.ID });
             db.status_e.Add(new status_e() { ID_K = korisnik.ID, ID_R = ek.ID });
             db.status_pr.Add(new status_pr() { ID_K = korisnik.ID, ID_R = pr.ID });
-
+            db.SaveChanges();
             // kreiranje termina za raspored
             db.rasporedi.Add(new rasporedi() { ID_K = korisnik.ID, ID_R = dok.ID });
             db.rasporedi.Add(new rasporedi() { ID_K = korisnik.ID, ID_R = psih.ID });

@@ -288,11 +288,6 @@ namespace SafeHouse
 
                 //djelimicnoAnonimanKorisnik k = new djelimicnoAnonimanKorisnik(textBox_imeKorisnika.Text, textBox_prezimeKorisnika.Text, dateTimePicker_datRodjenjaKorisnika.SelectedDate.Value.Date, textBox_usernameKorisnika.Text, textBox_passwordKorisnika.Text, lok, dateTimePicker_datumPrijemaKorisnika.SelectedDate.Value.Date, dateTimePicker_datumOtpustaKorisnika.SelectedDate.Value.Date);
 
-
-
-
-
-
                 // dodavanje u comboBox u formi unesene osobe
                 string osobe = "";
                 foreach (string s in comboBox_dodaneOsobe.Items)
@@ -303,7 +298,7 @@ namespace SafeHouse
 
                 var adres = comboBox_lokacijaKorisnika.Text;
 
-
+                string user = textBox_usernameKorisnika.Text;
 
                 // dodavanje korisnika
 
@@ -326,7 +321,7 @@ namespace SafeHouse
 
 
 
-                    AdminFormaKontroler.dodajOstaloDA(dokI, dokP, psiI, psiP, textBox_usernameKorisnika.Text);//kreira karton, status, raspored                   
+                    AdminFormaKontroler.dodajOstaloDA(dokI, dokP, psiI, psiP, user);//kreira karton, status, raspored                   
 
 
                     MessageBox.Show("Uspješno ste registrovali novog korisnika!", "", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -558,7 +553,9 @@ namespace SafeHouse
         {
             listView1.Items.Clear();
             foreach (var z in zahtjevi1)
-                listView1.Items.Add(z);   
+            {
+                listView1.Items.Add(z);
+            }
         }
 
         private void PrihvatiOvoo(object sender, RoutedEventArgs e)

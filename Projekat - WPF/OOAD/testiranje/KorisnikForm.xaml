@@ -79,7 +79,7 @@
                     </RichTextBox>
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="tabPage2" Header="Zahtjevi" BorderBrush="#FF020202" Foreground="#FFFF6969"  Margin="46,0,-46,-3" FontFamily="Tahoma" FontSize="12" MouseDoubleClick="tabPage2_MouseDoubleClick" >
+            <TabItem x:Name="tabPage2" Header="Zahtjevi" BorderBrush="#FF020202" Foreground="#FFFF6969"  Margin="48,0,-88,-3" FontFamily="Tahoma" FontSize="12" MouseDoubleClick="tabPage2_MouseDoubleClick" >
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FF4F4F4F" Offset="0"/>
@@ -112,7 +112,7 @@
                                     <CheckBox x:Name="checkBox_dodatniTermini" Height="19" Width="259" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Želim dodatne termine za označene opcije" Foreground="#FFF9F9F9" Canvas.Left="10" Canvas.Top="10"  />
                                 </Canvas>
                             </GroupBox>
-                            <GroupBox Name ="groupBox_zahtjeviZaAnonimnogKorisnika" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="10" Canvas.Top="60" Width="256" Height="70" >
+                            <GroupBox Name ="groupBox_zahtjeviZaAnonimnogKorisnika" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="10" Canvas.Top="60" Width="256" Height="70" Visibility="Hidden">
                                 <Canvas Height="56" Margin="0,8,-2,0">
                                     <CheckBox x:Name="checkBox1" Height="19" Width="238" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za dodatnu pravnu pomoć" Foreground="#FFF5EFEF" Canvas.Top="3" Canvas.Left="10" />
                                     <CheckBox x:Name="checkBox2" Height="19" Width="238" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za dodatnu ekonomsku pomoć" Foreground="#FFF5EFEF" Canvas.Top="27" Canvas.Left="10" />
@@ -129,8 +129,7 @@
                     </GroupBox>
                 </Canvas>
             </TabItem>
-            <Canvas Margin="10,10,7,7"/>
-            <TabItem x:Name="tabPage5_Copy" Header="Web" BorderBrush="#FF020202" Foreground="#FFFF6969" FontFamily="Tahoma" Margin="0,1,-34,-3" FontSize="12" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="94" >
+            <TabItem x:Name="tabPage5_Copy" Header="Web" BorderBrush="#FF020202" Foreground="#FFFF6969" FontFamily="Tahoma" Margin="0,0,-88,-2" FontSize="12" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="108" >
                 <TabItem.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -149,7 +148,6 @@
                     <WebBrowser x:Name="webBrowser1" Height="324" Canvas.Left="10" Canvas.Top="10" Width="533" ClipToBounds="True"/>
                 </Canvas>
             </TabItem>
-
         </TabControl>
         <Button x:Name="buttonKamera" Height="25" Width="96" TabIndex="4" Margin="0,0,576,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Uređaj za snimanje" BorderBrush="#FFFDFBFB" Foreground="#FFFDFBFB" Click="buttonKamera_Click" >
             <Button.Background>
