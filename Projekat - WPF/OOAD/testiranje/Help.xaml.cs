@@ -38,7 +38,7 @@ namespace SafeHouse
             string[] doFoldera = appDir.Split('\\');
             string nova = "";
             for (int i = 0; i < doFoldera.Count() - 3; i++) nova += (doFoldera[i]+"\\");
-            MessageBox.Show(nova);
+            
             nova += @"HelpSafeHouse\HelpSafeHouse.htm";
             web_help.Source = new Uri(nova);
             web_help.Navigate(nova);
