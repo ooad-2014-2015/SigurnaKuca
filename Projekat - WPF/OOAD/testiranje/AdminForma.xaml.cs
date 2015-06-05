@@ -41,6 +41,9 @@ namespace SafeHouse
             t.Abort();
         }
 
+
+     
+
         private void combobox_opisPoslaRadnika_SelectedIndexChanged(object sender, RoutedEventArgs e)
         {
             if (combobox_opisPoslaRadnika.SelectedIndex != -1) groupBox_dodjelaPristupa.Visibility = Visibility.Visible;
@@ -153,17 +156,19 @@ namespace SafeHouse
                 textbox_passwordRadnika.Text = "";
                 dateTimePicker1.SelectedDate = DateTime.Today;
                 combobox_opisPoslaRadnika.SelectedIndex = -1;
-                
+
+
+               /* mydbEntities db = new mydbEntities();
                 // fali raspored button, da kreira prazan raspored za svakog zaposlenog, i obavjesti da je uspješno kreirano ??
-               /* db.lokacije.Add(new lokacije() { Adresa = "Brcanska 13" });
+                db.lokacije.Add(new lokacije() { Adresa = "Brcanska 13" });
                 db.lokacije.Add(new lokacije() { Adresa = "Muftije Dzabijca 12" });
                 db.lokacije.Add(new lokacije() { Adresa = "Ferde Haupmana 6" });
                 db.lokacije.Add(new lokacije() { Adresa = "Titova 133" });
                 db.lokacije.Add(new lokacije() { Adresa = "Ferhadija 18" });
                 db.lokacije.Add(new lokacije() { Adresa = "Vrbovska 183" });
                 db.lokacije.Add(new lokacije() { Adresa = "Dzemala Bijedica 18" });
-                db.lokacije.Add(new lokacije() { Adresa = "Bulevar Mese Selimovica 188" }); 
-                db.SaveChanges(); */ 
+                db.lokacije.Add(new lokacije() { Adresa = "Bulevar Mese Selimovica 188" });
+                db.SaveChanges(); */
 
             }
         }
@@ -172,7 +177,7 @@ namespace SafeHouse
         private void textbox_usernameRadnika_Validated(object sender, RoutedEventArgs e)
         {
             string priv = Convert.ToString(textbox_usernameRadnika.Text);
-           
+
 
             if (priv != "" && combobox_opisPoslaRadnika.SelectedIndex == 0 && priv[0] != 'd')
             {

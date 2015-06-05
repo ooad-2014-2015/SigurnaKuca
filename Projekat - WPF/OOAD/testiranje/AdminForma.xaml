@@ -102,7 +102,6 @@
                             <ImageBrush/>
                         </Button.Background>
                     </Button>
-                    <Button x:Name="raspored_za_radnika" Height="29" Width="102" TabIndex="14" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="338" Canvas.Top="217" Background="{x:Null}" BorderBrush="#FFCBC6C6" Foreground="White" Content="Kreiraj raspored" />
                 </Canvas>
             </TabItem>
             <TabItem Name="tabPage2" Header="Registracija novog korisnika" Margin="5,0,-6,0" VerticalAlignment="Top" Foreground="#FFFF6D6D" BorderBrush="Black" FontFamily="Tahoma" >

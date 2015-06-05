@@ -79,14 +79,14 @@
                     </RichTextBox>
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="tabPage2" Header="Zahtjevi" BorderBrush="#FF020202" Foreground="#FFFF6969" RenderTransformOrigin="1.868,0.15" Margin="46,0,-46,-3" FontFamily="Tahoma" FontSize="12" MouseDoubleClick="tabPage2_MouseDoubleClick" >
+            <TabItem x:Name="tabPage2" Header="Zahtjevi" BorderBrush="#FF020202" Foreground="#FFFF6969"  Margin="46,0,-46,-3" FontFamily="Tahoma" FontSize="12" MouseDoubleClick="tabPage2_MouseDoubleClick" >
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FF4F4F4F" Offset="0"/>
                         <GradientStop Color="#FF666666" Offset="1"/>
                     </LinearGradientBrush>
                 </TabItem.Background>
-                <Canvas x:Name="cantabPage2" Background="Transparent" Margin="0,5,142,-5" >
+                <Canvas x:Name="cantabPage2" Background="Transparent" Margin="0,5,4,-5" >
                     <GroupBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="127" Canvas.Left="10" Canvas.Top="198" Width="569" >
                         <GroupBox.Header>
                             <TextBlock Text="Obavjesti o odobravanju/odbijanju podnesenih zahtjeva" Foreground="#FFFF5C5C"/>
@@ -103,7 +103,7 @@
                         <GroupBox.Header>
                             <TextBlock Text="Podnošenje zahtjeva" Foreground="#FFFB6B6B"/>
                         </GroupBox.Header>
-                        <Canvas Margin="0,0,-38,3" >
+                        <Canvas Margin="0,0,-2,3" >
                             <GroupBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="279" Canvas.Top="10" Width="270" Height="92" Foreground="#FFFF6969" >
                                 <GroupBox.Header>
                                     <TextBlock Text="Dodatne opcije"/>
@@ -112,10 +112,10 @@
                                     <CheckBox x:Name="checkBox_dodatniTermini" Height="19" Width="259" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Želim dodatne termine za označene opcije" Foreground="#FFF9F9F9" Canvas.Left="10" Canvas.Top="10"  />
                                 </Canvas>
                             </GroupBox>
-                            <GroupBox Name ="groupBox_zahtjeviZaAnonimnogKorisnika" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="10" Canvas.Top="60" Width="196" Height="70" Visibility="Hidden" >
-                                <Canvas Height="56" Width="135" Margin="52,0,51,-7">
-                                    <CheckBox x:Name="checkBox1" Height="19" Width="238" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za dodatnu pravnu pomoć" Foreground="#FFF5EFEF" Canvas.Left="-44" Canvas.Top="3" />
-                                    <CheckBox x:Name="checkBox2" Height="19" Width="238" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za dodatnu ekonomsku pomoć" Foreground="#FFF5EFEF" Canvas.Left="-44" Canvas.Top="27" />
+                            <GroupBox Name ="groupBox_zahtjeviZaAnonimnogKorisnika" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="10" Canvas.Top="60" Width="256" Height="70" >
+                                <Canvas Height="56" Margin="0,8,-2,0">
+                                    <CheckBox x:Name="checkBox1" Height="19" Width="238" TabIndex="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za dodatnu pravnu pomoć" Foreground="#FFF5EFEF" Canvas.Top="3" Canvas.Left="10" />
+                                    <CheckBox x:Name="checkBox2" Height="19" Width="238" TabIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Zahtjev za dodatnu ekonomsku pomoć" Foreground="#FFF5EFEF" Canvas.Top="27" Canvas.Left="10" />
                                 </Canvas>
                             </GroupBox>
                             <Button x:Name="button2" Height="26" Width="108" TabIndex="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Podnesi zahtjev" Canvas.Left="441" Canvas.Top="111" Click="button2_Click" BorderBrush="#FFFBFBFB" Foreground="#FFF9F5F5" >
@@ -129,52 +129,8 @@
                     </GroupBox>
                 </Canvas>
             </TabItem>
-            <TabItem x:Name="tabPage4" Header="Iskustva prethodnih korisnika" BorderBrush="#FF020202" FontFamily="Tahoma" Foreground="#FFFF6969" Margin="43,0,-43,-3" FontSize="12" FontStretch="Expanded" >
-                <TabItem.Background>
-                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                        <GradientStop Color="#FF4F4F4F" Offset="0"/>
-                        <GradientStop Color="#FF666666" Offset="1"/>
-                    </LinearGradientBrush>
-                </TabItem.Background>
-                <Canvas x:Name="cantabPage4" Margin="0,0,1,0" />
-            </TabItem>
-            <TabItem x:Name="tabPage5_Copy1" Header="Pomoć" BorderBrush="#FF020202" Foreground="#FFFF6969" FontFamily="Tahoma" Margin="44,-2,-91,-2" FontSize="12" RenderTransformOrigin="0.5,0.5" >
-                <TabItem.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="0.412"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </TabItem.RenderTransform>
-                <TabItem.Background>
-                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                        <GradientStop Color="#FF4F4F4F" Offset="0"/>
-                        <GradientStop Color="#FF616161" Offset="1"/>
-                    </LinearGradientBrush>
-                </TabItem.Background>
-                <Canvas x:Name="cantabPage5" Margin="0,0,-2,0" >
-                    <RichTextBox Height="305" Canvas.Left="22" Canvas.Top="26" Width="593" RenderTransformOrigin="0.5,0.5" IsReadOnly="True">
-                        <RichTextBox.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <LinearGradientBrush.RelativeTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                        <RotateTransform Angle="51.34" CenterY="0.5" CenterX="0.5"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </LinearGradientBrush.RelativeTransform>
-                                <GradientStop Color="#FF363434" Offset="0.004"/>
-                                <GradientStop Color="#FF636363" Offset="1"/>
-                            </LinearGradientBrush>
-                        </RichTextBox.Background>
-                        <FlowDocument/>
-                    </RichTextBox>
-                </Canvas>
-            </TabItem>
             <Canvas Margin="10,10,7,7"/>
-            <TabItem x:Name="tabPage5_Copy" Header="Web" BorderBrush="#FF020202" Foreground="#FFFF6969" FontFamily="Tahoma" Margin="0,-1,-80,-1" FontSize="12" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="94" >
+            <TabItem x:Name="tabPage5_Copy" Header="Web" BorderBrush="#FF020202" Foreground="#FFFF6969" FontFamily="Tahoma" Margin="0,1,-34,-3" FontSize="12" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="94" >
                 <TabItem.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>

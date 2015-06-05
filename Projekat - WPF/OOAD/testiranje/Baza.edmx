@@ -85,7 +85,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ID_D" Type="int" Nullable="false" />
           <Property Name="ID_Pr" Type="int" />
           <Property Name="ID_E" Type="int" />
