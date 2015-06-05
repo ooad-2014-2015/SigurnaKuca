@@ -19,8 +19,11 @@ namespace SafeHouse
 {
     public partial class StartForm : Window
     {
-
-
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            Help hp = new Help();
+            hp.Show();
+        }
 
         private void username_textbox_TextChanged(object sender, TextChangedEventArgs e)
         {
