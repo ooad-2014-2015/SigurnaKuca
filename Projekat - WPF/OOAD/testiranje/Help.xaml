@@ -9,7 +9,7 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
-        <WebBrowser x:Name="web_help" HorizontalAlignment="Left" Height="424" Margin="31,42,0,0" VerticalAlignment="Top" Width="764"/>
+        <WebBrowser x:Name="web_help" HorizontalAlignment="Left" Height="424" Margin="31,42,0,0" VerticalAlignment="Top" Width="764" />
         <Label HorizontalAlignment="Left" Margin="31,10,0,0" VerticalAlignment="Top" Width="92" RenderTransformOrigin="0.5,0.556" FontSize="16">
             <Hyperlink Click="Hyperlink_Click">
                 <Run Text="Exit"/>

@@ -50,8 +50,9 @@ namespace SafeHouse
         public static string dajPasswordR(string user)
         {
             mydbEntities db = new mydbEntities();
-            return (from r in db.radnici where (r.Opis == 0 && r.Username == user) select r.Password).Single();
+            return (from r in db.radnici where (r.Username == user) select r.Password).Single();
         }
+
         public static string dajPasswordK(string user)
         {
             mydbEntities db = new mydbEntities();

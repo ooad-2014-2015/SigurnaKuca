@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +11,8 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
+using System.Windows.Controls;
+using System.Reflection;
 
 namespace SafeHouse
 {
@@ -33,15 +34,11 @@ namespace SafeHouse
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
-            string veb=("C:\\Users\\SenkaIb\\Desktop\\SigurnaKuca\\Projekat - WPF\\OOAD\\HelpSafeHouse\\HelpSafeHouse.htm");
-            web_help.Source=new Uri(veb);
-            web_help.Navigate(veb);
-        
+            string appDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().GetName().CodeBase);
+            string nova = appDir + @"\HelpSafeHouse\HelpSafeHouse.htm";
+            web_help.Source = new Uri(nova);
+            web_help.Navigate(nova);
         }
-       
-        
-       
-       
        
     }
 }
